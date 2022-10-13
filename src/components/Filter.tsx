@@ -7,7 +7,6 @@ import CardList from "./cards/CardList";
 import { Pantheons } from "../types/cards/pantheons";
 import { Subjects } from "../types/cards/subjects";
 import { UNSET_CARD_DETAILS } from "../types/cards/card";
-import { UNSET_SELECT } from "../types/form";
 import { BASE_INPUT_NAMES, NONE } from "../types/form";
 
 /* Wording */
@@ -35,7 +34,7 @@ const Filter: FunctionComponent = () => {
   return (
     <div className="grid justify-items-center">
       <h1>{wording.sections.research_title}</h1>
-      <form className="shadow-lg">
+      <div className="shadow-lg">
         <label className="block">
           <span className="block text-sm font-medium text-slate-700">
             {wording.filter.name}
@@ -57,7 +56,6 @@ const Filter: FunctionComponent = () => {
             value={searchCriterias.pantheon}
             onChange={updateFromForm}
           >
-            <option key={selectNames.pantheonUnset}>{UNSET_SELECT}</option>
             {Object.values(Pantheons).map((pantheon, id) => {
               return (
                 <option key={selectNames.pantheon + "_" + id}>
@@ -76,7 +74,6 @@ const Filter: FunctionComponent = () => {
             value={searchCriterias.subject}
             onChange={updateFromForm}
           >
-            <option key={selectNames.subjectUnset}>{UNSET_SELECT}</option>
             {Object.values(Subjects).map((subject, id) => {
               return (
                 <option key={selectNames.subject + "_" + id}>{subject}</option>
@@ -84,7 +81,7 @@ const Filter: FunctionComponent = () => {
             })}
           </select>
         </label>
-      </form>
+      </div>
       <CardList {...searchCriterias}></CardList>
     </div>
   );

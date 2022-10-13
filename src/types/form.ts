@@ -15,4 +15,3 @@ export const BASE_INPUT_NAMES = {
 export const EMPTY_STRING = "";
 export const SPACED_STRING = " ";
 export const NONE = "none";
-export const UNSET_SELECT = "----------";

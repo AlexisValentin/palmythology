@@ -6,7 +6,7 @@ import { allAvailableCards } from "../mocks/index";
 
 /* Helpers */
 import { isStringEmpty } from "../helpers/types";
-import { isFormEmpty, isOptionNotSelected } from "../helpers/form";
+import { isFormEmpty } from "../helpers/form";
 
 /* Types */
 import { Card, ResearchCriterias } from "../types/cards/card";
@@ -27,11 +27,11 @@ export const filterCards = (searchCriterias: ResearchCriterias): Card[] => {
 const searchFromInput = (inputValues: ResearchCriterias): Card[] => {
   const resultFromInput: Card[] = [];
 
-  allAvailableCards.map(card => {
+  allAvailableCards.map((card) => {
     const inputFields = {
       name: !isStringEmpty(inputValues.name),
-      pantheon: !isOptionNotSelected(inputValues.pantheon),
-      subject: !isOptionNotSelected(inputValues.subject),
+      pantheon: !isStringEmpty(inputValues.pantheon),
+      subject: !isStringEmpty(inputValues.subject),
     };
 
     if (isACardFound(inputFields, inputValues, card)) {
@@ -47,7 +47,7 @@ const searchFromInput = (inputValues: ResearchCriterias): Card[] => {
 export const isACardFound = (
   inputFields: InputFields,
   asked: ResearchCriterias,
-  found: Card,
+  found: Card
 ): boolean => {
   const { name, pantheon, subject } = inputFields;
   const askedDetails = asked;
@@ -89,7 +89,7 @@ export const isACardFound = (
   if (!name && pantheon && !subject) {
     return isSelectedOptionMatching(
       askedDetails.pantheon,
-      foundDetails.pantheon,
+      foundDetails.pantheon
     );
   }
 
@@ -106,5 +106,5 @@ export const isNameMatching = (askedName: string, foundName: string): boolean =>
 
 export const isSelectedOptionMatching = (
   asked: string,
-  found: string,
+  found: string
 ): boolean => asked === found;
