@@ -1,13 +1,5 @@
-/* Types */
-export interface InputFields {
-  name: boolean;
-  pantheon: boolean;
-  subject: boolean;
-}
-
 /* Constants */
 export const BASE_INPUT_NAMES = {
-  NAME: "name",
   PANTHEON: "pantheon",
   SUBJECT: "subject",
 };

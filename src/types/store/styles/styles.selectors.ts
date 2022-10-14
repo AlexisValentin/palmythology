@@ -1,5 +1,4 @@
 /* Types */
-import { Pantheons } from "../../../types/cards/pantheons";
 import {
   BACKGROUND,
   MYTHOLOGY_COLORS,
@@ -18,7 +17,7 @@ const selectMayanBgColor = () => MYTHOLOGY_COLORS.MAYAN;
 const selectNorseBgColor = () => MYTHOLOGY_COLORS.NORSE;
 const selectRomanBgColor = () => MYTHOLOGY_COLORS.ROMAN;
 
-export const selectBackgroundColor = (mythology: Pantheons) => {
+/* export const selectBackgroundColor = (mythology: Pantheons) => {
   let mythologyColor;
 
   switch (mythology) {
@@ -57,12 +56,12 @@ export const selectBackgroundColor = (mythology: Pantheons) => {
   }
 
   return `${BACKGROUND}-${mythologyColor}`;
-};
+}; */
 
 const selectGenericTextColor = () => TEXT_COLORS.GENERIC;
 const selectJapaneseTextColor = () => TEXT_COLORS.JAPANESE;
 
-export const selectTextColor = (mythology: Pantheons) => {
+/* export const selectTextColor = (mythology: Pantheons) => {
   let mythologyColor;
 
   switch (mythology) {
@@ -85,4 +84,4 @@ export const selectTextColor = (mythology: Pantheons) => {
   }
 
   return `${TEXT}-${mythologyColor}`;
-};
+}; */

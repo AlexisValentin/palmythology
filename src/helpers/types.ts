@@ -5,4 +5,4 @@ export const isEven = (value: number): boolean => !Boolean(value & 1);
 export const isOdd = (value: number): boolean => Boolean(value & 1);
 
 /* Returns if a string is empty */
-export const isStringEmpty = (value: string): boolean => value === "";
+export const isStringEmpty = (value?: string): boolean => value === "";

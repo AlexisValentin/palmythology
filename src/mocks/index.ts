@@ -16,5 +16,5 @@ export const allAvailableCards = [
   ...availableJapaneseCards,
   ...availableMayanCards,
   ...availableNorseCards,
-  ...availableRomanCards
+  ...availableRomanCards,
 ];
