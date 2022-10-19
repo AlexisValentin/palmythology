@@ -4,9 +4,6 @@ import { uniq } from "lodash";
 /* Mocks */
 import { allAvailableCards } from "../mocks/index";
 
-/* Helpers */
-import { isStringEmpty } from "../helpers/types";
-
 /* Types */
 import { Card, ResearchCriterias } from "../types/cards/card";
 
@@ -40,7 +37,7 @@ export const isACardFound = (
   const foundDetails = found?.details;
 
   return (
-    isSelectedOptionMatching(askedDetails?.pantheon, foundDetails?.pantheon) ||
+    isSelectedOptionMatching(askedDetails?.pantheon, foundDetails?.pantheon) &&
     isSelectedOptionMatching(askedDetails?.subject, foundDetails?.subject)
   );
 };

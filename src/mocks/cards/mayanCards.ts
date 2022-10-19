@@ -1,5 +1,5 @@
 import { Card } from "../../types/cards/card";
-import { MayanNames } from "../../types/cards/names/mayan";
+import { MayanNames } from "../../types/cards/names";
 
 const CamazotzCard: Card = {
   details: {
@@ -9,6 +9,12 @@ const CamazotzCard: Card = {
   },
 };
 
-export const availableMayanCards = [
-  CamazotzCard
-];
+const HunabKuCard: Card = {
+  details: {
+    name: MayanNames.HUNAB_KU,
+    pantheon: "Maya",
+    subject: "Divinité",
+  },
+};
+
+export const availableMayanCards = [CamazotzCard, HunabKuCard];

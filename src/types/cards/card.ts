@@ -1,7 +1,7 @@
 /* Types */
 import { CelticNames } from "./names/celtic";
 import { EgyptianNames } from "./names/egyptian";
-import { GreekNames } from "./names/greek";
+import { GreekNames } from "./names";
 import { HinduNames } from "./names/hindu";
 import { JapaneseNames } from "./names/japanese";
 import { MayanNames } from "./names/mayan";

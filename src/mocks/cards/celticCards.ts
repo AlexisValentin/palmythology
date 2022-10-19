@@ -1,13 +1,20 @@
 import { Card } from "../../types/cards/card";
+import { CelticNames } from "../../types/cards/names";
 
-const EponaCard: Card = {
+const ArtioCard: Card = {
   details: {
-    name: "Epona",
+    name: CelticNames.ARTIO,
     pantheon: "Celtique",
     subject: "Divinité",
   },
 };
 
-export const availableCelticCards = [
-  EponaCard
-];
+const CernunnosCard: Card = {
+  details: {
+    name: CelticNames.CERNUNNOS,
+    pantheon: "Celtique",
+    subject: "Divinité",
+  },
+};
+
+export const availableCelticCards = [ArtioCard, CernunnosCard];

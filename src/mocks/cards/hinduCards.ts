@@ -1,5 +1,5 @@
 import { Card } from "../../types/cards/card";
-import { HinduNames } from "../../types/cards/names/hindu";
+import { HinduNames } from "../../types/cards/names";
 
 const AgniCard: Card = {
   details: {
@@ -9,6 +9,4 @@ const AgniCard: Card = {
   },
 };
 
-export const availableHinduCards = [
-  AgniCard
-];
+export const availableHinduCards = [AgniCard];

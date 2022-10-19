@@ -1,5 +1,5 @@
 import { Card } from "../../types/cards/card";
-import { RomanNames } from "../../types/cards/names/roman";
+import { RomanNames } from "../../types/cards/names";
 
 const FloraCard: Card = {
   details: {
@@ -9,6 +9,4 @@ const FloraCard: Card = {
   },
 };
 
-export const availableRomanCards = [
-  FloraCard
-];
+export const availableRomanCards = [FloraCard];
