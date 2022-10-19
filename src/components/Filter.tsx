@@ -45,6 +45,9 @@ const Filter: FunctionComponent = () => {
             name={selectNames.pantheon}
             options={allPantheon}
             onChange={onPantheonSelectChange}
+            isClearable
+            isSearchable
+            autoFocus
           />
         </label>
         <label className="block">
@@ -55,6 +58,8 @@ const Filter: FunctionComponent = () => {
             name={selectNames.subject}
             options={allSubject}
             onChange={onSubjectSelectChange}
+            isClearable
+            isSearchable
           />
         </label>
       </div>
