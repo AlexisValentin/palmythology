@@ -9,4 +9,4 @@ const TepoztecatlCard: Card = {
   },
 };
 
-export const availableHinduCards = [TepoztecatlCard];
+export const availableAztecCards = [TepoztecatlCard];

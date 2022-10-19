@@ -9,4 +9,4 @@ const FuxiCard: Card = {
   },
 };
 
-export const availableHinduCards = [FuxiCard];
+export const availableChineseCards = [FuxiCard];

@@ -9,7 +9,7 @@ import { Card, ResearchCriterias } from "../types/cards/card";
 
 export const filterCards = (searchCriterias?: ResearchCriterias): Card[] => {
   const filteredCards: Card[] = [];
-  console.log("searchCriteruias -> ", searchCriterias);
+
   filteredCards.push(...searchFromInput(searchCriterias));
 
   return uniq(filteredCards);
@@ -33,13 +33,30 @@ export const isACardFound = (
   asked?: ResearchCriterias,
   found?: Card
 ): boolean => {
-  const askedDetails = asked;
   const foundDetails = found?.details;
 
-  return (
-    isSelectedOptionMatching(askedDetails?.pantheon, foundDetails?.pantheon) &&
-    isSelectedOptionMatching(askedDetails?.subject, foundDetails?.subject)
+  const matchingPantheon = isSelectedOptionMatching(
+    asked?.pantheon,
+    foundDetails?.pantheon
   );
+  const matchingSubject = isSelectedOptionMatching(
+    asked?.subject,
+    foundDetails?.subject
+  );
+
+  if (asked?.pantheon && !asked.subject) {
+    return matchingPantheon;
+  }
+
+  if (!asked?.pantheon && asked?.subject) {
+    return matchingSubject;
+  }
+
+  if (asked?.pantheon && asked?.subject) {
+    return matchingPantheon && matchingSubject;
+  }
+
+  return false;
 };
 
 export const isSelectedOptionMatching = (

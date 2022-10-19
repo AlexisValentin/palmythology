@@ -1,12 +1,16 @@
 /* Types */
-import { CelticNames } from "./names/celtic";
-import { EgyptianNames } from "./names/egyptian";
-import { GreekNames } from "./names";
-import { HinduNames } from "./names/hindu";
-import { JapaneseNames } from "./names/japanese";
-import { MayanNames } from "./names/mayan";
-import { NorseNames } from "./names/norse";
-import { RomanNames } from "./names/roman";
+import {
+  AztecNames,
+  CelticNames,
+  ChineseNames,
+  EgyptianNames,
+  GreekNames,
+  HinduNames,
+  JapaneseNames,
+  MayanNames,
+  NorseNames,
+  RomanNames,
+} from "./names";
 
 export interface Card {
   details: CardDetails;
@@ -19,7 +23,9 @@ export interface CardDetails {
 }
 
 export type CardName =
+  | AztecNames
   | CelticNames
+  | ChineseNames
   | EgyptianNames
   | GreekNames
   | HinduNames
