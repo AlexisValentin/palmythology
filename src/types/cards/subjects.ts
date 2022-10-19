@@ -1,15 +1,15 @@
-enum SubjectLabel {
+export enum SubjectLabel {
   MONSTER = "Créature",
   DIVINITY = "Divinité",
   HERO = "Héros",
-  PLACE = "Lieu"
+  PLACE = "Lieu",
 }
 
 enum SubjectValue {
   MONSTER = "monster",
   DIVINITY = "divinity",
   HERO = "hero",
-  PLACE = "place"
+  PLACE = "place",
 }
 
 export const allSubject = [
@@ -17,4 +17,4 @@ export const allSubject = [
   { value: SubjectValue.DIVINITY, label: SubjectLabel.DIVINITY },
   { value: SubjectValue.HERO, label: SubjectLabel.HERO },
   { value: SubjectValue.PLACE, label: SubjectLabel.PLACE },
-]
+];

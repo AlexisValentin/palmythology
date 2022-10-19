@@ -1,19 +1,22 @@
+/* Types */
 import { Card } from "../../types/cards/card";
 import { CelticNames } from "../../types/cards/names";
+import { PantheonLabel } from "../../types/cards/pantheons";
+import { SubjectLabel } from "../../types/cards/subjects";
 
 const ArtioCard: Card = {
   details: {
     name: CelticNames.ARTIO,
-    pantheon: "Celtique",
-    subject: "Divinité",
+    pantheon: PantheonLabel.CELTIC,
+    subject: SubjectLabel.DIVINITY,
   },
 };
 
 const CernunnosCard: Card = {
   details: {
     name: CelticNames.CERNUNNOS,
-    pantheon: "Celtique",
-    subject: "Divinité",
+    pantheon: PantheonLabel.CELTIC,
+    subject: SubjectLabel.DIVINITY,
   },
 };
 

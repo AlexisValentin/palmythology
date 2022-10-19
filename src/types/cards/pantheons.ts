@@ -1,4 +1,4 @@
-enum PantheonLabel {
+export enum PantheonLabel {
   AZTEC = "Aztèque",
   CELTIC = "Celtique",
   CHINESE = "Chinois",
@@ -29,7 +29,7 @@ export const allPantheon = [
   { value: PantheonValue.CELTIC, label: PantheonLabel.CELTIC },
   { value: PantheonValue.CHINESE, label: PantheonLabel.CHINESE },
   { value: PantheonValue.EGYPTIAN, label: PantheonLabel.EGYPTIAN },
-  { value: PantheonValue.GREEK, label: PantheonLabel.GREEK }, 
+  { value: PantheonValue.GREEK, label: PantheonLabel.GREEK },
   { value: PantheonValue.HINDU, label: PantheonLabel.HINDU },
   { value: PantheonValue.JAPANESE, label: PantheonLabel.JAPANESE },
   { value: PantheonValue.MAYAN, label: PantheonLabel.MAYAN },

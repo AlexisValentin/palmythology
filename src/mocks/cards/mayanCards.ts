@@ -1,19 +1,22 @@
+/* Types */
 import { Card } from "../../types/cards/card";
 import { MayanNames } from "../../types/cards/names";
+import { PantheonLabel } from "../../types/cards/pantheons";
+import { SubjectLabel } from "../../types/cards/subjects";
 
 const CamazotzCard: Card = {
   details: {
     name: MayanNames.CAMAZOTZ,
-    pantheon: "Maya",
-    subject: "Divinité",
+    pantheon: PantheonLabel.MAYAN,
+    subject: SubjectLabel.DIVINITY,
   },
 };
 
 const HunabKuCard: Card = {
   details: {
     name: MayanNames.HUNAB_KU,
-    pantheon: "Maya",
-    subject: "Divinité",
+    pantheon: PantheonLabel.MAYAN,
+    subject: SubjectLabel.DIVINITY,
   },
 };
 
