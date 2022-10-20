@@ -5,5 +5,5 @@ export const ROUTES = {
   DETAILS: `${ROOT}details`,
   RESEARCH: `${ROOT}research`,
   ROOT: ROOT,
-  QNA: `${ROOT}qna`
-}
+  QNA: `${ROOT}qna`,
+};

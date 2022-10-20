@@ -7,7 +7,7 @@ import { initialState } from "./types/store/store";
 
 const reducer = (
   currentState = initialState,
-  action: PayloadAction<string>,
+  action: PayloadAction<string>
 ) => {
   switch (action?.type) {
     case "TOGGLE_LANGUAGE":
