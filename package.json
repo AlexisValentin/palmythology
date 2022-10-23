@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.30",
+    "@types/styled-components": "^5.1.26",
     "autoprefixer": "^9.8.8",
     "postcss": "^7.0.39",
     "react-router-dom": "^6.0.0",

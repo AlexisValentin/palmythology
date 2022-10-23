@@ -9,6 +9,12 @@ import { Card, ResearchCriterias } from "../../types/cards/card";
 /* Wording */
 import { wording } from "../../wording/fr/main";
 
+/* Styled-components */
+import {
+  CardListTableContainerStyled,
+  CardListTableStyled,
+} from "./CardList.styled";
+
 const CardList: FunctionComponent<ResearchCriterias> = ({
   pantheon,
   subject,
@@ -25,8 +31,8 @@ const CardList: FunctionComponent<ResearchCriterias> = ({
   }, [searchCriterias]);
 
   return (
-    <div className="my-10">
-      <table className="shadow-lg">
+    <CardListTableContainerStyled className="my-10">
+      <CardListTableStyled className="shadow-lg">
         <thead>
           <tr className="bg-gray-900 text-gray-100">
             <th className="px-5">{wording.filter.name}</th>
@@ -51,8 +57,8 @@ const CardList: FunctionComponent<ResearchCriterias> = ({
             </tr>
           )}
         </tbody>
-      </table>
-    </div>
+      </CardListTableStyled>
+    </CardListTableContainerStyled>
   );
 };
 

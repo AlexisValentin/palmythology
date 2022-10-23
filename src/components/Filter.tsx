@@ -12,6 +12,9 @@ import { BASE_INPUT_NAMES } from "../types/form";
 /* Wording */
 import { wording } from "../wording/fr/main";
 
+/* Styled-components */
+import { FilterSelectContainerStyled } from "./Filter.styled";
+
 type FilterSelectOption = { value: string; label: string };
 export type ReactSelectValue = FilterSelectOption | null;
 
@@ -36,7 +39,7 @@ const Filter: FunctionComponent = () => {
   return (
     <div className="grid justify-items-center">
       <h1>{wording.sections.research_title}</h1>
-      <div className="shadow-lg">
+      <FilterSelectContainerStyled className="shadow-lg">
         <label className="block">
           <span className="block text-sm font-medium text-slate-700">
             {wording.filter.pantheon}
@@ -62,7 +65,7 @@ const Filter: FunctionComponent = () => {
             isSearchable
           />
         </label>
-      </div>
+      </FilterSelectContainerStyled>
       <CardList
         pantheon={pantheonSearchCriterias}
         subject={subjectSearchCriterias}

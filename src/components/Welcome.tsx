@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import "../styles/Welcome.sass";
 
 /* Types */
 import { ROUTES } from "../types/routes";
