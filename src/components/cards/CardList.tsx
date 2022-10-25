@@ -1,15 +1,10 @@
 import { FunctionComponent, useEffect, useState } from "react";
-
-/* Modules */
+import { getPantheonStyle } from "../../helpers/styles";
 import { filterCards } from "../../modules/searchEngine";
-
-/* Types */
 import { Card, ResearchCriterias } from "../../types/cards/card";
-
-/* Wording */
+import { PantheonLabel } from "../../types/cards/pantheons";
+import { BACKGROUND, TEXT } from "../../types/styles/colors";
 import { wording } from "../../wording/fr/main";
-
-/* Styled-components */
 import {
   CardListTableContainerStyled,
   CardListTableStyled,
@@ -30,6 +25,12 @@ const CardList: FunctionComponent<ResearchCriterias> = ({
     setSearchResults(filterCards(searchCriterias));
   }, [searchCriterias]);
 
+  const dynamiseColor = (pantheon: PantheonLabel): string => {
+    const { backgroundColor, textColor } = getPantheonStyle(pantheon);
+
+    return `${BACKGROUND}-${backgroundColor} ${TEXT}-${textColor}`;
+  };
+
   return (
     <CardListTableContainerStyled className="my-10">
       <CardListTableStyled className="shadow-lg">
@@ -44,7 +45,7 @@ const CardList: FunctionComponent<ResearchCriterias> = ({
           {searchResults.length > 0 ? (
             searchResults.map((card, id) => {
               return (
-                <tr key={id}>
+                <tr className={dynamiseColor(card.details.pantheon)} key={id}>
                   <td className="px-5">{card.details.name}</td>
                   <td className="px-5">{card.details.pantheon}</td>
                   <td className="px-5">{card.details.subject}</td>

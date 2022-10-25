@@ -1,4 +1,3 @@
-/* Constants */
 export const BACKGROUND = "bg";
 
 export const COLORS = {
@@ -26,14 +25,6 @@ export const COLORS = {
   ZINC: "zinc",
 };
 
-export const BACKGROUND_COLORS = {
-  BLUE: `${BACKGROUND}-${COLORS.BLUE}`,
-  GRAY: `${BACKGROUND}-${COLORS.GRAY}`,
-  GREEN: `${BACKGROUND}-${COLORS.GREEN}`,
-  RED: `${BACKGROUND}-${COLORS.RED}`,
-  YELLOW: `${BACKGROUND}-${COLORS.YELLOW}`,
-};
-
 export const COLOR_TAINTS = {
   EXTRA_LIGHT: 100,
   SUPER_LIGHT: 200,
@@ -50,7 +41,9 @@ export const TEXT = "text";
 
 export const TEXT_COLORS = {
   GENERIC: `${COLORS.GRAY}-${COLOR_TAINTS.EXTRA_LIGHT}`,
+  HINDU: `${COLORS.EMERALD}-${COLOR_TAINTS.DARK}`,
   JAPANESE: `${COLORS.RED}-${COLOR_TAINTS.DARKER}`,
+  ROMAN: `${COLORS.YELLOW}-${COLOR_TAINTS.MEDIUM}`,
 };
 
 export const MYTHOLOGY_COLORS = {
@@ -64,4 +57,9 @@ export const MYTHOLOGY_COLORS = {
   MAYAN: `${COLORS.PURPLE}-${COLOR_TAINTS.SUPER_DARK}`,
   NORSE: `${COLORS.SKY}-${COLOR_TAINTS.LIGHTER}`,
   ROMAN: `${COLORS.RED}-${COLOR_TAINTS.EXTRA_DARK}`,
+};
+
+export type PantheonStyleType = {
+  backgroundColor: string;
+  textColor: string;
 };

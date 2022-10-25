@@ -1,4 +1,3 @@
-/* Types */
 import {
   AztecNames,
   CelticNames,
@@ -11,6 +10,8 @@ import {
   NorseNames,
   RomanNames,
 } from "./names";
+import { PantheonLabel } from "./pantheons";
+import { SubjectLabel } from "./subjects";
 
 export interface Card {
   details: CardDetails;
@@ -18,8 +19,8 @@ export interface Card {
 
 export interface CardDetails {
   name: string;
-  pantheon: string;
-  subject: string;
+  pantheon: PantheonLabel;
+  subject: SubjectLabel;
 }
 
 export type CardName =
