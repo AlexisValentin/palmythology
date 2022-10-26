@@ -28,6 +28,14 @@ export const AresCard: Card = {
   },
 };
 
+export const AthenaCard: Card = {
+  details: {
+    name: GreekNames.ATHENA,
+    pantheon: PantheonLabel.GREEK,
+    subject: SubjectLabel.DIVINITY,
+  },
+};
+
 export const DemeterCard: Card = {
   details: {
     name: GreekNames.DEMETER,
@@ -76,6 +84,14 @@ export const PersephoneCard: Card = {
   },
 };
 
+export const PerseusCard: Card = {
+  details: {
+    name: GreekNames.PERSEUS,
+    pantheon: PantheonLabel.GREEK,
+    subject: SubjectLabel.HERO,
+  },
+};
+
 export const PoseidonCard: Card = {
   details: {
     name: GreekNames.POSEIDON,
@@ -96,12 +112,14 @@ export const availableGreekCards = [
   AphroditeCard,
   ArachneaCard,
   AresCard,
+  AthenaCard,
   DemeterCard,
   HadesCard,
   HelioCard,
   HeraCard,
   HestiaCard,
   PersephoneCard,
+  PerseusCard,
   PoseidonCard,
   ZeusCard,
 ];

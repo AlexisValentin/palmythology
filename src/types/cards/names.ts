@@ -17,18 +17,21 @@ export enum EgyptianNames {
   RE = "Rê",
   SETH = "Seth",
   SOBEK = "Sobek",
+  THOTH = "Thot",
 }
 
 export enum GreekNames {
   APHRODITE = "Aphrodite",
   ARACHNEA = "Arachné",
   ARES = "Arès",
+  ATHENA = "Athéna",
   DEMETER = "Démeter",
   HADES = "Hadès",
   HELIOS = "Hélios",
   HERA = "Héra",
   HESTIA = "Hestia",
   PERSEPHONE = "Perséphone",
+  PERSEUS = "Persée",
   POSEIDON = "Poséidon",
   ZEUS = "Zeus",
 }

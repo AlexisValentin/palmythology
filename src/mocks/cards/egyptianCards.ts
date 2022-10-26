@@ -1,4 +1,3 @@
-/* Types */
 import { Card } from "../../types/cards/card";
 import { EgyptianNames } from "../../types/cards/names";
 import { PantheonLabel } from "../../types/cards/pantheons";
@@ -44,10 +43,19 @@ const SobekCard: Card = {
   },
 };
 
+const ThothCard: Card = {
+  details: {
+    name: EgyptianNames.THOTH,
+    pantheon: PantheonLabel.EGYPTIAN,
+    subject: SubjectLabel.DIVINITY,
+  },
+};
+
 export const availableEgyptianCards = [
   AnubisCard,
   OsirisCard,
   ReCard,
   SethCard,
   SobekCard,
+  ThothCard,
 ];
