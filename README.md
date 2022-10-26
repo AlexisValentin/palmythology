@@ -61,7 +61,15 @@ The IDE should have the following configuration file in order to work properly a
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "eslint.workingDirectories": ["client"],
-  "eslint.validate": ["javascript", "javascriptreact"],
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.startupEditor": "none",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript"],
+  "security.workspace.trust.untrustedFiles": "open"
 }
+
 ```
