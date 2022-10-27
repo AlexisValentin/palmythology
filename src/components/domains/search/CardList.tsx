@@ -1,10 +1,10 @@
 import { FunctionComponent, useEffect, useState } from "react";
-import { getPantheonStyle } from "../../helpers/styles";
-import { filterCards } from "../../modules/searchEngine";
-import { Card, ResearchCriterias } from "../../types/cards/card";
-import { PantheonLabel } from "../../types/cards/pantheons";
-import { BACKGROUND, TEXT } from "../../types/styles/colors";
-import { wording } from "../../wording/fr/main";
+import { getPantheonStyle } from "../../../helpers/styles";
+import { filterCards } from "../../../modules/searchEngine";
+import { Card, ResearchCriterias } from "../../../types/cards/card";
+import { PantheonLabel } from "../../../types/cards/pantheons";
+import { BACKGROUND, TEXT } from "../../../types/styles/colors";
+import { wording } from "../../../wording/fr/main";
 import {
   CardListTableContainerStyled,
   CardListTableStyled,

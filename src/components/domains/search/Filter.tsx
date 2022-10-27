@@ -1,18 +1,10 @@
 import { FunctionComponent, useState } from "react";
 import Select from "react-select";
-
-/* Components */
-import CardList from "./cards/CardList";
-
-/* Types */
-import { allPantheon } from "../types/cards/pantheons";
-import { allSubject } from "../types/cards/subjects";
-import { BASE_INPUT_NAMES } from "../types/form";
-
-/* Wording */
-import { wording } from "../wording/fr/main";
-
-/* Styled-components */
+import { allPantheon } from "../../../types/cards/pantheons";
+import { allSubject } from "../../../types/cards/subjects";
+import { BASE_INPUT_NAMES } from "../../../types/form";
+import { wording } from "../../../wording/fr/main";
+import CardList from "./CardList";
 import { FilterSelectContainerStyled } from "./Filter.styled";
 
 type FilterSelectOption = { value: string; label: string };
