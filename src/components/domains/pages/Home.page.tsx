@@ -1,10 +1,6 @@
 import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-
-/* Types */
 import { ROUTES } from "../../../types/routes";
-
-/* Wording */
 import { wording } from "../../../wording/fr/main";
 
 export const Welcome: FunctionComponent = () => {

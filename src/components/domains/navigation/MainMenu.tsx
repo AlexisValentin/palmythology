@@ -1,14 +1,8 @@
 import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-
-/* Types */
 import { SPACED_STRING } from "../../../types/form";
 import { ROUTES } from "../../../types/routes";
-
-/* Constants */
 import { COLUMNS_NUMBER, GRID } from "../../../types/styles/grid";
-
-/* Wording */
 import { wording } from "../../../wording/fr/main";
 
 export const MainMenu: FunctionComponent = () => {

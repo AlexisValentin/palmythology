@@ -6,6 +6,7 @@ import { PantheonLabel } from "../../../types/cards/pantheons";
 import { BACKGROUND, TEXT } from "../../../types/styles/colors";
 import { wording } from "../../../wording/fr/main";
 import {
+  CardListResultCountSectionStyled,
   CardListTableContainerStyled,
   CardListTableStyled,
 } from "./CardList.styled";
@@ -16,6 +17,7 @@ const CardList: FunctionComponent<ResearchCriterias> = ({
 }) => {
   const [searchCriterias, setSearchCriterias] = useState<ResearchCriterias>();
   const [searchResults, setSearchResults] = useState<Card[]>([]);
+  const [totalResults, setTotalResults] = useState<number>(0);
 
   useEffect(() => {
     setSearchCriterias({ pantheon, subject });
@@ -25,6 +27,20 @@ const CardList: FunctionComponent<ResearchCriterias> = ({
     setSearchResults(filterCards(searchCriterias));
   }, [searchCriterias]);
 
+  useEffect(() => {
+    setTotalResults(searchResults.length);
+  }, [searchResults]);
+
+  const getResultsWording = (): string => {
+    const { no_result, found_results_plural, found_results_singular } =
+      wording.filter;
+
+    if (totalResults === 0) return no_result;
+    if (totalResults === 1) return found_results_singular;
+
+    return found_results_plural;
+  };
+
   const dynamiseColor = (pantheon: PantheonLabel): string => {
     const { backgroundColor, textColor } = getPantheonStyle(pantheon);
 
@@ -33,6 +49,9 @@ const CardList: FunctionComponent<ResearchCriterias> = ({
 
   return (
     <CardListTableContainerStyled className="my-10">
+      <CardListResultCountSectionStyled>
+        {totalResults} {getResultsWording()}
+      </CardListResultCountSectionStyled>
       <CardListTableStyled className="shadow-lg">
         <thead>
           <tr className="bg-gray-900 text-gray-100">
@@ -42,7 +61,7 @@ const CardList: FunctionComponent<ResearchCriterias> = ({
           </tr>
         </thead>
         <tbody>
-          {searchResults.length > 0 ? (
+          {totalResults > 0 ? (
             searchResults.map((card, id) => {
               return (
                 <tr className={dynamiseColor(card.details.pantheon)} key={id}>

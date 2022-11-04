@@ -6,6 +6,8 @@ export const wording = {
     pantheon: "Panthéon",
     subject: "Sujet",
     no_result: "Aucun résultat.",
+    found_results_singular: "résultat correspond à votre recherche.",
+    found_results_plural: "résultats correspondent à votre recherche.",
   },
   global: {
     suspension_points: "...",
