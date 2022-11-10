@@ -1,6 +1,6 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MainMenu from "./components/domains/navigation/MainMenu";
-import Welcome from "./components/domains/pages/Home.page";
+import Welcome from "./components/domains/pages/HomePage";
 import Filter from "./components/domains/search/Filter";
 
 const App = () => {

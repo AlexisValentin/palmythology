@@ -12,7 +12,6 @@ export const MainMenu: FunctionComponent = () => {
     `grid-cols-${COLUMNS_NUMBER.THREE}`,
     "border",
     "border-solid",
-    "mb-10",
   ].join(SPACED_STRING);
 
   return (
