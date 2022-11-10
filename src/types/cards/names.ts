@@ -4,6 +4,7 @@ export enum AztecNames {
 
 export enum CelticNames {
   ARTIO = "Artio",
+  CAMULOS = "Camulos",
   CERNUNNOS = "Cernunnos",
 }
 
