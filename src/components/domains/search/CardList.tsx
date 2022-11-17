@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getPantheonStyle } from "../../../helpers/styles";
 import { filterCards } from "../../../modules/searchEngine";
 import { Card, ResearchCriterias } from "../../../types/cards/card";
@@ -11,10 +11,7 @@ import {
   CardListTableStyled,
 } from "./CardList.styled";
 
-const CardList: FunctionComponent<ResearchCriterias> = ({
-  pantheon,
-  subject,
-}) => {
+const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
   const [searchCriterias, setSearchCriterias] = useState<ResearchCriterias>();
   const [searchResults, setSearchResults] = useState<Card[]>([]);
   const [totalResults, setTotalResults] = useState<number>(0);

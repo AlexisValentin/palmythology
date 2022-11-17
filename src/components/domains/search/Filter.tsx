@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { useState } from "react";
 import Select from "react-select";
 import { allPantheon } from "../../../types/cards/pantheons";
 import { allSubject } from "../../../types/cards/subjects";
@@ -10,7 +10,7 @@ import { FilterSelectContainerStyled } from "./Filter.styled";
 type FilterSelectOption = { value: string; label: string };
 export type ReactSelectValue = FilterSelectOption | null;
 
-const Filter: FunctionComponent = () => {
+const Filter = (): JSX.Element => {
   const [pantheonSearchCriterias, setPantheonSearchCriterias] =
     useState<string>();
   const [subjectSearchCriterias, setSubjectSearchCriterias] =
