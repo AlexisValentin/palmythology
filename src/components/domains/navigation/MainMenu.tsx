@@ -8,10 +8,10 @@ const MainMenu = (): JSX.Element => {
     <nav
       className={`${GRID} grid-cols-${COLUMNS_NUMBER.TWO} border border-solid`}
     >
-      <div className="grid justify-items-center py-2">
+      <div className="grid justify-items-center py-3">
         <Link to={ROUTES.ROOT}>{wording.sections.home_title}</Link>
       </div>
-      <div className="grid justify-items-center py-2">
+      <div className="grid justify-items-center py-3">
         <Link to={ROUTES.RESEARCH}>{wording.sections.research_title}</Link>
       </div>
     </nav>

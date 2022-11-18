@@ -23,5 +23,7 @@ export const wording = {
     qna_text: "Trouvez une réponse à votre question !",
     qna_title: "Foire aux questions",
     research_title: "Recherche",
+    research_description:
+      "Recherchez votre fiche préférée parmi les 9 panthéons que couvre la Palmythology",
   },
 };
