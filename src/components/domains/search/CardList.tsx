@@ -59,9 +59,9 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
         </thead>
         <tbody>
           {totalResults > 0 ? (
-            searchResults.map((card, id) => {
+            searchResults.map((card, idx) => {
               return (
-                <tr className={dynamiseColor(card.details.pantheon)} key={id}>
+                <tr className={dynamiseColor(card.details.pantheon)} key={idx}>
                   <td className="px-5">{card.details.name}</td>
                   <td className="px-5">{card.details.pantheon}</td>
                   <td className="px-5">{card.details.subject}</td>

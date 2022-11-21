@@ -1,10 +1,10 @@
-import HomePageSubSection from "../navigation/HomePageSection";
+import HomePageSection from "../navigation/HomePageSection";
 import { HomePageMainContainer } from "./HomePage.styled";
 
 const HomePage = (): JSX.Element => {
   return (
     <HomePageMainContainer>
-      <HomePageSubSection />
+      <HomePageSection />
     </HomePageMainContainer>
   );
 };

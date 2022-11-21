@@ -18,7 +18,7 @@ export const wording = {
   },
   sections: {
     about_title: "A propos",
-    home_text: "Bienvenue sur le site officiel de la Palmythology !",
+    home_description: "Bienvenue sur le site officiel de la Palmythology !",
     home_title: "Accueil",
     qna_text: "Trouvez une réponse à votre question !",
     qna_title: "Foire aux questions",
