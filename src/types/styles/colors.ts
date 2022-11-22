@@ -1,4 +1,8 @@
+import { ROUTE_URL } from "../routes";
+
 export const BACKGROUND = "bg";
+export const GRADIENT = "gradient";
+export const TEXT = "text";
 
 export const COLORS = {
   AMBER: "amber",
@@ -37,13 +41,18 @@ export const COLOR_TAINTS = {
   EXTRA_DARK: 900,
 };
 
-export const TEXT = "text";
-
 export const TEXT_COLORS = {
   GENERIC: `${COLORS.GRAY}-${COLOR_TAINTS.EXTRA_LIGHT}`,
   HINDU: `${COLORS.EMERALD}-${COLOR_TAINTS.DARK}`,
   JAPANESE: `${COLORS.RED}-${COLOR_TAINTS.DARKER}`,
   ROMAN: `${COLORS.YELLOW}-${COLOR_TAINTS.MEDIUM}`,
+};
+
+export const SECTION_COLORS = {
+  RESEARCH: [
+    `${COLORS.RED}-${COLOR_TAINTS.MEDIUM}`,
+    `${COLORS.ORANGE}-${COLOR_TAINTS.MEDIUM}`,
+  ],
 };
 
 export const MYTHOLOGY_COLORS = {
