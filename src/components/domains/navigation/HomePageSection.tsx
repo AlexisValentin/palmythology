@@ -1,9 +1,10 @@
 import { wording } from "../../../wording/fr/main";
 import {
   HomePageMainTitleStyled,
-  HomePageSectionContainer,
-  HomePageSubSectionContainer,
-  HomePageSubSectionLogo,
+  HomePageSectionContainerStyled,
+  HomePageSubSectionLogoStyled,
+  HomePageSubSectionTextContainerStyled,
+  HomePageSubSectionTextStyled,
 } from "./HomePageSection.styled";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../types/routes";
@@ -15,7 +16,7 @@ const HomePageSection = (): JSX.Element => (
       const { name, url, description, gradient, iconUrl } = route;
       const { home_title } = wording.sections;
 
-      if (name === home_title)
+      if (name === home_title) {
         return (
           <HomePageMainTitleStyled
             key={idx}
@@ -24,20 +25,25 @@ const HomePageSection = (): JSX.Element => (
             {description}
           </HomePageMainTitleStyled>
         );
+      }
 
       return (
         <Link to={url} key={idx}>
-          <HomePageSectionContainer
+          <HomePageSectionContainerStyled
             className={`${BACKGROUND}-${GRADIENT}-to-r from-${gradient?.startingColor} to-${gradient?.endingColor}`}
           >
-            <HomePageSubSectionContainer className="m-14">
-              <HomePageSubSectionLogo src={iconUrl} alt="Magnifying glass" />
-            </HomePageSubSectionContainer>
-            <HomePageSubSectionContainer className="text-white m-14">
-              <h2 className="font-semibold text-xl">{name}</h2>
-              <div className="font-medium mt-6">{description}</div>
-            </HomePageSubSectionContainer>
-          </HomePageSectionContainer>
+            <HomePageSubSectionLogoStyled
+              className="m-12"
+              src={iconUrl}
+              alt={`${name} - ${description}`}
+            />
+            <HomePageSubSectionTextContainerStyled className="text-white m-12">
+              <HomePageSubSectionTextStyled className="mt-2 mb-2">
+                <h2 className="font-semibold text-xl">{name}</h2>
+                <div className="font-medium mt-6">{description}</div>
+              </HomePageSubSectionTextStyled>
+            </HomePageSubSectionTextContainerStyled>
+          </HomePageSectionContainerStyled>
         </Link>
       );
     })}

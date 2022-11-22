@@ -8,10 +8,13 @@ const App = () => {
   return (
     <BrowserRouter>
       <MainMenu />
-      <Routes>
-        <Route exact path={ROUTE_URL.HOME} element={<Welcome />} />
-        <Route exact path={ROUTE_URL.RESEARCH} element={<Filter />} />
-      </Routes>
+      <div className="ml-20 mr-20">
+        <Routes>
+          <Route exact path={ROUTE_URL.HOME} element={<Welcome />} />
+          <Route exact path={ROUTE_URL.RESEARCH} element={<Filter />} />
+          <Route exact path={ROUTE_URL.ABOUT} element={<Welcome />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 };

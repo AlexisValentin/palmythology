@@ -5,17 +5,20 @@ export const HomePageMainTitleStyled = styled.h1`
   justify-content: center;
 `;
 
-export const HomePageSectionContainer = styled.section`
+export const HomePageSectionContainerStyled = styled.section`
   display: flex;
   justify-content: center;
 `;
 
-export const HomePageSubSectionContainer = styled.div`
+export const HomePageSubSectionTextContainerStyled = styled.div`
+  flex-grow: 1;
+`;
+
+export const HomePageSubSectionTextStyled = styled.div`
   display: flex;
-  justify-content: center;
   flex-direction: column;
 `;
 
-export const HomePageSubSectionLogo = styled.img`
+export const HomePageSubSectionLogoStyled = styled.img`
   width: 100px;
 `;

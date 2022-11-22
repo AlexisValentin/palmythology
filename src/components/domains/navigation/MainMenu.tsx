@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../types/routes";
-import { COLUMNS_NUMBER, GRID } from "../../../types/styles/grid";
+import { GRID } from "../../../types/styles/grid";
 
 const MainMenu = (): JSX.Element => {
+  const gridColumns = ROUTES.length;
+
   return (
     <nav
-      className={`${GRID} grid-cols-${COLUMNS_NUMBER.TWO} border border-solid`}
+      className={`${GRID} grid-cols-${gridColumns} border border-solid ml-20 mr-20`}
     >
       {ROUTES.map((route, idx) => (
         <div className="grid justify-items-center py-3" key={idx}>

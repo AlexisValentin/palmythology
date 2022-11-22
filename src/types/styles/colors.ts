@@ -1,5 +1,3 @@
-import { ROUTE_URL } from "../routes";
-
 export const BACKGROUND = "bg";
 export const GRADIENT = "gradient";
 export const TEXT = "text";
@@ -49,9 +47,13 @@ export const TEXT_COLORS = {
 };
 
 export const SECTION_COLORS = {
+  ABOUT: [
+    `${COLORS.BLUE}-${COLOR_TAINTS.MEDIUM}`,
+    `${COLORS.GREEN}-${COLOR_TAINTS.MEDIUM}`,
+  ],
   RESEARCH: [
     `${COLORS.RED}-${COLOR_TAINTS.MEDIUM}`,
-    `${COLORS.ORANGE}-${COLOR_TAINTS.MEDIUM}`,
+    `${COLORS.YELLOW}-${COLOR_TAINTS.MEDIUM}`,
   ],
 };
 
