@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/lodash": "^4.14.189",
+    "cross-env": "^7.0.3",
     "lodash": "^4.17.21",
     "lodash.uniq": "^4.5.0",
     "prettier": "^2.7.1",
@@ -21,7 +22,7 @@
     "web-vitals": "^3.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts --collectCoverage --watchAll",
     "eject": "react-scripts eject",
