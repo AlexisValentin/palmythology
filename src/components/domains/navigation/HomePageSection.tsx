@@ -1,6 +1,5 @@
 import { wording } from "../../../wording/fr/main";
 import {
-  HomePageMainTitleStyled,
   HomePageSectionContainerStyled,
   HomePageSubSectionLogoStyled,
   HomePageSubSectionTextContainerStyled,
@@ -17,14 +16,7 @@ const HomePageSection = (): JSX.Element => (
       const { home_title } = wording.sections;
 
       if (name === home_title) {
-        return (
-          <HomePageMainTitleStyled
-            key={idx}
-            className="text-2xl font-bold p-10"
-          >
-            {description}
-          </HomePageMainTitleStyled>
-        );
+        return null;
       }
 
       return (

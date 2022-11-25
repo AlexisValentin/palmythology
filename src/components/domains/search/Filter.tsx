@@ -7,8 +7,12 @@ import { wording } from "../../../wording/fr/main";
 import CardList from "./CardList";
 import { FilterSelectContainerStyled } from "./Filter.styled";
 
-type FilterSelectOption = { value: string; label: string };
-export type ReactSelectValue = FilterSelectOption | null;
+interface FilterSelectProps {
+  value: string;
+  label: string;
+}
+
+export type ReactSelectValue = FilterSelectProps | null;
 
 const Filter = (): JSX.Element => {
   const [pantheonSearchCriterias, setPantheonSearchCriterias] =
@@ -30,7 +34,6 @@ const Filter = (): JSX.Element => {
 
   return (
     <div className="grid justify-items-center">
-      <h1>{wording.sections.research_title}</h1>
       <FilterSelectContainerStyled className="shadow-lg">
         <label className="block">
           <span className="block text-sm font-medium text-slate-700">

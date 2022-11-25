@@ -1,14 +1,14 @@
 import { wording } from "../../../wording/fr/main";
 import PageHeader from "../../generics/PageHeader";
-import HomePageSection from "../navigation/HomePageSection";
+import Filter from "../search/Filter";
 
-const HomePage = (): JSX.Element => {
+const SearchPage = (): JSX.Element => {
   return (
     <>
       <PageHeader text={wording.sections.research_title} />
-      <HomePageSection />
+      <Filter />
     </>
   );
 };
 
-export default HomePage;
+export default SearchPage;

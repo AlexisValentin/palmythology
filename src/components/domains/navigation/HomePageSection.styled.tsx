@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-export const HomePageMainTitleStyled = styled.h1`
-  display: flex;
-  justify-content: center;
-`;
-
 export const HomePageSectionContainerStyled = styled.section`
   display: flex;
   justify-content: center;
