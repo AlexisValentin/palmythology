@@ -33,9 +33,9 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
       wording.filter;
 
     if (totalResults === 0) return no_result;
-    if (totalResults === 1) return found_results_singular;
+    if (totalResults === 1) return `${totalResults} ${found_results_singular}`;
 
-    return found_results_plural;
+    return `${totalResults} ${found_results_plural}`;
   };
 
   const dynamiseColor = (pantheon: PantheonLabel): string => {
@@ -47,7 +47,7 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
   return (
     <CardListTableContainerStyled className="my-10">
       <CardListResultCountSectionStyled>
-        {totalResults} {getResultsWording()}
+        {getResultsWording()}
       </CardListResultCountSectionStyled>
       <CardListTableStyled className="shadow-lg">
         <thead>
