@@ -12,7 +12,12 @@ enum SubjectValue {
   PLACE = "place",
 }
 
-export const allSubject = [
+export interface SubjectSelectType {
+  value: SubjectValue;
+  label: SubjectLabel;
+}
+
+export const allSubject: SubjectSelectType[] = [
   { value: SubjectValue.MONSTER, label: SubjectLabel.MONSTER },
   { value: SubjectValue.DIVINITY, label: SubjectLabel.DIVINITY },
   { value: SubjectValue.HERO, label: SubjectLabel.HERO },

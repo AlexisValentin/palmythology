@@ -7,8 +7,8 @@ import { ROUTE_URL } from "./types/routes";
 const App = () => {
   return (
     <BrowserRouter>
-      <MainMenu />
-      <div className="ml-20 mr-20">
+      <div className="ml-32 mr-32">
+        <MainMenu />
         <Routes>
           <Route exact path={ROUTE_URL.HOME} element={<HomePage />} />
           <Route exact path={ROUTE_URL.RESEARCH} element={<SearchPage />} />

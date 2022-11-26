@@ -6,9 +6,7 @@ const MainMenu = (): JSX.Element => {
   const gridColumns = ROUTES.length;
 
   return (
-    <nav
-      className={`${GRID} grid-cols-${gridColumns} border border-solid ml-20 mr-20`}
-    >
+    <nav className={`${GRID} grid-cols-${gridColumns} border border-solid`}>
       {ROUTES.map((route, idx) => (
         <div className="grid justify-items-center py-3" key={idx}>
           <Link to={route.url}>{route.name}</Link>

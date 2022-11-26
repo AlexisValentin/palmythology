@@ -24,7 +24,12 @@ enum PantheonValue {
   ROMAN = "roman",
 }
 
-export const allPantheon = [
+export interface PantheonSelectType {
+  value: PantheonValue;
+  label: PantheonLabel;
+}
+
+export const allPantheon: PantheonSelectType[] = [
   { value: PantheonValue.AZTEC, label: PantheonLabel.AZTEC },
   { value: PantheonValue.CELTIC, label: PantheonLabel.CELTIC },
   { value: PantheonValue.CHINESE, label: PantheonLabel.CHINESE },

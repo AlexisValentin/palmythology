@@ -29,7 +29,7 @@ const HomePageSection = (): JSX.Element => (
               src={iconUrl}
               alt={`${name} - ${description}`}
             />
-            <HomePageSubSectionTextContainerStyled className="text-white m-12">
+            <HomePageSubSectionTextContainerStyled className="text-white mt-12 mb-12 mr-12">
               <HomePageSubSectionTextStyled className="mt-2 mb-2">
                 <h2 className="font-semibold text-xl">{name}</h2>
                 <div className="font-medium mt-6">{description}</div>

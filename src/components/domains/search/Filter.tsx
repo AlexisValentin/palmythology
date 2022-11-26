@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Select from "react-select";
 import { allPantheon } from "../../../types/cards/pantheons";
 import { allSubject } from "../../../types/cards/subjects";
 import { BASE_INPUT_NAMES } from "../../../types/form";
 import { wording } from "../../../wording/fr/main";
 import CardList from "./CardList";
 import { FilterSelectContainerStyled } from "./Filter.styled";
+import FilterSelect from "./FilterSelect";
 
 interface FilterSelectProps {
   value: string;
@@ -35,31 +35,18 @@ const Filter = (): JSX.Element => {
   return (
     <div className="grid justify-items-center">
       <FilterSelectContainerStyled className="shadow-lg">
-        <label className="block">
-          <span className="block text-sm font-medium text-slate-700">
-            {wording.filter.pantheon}
-          </span>
-          <Select
-            name={selectNames.pantheon}
-            options={allPantheon}
-            onChange={onPantheonSelectChange}
-            isClearable
-            isSearchable
-            autoFocus
-          />
-        </label>
-        <label className="block">
-          <span className="block text-sm font-medium text-slate-700">
-            {wording.filter.subject}
-          </span>
-          <Select
-            name={selectNames.subject}
-            options={allSubject}
-            onChange={onSubjectSelectChange}
-            isClearable
-            isSearchable
-          />
-        </label>
+        <FilterSelect
+          selectLabel={wording.filter.pantheon}
+          selectName={selectNames.pantheon}
+          onChange={onPantheonSelectChange}
+          options={allPantheon}
+        />
+        <FilterSelect
+          selectLabel={wording.filter.subject}
+          selectName={selectNames.subject}
+          onChange={onSubjectSelectChange}
+          options={allSubject}
+        />
       </FilterSelectContainerStyled>
       <CardList
         pantheon={pantheonSearchCriterias}
