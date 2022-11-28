@@ -5,7 +5,7 @@ import HomePageSection from "../navigation/HomePageSection";
 const HomePage = (): JSX.Element => {
   return (
     <>
-      <PageHeader text={wording.sections.research_title} />
+      <PageHeader text={wording.sections.home_title} />
       <HomePageSection />
     </>
   );

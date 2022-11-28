@@ -1,5 +1,6 @@
 import { wording } from "../wording/fr/main";
 
+import NewspaperIcon from "../assets/newspaper.svg";
 import MagnifyingGlassIcon from "../assets/magnifying_glass.svg";
 import InformationIcon from "../assets/information.svg";
 
@@ -22,6 +23,7 @@ export const ROUTE_URL = {
   HOME: ROOT,
   RESEARCH: `${ROOT}research`,
   ABOUT: `${ROOT}about`,
+  NEWS: `${ROOT}news`,
 };
 
 export const ROUTES: RouteInfo[] = [
@@ -29,6 +31,16 @@ export const ROUTES: RouteInfo[] = [
     name: wording.sections.home_title,
     url: ROUTE_URL.HOME,
     description: wording.sections.home_description,
+  },
+  {
+    name: wording.sections.news_title,
+    url: ROUTE_URL.NEWS,
+    description: wording.sections.news_description,
+    gradient: {
+      startingColor: SECTION_COLORS.NEWS[0],
+      endingColor: SECTION_COLORS.NEWS[1],
+    },
+    iconUrl: NewspaperIcon,
   },
   {
     name: wording.sections.research_title,
