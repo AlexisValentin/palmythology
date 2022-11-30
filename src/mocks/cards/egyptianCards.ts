@@ -11,6 +11,22 @@ const AnubisCard: Card = {
   },
 };
 
+const EnneadeCard: Card = {
+  details: {
+    name: EgyptianNames.ENNEAD,
+    pantheon: PantheonLabel.EGYPTIAN,
+    subject: SubjectLabel.TRIBE,
+  },
+};
+
+const Ogdoade: Card = {
+  details: {
+    name: EgyptianNames.OGDOAD,
+    pantheon: PantheonLabel.EGYPTIAN,
+    subject: SubjectLabel.TRIBE,
+  },
+};
+
 const OsirisCard: Card = {
   details: {
     name: EgyptianNames.OSIRIS,
@@ -53,6 +69,8 @@ const ThothCard: Card = {
 
 export const availableEgyptianCards = [
   AnubisCard,
+  EnneadeCard,
+  Ogdoade,
   OsirisCard,
   ReCard,
   SethCard,

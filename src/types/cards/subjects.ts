@@ -1,15 +1,17 @@
 export enum SubjectLabel {
   MONSTER = "Créature",
   DIVINITY = "Divinité",
-  HERO = "Héros",
+  PERSON = "Personnage",
   PLACE = "Lieu",
+  TRIBE = "Peuple",
 }
 
 enum SubjectValue {
   MONSTER = "monster",
   DIVINITY = "divinity",
-  HERO = "hero",
+  PERSON = "person",
   PLACE = "place",
+  TRIBE = "tribe",
 }
 
 export interface SubjectSelectType {
@@ -20,6 +22,7 @@ export interface SubjectSelectType {
 export const allSubject: SubjectSelectType[] = [
   { value: SubjectValue.MONSTER, label: SubjectLabel.MONSTER },
   { value: SubjectValue.DIVINITY, label: SubjectLabel.DIVINITY },
-  { value: SubjectValue.HERO, label: SubjectLabel.HERO },
+  { value: SubjectValue.PERSON, label: SubjectLabel.PERSON },
   { value: SubjectValue.PLACE, label: SubjectLabel.PLACE },
+  { value: SubjectValue.TRIBE, label: SubjectLabel.TRIBE },
 ];

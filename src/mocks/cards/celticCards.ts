@@ -12,6 +12,14 @@ const ArtioCard: Card = {
   },
 };
 
+const BrigitCard: Card = {
+  details: {
+    name: CelticNames.BRIGIT,
+    pantheon: PantheonLabel.CELTIC,
+    subject: SubjectLabel.DIVINITY,
+  },
+};
+
 const CamulosCard: Card = {
   details: {
     name: CelticNames.CERNUNNOS,
@@ -28,4 +36,27 @@ const CernunnosCard: Card = {
   },
 };
 
-export const availableCelticCards = [ArtioCard, CamulosCard, CernunnosCard];
+const DanaCard: Card = {
+  details: {
+    name: CelticNames.DANA,
+    pantheon: PantheonLabel.CELTIC,
+    subject: SubjectLabel.DIVINITY,
+  },
+};
+
+const FomoriansCard: Card = {
+  details: {
+    name: CelticNames.FOMORIANS,
+    pantheon: PantheonLabel.CELTIC,
+    subject: SubjectLabel.TRIBE,
+  },
+};
+
+export const availableCelticCards = [
+  ArtioCard,
+  BrigitCard,
+  CamulosCard,
+  CernunnosCard,
+  DanaCard,
+  FomoriansCard,
+];

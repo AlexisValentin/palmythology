@@ -20,4 +20,12 @@ const HunabKuCard: Card = {
   },
 };
 
-export const availableMayanCards = [CamazotzCard, HunabKuCard];
+const XquicCard: Card = {
+  details: {
+    name: MayanNames.XQUIC,
+    pantheon: PantheonLabel.MAYAN,
+    subject: SubjectLabel.DIVINITY,
+  },
+};
+
+export const availableMayanCards = [CamazotzCard, HunabKuCard, XquicCard];

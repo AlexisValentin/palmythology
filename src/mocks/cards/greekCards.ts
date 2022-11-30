@@ -1,4 +1,3 @@
-/* Types */
 import { Card } from "../../types/cards/card";
 import { GreekNames } from "../../types/cards/names";
 import { PantheonLabel } from "../../types/cards/pantheons";
@@ -16,7 +15,7 @@ export const ArachneaCard: Card = {
   details: {
     name: GreekNames.ARACHNEA,
     pantheon: PantheonLabel.GREEK,
-    subject: SubjectLabel.HERO,
+    subject: SubjectLabel.PERSON,
   },
 };
 
@@ -33,6 +32,14 @@ export const AthenaCard: Card = {
     name: GreekNames.ATHENA,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.DIVINITY,
+  },
+};
+
+export const CirceCard: Card = {
+  details: {
+    name: GreekNames.DEMETER,
+    pantheon: PantheonLabel.GREEK,
+    subject: SubjectLabel.PERSON,
   },
 };
 
@@ -88,7 +95,7 @@ export const PerseusCard: Card = {
   details: {
     name: GreekNames.PERSEUS,
     pantheon: PantheonLabel.GREEK,
-    subject: SubjectLabel.HERO,
+    subject: SubjectLabel.PERSON,
   },
 };
 
@@ -113,6 +120,7 @@ export const availableGreekCards = [
   ArachneaCard,
   AresCard,
   AthenaCard,
+  CirceCard,
   DemeterCard,
   HadesCard,
   HelioCard,
