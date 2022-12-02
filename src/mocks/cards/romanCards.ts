@@ -1,4 +1,3 @@
-/* Types */
 import { Card } from "../../types/cards/card";
 import { RomanNames } from "../../types/cards/names";
 import { PantheonLabel } from "../../types/cards/pantheons";

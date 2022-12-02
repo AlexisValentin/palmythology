@@ -1,10 +1,5 @@
-/* Lodash */
 import { uniq } from "lodash";
-
-/* Mocks */
 import { allAvailableCards } from "../mocks/index";
-
-/* Types */
 import { Card, ResearchCriterias } from "../types/cards/card";
 
 export const filterCards = (searchCriterias?: ResearchCriterias): Card[] => {

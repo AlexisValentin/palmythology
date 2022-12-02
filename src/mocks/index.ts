@@ -1,4 +1,3 @@
-/* Mocks */
 import { availableAztecCards } from "./cards/aztecCards";
 import { availableCelticCards } from "./cards/celticCards";
 import { availableChineseCards } from "./cards/chineseCards";
