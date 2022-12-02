@@ -1,22 +1,27 @@
-import InstagramIcon from "../../assets/instagram.svg";
 import {
-  InstagramLogoContainer,
-  InstagramLogoStyled,
-  InstagramTextStyled,
+  SOCIAL_NETWORKS,
+  SOCIAL_NETWORK_STATUS,
+} from "../../types/socialNetworks";
+import {
+  SocialNetworkLogoContainerStyled,
+  SocialNetworkLogoStyled,
 } from "./SocialNetworks.styled";
 
 const SocialNetworks = (): JSX.Element => {
   return (
-    <a
-      href="https://www.instagram.com/palmythology/"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <InstagramLogoContainer>
-        <InstagramLogoStyled src={InstagramIcon} alt="Logo Instagram" />
-        <InstagramTextStyled className="pl-2">Instagram</InstagramTextStyled>
-      </InstagramLogoContainer>
-    </a>
+    <>
+      {SOCIAL_NETWORKS.map(({ name, url, iconUrl, status }, idx) => {
+        if (status === SOCIAL_NETWORK_STATUS.INACTIVE) return null;
+
+        return (
+          <a href={url} target="_blank" rel="noreferrer" key={idx}>
+            <SocialNetworkLogoContainerStyled className="m-2">
+              <SocialNetworkLogoStyled src={iconUrl} alt={`Logo ${name}`} />
+            </SocialNetworkLogoContainerStyled>
+          </a>
+        );
+      })}
+    </>
   );
 };
 

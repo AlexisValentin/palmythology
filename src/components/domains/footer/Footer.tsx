@@ -10,10 +10,10 @@ const Footer = (): JSX.Element => {
   return (
     <FooterMainContainerStyled className={`${GRID} grid-cols-2 mt-20`}>
       <FooterSubContainerStyled>
-        <SocialNetworks />
+        <Copyrights />
       </FooterSubContainerStyled>
       <FooterSubContainerStyled>
-        <Copyrights />
+        <SocialNetworks />
       </FooterSubContainerStyled>
     </FooterMainContainerStyled>
   );

@@ -8,7 +8,7 @@ import { SECTION_COLORS } from "./styles/colors";
 
 const ROOT = "/";
 
-interface RouteInfo {
+interface RouteType {
   name: string;
   url: string;
   description: string;
@@ -26,7 +26,7 @@ export const ROUTE_URL = {
   NEWS: `${ROOT}news`,
 };
 
-export const ROUTES: RouteInfo[] = [
+export const ROUTES: RouteType[] = [
   {
     name: wording.sections.home_title,
     url: ROUTE_URL.HOME,
