@@ -6,6 +6,8 @@ export const PageSectionContainerStyled = styled.section`
 `;
 
 export const PageSubSectionTextContainerStyled = styled.div`
+  display: flex;
+  align-items: center;
   flex-grow: 1;
 `;
 

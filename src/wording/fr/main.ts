@@ -1,4 +1,12 @@
 export const wording = {
+  articles: {
+    qu_est_ce_que_ca_fiche_title: "Qu'est-ce que ça fiche ?",
+    qu_est_ce_que_ca_fiche_description:
+      "Abordez les grands thèmes de la mythologie avec sérénité",
+    quoi_2_neuf_title: "Quoi 2 neuf ?",
+    quoi_2_neuf_description:
+      "Retrouvez tout le contenu qui est prévu pour ce mois-ci",
+  },
   filter: {
     details: "Détails",
     more: "Plus d'infos",

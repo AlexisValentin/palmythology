@@ -1,10 +1,31 @@
+import { ARTICLES } from "../../../types/consts/articles";
 import { wording } from "../../../wording/fr/main";
 import PageHeader from "../../generics/PageHeader";
+import PageSection from "../../generics/PageSection";
 
 const NewsPage = (): JSX.Element => {
   return (
     <>
       <PageHeader text={wording.sections.news_title} />
+      {ARTICLES.map((route, idx) => {
+        const { name, url, description, gradient, iconUrl } = route;
+        const { home_title } = wording.sections;
+
+        if (name === home_title) {
+          return null;
+        }
+
+        return (
+          <PageSection
+            key={idx}
+            name={name}
+            url={url}
+            description={description}
+            gradient={gradient}
+            iconUrl={iconUrl}
+          />
+        );
+      })}
     </>
   );
 };
