@@ -1,7 +1,7 @@
 import { wording } from "../../wording/fr/main";
 import { ARTICLE_COLORS } from "../styles/colors";
-import NumberTwoIcon from "../../assets/number_two.svg";
-import QuestionMarkIcon from "../../assets/question_mark.svg";
+import NumberTwoIcon from "../../assets/icons/number_two.svg";
+import QuestionMarkIcon from "../../assets/icons/question_mark.svg";
 
 export interface ArticleType {
   name: string;

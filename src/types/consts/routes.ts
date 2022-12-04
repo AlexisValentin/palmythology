@@ -1,8 +1,8 @@
 import { wording } from "../../wording/fr/main";
 
-import NewspaperIcon from "../../assets/newspaper.svg";
-import MagnifyingGlassIcon from "../../assets/magnifying_glass.svg";
-import InformationIcon from "../../assets/information.svg";
+import NewspaperIcon from "../../assets/icons/newspaper.svg";
+import MagnifyingGlassIcon from "../../assets/icons/magnifying_glass.svg";
+import InformationIcon from "../../assets/icons/information.svg";
 
 import { SECTION_COLORS } from "../styles/colors";
 

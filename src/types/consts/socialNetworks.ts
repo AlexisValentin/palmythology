@@ -1,6 +1,6 @@
-import FacebookIcon from "../../assets/facebook.svg";
-import InstagramIcon from "../../assets/instagram.svg";
-import TwitterIcon from "../../assets/twitter.svg";
+import FacebookIcon from "../../assets/icons/facebook.svg";
+import InstagramIcon from "../../assets/icons/instagram.svg";
+import TwitterIcon from "../../assets/icons/twitter.svg";
 
 export enum SOCIAL_NETWORK_STATUS {
   ACTIVE = "active",
