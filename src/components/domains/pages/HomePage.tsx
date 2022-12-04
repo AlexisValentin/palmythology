@@ -1,12 +1,31 @@
+import { ROUTES } from "../../../types/consts/routes";
 import { wording } from "../../../wording/fr/main";
 import PageHeader from "../../generics/PageHeader";
-import HomePageSection from "../navigation/HomePageSection";
+import PageSection from "../../generics/PageSection";
 
 const HomePage = (): JSX.Element => {
   return (
     <>
       <PageHeader text={wording.sections.home_title} />
-      <HomePageSection />
+      {ROUTES.map((route, idx) => {
+        const { name, url, description, gradient, iconUrl } = route;
+        const { home_title } = wording.sections;
+
+        if (name === home_title) {
+          return null;
+        }
+
+        return (
+          <PageSection
+            key={idx}
+            name={name}
+            url={url}
+            description={description}
+            gradient={gradient}
+            iconUrl={iconUrl}
+          />
+        );
+      })}
     </>
   );
 };

@@ -1,7 +1,7 @@
 import {
   SOCIAL_NETWORKS,
   SOCIAL_NETWORK_STATUS,
-} from "../../types/socialNetworks";
+} from "../../types/consts/socialNetworks";
 import {
   SocialNetworkLogoContainerStyled,
   SocialNetworkLogoStyled,

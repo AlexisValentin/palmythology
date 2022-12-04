@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ROUTES } from "../../../types/routes";
+import { ROUTES } from "../../../types/consts/routes";
 import { GRID } from "../../../types/styles/grid";
 
 const MainMenu = (): JSX.Element => {

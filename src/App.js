@@ -5,7 +5,7 @@ import AboutPage from "./components/domains/pages/AboutPage";
 import HomePage from "./components/domains/pages/HomePage";
 import NewsPage from "./components/domains/pages/NewsPage";
 import SearchPage from "./components/domains/pages/SearchPage";
-import { ROUTE_URL } from "./types/routes";
+import { ROUTE_URL } from "./types/consts/routes";
 
 const App = () => {
   return (

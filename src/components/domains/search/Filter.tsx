@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { allPantheon } from "../../../types/cards/pantheons";
 import { allSubject } from "../../../types/cards/subjects";
-import { BASE_INPUT_NAMES } from "../../../types/form";
+import { BASE_INPUT_NAMES } from "../../../types/consts/form";
 import { wording } from "../../../wording/fr/main";
 import CardList from "./CardList";
 import { FilterSelectContainerStyled } from "./Filter.styled";

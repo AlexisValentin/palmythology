@@ -1,14 +1,14 @@
-import { wording } from "../wording/fr/main";
+import { wording } from "../../wording/fr/main";
 
-import NewspaperIcon from "../assets/newspaper.svg";
-import MagnifyingGlassIcon from "../assets/magnifying_glass.svg";
-import InformationIcon from "../assets/information.svg";
+import NewspaperIcon from "../../assets/newspaper.svg";
+import MagnifyingGlassIcon from "../../assets/magnifying_glass.svg";
+import InformationIcon from "../../assets/information.svg";
 
-import { SECTION_COLORS } from "./styles/colors";
+import { SECTION_COLORS } from "../styles/colors";
 
 const ROOT = "/";
 
-interface RouteType {
+export interface RouteType {
   name: string;
   url: string;
   description: string;
