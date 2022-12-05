@@ -13,7 +13,8 @@ const Quoi2NeufPage = (): JSX.Element => {
   return (
     <>
       <PageHeader
-        text={`${wording.articles.quoi_2_neuf_title} - ${parsedDate}`}
+        title={`${wording.articles.quoi_2_neuf_title}`}
+        subtitle={`${parsedDate}`}
       />
       <div className={`${GRID} grid-cols-${COLUMNS_NUMBER.TWO}`}>
         <img src={Quoi2NeufCards} alt={`${parsedDate} cards`} />

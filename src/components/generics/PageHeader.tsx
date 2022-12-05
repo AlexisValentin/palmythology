@@ -1,14 +1,26 @@
-import { PageHeaderContainerStyled } from "./PageHeader.styled";
+import {
+  PageHeaderMainTitleStyled,
+  PageHeaderSubtitleStyled,
+} from "./PageHeader.styled";
 
 interface PageHeaderProps {
-  text: string;
+  title: string;
+  subtitle?: string;
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({ text }): JSX.Element => {
+const PageHeader: React.FC<PageHeaderProps> = ({
+  title,
+  subtitle,
+}): JSX.Element => {
   return (
-    <PageHeaderContainerStyled className="text-2xl font-bold p-10">
-      {text}
-    </PageHeaderContainerStyled>
+    <div className="p-10">
+      <PageHeaderMainTitleStyled className="text-2xl font-bold">
+        {title}
+      </PageHeaderMainTitleStyled>
+      {subtitle && (
+        <PageHeaderSubtitleStyled>{subtitle}</PageHeaderSubtitleStyled>
+      )}
+    </div>
   );
 };
 

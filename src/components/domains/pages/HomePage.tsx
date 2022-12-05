@@ -6,7 +6,7 @@ import PageSection from "../../generics/PageSection";
 const HomePage = (): JSX.Element => {
   return (
     <>
-      <PageHeader text={wording.sections.home_title} />
+      <PageHeader title={wording.sections.home_title} />
       {ROUTES.map((route, idx) => {
         const { name, url, description, gradient, iconUrl } = route;
         const { home_title } = wording.sections;

@@ -6,7 +6,7 @@ import PageSection from "../../generics/PageSection";
 const NewsPage = (): JSX.Element => {
   return (
     <>
-      <PageHeader text={wording.sections.news_title} />
+      <PageHeader title={wording.sections.news_title} />
       {ARTICLES.map((route, idx) => {
         const { name, url, description, gradient, iconUrl } = route;
         const { home_title } = wording.sections;
