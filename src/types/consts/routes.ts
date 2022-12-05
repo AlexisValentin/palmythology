@@ -6,7 +6,7 @@ import InformationIcon from "../../assets/icons/information.svg";
 
 import { SECTION_COLORS } from "../styles/colors";
 
-const ROOT = "/";
+export const ROOT = "/";
 
 export interface RouteType {
   name: string;
@@ -19,7 +19,7 @@ export interface RouteType {
   iconUrl?: string;
 }
 
-export const ROUTE_URL = {
+export const ROUTE_URLS = {
   HOME: ROOT,
   RESEARCH: `${ROOT}research`,
   ABOUT: `${ROOT}about`,
@@ -29,12 +29,12 @@ export const ROUTE_URL = {
 export const ROUTES: RouteType[] = [
   {
     name: wording.sections.home_title,
-    url: ROUTE_URL.HOME,
+    url: ROUTE_URLS.HOME,
     description: wording.sections.home_description,
   },
   {
     name: wording.sections.news_title,
-    url: ROUTE_URL.NEWS,
+    url: ROUTE_URLS.NEWS,
     description: wording.sections.news_description,
     gradient: {
       startingColor: SECTION_COLORS.NEWS[0],
@@ -44,7 +44,7 @@ export const ROUTES: RouteType[] = [
   },
   {
     name: wording.sections.research_title,
-    url: ROUTE_URL.RESEARCH,
+    url: ROUTE_URLS.RESEARCH,
     description: wording.sections.research_description,
     gradient: {
       startingColor: SECTION_COLORS.RESEARCH[0],
@@ -54,7 +54,7 @@ export const ROUTES: RouteType[] = [
   },
   {
     name: wording.sections.about_title,
-    url: ROUTE_URL.ABOUT,
+    url: ROUTE_URLS.ABOUT,
     description: wording.sections.about_description,
     gradient: {
       startingColor: SECTION_COLORS.ABOUT[0],
