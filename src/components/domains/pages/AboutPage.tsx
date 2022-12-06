@@ -4,7 +4,10 @@ import PageHeader from "../../generics/PageHeader";
 const AboutPage = (): JSX.Element => {
   return (
     <>
-      <PageHeader title={wording.sections.about_title} />
+      <PageHeader
+        title={wording.sections.about_title}
+        subtitle={wording.sections.about_description}
+      />
     </>
   );
 };

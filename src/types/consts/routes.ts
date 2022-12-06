@@ -1,9 +1,8 @@
 import { wording } from "../../wording/fr/main";
-
 import NewspaperIcon from "../../assets/icons/newspaper.svg";
 import MagnifyingGlassIcon from "../../assets/icons/magnifying_glass.svg";
 import InformationIcon from "../../assets/icons/information.svg";
-
+import FolderIcon from "../../assets/icons/folder.svg";
 import { SECTION_COLORS } from "../styles/colors";
 
 export const ROOT = "/";
@@ -24,6 +23,7 @@ export const ROUTE_URLS = {
   RESEARCH: `${ROOT}research`,
   ABOUT: `${ROOT}about`,
   NEWS: `${ROOT}news`,
+  FOLDERS: `${ROOT}folders`,
 };
 
 export const ROUTES: RouteType[] = [
@@ -41,6 +41,16 @@ export const ROUTES: RouteType[] = [
       endingColor: SECTION_COLORS.NEWS[1],
     },
     iconUrl: NewspaperIcon,
+  },
+  {
+    name: wording.sections.folders_title,
+    url: ROUTE_URLS.FOLDERS,
+    description: wording.sections.folders_description,
+    gradient: {
+      startingColor: SECTION_COLORS.FOLDERS[0],
+      endingColor: SECTION_COLORS.FOLDERS[1],
+    },
+    iconUrl: FolderIcon,
   },
   {
     name: wording.sections.research_title,

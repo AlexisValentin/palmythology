@@ -21,8 +21,11 @@ export const wording = {
     about_title: "A propos",
     about_description:
       "Retrouvez des informations pratiques sur la Palmythology et son site web",
+    folders_description:
+      "Consultez les dossiers dédiés aux divers thèmes des légendes",
+    folders_title: "Dossiers",
     home_description: "Bienvenue sur le site officiel de la Palmythology",
-    home_title: "Accueil",
+    home_title: "Palmythology",
     news_description:
       "Retrouvez les derniers articles phares sur la Palmythology",
     news_title: "Actualités",

@@ -2,6 +2,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/domains/footer/Footer";
 import MainMenu from "./components/domains/navigation/MainMenu";
 import AboutPage from "./components/domains/pages/AboutPage";
+import FoldersPage from "./components/domains/pages/FoldersPage";
 import HomePage from "./components/domains/pages/HomePage";
 import NewsPage from "./components/domains/pages/NewsPage";
 import QuestCeQueCaFichePage from "./components/domains/pages/QuestCeQueCaFiche";
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>
           <Route exact path={ROUTE_URLS.HOME} element={<HomePage />} />
           <Route exact path={ROUTE_URLS.NEWS} element={<NewsPage />} />
+          <Route exact path={ROUTE_URLS.FOLDERS} element={<FoldersPage />} />
           <Route exact path={ROUTE_URLS.RESEARCH} element={<SearchPage />} />
           <Route exact path={ROUTE_URLS.ABOUT} element={<AboutPage />} />
           <Route

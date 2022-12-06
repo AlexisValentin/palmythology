@@ -5,7 +5,10 @@ import Filter from "../search/Filter";
 const SearchPage = (): JSX.Element => {
   return (
     <>
-      <PageHeader title={wording.sections.research_title} />
+      <PageHeader
+        title={wording.sections.research_title}
+        subtitle={wording.sections.research_description}
+      />
       <Filter />
     </>
   );
