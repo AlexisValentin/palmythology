@@ -1,11 +1,57 @@
+import FujinIcon from "../../assets/icons/quoi_2_neuf/fujin.svg";
+
 export const wording = {
-  articles: {
+  folders: {
     qu_est_ce_que_ca_fiche_title: "Qu'est-ce que ça fiche ?",
     qu_est_ce_que_ca_fiche_description:
       "Abordez les grands thèmes de la mythologie avec sérénité",
     quoi_2_neuf_title: "Quoi 2 neuf ?",
     quoi_2_neuf_description:
       "Retrouvez tout le contenu qui est prévu pour ce mois-ci",
+    quoi_2_neuf_items: [
+      {
+        title: "Fomoires",
+        subtitle: "Êtres inhumains",
+        available: true,
+        iconUrl: FujinIcon,
+      },
+      {
+        title: "Fujin",
+        subtitle: "Kami du vent",
+        available: true,
+        iconUrl: FujinIcon,
+      },
+      {
+        title: "Ennéade",
+        subtitle: "Assemblée des neuf",
+        available: false,
+        iconUrl: FujinIcon,
+      },
+      {
+        title: "Ogdoade",
+        subtitle: "Huit génies",
+        available: false,
+        iconUrl: FujinIcon,
+      },
+      {
+        title: "Circé",
+        subtitle: "Experte en poison",
+        available: false,
+        iconUrl: FujinIcon,
+      },
+      {
+        title: "Nornes",
+        subtitle: "Diseuses de destins",
+        available: false,
+        iconUrl: FujinIcon,
+      },
+      {
+        title: "Futhark",
+        subtitle: "Alphabet runique",
+        available: false,
+        iconUrl: FujinIcon,
+      },
+    ],
   },
   filter: {
     details: "Détails",

@@ -1,4 +1,4 @@
-import { ARTICLES } from "../../../types/consts/articles";
+import { FOLDERS } from "../../../types/consts/folders";
 import { wording } from "../../../wording/fr/main";
 import PageHeader from "../../generics/PageHeader";
 import PageSection from "../../generics/PageSection";
@@ -10,7 +10,7 @@ const FoldersPage = (): JSX.Element => {
         title={wording.sections.folders_title}
         subtitle={wording.sections.folders_description}
       />
-      {ARTICLES.map((route, idx) => {
+      {FOLDERS.map((route, idx) => {
         const { name, url, description, gradient, iconUrl } = route;
         const { home_title } = wording.sections;
 
