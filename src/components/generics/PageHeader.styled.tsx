@@ -8,5 +8,4 @@ export const PageHeaderMainTitleStyled = styled.h1`
 export const PageHeaderSubtitleStyled = styled.h3`
   display: flex;
   justify-content: center;
-  font-style: italic;
 `;

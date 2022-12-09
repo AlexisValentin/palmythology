@@ -17,7 +17,9 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       {title}
     </PageHeaderMainTitleStyled>
     {subtitle && (
-      <PageHeaderSubtitleStyled>{subtitle}</PageHeaderSubtitleStyled>
+      <PageHeaderSubtitleStyled className="italic">
+        {subtitle}
+      </PageHeaderSubtitleStyled>
     )}
   </div>
 );
