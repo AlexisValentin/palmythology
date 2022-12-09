@@ -38,38 +38,12 @@ Allows you to quickly push your diff to the remote. It performs `git` instrucion
 - `git commit --amend` -> merge current staging into the previous commit (prompt will ask you to confirm)
 - `git push --force-with-lease` -> force push to the remote without risking overwritting any modification
 
-### Other
+## External services
 
-Other scripts are available but not yet customed. They follow their default behaviour. They will be updated soon!
+### Storyblok
 
-## Vscode
+CMS purpose. Coming soon!
 
-### Configuration
+### Cloudinary
 
-The IDE should have the following configuration file in order to work properly and avoid huge diff files.
-
-```
-{
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "files.eol": "\n",
-  "editor.tabSize": 2,
-  "editor.formatOnSave": true,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
-  "eslint.workingDirectories": ["client"],
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "workbench.startupEditor": "none",
-  "diffEditor.ignoreTrimWhitespace": false,
-  "diffEditor.renderSideBySide": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "eslint.validate": ["javascript"],
-  "security.workspace.trust.untrustedFiles": "open"
-}
-
-```
+Media storage purpose. Coming soon!

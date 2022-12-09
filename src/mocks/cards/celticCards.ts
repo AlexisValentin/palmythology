@@ -21,7 +21,7 @@ const BrigitCard: Card = {
 
 const CamulosCard: Card = {
   details: {
-    name: CelticNames.CERNUNNOS,
+    name: CelticNames.CAMULOS,
     pantheon: PantheonLabel.CELTIC,
     subject: SubjectLabel.DIVINITY,
   },
