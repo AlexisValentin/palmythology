@@ -45,11 +45,11 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
   };
 
   return (
-    <CardListTableContainerStyled className="my-10">
+    <CardListTableContainerStyled className="my-6">
       <CardListResultCountSectionStyled>
         {getResultsWording()}
       </CardListResultCountSectionStyled>
-      <CardListTableStyled className="shadow-lg">
+      <CardListTableStyled className="shadow-lg mt-6">
         <thead>
           <tr className="bg-gray-900 text-gray-100">
             <th className="px-5">{wording.filter.name}</th>

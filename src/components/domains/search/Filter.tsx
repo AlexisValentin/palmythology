@@ -4,7 +4,10 @@ import { allSubject } from "../../../types/cards/subjects";
 import { BASE_INPUT_NAMES } from "../../../types/consts/form";
 import { wording } from "../../../wording/fr/main";
 import CardList from "./CardList";
-import { FilterSelectContainerStyled } from "./Filter.styled";
+import {
+  FilterMainContainerStyled,
+  FilterSelectContainerStyled,
+} from "./Filter.styled";
 import FilterSelect from "./FilterSelect";
 
 interface FilterSelectProps {
@@ -33,26 +36,30 @@ const Filter = (): JSX.Element => {
   };
 
   return (
-    <div className="grid justify-items-center">
-      <FilterSelectContainerStyled className="shadow-lg">
-        <FilterSelect
-          selectLabel={wording.filter.pantheon}
-          selectName={selectNames.pantheon}
-          onChange={onPantheonSelectChange}
-          options={allPantheon}
-        />
-        <FilterSelect
-          selectLabel={wording.filter.subject}
-          selectName={selectNames.subject}
-          onChange={onSubjectSelectChange}
-          options={allSubject}
-        />
+    <FilterMainContainerStyled>
+      <FilterSelectContainerStyled>
+        <div className="m-2 w-40">
+          <FilterSelect
+            selectLabel={wording.filter.pantheon}
+            selectName={selectNames.pantheon}
+            onChange={onPantheonSelectChange}
+            options={allPantheon}
+          />
+        </div>
+        <div className="m-2 w-40">
+          <FilterSelect
+            selectLabel={wording.filter.subject}
+            selectName={selectNames.subject}
+            onChange={onSubjectSelectChange}
+            options={allSubject}
+          />
+        </div>
       </FilterSelectContainerStyled>
       <CardList
         pantheon={pantheonSearchCriterias}
         subject={subjectSearchCriterias}
       />
-    </div>
+    </FilterMainContainerStyled>
   );
 };
 
