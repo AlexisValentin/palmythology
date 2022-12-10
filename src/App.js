@@ -5,7 +5,7 @@ import AboutPage from "./components/domains/pages/AboutPage";
 import FoldersPage from "./components/domains/pages/FoldersPage";
 import HomePage from "./components/domains/pages/HomePage";
 import NewsPage from "./components/domains/pages/NewsPage";
-import QuestCeQueCaFichePage from "./components/domains/pages/QuestCeQueCaFiche";
+import QuestCeQueCaFichePage from "./components/domains/pages/QuestCeQueCaFichePage";
 import Quoi2NeufPage from "./components/domains/pages/Quoi2NeufPage";
 import SearchPage from "./components/domains/pages/SearchPage";
 import { FOLDERS_URLS } from "./types/consts/folders";
