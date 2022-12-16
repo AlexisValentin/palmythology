@@ -8,6 +8,7 @@ const FreyjaCard: Card = {
     name: NorseNames.FREYJA,
     pantheon: PantheonLabel.NORSE,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -16,6 +17,7 @@ const FriggCard: Card = {
     name: NorseNames.FRIGG,
     pantheon: PantheonLabel.NORSE,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -24,6 +26,7 @@ const IdunnCard: Card = {
     name: NorseNames.IDUNN,
     pantheon: PantheonLabel.NORSE,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -32,6 +35,7 @@ const LokiCard: Card = {
     name: NorseNames.LOKI,
     pantheon: PantheonLabel.NORSE,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -40,6 +44,7 @@ const OdinCard: Card = {
     name: NorseNames.ODIN,
     pantheon: PantheonLabel.NORSE,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -48,6 +53,7 @@ const ThorCard: Card = {
     name: NorseNames.THOR,
     pantheon: PantheonLabel.NORSE,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 

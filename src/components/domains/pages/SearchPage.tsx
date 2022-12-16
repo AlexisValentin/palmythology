@@ -1,6 +1,6 @@
 import { wording } from "../../../wording/fr/main";
 import PageHeader from "../../generics/PageHeader";
-import Filter from "../search/Filter";
+import Filter from "../cards/Filter";
 
 const SearchPage = (): JSX.Element => {
   return (

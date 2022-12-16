@@ -4,7 +4,7 @@ import {
 } from "./PageHeader.styled";
 
 interface PageHeaderProps {
-  title: string;
+  title?: string;
   subtitle?: string;
 }
 

@@ -4,6 +4,7 @@ import FutharkIcon from "../../assets/icons/quoi_2_neuf/futhark.svg";
 import GalaxyIcon from "../../assets/icons/qu_est_ce_que_ca_fiche/galaxy.svg";
 import WorldIcon from "../../assets/icons/qu_est_ce_que_ca_fiche/world.svg";
 import DuckIcon from "../../assets/icons/qu_est_ce_que_ca_fiche/duck.svg";
+import { PantheonValue } from "../cards/pantheons";
 
 export interface QuestCeQueCaFicheItemType {
   name: string;
@@ -14,6 +15,7 @@ export interface QuestCeQueCaFicheItemType {
     endingColor: string;
   };
   iconUrl?: string;
+  pantheon?: PantheonValue;
 }
 
 export const QU_EST_CE_QUE_CA_FICHE_ITEMS: QuestCeQueCaFicheItemType[] = [
@@ -36,6 +38,7 @@ export const QU_EST_CE_QUE_CA_FICHE_ITEMS: QuestCeQueCaFicheItemType[] = [
       endingColor: FOLDERS_COLORS.PANTHEONS.NORSE[1],
     },
     iconUrl: FutharkIcon,
+    pantheon: PantheonValue.NORSE,
   },
   {
     name: "Cosmogonie égyptienne",
@@ -46,6 +49,7 @@ export const QU_EST_CE_QUE_CA_FICHE_ITEMS: QuestCeQueCaFicheItemType[] = [
       endingColor: FOLDERS_COLORS.PANTHEONS.EGYPTIAN[1],
     },
     iconUrl: GalaxyIcon,
+    pantheon: PantheonValue.EGYPTIAN,
   },
   {
     name: "Mondes nordiques",
@@ -56,6 +60,7 @@ export const QU_EST_CE_QUE_CA_FICHE_ITEMS: QuestCeQueCaFicheItemType[] = [
       endingColor: FOLDERS_COLORS.PANTHEONS.NORSE[1],
     },
     iconUrl: WorldIcon,
+    pantheon: PantheonValue.NORSE,
   },
   {
     name: "Cosmogonie greque",
@@ -66,5 +71,6 @@ export const QU_EST_CE_QUE_CA_FICHE_ITEMS: QuestCeQueCaFicheItemType[] = [
       endingColor: FOLDERS_COLORS.PANTHEONS.GREEK[1],
     },
     iconUrl: GalaxyIcon,
+    pantheon: PantheonValue.GREEK,
   },
 ];

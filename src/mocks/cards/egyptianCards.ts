@@ -8,6 +8,7 @@ const AnubisCard: Card = {
     name: EgyptianNames.ANUBIS,
     pantheon: PantheonLabel.EGYPTIAN,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -16,6 +17,7 @@ const EnneadeCard: Card = {
     name: EgyptianNames.ENNEAD,
     pantheon: PantheonLabel.EGYPTIAN,
     subject: SubjectLabel.TRIBE,
+    available: false,
   },
 };
 
@@ -24,6 +26,7 @@ const Ogdoade: Card = {
     name: EgyptianNames.OGDOAD,
     pantheon: PantheonLabel.EGYPTIAN,
     subject: SubjectLabel.TRIBE,
+    available: false,
   },
 };
 
@@ -32,6 +35,7 @@ const OsirisCard: Card = {
     name: EgyptianNames.OSIRIS,
     pantheon: PantheonLabel.EGYPTIAN,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -40,6 +44,7 @@ const ReCard: Card = {
     name: EgyptianNames.RE,
     pantheon: PantheonLabel.EGYPTIAN,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -48,6 +53,7 @@ const SethCard: Card = {
     name: EgyptianNames.SETH,
     pantheon: PantheonLabel.EGYPTIAN,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -56,6 +62,7 @@ const SobekCard: Card = {
     name: EgyptianNames.SOBEK,
     pantheon: PantheonLabel.EGYPTIAN,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -64,6 +71,7 @@ const ThothCard: Card = {
     name: EgyptianNames.THOTH,
     pantheon: PantheonLabel.EGYPTIAN,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 

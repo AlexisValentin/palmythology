@@ -8,6 +8,7 @@ export const AphroditeCard: Card = {
     name: GreekNames.APHRODITE,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -16,6 +17,7 @@ export const ArachneaCard: Card = {
     name: GreekNames.ARACHNEA,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.PERSON,
+    available: false,
   },
 };
 
@@ -24,6 +26,7 @@ export const AresCard: Card = {
     name: GreekNames.ARES,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -32,6 +35,7 @@ export const AthenaCard: Card = {
     name: GreekNames.ATHENA,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -40,6 +44,7 @@ export const CirceCard: Card = {
     name: GreekNames.DEMETER,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.PERSON,
+    available: false,
   },
 };
 
@@ -48,6 +53,7 @@ export const DemeterCard: Card = {
     name: GreekNames.DEMETER,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -56,6 +62,7 @@ export const HadesCard: Card = {
     name: GreekNames.HADES,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -64,6 +71,7 @@ export const HelioCard: Card = {
     name: GreekNames.HELIOS,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -72,6 +80,7 @@ export const HeraCard: Card = {
     name: GreekNames.HERA,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -80,6 +89,7 @@ export const HestiaCard: Card = {
     name: GreekNames.HESTIA,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -88,6 +98,7 @@ export const PersephoneCard: Card = {
     name: GreekNames.PERSEPHONE,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -96,6 +107,7 @@ export const PerseusCard: Card = {
     name: GreekNames.PERSEUS,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.PERSON,
+    available: false,
   },
 };
 
@@ -104,6 +116,7 @@ export const PoseidonCard: Card = {
     name: GreekNames.POSEIDON,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -112,6 +125,7 @@ export const ZeusCard: Card = {
     name: GreekNames.ZEUS,
     pantheon: PantheonLabel.GREEK,
     subject: SubjectLabel.DIVINITY,
+    available: true,
   },
 };
 

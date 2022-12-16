@@ -8,6 +8,7 @@ const CamazotzCard: Card = {
     name: MayanNames.CAMAZOTZ,
     pantheon: PantheonLabel.MAYAN,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -16,6 +17,7 @@ const HunabKuCard: Card = {
     name: MayanNames.HUNAB_KU,
     pantheon: PantheonLabel.MAYAN,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -24,6 +26,7 @@ const XquicCard: Card = {
     name: MayanNames.XQUIC,
     pantheon: PantheonLabel.MAYAN,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 

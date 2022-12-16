@@ -8,6 +8,7 @@ const FujinCard: Card = {
     name: JapaneseNames.FUJIN,
     pantheon: PantheonLabel.JAPANESE,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -16,6 +17,7 @@ const InariCard: Card = {
     name: JapaneseNames.INARI,
     pantheon: PantheonLabel.JAPANESE,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -24,6 +26,7 @@ const MyobuCard: Card = {
     name: JapaneseNames.MYOBU,
     pantheon: PantheonLabel.JAPANESE,
     subject: SubjectLabel.MONSTER,
+    available: false,
   },
 };
 
@@ -32,6 +35,7 @@ const RaijinCard: Card = {
     name: JapaneseNames.RAIJIN,
     pantheon: PantheonLabel.JAPANESE,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -40,6 +44,7 @@ const TsuchigumoCard: Card = {
     name: JapaneseNames.TSUCHIGUMO,
     pantheon: PantheonLabel.JAPANESE,
     subject: SubjectLabel.MONSTER,
+    available: false,
   },
 };
 
@@ -48,6 +53,7 @@ const YamataNoOrochiCard: Card = {
     name: JapaneseNames.YAMATA_NO_OROCHI,
     pantheon: PantheonLabel.JAPANESE,
     subject: SubjectLabel.MONSTER,
+    available: false,
   },
 };
 

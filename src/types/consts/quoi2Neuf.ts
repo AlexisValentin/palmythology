@@ -53,7 +53,7 @@ const QUOI_2_NEUF_ITEMS = [
   {
     title: "Nornes",
     subtitle: "Diseuses de destins",
-    available: false,
+    available: true,
     iconUrl: NornsIcon,
   },
   {

@@ -8,6 +8,7 @@ const TepoztecatlCard: Card = {
     name: AztecNames.TEPOZTECATL,
     pantheon: PantheonLabel.AZTEC,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 

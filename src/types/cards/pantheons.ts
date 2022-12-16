@@ -11,7 +11,7 @@ export enum PantheonLabel {
   ROMAN = "Romain",
 }
 
-enum PantheonValue {
+export enum PantheonValue {
   AZTEC = "aztec",
   CELTIC = "celtic",
   CHINESE = "chinese",

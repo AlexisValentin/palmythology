@@ -8,6 +8,7 @@ const ArtioCard: Card = {
     name: CelticNames.ARTIO,
     pantheon: PantheonLabel.CELTIC,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -16,6 +17,7 @@ const BrigitCard: Card = {
     name: CelticNames.BRIGIT,
     pantheon: PantheonLabel.CELTIC,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -24,6 +26,7 @@ const CamulosCard: Card = {
     name: CelticNames.CAMULOS,
     pantheon: PantheonLabel.CELTIC,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -32,6 +35,7 @@ const CernunnosCard: Card = {
     name: CelticNames.CERNUNNOS,
     pantheon: PantheonLabel.CELTIC,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -40,6 +44,7 @@ const DanaCard: Card = {
     name: CelticNames.DANA,
     pantheon: PantheonLabel.CELTIC,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 
@@ -48,6 +53,7 @@ const FomoriansCard: Card = {
     name: CelticNames.FOMORIANS,
     pantheon: PantheonLabel.CELTIC,
     subject: SubjectLabel.TRIBE,
+    available: false,
   },
 };
 

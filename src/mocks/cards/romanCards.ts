@@ -8,6 +8,7 @@ const FloraCard: Card = {
     name: RomanNames.FLORA,
     pantheon: PantheonLabel.ROMAN,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 

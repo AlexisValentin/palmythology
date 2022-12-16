@@ -8,6 +8,7 @@ const FuxiCard: Card = {
     name: ChineseNames.FUXI,
     pantheon: PantheonLabel.CHINESE,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 

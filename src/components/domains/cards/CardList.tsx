@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { setCardRouteParameters } from "../../../helpers/routes";
 import { getPantheonStyle } from "../../../helpers/styles";
 import { filterCards } from "../../../modules/searchEngine";
 import { Card, ResearchCriterias } from "../../../types/cards/card";
@@ -6,10 +8,14 @@ import { PantheonLabel } from "../../../types/cards/pantheons";
 import { BACKGROUND, TEXT } from "../../../types/styles/colors";
 import { wording } from "../../../wording/fr/main";
 import {
+  CardListDetailsContainerStyled,
+  CardListDetailsIconStyled,
   CardListResultCountSectionStyled,
   CardListTableContainerStyled,
   CardListTableStyled,
 } from "./CardList.styled";
+import MagnifyinglassIcon from "../../../assets/icons/magnifying_glass.svg";
+import ForbiddenIcon from "../../../assets/icons/forbidden.svg";
 
 const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
   const [searchCriterias, setSearchCriterias] = useState<ResearchCriterias>();
@@ -41,7 +47,7 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
   const dynamiseColor = (pantheon: PantheonLabel): string => {
     const { backgroundColor, textColor } = getPantheonStyle(pantheon);
 
-    return `${BACKGROUND}-${backgroundColor} ${TEXT}-${textColor}`;
+    return `${BACKGROUND}-${backgroundColor} ${TEXT}-${textColor} p-2`;
   };
 
   return (
@@ -55,24 +61,39 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
             <th className="px-5">{wording.filter.name}</th>
             <th className="px-5">{wording.filter.pantheon}</th>
             <th className="px-5">{wording.filter.subject}</th>
+            <th className="px-5">{wording.filter.details}</th>
           </tr>
         </thead>
         <tbody>
-          {totalResults > 0 ? (
-            searchResults.map((card, idx) => {
-              return (
-                <tr className={dynamiseColor(card.details.pantheon)} key={idx}>
-                  <td className="px-5">{card.details.name}</td>
-                  <td className="px-5">{card.details.pantheon}</td>
-                  <td className="px-5">{card.details.subject}</td>
-                </tr>
-              );
-            })
-          ) : (
-            <tr>
-              <td>{wording.filter.no_result}</td>
-            </tr>
-          )}
+          {searchResults.map((card, idx) => {
+            return (
+              <tr className={dynamiseColor(card.details.pantheon)} key={idx}>
+                <td className="px-5">{card.details.name}</td>
+                <td className="px-5">{card.details.pantheon}</td>
+                <td className="px-5">{card.details.subject}</td>
+                <CardListDetailsContainerStyled className="pt-1">
+                  {card.details.available ? (
+                    <Link
+                      to={setCardRouteParameters(
+                        card.details.name,
+                        card.details.pantheon
+                      )}
+                    >
+                      <CardListDetailsIconStyled
+                        src={MagnifyinglassIcon}
+                        alt={`Plus de détails sur la fiche ${card.details.name}`}
+                      />
+                    </Link>
+                  ) : (
+                    <CardListDetailsIconStyled
+                      src={ForbiddenIcon}
+                      alt={`La fiche ${card.details.name} n'est pas encore disponible`}
+                    />
+                  )}
+                </CardListDetailsContainerStyled>
+              </tr>
+            );
+          })}
         </tbody>
       </CardListTableStyled>
     </CardListTableContainerStyled>

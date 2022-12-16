@@ -8,6 +8,7 @@ const AgniCard: Card = {
     name: HinduNames.AGNI,
     pantheon: PantheonLabel.HINDU,
     subject: SubjectLabel.DIVINITY,
+    available: false,
   },
 };
 

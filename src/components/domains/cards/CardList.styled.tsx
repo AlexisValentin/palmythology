@@ -11,3 +11,12 @@ export const CardListTableStyled = styled.table`
 export const CardListResultCountSectionStyled = styled.span`
   margin: 10px 0;
 `;
+
+export const CardListDetailsContainerStyled = styled.td`
+  display: flex;
+  justify-content: center;
+`;
+
+export const CardListDetailsIconStyled = styled.img`
+  width: 18px;
+`;

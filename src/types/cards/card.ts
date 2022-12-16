@@ -21,6 +21,9 @@ export interface CardDetails {
   name: string;
   pantheon: PantheonLabel;
   subject: SubjectLabel;
+  available: boolean;
+  summary?: string;
+  image?: string;
 }
 
 export type CardName =
@@ -39,8 +42,3 @@ export interface ResearchCriterias {
   pantheon?: string;
   subject?: string;
 }
-
-export const UNSET_CARD_DETAILS = {
-  pantheon: "",
-  subject: "",
-};

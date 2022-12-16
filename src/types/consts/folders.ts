@@ -16,8 +16,8 @@ export interface FoldersType {
 }
 
 export const FOLDERS_URLS = {
-  QUOI_2_NEUF: `${ROOT}quoi_de_neuf`,
-  QU_EST_CE_QUE_CA_FICHE: `${ROOT}qu_est_ce_que_ca_fiche`,
+  QUOI_2_NEUF: `${ROOT}folders/q2n`,
+  QU_EST_CE_QUE_CA_FICHE: `${ROOT}folders/qqcf`,
 };
 
 export const FOLDERS: FoldersType[] = [

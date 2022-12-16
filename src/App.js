@@ -2,6 +2,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/domains/footer/Footer";
 import MainMenu from "./components/domains/navigation/MainMenu";
 import AboutPage from "./components/domains/pages/AboutPage";
+import CardDetailsPage from "./components/domains/pages/CardDetailsPage";
 import FoldersPage from "./components/domains/pages/FoldersPage";
 import HomePage from "./components/domains/pages/HomePage";
 import NewsPage from "./components/domains/pages/NewsPage";
@@ -32,6 +33,7 @@ const App = () => {
             path={FOLDERS_URLS.QU_EST_CE_QUE_CA_FICHE}
             element={<QuestCeQueCaFichePage />}
           />
+          <Route exact path={ROUTE_URLS.CARD} element={<CardDetailsPage />} />
         </Routes>
       </div>
       <Footer />

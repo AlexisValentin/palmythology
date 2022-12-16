@@ -3,8 +3,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createRoot } from "react-dom/client";
+import { storyblokInit, apiPlugin } from "@storyblok/react";
+import CardDetailsPage from "./components/domains/pages/CardDetailsPage";
 
 const root = createRoot(document.getElementById("root"));
+
+storyblokInit({
+  accessToken: "Q7BU90ToNkaevy4h0HpEbwtt",
+  use: [apiPlugin],
+  components: {
+    card: CardDetailsPage,
+  },
+});
 
 root.render(
   <React.StrictMode>
