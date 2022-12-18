@@ -7,7 +7,7 @@ interface SummaryProps {
 
 const Summary: React.FC<SummaryProps> = ({ content }): JSX.Element => (
   <SummaryMainContainerStyled
-    className={`${getSummaryBackgroundColor()} italic`}
+    className={`${getSummaryBackgroundColor()} italic p-3`}
   >
     {content}
   </SummaryMainContainerStyled>
