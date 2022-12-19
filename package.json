@@ -21,6 +21,7 @@
     "react-select": "^5.6.1",
     "sass": "^1.56.1",
     "styled-components": "^5.3.6",
+    "swiper": "^8.4.5",
     "web-vitals": "^3.1.0"
   },
   "scripts": {

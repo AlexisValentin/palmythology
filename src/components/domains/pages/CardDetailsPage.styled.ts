@@ -6,8 +6,3 @@ export const CardDetailsPageCarrouselStyled = styled.div`
   justify-content: center;
   flex-direction: column;
 `;
-
-export const CardDetailsPageImageStyled = styled.img`
-  width: 800px;
-  height: 800px;
-`;

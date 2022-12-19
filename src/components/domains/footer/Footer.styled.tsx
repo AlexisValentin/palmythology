@@ -6,6 +6,7 @@ export const FooterMainContainerStyled = styled.div`
   width: 100%;
   color: white;
   height: 100px;
+  z-index: 1;
   background-color: black;
 `;
 

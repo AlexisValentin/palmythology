@@ -1,12 +1,10 @@
 import { useStoryblok } from "@storyblok/react";
 import { useParams } from "react-router-dom";
 import { getCardSlug } from "../../../helpers/storyblok";
+import Carrousel from "../../generics/Carrousel";
 import PageHeader from "../../generics/PageHeader";
 import Summary from "../../generics/Summary";
-import {
-  CardDetailsPageCarrouselStyled,
-  CardDetailsPageImageStyled,
-} from "./CardDetailsPage.styled";
+import { CardDetailsPageCarrouselStyled } from "./CardDetailsPage.styled";
 
 const CardDetailsPage = (): JSX.Element => {
   const params = useParams();
@@ -25,17 +23,8 @@ const CardDetailsPage = (): JSX.Element => {
         subtitle={story.content.subtitle}
       />
       <Summary content={story.content.summary} />
-      <CardDetailsPageCarrouselStyled>
-        {story.content.images.map(
-          (image: { filename: string; alt: string }, idx: number) => (
-            <CardDetailsPageImageStyled
-              className="p-10"
-              key={idx}
-              src={image.filename}
-              alt={image.alt}
-            />
-          )
-        )}
+      <CardDetailsPageCarrouselStyled className="pt-10">
+        <Carrousel imageList={story.content.images} />
       </CardDetailsPageCarrouselStyled>
     </>
   );
