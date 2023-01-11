@@ -1,4 +1,5 @@
 import axios from "axios";
+import { CardDetails } from "../types/cards/card";
 import { PantheonLabel, PantheonValue } from "../types/cards/pantheons";
 import {
   STORYBLOK_CV,
@@ -42,11 +43,22 @@ const fetchAllStories = () =>
     responseType: "json",
   });
 
-export const fetchCardStories = async () => {
-  await fetchAllStories().then((stories) => {
-    return stories.data.stories.map(
+export const fetchCardStories = async () =>
+  await fetchAllStories().then((stories) =>
+    stories.data.stories.map(
       // @ts-ignore
-      (story) => story.content.component === "card" && story
-    );
-  });
+      (story) => story.content.component === "card" && parseCardData(story)
+    )
+  );
+
+// @ts-ignore
+const parseCardData = (card): CardDetails => {
+  const { name, pantheon, subject, available } = card.content;
+
+  return {
+    name,
+    pantheon,
+    subject,
+    available,
+  };
 };

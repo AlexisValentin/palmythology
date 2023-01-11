@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { setCardRouteParameters } from "../../../helpers/routes";
 import { getPantheonStyle } from "../../../helpers/styles";
 import { filterCards } from "../../../modules/searchEngine";
-import { Card, ResearchCriterias } from "../../../types/cards/card";
+import { CardDetails, ResearchCriterias } from "../../../types/cards/card";
 import { PantheonLabel } from "../../../types/cards/pantheons";
 import { BACKGROUND, TEXT } from "../../../types/styles/colors";
 import { wording } from "../../../wording/fr/main";
@@ -19,7 +19,7 @@ import ForbiddenIcon from "../../../assets/icons/forbidden.svg";
 
 const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
   const [searchCriterias, setSearchCriterias] = useState<ResearchCriterias>();
-  const [searchResults, setSearchResults] = useState<Card[]>([]);
+  const [searchResults, setSearchResults] = useState<CardDetails[]>([]);
   const [totalResults, setTotalResults] = useState<number>(0);
 
   useEffect(() => {
@@ -27,7 +27,9 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
   }, [pantheon, subject]);
 
   useEffect(() => {
-    setSearchResults(filterCards(searchCriterias));
+    filterCards(searchCriterias).then((card) => {
+      setSearchResults(() => card);
+    });
   }, [searchCriterias]);
 
   useEffect(() => {
@@ -66,28 +68,25 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
         </thead>
         <tbody>
           {searchResults.map((card, idx) => {
+            if (!card) return <tr key={idx}></tr>;
+
             return (
-              <tr className={dynamiseColor(card.details.pantheon)} key={idx}>
-                <td className="px-5">{card.details.name}</td>
-                <td className="px-5">{card.details.pantheon}</td>
-                <td className="px-5">{card.details.subject}</td>
+              <tr className={dynamiseColor(card.pantheon)} key={idx}>
+                <td className="px-5">{card.name}</td>
+                <td className="px-5">{card.pantheon}</td>
+                <td className="px-5">{card.subject}</td>
                 <CardListDetailsContainerStyled className="pt-1">
-                  {card.details.available ? (
-                    <Link
-                      to={setCardRouteParameters(
-                        card.details.name,
-                        card.details.pantheon
-                      )}
-                    >
+                  {card.available ? (
+                    <Link to={setCardRouteParameters(card.name, card.pantheon)}>
                       <CardListDetailsIconStyled
                         src={MagnifyinglassIcon}
-                        alt={`Plus de détails sur la fiche ${card.details.name}`}
+                        alt={`Plus de détails sur la fiche ${card.name}`}
                       />
                     </Link>
                   ) : (
                     <CardListDetailsIconStyled
                       src={ForbiddenIcon}
-                      alt={`La fiche ${card.details.name} n'est pas encore disponible`}
+                      alt={`La fiche ${card.name} n'est pas encore disponible`}
                     />
                   )}
                 </CardListDetailsContainerStyled>

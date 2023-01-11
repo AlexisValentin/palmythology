@@ -1,42 +1,30 @@
-import { uniq } from "lodash";
-import { allAvailableCards } from "../mocks/index";
-import { Card, ResearchCriterias } from "../types/cards/card";
+import { fetchCardStories } from "../helpers/storyblok";
+import { CardDetails, ResearchCriterias } from "../types/cards/card";
 
-export const filterCards = (searchCriterias?: ResearchCriterias): Card[] => {
-  const filteredCards: Card[] = [];
+export const filterCards = (
+  searchCriterias?: ResearchCriterias
+): Promise<CardDetails[]> =>
+  fetchCardStories().then((stories) =>
+    stories.map((card: CardDetails) => {
+      if (isACardFound(searchCriterias, card)) {
+        return card;
+      }
 
-  filteredCards.push(...searchFromInput(searchCriterias));
-
-  return uniq(filteredCards);
-};
-
-const searchFromInput = (inputValues?: ResearchCriterias): Card[] => {
-  const resultFromInput: Card[] = [];
-
-  allAvailableCards.map((card) => {
-    if (isACardFound(inputValues, card)) {
-      resultFromInput.push(card);
-    }
-
-    return resultFromInput;
-  });
-
-  return resultFromInput;
-};
+      return undefined;
+    })
+  );
 
 export const isACardFound = (
   asked?: ResearchCriterias,
-  found?: Card
+  found?: CardDetails
 ): boolean => {
-  const foundDetails = found?.details;
-
   const matchingPantheon = isSelectedOptionMatching(
     asked?.pantheon,
-    foundDetails?.pantheon
+    found?.pantheon
   );
   const matchingSubject = isSelectedOptionMatching(
     asked?.subject,
-    foundDetails?.subject
+    found?.subject
   );
 
   if (asked?.pantheon && !asked.subject) {
