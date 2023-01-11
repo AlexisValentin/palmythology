@@ -33,5 +33,5 @@ export const wording = {
     research_description:
       "Recherchez votre fiche préférée parmi les 9 panthéons que couvre la Palmythology",
   },
-  copyrights: "Palmythology © 2020-2022 - Tous droits réservés",
+  copyrights: "Palmythology © 2020-2023 - Tous droits réservés",
 };

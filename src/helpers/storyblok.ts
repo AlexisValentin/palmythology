@@ -2,7 +2,6 @@ import axios from "axios";
 import { CardDetails } from "../types/cards/card";
 import { PantheonLabel, PantheonValue } from "../types/cards/pantheons";
 import {
-  STORYBLOK_CV,
   STORYBLOK_TOKEN,
   STORYBLOK_URL_STORIES,
   STORYBLOK_VERSIONS,
@@ -39,7 +38,7 @@ const getPantheonValue = (pantheonLabel?: string) => {
 const fetchAllStories = () =>
   axios({
     method: "get",
-    url: `${STORYBLOK_URL_STORIES}?cv=${STORYBLOK_CV}&token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+    url: `${STORYBLOK_URL_STORIES}?token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
     responseType: "json",
   });
 
