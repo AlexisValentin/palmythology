@@ -1,3 +1,4 @@
+import { HelmetProvider } from "react-helmet-async";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/domains/footer/Footer";
 import MainMenu from "./components/domains/navigation/MainMenu";
@@ -12,9 +13,9 @@ import SearchPage from "./components/domains/pages/SearchPage";
 import { FOLDERS_URLS } from "./types/consts/folders";
 import { ROUTE_URLS } from "./types/consts/routes";
 
-const App = () => {
-  return (
-    <BrowserRouter>
+const App = () => (
+  <BrowserRouter>
+    <HelmetProvider>
       <MainMenu />
       <div className="ml-32 mr-32">
         <Routes>
@@ -37,8 +38,8 @@ const App = () => {
         </Routes>
       </div>
       <Footer />
-    </BrowserRouter>
-  );
-};
+    </HelmetProvider>
+  </BrowserRouter>
+);
 
 export default App;

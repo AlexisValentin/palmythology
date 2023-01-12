@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { ROUTES } from "../../../types/consts/routes";
 import { wording } from "../../../wording/fr/main";
 import PageHeader from "../../generics/PageHeader";
@@ -6,6 +7,9 @@ import PageSection from "../../generics/PageSection";
 const HomePage = (): JSX.Element => {
   return (
     <>
+      <Helmet>
+        <title>Palmythology | Page d'accueil</title>
+      </Helmet>
       <PageHeader
         title={wording.sections.home_title}
         subtitle={wording.sections.home_description}
