@@ -1,6 +1,7 @@
 import axios from "axios";
 import { CardDetails } from "../types/cards/card";
 import { PantheonLabel, PantheonValue } from "../types/cards/pantheons";
+import { Quoi2NeufItemType } from "../types/consts/quoi2Neuf";
 import {
   STORYBLOK_TOKEN,
   STORYBLOK_URL_STORIES,
@@ -50,6 +51,15 @@ export const fetchCardStories = async () =>
     )
   );
 
+export const fetchQuoi2NeufStories = async () =>
+  await fetchAllStories().then((stories) =>
+    stories.data.stories.map(
+      // @ts-ignore
+      (story) =>
+        story.content.component === "quoi2Neuf" && parseQuoi2NeufData(story)
+    )
+  );
+
 // @ts-ignore
 const parseCardData = (card): CardDetails => {
   const { name, pantheon, subject, available } = card.content;
@@ -58,6 +68,18 @@ const parseCardData = (card): CardDetails => {
     name,
     pantheon,
     subject,
+    available,
+  };
+};
+
+// @ts-ignore
+const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufItemType => {
+  const { title, subtitle, icon, available } = quoi2NeufItem.content;
+
+  return {
+    title,
+    subtitle,
+    icon,
     available,
   };
 };

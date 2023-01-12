@@ -6,17 +6,22 @@ import {
 } from "./PageSquare.styled";
 
 const PageSquare: React.FC<Quoi2NeufItemType> = ({
-  name,
-  description,
-  iconUrl,
-}): JSX.Element => (
-  <PageSquareContainerStyled className="m-10">
-    <PageSquareIconStyled src={iconUrl} alt={`${name}, ${description}`} />
-    <PageSquareTextStyled className="mt-4">
-      <h2 className="font-bold">{name}</h2>
-      <h3 className="italic">{description}</h3>
-    </PageSquareTextStyled>
-  </PageSquareContainerStyled>
-);
+  title,
+  subtitle,
+  available,
+  icon,
+}): JSX.Element => {
+  if (!available) return <></>;
+
+  return (
+    <PageSquareContainerStyled className="m-10">
+      <PageSquareIconStyled src={icon.filename} alt={`${title}, ${subtitle}`} />
+      <PageSquareTextStyled className="mt-4">
+        <h2 className="font-bold">{title}</h2>
+        <h3 className="italic">{subtitle}</h3>
+      </PageSquareTextStyled>
+    </PageSquareContainerStyled>
+  );
+};
 
 export default PageSquare;

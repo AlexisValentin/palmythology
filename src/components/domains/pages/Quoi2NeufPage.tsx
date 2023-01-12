@@ -1,15 +1,24 @@
+import { useEffect, useState } from "react";
 import { stringifyMonthCode } from "../../../helpers/dates";
-import { getQuoi2NeufItems } from "../../../types/consts/quoi2Neuf";
+import { fetchQuoi2NeufStories } from "../../../helpers/storyblok";
+import { Quoi2NeufItemType } from "../../../types/consts/quoi2Neuf";
 import { wording } from "../../../wording/fr/main";
 import PageHeader from "../../generics/PageHeader";
 import PageSquare from "../../generics/PageSquare";
 import { Quoi2NeufItemsContainerStyled } from "./Quoi2NeufPage.styled";
 
 const Quoi2NeufPage = (): JSX.Element => {
+  const [quoi2NeufItems, setQuoi2NeufItems] = useState<Quoi2NeufItemType[]>([]);
+
   const date = new Date();
   const month = date.getMonth();
   const parsedDate = `${stringifyMonthCode(month)} ${date.getFullYear()}`;
-  const quoi2NeufItems = getQuoi2NeufItems();
+
+  useEffect(() => {
+    fetchQuoi2NeufStories().then((items) => {
+      setQuoi2NeufItems(() => items);
+    });
+  }, []);
 
   return (
     <>
@@ -18,14 +27,19 @@ const Quoi2NeufPage = (): JSX.Element => {
         subtitle={`${parsedDate}`}
       />
       <Quoi2NeufItemsContainerStyled>
-        {quoi2NeufItems.map((item, idx) => (
-          <PageSquare
-            key={idx}
-            name={item.name}
-            description={item.description}
-            iconUrl={item.iconUrl}
-          />
-        ))}
+        {quoi2NeufItems.map((item, idx) => {
+          const { title, subtitle, icon, available } = item;
+
+          return (
+            <PageSquare
+              key={idx}
+              title={title}
+              subtitle={subtitle}
+              icon={icon}
+              available={available}
+            />
+          );
+        })}
       </Quoi2NeufItemsContainerStyled>
     </>
   );
