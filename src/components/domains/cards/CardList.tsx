@@ -10,7 +10,6 @@ import { wording } from "../../../wording/fr/main";
 import {
   CardListDetailsContainerStyled,
   CardListDetailsIconStyled,
-  CardListResultCountSectionStyled,
   CardListTableContainerStyled,
   CardListTableStyled,
 } from "./CardList.styled";
@@ -20,7 +19,6 @@ import ForbiddenIcon from "../../../assets/icons/forbidden.svg";
 const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
   const [searchCriterias, setSearchCriterias] = useState<ResearchCriterias>();
   const [searchResults, setSearchResults] = useState<CardDetails[]>([]);
-  const [totalResults, setTotalResults] = useState<number>(0);
 
   useEffect(() => {
     setSearchCriterias({ pantheon, subject });
@@ -32,20 +30,6 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
     });
   }, [searchCriterias]);
 
-  useEffect(() => {
-    setTotalResults(searchResults.length);
-  }, [searchResults]);
-
-  const getResultsWording = (): string => {
-    const { no_result, found_results_plural, found_results_singular } =
-      wording.filter;
-
-    if (totalResults === 0) return no_result;
-    if (totalResults === 1) return `${totalResults} ${found_results_singular}`;
-
-    return `${totalResults} ${found_results_plural}`;
-  };
-
   const dynamiseColor = (pantheon: PantheonLabel): string => {
     const { backgroundColor, textColor } = getPantheonStyle(pantheon);
 
@@ -54,9 +38,6 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
 
   return (
     <CardListTableContainerStyled className="my-6">
-      <CardListResultCountSectionStyled>
-        {getResultsWording()}
-      </CardListResultCountSectionStyled>
       <CardListTableStyled className="shadow-lg mt-6">
         <thead>
           <tr className="bg-gray-900 text-gray-100">
