@@ -20,8 +20,9 @@ interface SocialNetworkType {
 export const SOCIAL_NETWORKS: SocialNetworkType[] = [
   {
     name: "Facebook",
+    url: "https://www.facebook.com/profile.php?id=100089045127860",
     iconUrl: FacebookIcon,
-    status: SOCIAL_NETWORK_STATUS.INACTIVE,
+    status: SOCIAL_NETWORK_STATUS.ACTIVE,
   },
   {
     name: "Instagram",
@@ -31,7 +32,7 @@ export const SOCIAL_NETWORKS: SocialNetworkType[] = [
   },
   {
     name: "Twitter",
-    url: "https://twitter.com/palmythologue",
+    url: "https://twitter.com/palmythology",
     iconUrl: TwitterIcon,
     status: SOCIAL_NETWORK_STATUS.ACTIVE,
   },
