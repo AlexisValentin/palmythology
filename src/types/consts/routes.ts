@@ -4,6 +4,7 @@ import MagnifyingGlassIcon from "../../assets/icons/magnifying_glass.svg";
 import InformationIcon from "../../assets/icons/information.svg";
 import FolderIcon from "../../assets/icons/folder.svg";
 import { SECTION_COLORS } from "../styles/colors";
+import PalmythologyLogo from "../../assets/images/logo.svg";
 
 export const ROOT = "/";
 
@@ -32,6 +33,7 @@ export const ROUTES: RouteType[] = [
     name: wording.sections.home_title,
     url: ROUTE_URLS.HOME,
     description: wording.sections.home_description,
+    iconUrl: PalmythologyLogo,
   },
   {
     name: wording.sections.news_title,
