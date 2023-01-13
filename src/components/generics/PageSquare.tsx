@@ -15,7 +15,7 @@ const PageSquare: React.FC<Quoi2NeufItemType> = ({
 
   return (
     <PageSquareContainerStyled className="m-10">
-      <PageSquareIconStyled src={icon.filename} alt={`${title}, ${subtitle}`} />
+      <PageSquareIconStyled src={icon.filename} alt={`${icon.alt}`} />
       <PageSquareTextStyled className="mt-4">
         <h2 className="font-bold">{title}</h2>
         <h3 className="italic">{subtitle}</h3>

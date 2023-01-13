@@ -29,7 +29,7 @@ const Quoi2NeufPage = (): JSX.Element => {
       <Quoi2NeufItemsContainerStyled>
         {quoi2NeufItems.map((item, idx) => {
           const { title, subtitle, icon, available } = item;
-
+          console.log("ITEM -> ", item);
           return (
             <PageSquare
               key={idx}

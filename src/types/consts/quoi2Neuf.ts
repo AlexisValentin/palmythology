@@ -3,6 +3,7 @@ export interface Quoi2NeufItemType {
   subtitle: string;
   available: boolean;
   icon: {
+    alt: string;
     filename: string;
   };
 }
