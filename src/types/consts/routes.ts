@@ -4,7 +4,7 @@ import MagnifyingGlassIcon from "../../assets/icons/magnifying_glass.svg";
 import InformationIcon from "../../assets/icons/information.svg";
 import FolderIcon from "../../assets/icons/folder.svg";
 import { SECTION_COLORS } from "../styles/colors";
-import PalmythologyLogo from "../../assets/images/logo.svg";
+import PalmythologyLogo from "../../assets/images/logo.webp";
 
 export const ROOT = "/";
 
