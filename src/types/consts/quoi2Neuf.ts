@@ -6,4 +6,5 @@ export interface Quoi2NeufItemType {
     alt: string;
     filename: string;
   };
+  pantheon: string;
 }

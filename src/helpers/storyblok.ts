@@ -74,12 +74,13 @@ const parseCardData = (card): CardDetails => {
 
 // @ts-ignore
 const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufItemType => {
-  const { title, subtitle, icon, available } = quoi2NeufItem.content;
+  const { title, subtitle, icon, available, pantheon } = quoi2NeufItem.content;
 
   return {
     title,
     subtitle,
     icon,
     available,
+    pantheon,
   };
 };

@@ -28,7 +28,7 @@ const Quoi2NeufPage = (): JSX.Element => {
       />
       <Quoi2NeufItemsContainerStyled>
         {quoi2NeufItems.map((item, idx) => {
-          const { title, subtitle, icon, available } = item;
+          const { title, subtitle, icon, available, pantheon } = item;
 
           return (
             <PageSquare
@@ -37,6 +37,7 @@ const Quoi2NeufPage = (): JSX.Element => {
               subtitle={subtitle}
               icon={icon}
               available={available}
+              pantheon={pantheon}
             />
           );
         })}
