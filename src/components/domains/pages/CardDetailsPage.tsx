@@ -23,7 +23,7 @@ const CardDetailsPage = (): JSX.Element => {
         subtitle={story.content.subtitle}
       />
       <Summary content={story.content.summary} />
-      <CardDetailsPageCarrouselStyled className="pt-10">
+      <CardDetailsPageCarrouselStyled>
         <Carrousel imageList={story.content.images} />
       </CardDetailsPageCarrouselStyled>
     </>
