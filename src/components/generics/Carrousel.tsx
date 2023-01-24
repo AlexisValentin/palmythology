@@ -26,7 +26,7 @@ const Carrousel: React.FC<CarrouselProps> = ({ imageList }): JSX.Element => {
     >
       {imageList.map((image: StoryblokSingleAssetType, idx: number) => (
         <SwiperSlide key={idx}>
-          <img src={image.filename} alt={image.alt} />
+          <img src={image.filename} alt={image.alt} width="800" />
         </SwiperSlide>
       ))}
     </SwiperMainContainerStyled>

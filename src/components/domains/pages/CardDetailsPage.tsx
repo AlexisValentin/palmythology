@@ -1,10 +1,15 @@
 import { useStoryblok } from "@storyblok/react";
 import { useParams } from "react-router-dom";
 import { getCardSlug } from "../../../helpers/storyblok";
+import { isObjectEmpty } from "../../../helpers/types";
 import Carrousel from "../../generics/Carrousel";
 import PageHeader from "../../generics/PageHeader";
 import Summary from "../../generics/Summary";
-import { CardDetailsPageCarrouselStyled } from "./CardDetailsPage.styled";
+import NotFound404 from "../http/404";
+import {
+  CardDetailsPageCarrouselStyled,
+  CardDetailsPageContainerStyled,
+} from "./CardDetailsPage.styled";
 
 const CardDetailsPage = (): JSX.Element => {
   const params = useParams();
@@ -12,21 +17,20 @@ const CardDetailsPage = (): JSX.Element => {
     version: "draft",
   });
 
-  if (!story || !story.content) {
-    return <div>Indisponible</div>;
-  }
+  if (isObjectEmpty(story)) return <NotFound404 />;
+
+  const { name, subtitle, summary, images, available } = story.content;
+
+  if (!available) return <NotFound404 />;
 
   return (
-    <>
-      <PageHeader
-        title={story.content.name}
-        subtitle={story.content.subtitle}
-      />
-      <Summary content={story.content.summary} />
+    <CardDetailsPageContainerStyled>
+      <PageHeader title={name} subtitle={subtitle} />
+      <Summary content={summary} />
       <CardDetailsPageCarrouselStyled>
-        <Carrousel imageList={story.content.images} />
+        <Carrousel imageList={images} />
       </CardDetailsPageCarrouselStyled>
-    </>
+    </CardDetailsPageContainerStyled>
   );
 };
 

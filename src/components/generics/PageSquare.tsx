@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
 import { setCardRouteParameters } from "../../helpers/routes";
 import { Quoi2NeufItemType } from "../../types/consts/quoi2Neuf";
 import { BACKGROUND, COLORS, COLOR_TAINTS } from "../../types/styles/colors";
 import {
   PageSquareContainerStyled,
   PageSquareIconStyled,
+  PageSquareMainContainerStyled,
   PageSquareTextStyled,
 } from "./PageSquare.styled";
 
@@ -15,17 +15,15 @@ const PageSquare: React.FC<Quoi2NeufItemType> = ({
   icon,
   pantheon,
 }): JSX.Element => {
-  if (available === undefined) {
-    return <></>;
-  }
+  if (available === undefined) return <></>;
 
   return available ? (
-    <Link
+    <PageSquareMainContainerStyled
       to={setCardRouteParameters(title, pantheon)}
       className={`hover:${BACKGROUND}-${COLORS.GRAY}-${COLOR_TAINTS.SUPER_LIGHT}`}
     >
       <PageSquareBlock title={title} subtitle={subtitle} icon={icon} />
-    </Link>
+    </PageSquareMainContainerStyled>
   ) : (
     <PageSquareBlock title={title} subtitle={subtitle} icon={icon} />
   );
