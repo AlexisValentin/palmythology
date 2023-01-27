@@ -27,17 +27,12 @@ export const isACardFound = (
     found?.subject
   );
 
-  if (asked?.pantheon && !asked.subject) {
-    return matchingPantheon;
-  }
+  if (found?.isFolder) return false;
 
-  if (!asked?.pantheon && asked?.subject) {
-    return matchingSubject;
-  }
-
-  if (asked?.pantheon && asked?.subject) {
+  if (asked?.pantheon && !asked.subject) return matchingPantheon;
+  if (!asked?.pantheon && asked?.subject) return matchingSubject;
+  if (asked?.pantheon && asked?.subject)
     return matchingPantheon && matchingSubject;
-  }
 
   return false;
 };

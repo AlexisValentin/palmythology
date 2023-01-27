@@ -19,7 +19,7 @@ const PageSection: React.FC<PageSectionProps> = ({
   iconUrl,
 }): JSX.Element => (
   <>
-    {url && (
+    {url ? (
       <Link to={url}>
         <PageSectionTemplate
           name={name}
@@ -28,6 +28,13 @@ const PageSection: React.FC<PageSectionProps> = ({
           iconUrl={iconUrl}
         />
       </Link>
+    ) : (
+      <PageSectionTemplate
+        name={name}
+        description={description}
+        gradient={gradient}
+        iconUrl={iconUrl}
+      />
     )}
   </>
 );

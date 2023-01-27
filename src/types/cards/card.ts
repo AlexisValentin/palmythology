@@ -22,6 +22,7 @@ export interface CardDetails {
   pantheon: PantheonLabel;
   subject: SubjectLabel;
   available: boolean;
+  isFolder: boolean;
   summary?: string;
   image?: string;
 }

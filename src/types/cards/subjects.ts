@@ -4,6 +4,7 @@ export enum SubjectLabel {
   PERSON = "Personnage",
   PLACE = "Lieu",
   TRIBE = "Peuple",
+  WRITINGS = "Ecrits",
 }
 
 enum SubjectValue {
@@ -12,6 +13,7 @@ enum SubjectValue {
   PERSON = "person",
   PLACE = "place",
   TRIBE = "tribe",
+  WRITINGS = "writings",
 }
 
 export interface SubjectSelectType {
@@ -25,4 +27,5 @@ export const allSubject: SubjectSelectType[] = [
   { value: SubjectValue.PERSON, label: SubjectLabel.PERSON },
   { value: SubjectValue.PLACE, label: SubjectLabel.PLACE },
   { value: SubjectValue.TRIBE, label: SubjectLabel.TRIBE },
+  { value: SubjectValue.WRITINGS, label: SubjectLabel.WRITINGS },
 ];

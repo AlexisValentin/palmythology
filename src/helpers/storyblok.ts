@@ -1,6 +1,7 @@
 import axios from "axios";
 import { CardDetails } from "../types/cards/card";
 import { PantheonLabel, PantheonValue } from "../types/cards/pantheons";
+import { QuestCeQueCaFicheItemType } from "../types/consts/questCeQueCaFiche";
 import { Quoi2NeufItemType } from "../types/consts/quoi2Neuf";
 import {
   STORYBLOK_TOKEN,
@@ -60,15 +61,26 @@ export const fetchQuoi2NeufStories = async () =>
     )
   );
 
+export const fetchQuEstCeQueCaFicheStories = async () =>
+  await fetchAllStories().then((stories) =>
+    stories.data.stories.map(
+      // @ts-ignore
+      (story) =>
+        story.content.component === "quEstCeQueCaFiche" &&
+        parseQuEstCeQueCaFicheData(story)
+    )
+  );
+
 // @ts-ignore
 const parseCardData = (card): CardDetails => {
-  const { name, pantheon, subject, available } = card.content;
+  const { name, pantheon, subject, available, isFolder } = card.content;
 
   return {
     name,
     pantheon,
     subject,
     available,
+    isFolder,
   };
 };
 
@@ -81,6 +93,20 @@ const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufItemType => {
     subtitle,
     icon,
     available,
+    pantheon,
+  };
+};
+
+const parseQuEstCeQueCaFicheData = (
+  // @ts-ignore
+  quEstCeQueCaFicheItem
+): QuestCeQueCaFicheItemType => {
+  const { title, summary, icon, pantheon } = quEstCeQueCaFicheItem.content;
+
+  return {
+    title,
+    summary,
+    icon,
     pantheon,
   };
 };

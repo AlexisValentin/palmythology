@@ -26,7 +26,7 @@ const CardDetailsPage = (): JSX.Element => {
   return (
     <CardDetailsPageContainerStyled>
       <PageHeader title={name} subtitle={subtitle} />
-      <Summary content={summary} />
+      {summary && <Summary content={summary} />}
       <CardDetailsPageCarrouselStyled>
         <Carrousel imageList={images} />
       </CardDetailsPageCarrouselStyled>
