@@ -7,12 +7,12 @@ A website revealing many things about the legends and myths of the mythologies a
 Make sure you meet all the following requirements below :
 
 - `npm` (node package manager) must be set up
-- `node` must be installed on your computer (works perfectly with `v.16.13.1`)
+- `node` must be installed on your computer
 - Don't forget to `npm install` so you can update your dependencies via the `node_modules` folder
 
 The following statements list the recommendations for the best possible experience :
 
-- Optimal use if meant for `vscode` users
+- Optimal use meant for `vscode` users
 - `prettier`, `git blame` and `react` snippets are recommended
 
 ## Scripts
@@ -38,12 +38,26 @@ Allows you to quickly push your diff to the remote. It performs `git` instrucion
 - `git commit --amend` -> merge current staging into the previous commit (prompt will ask you to confirm)
 - `git push --force-with-lease` -> force push to the remote without risking overwritting any modification
 
+### ncu (npm-check-updates)
+
+Checks if current packages are up-to-date and propose to upgrade to the newest versions.
+It is used this way :
+
+- `ncu` or `npm-check-updates` to get the list of deprecated packages
+- `ncu install` or `npm-check-updates instamm` to change to the newer package versions inside `package.json`
+- Perform a simple `npm i` or `npm install` to upgrade your dependencies
+
+Be sure to check the state of the website. Big steps of versions can be deathly sometimes!
+
 ## External services
 
 ### Storyblok
 
-CMS purpose. Coming soon!
+Storyblok is a headless CMS meant to dynamically and easily organize website content with no need to deploy any version of a codebase.
 
-### Cloudinary
+Access to Palmythology's API is done by `fetchAllStories` methods in `src/helpers/storyblok.ts`.
+This way, you're meant to get all the stories from Storyblok. Stories are divided into 3 different components :
 
-Media storage purpose. Coming soon!
+- `card` -> meant to be used for website carrousel when searching for a specific card
+- `quoi2neuf` -> meant to be used for Quoi 2 neuf section into the Folders topic
+- `quEstCeQueCaFiche` -> meant to be used for website carrousel when accessing from the Folders topic
