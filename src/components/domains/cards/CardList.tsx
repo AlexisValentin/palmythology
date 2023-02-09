@@ -7,12 +7,6 @@ import { CardDetails, ResearchCriterias } from "../../../types/cards/card";
 import { PantheonLabel } from "../../../types/cards/pantheons";
 import { BACKGROUND, TEXT } from "../../../types/styles/colors";
 import { wording } from "../../../wording/fr/main";
-import {
-  CardListDetailsContainerStyled,
-  CardListDetailsIconStyled,
-  CardListTableContainerStyled,
-  CardListTableStyled,
-} from "./CardList.styled";
 import MagnifyinglassIcon from "../../../assets/icons/magnifying_glass.svg";
 import ForbiddenIcon from "../../../assets/icons/forbidden.svg";
 
@@ -37,8 +31,8 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
   };
 
   return (
-    <CardListTableContainerStyled className="my-6">
-      <CardListTableStyled className="shadow-lg mt-6">
+    <div className="text-center my-6">
+      <table className="shadow-lg mt-6 w-1/2">
         <thead>
           <tr className="bg-gray-900 text-gray-100">
             <th className="px-5">{wording.filter.name}</th>
@@ -56,27 +50,28 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
                 <td className="px-5">{card.name}</td>
                 <td className="px-5">{card.pantheon}</td>
                 <td className="px-5">{card.subject}</td>
-                <CardListDetailsContainerStyled className="pt-1">
+                <td className="flex justify-center pt-1">
                   {card.available ? (
                     <Link to={setCardRouteParameters(card.name, card.pantheon)}>
-                      <CardListDetailsIconStyled
+                      <img
                         src={MagnifyinglassIcon}
                         alt={`Plus de détails sur la fiche ${card.name}`}
                       />
                     </Link>
                   ) : (
-                    <CardListDetailsIconStyled
+                    <img
+                      className="w-5"
                       src={ForbiddenIcon}
                       alt={`La fiche ${card.name} n'est pas encore disponible`}
                     />
                   )}
-                </CardListDetailsContainerStyled>
+                </td>
               </tr>
             );
           })}
         </tbody>
-      </CardListTableStyled>
-    </CardListTableContainerStyled>
+      </table>
+    </div>
   );
 };
 

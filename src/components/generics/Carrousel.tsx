@@ -1,6 +1,5 @@
-import { SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
-import { SwiperMainContainerStyled } from "./Carrousel.styled";
 
 import "swiper/scss";
 import "swiper/scss/navigation";
@@ -17,7 +16,8 @@ interface StoryblokSingleAssetType {
 
 const Carrousel: React.FC<CarrouselProps> = ({ imageList }): JSX.Element => {
   return (
-    <SwiperMainContainerStyled
+    <Swiper
+      className="w-1/2 shadow-2xl"
       modules={[Navigation, Pagination]}
       spaceBetween={50}
       slidesPerView={1}
@@ -29,7 +29,7 @@ const Carrousel: React.FC<CarrouselProps> = ({ imageList }): JSX.Element => {
           <img src={image.filename} alt={image.alt} width="800" />
         </SwiperSlide>
       ))}
-    </SwiperMainContainerStyled>
+    </Swiper>
   );
 };
 

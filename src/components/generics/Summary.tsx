@@ -1,16 +1,15 @@
 import { getSummaryBackgroundColor } from "../../types/styles/colors";
-import { SummaryMainContainerStyled } from "./Summary.styled";
 
 interface SummaryProps {
   content: string;
 }
 
 const Summary: React.FC<SummaryProps> = ({ content }): JSX.Element => (
-  <SummaryMainContainerStyled
-    className={`${getSummaryBackgroundColor()} italic p-3 mb-10`}
+  <div
+    className={`flex items-center justify-center w-1/2 ${getSummaryBackgroundColor()} italic p-3 mb-10`}
   >
     {content}
-  </SummaryMainContainerStyled>
+  </div>
 );
 
 export default Summary;

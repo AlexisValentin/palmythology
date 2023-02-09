@@ -21,17 +21,16 @@
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
     "sass": "^1.58.0",
-    "styled-components": "^5.3.6",
     "swiper": "^9.0.3",
     "web-vitals": "^3.1.1"
   },
   "scripts": {
-    "start": "cross-env BROWSER=none react-scripts start",
+    "dev": "cross-env BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts --collectCoverage --watchAll",
     "eject": "react-scripts eject",
     "prettier": "prettier --write \"**/*.{tsx,ts,js,css}\"",
-    "fast": "git add . && git commit --amend && git push --force-with-lease"
+    "fast": "git add . && git commit --amend --no-edit && git push --force-with-lease"
   },
   "eslintConfig": {
     "extends": [

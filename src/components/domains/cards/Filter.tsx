@@ -4,10 +4,6 @@ import { allSubject } from "../../../types/cards/subjects";
 import { BASE_INPUT_NAMES } from "../../../types/consts/form";
 import { wording } from "../../../wording/fr/main";
 import CardList from "./CardList";
-import {
-  FilterMainContainerStyled,
-  FilterSelectContainerStyled,
-} from "./Filter.styled";
 import FilterSelect from "./FilterSelect";
 
 interface FilterSelectProps {
@@ -36,8 +32,8 @@ const Filter = (): JSX.Element => {
   };
 
   return (
-    <FilterMainContainerStyled>
-      <FilterSelectContainerStyled>
+    <div className="flex flex-column items-center justify-center">
+      <div className="flex items-center justify-center">
         <div className="m-2 w-40">
           <FilterSelect
             selectLabel={wording.filter.pantheon}
@@ -54,12 +50,12 @@ const Filter = (): JSX.Element => {
             options={allSubject}
           />
         </div>
-      </FilterSelectContainerStyled>
+      </div>
       <CardList
         pantheon={pantheonSearchCriterias}
         subject={subjectSearchCriterias}
       />
-    </FilterMainContainerStyled>
+    </div>
   );
 };
 

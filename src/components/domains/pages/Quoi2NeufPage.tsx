@@ -5,7 +5,6 @@ import { Quoi2NeufItemType } from "../../../types/consts/quoi2Neuf";
 import { wording } from "../../../wording/fr/main";
 import PageHeader from "../../generics/PageHeader";
 import PageSquare from "../../generics/PageSquare";
-import { Quoi2NeufItemsContainerStyled } from "./Quoi2NeufPage.styled";
 
 const Quoi2NeufPage = (): JSX.Element => {
   const [quoi2NeufItems, setQuoi2NeufItems] = useState<Quoi2NeufItemType[]>([]);
@@ -26,7 +25,7 @@ const Quoi2NeufPage = (): JSX.Element => {
         title={`${wording.folders.quoi_2_neuf_title}`}
         subtitle={`${parsedDate}`}
       />
-      <Quoi2NeufItemsContainerStyled>
+      <div className="flex items-center justify-center flex-wrap">
         {quoi2NeufItems.map((item, idx) => {
           const { title, subtitle, icon, available, pantheon } = item;
 
@@ -41,7 +40,7 @@ const Quoi2NeufPage = (): JSX.Element => {
             />
           );
         })}
-      </Quoi2NeufItemsContainerStyled>
+      </div>
     </>
   );
 };

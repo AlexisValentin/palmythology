@@ -1,9 +1,3 @@
-import {
-  PageHeaderContainerStyled,
-  PageHeaderMainTitleStyled,
-  PageHeaderSubtitleStyled,
-} from "./PageHeader.styled";
-
 interface PageHeaderProps {
   title: string;
   subtitle?: string;
@@ -13,18 +7,11 @@ interface PageHeaderProps {
 const PageHeader: React.FC<PageHeaderProps> = ({
   title,
   subtitle,
-  hasFadingEffect,
 }): JSX.Element => (
-  <PageHeaderContainerStyled className="p-10" hasFadingEffect={hasFadingEffect}>
-    <PageHeaderMainTitleStyled className="text-2xl font-bold">
-      {title}
-    </PageHeaderMainTitleStyled>
-    {subtitle && (
-      <PageHeaderSubtitleStyled className="italic">
-        {subtitle}
-      </PageHeaderSubtitleStyled>
-    )}
-  </PageHeaderContainerStyled>
+  <div className="p-10">
+    <h1 className="flex justify-center text-2xl font-bold">{title}</h1>
+    {subtitle && <h3 className="flex justify-center italic">{subtitle}</h3>}
+  </div>
 );
 
 export default PageHeader;

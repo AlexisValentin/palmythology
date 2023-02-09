@@ -6,10 +6,6 @@ import Carrousel from "../../generics/Carrousel";
 import PageHeader from "../../generics/PageHeader";
 import Summary from "../../generics/Summary";
 import NotFound404 from "../http/404";
-import {
-  CardDetailsPageCarrouselStyled,
-  CardDetailsPageContainerStyled,
-} from "./CardDetailsPage.styled";
 
 const CardDetailsPage = (): JSX.Element => {
   const params = useParams();
@@ -24,13 +20,13 @@ const CardDetailsPage = (): JSX.Element => {
   if (!available) return <NotFound404 />;
 
   return (
-    <CardDetailsPageContainerStyled>
+    <div className="flex items-center justify-center flex-column">
       <PageHeader title={name} subtitle={subtitle} />
       {summary && <Summary content={summary} />}
-      <CardDetailsPageCarrouselStyled>
+      <div className="flex items-center justify-center">
         <Carrousel imageList={images} />
-      </CardDetailsPageCarrouselStyled>
-    </CardDetailsPageContainerStyled>
+      </div>
+    </div>
   );
 };
 
