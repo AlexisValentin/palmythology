@@ -35,7 +35,7 @@ Runs `prettier` formatting and all the following extension files :
 Allows you to quickly push your diff to the remote. It performs `git` instrucions in that order :
 
 - `git add .` -> adds all updated files of the current folder
-- `git commit --amend` -> merge current staging into the previous commit (prompt will ask you to confirm)
+- `git commit --amend -no-edit` -> merge current staging into the previous commit and keep the same name
 - `git push --force-with-lease` -> force push to the remote without risking overwritting any modification
 
 ### ncu (npm-check-updates)
