@@ -17,7 +17,7 @@ const App = () => (
   <BrowserRouter>
     <HelmetProvider>
       <MainMenu />
-      <div className="ml-56 mr-56">
+      <div className="pl-60 pr-60">
         <Routes>
           <Route exact path={ROUTE_URLS.HOME} element={<HomePage />} />
           <Route exact path={ROUTE_URLS.NEWS} element={<NewsPage />} />

@@ -3634,18 +3634,7 @@
     "path-type" "^4.0.0"
     "yaml" "^1.7.2"
 
-"cosmiconfig@^7.0.0":
-  "integrity" "sha512-AdmX6xUzdNASswsFtmwSt7Vj8po9IuqXm0UXz7QKPuEUmPB4XyjGfaAr2PSuELMwkRMVH1EpIkX5bTZGRB3eCA=="
-  "resolved" "https://registry.npmjs.org/cosmiconfig/-/cosmiconfig-7.1.0.tgz"
-  "version" "7.1.0"
-  dependencies:
-    "@types/parse-json" "^4.0.0"
-    "import-fresh" "^3.2.1"
-    "parse-json" "^5.0.0"
-    "path-type" "^4.0.0"
-    "yaml" "^1.10.0"
-
-"cosmiconfig@^7.0.1":
+"cosmiconfig@^7.0.0", "cosmiconfig@^7.0.1":
   "integrity" "sha512-AdmX6xUzdNASswsFtmwSt7Vj8po9IuqXm0UXz7QKPuEUmPB4XyjGfaAr2PSuELMwkRMVH1EpIkX5bTZGRB3eCA=="
   "resolved" "https://registry.npmjs.org/cosmiconfig/-/cosmiconfig-7.1.0.tgz"
   "version" "7.1.0"
@@ -4408,9 +4397,9 @@
     "es6-iterator" "^2.0.3"
     "es6-symbol" "^3.1.1"
 
-"esbuild-linux-64@0.15.18":
-  "integrity" "sha512-hNSeP97IviD7oxLKFuii5sDPJ+QHeiFTFLoLm7NZQligur8poNOWGIgpQ7Qf8Balb69hptMZzyOBIPtY09GZYw=="
-  "resolved" "https://registry.npmjs.org/esbuild-linux-64/-/esbuild-linux-64-0.15.18.tgz"
+"esbuild-windows-64@0.15.18":
+  "integrity" "sha512-qinug1iTTaIIrCorAUjR0fcBk24fjzEedFYhhispP8Oc7SFvs+XeW3YpAKiKp8dRpizl4YYAhxMjlftAMJiaUw=="
+  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.15.18.tgz"
   "version" "0.15.18"
 
 "esbuild@^0.15.1", "esbuild@>=0.13":
@@ -5714,14 +5703,7 @@
   dependencies:
     "has" "^1.0.3"
 
-"is-date-object@^1.0.1":
-  "integrity" "sha512-9YQaSxsAiSwcvS33MBk3wTCVnWK+HhF8VZR2jRxehM16QcVOdHqPn4VPHmRK4lSr38n9JriurInLcP90xsYNfQ=="
-  "resolved" "https://registry.npmjs.org/is-date-object/-/is-date-object-1.0.5.tgz"
-  "version" "1.0.5"
-  dependencies:
-    "has-tostringtag" "^1.0.0"
-
-"is-date-object@^1.0.5":
+"is-date-object@^1.0.1", "is-date-object@^1.0.5":
   "integrity" "sha512-9YQaSxsAiSwcvS33MBk3wTCVnWK+HhF8VZR2jRxehM16QcVOdHqPn4VPHmRK4lSr38n9JriurInLcP90xsYNfQ=="
   "resolved" "https://registry.npmjs.org/is-date-object/-/is-date-object-1.0.5.tgz"
   "version" "1.0.5"
@@ -5842,28 +5824,14 @@
   "resolved" "https://registry.npmjs.org/is-stream/-/is-stream-2.0.1.tgz"
   "version" "2.0.1"
 
-"is-string@^1.0.5":
+"is-string@^1.0.5", "is-string@^1.0.7":
   "integrity" "sha512-tE2UXzivje6ofPW7l23cjDOMa09gb7xlAqG6jG5ej6uPV32TlWP3NKPigtaGeHNu9fohccRYvIiZMfOOnOYUtg=="
   "resolved" "https://registry.npmjs.org/is-string/-/is-string-1.0.7.tgz"
   "version" "1.0.7"
   dependencies:
     "has-tostringtag" "^1.0.0"
 
-"is-string@^1.0.7":
-  "integrity" "sha512-tE2UXzivje6ofPW7l23cjDOMa09gb7xlAqG6jG5ej6uPV32TlWP3NKPigtaGeHNu9fohccRYvIiZMfOOnOYUtg=="
-  "resolved" "https://registry.npmjs.org/is-string/-/is-string-1.0.7.tgz"
-  "version" "1.0.7"
-  dependencies:
-    "has-tostringtag" "^1.0.0"
-
-"is-symbol@^1.0.2":
-  "integrity" "sha512-C/CPBqKWnvdcxqIARxyOh4v1UUEOCHpgDa0WYgpKDFMszcrPcffg5uhwSgPCLD2WWxmq6isisz87tzT01tuGhg=="
-  "resolved" "https://registry.npmjs.org/is-symbol/-/is-symbol-1.0.4.tgz"
-  "version" "1.0.4"
-  dependencies:
-    "has-symbols" "^1.0.2"
-
-"is-symbol@^1.0.3":
+"is-symbol@^1.0.2", "is-symbol@^1.0.3":
   "integrity" "sha512-C/CPBqKWnvdcxqIARxyOh4v1UUEOCHpgDa0WYgpKDFMszcrPcffg5uhwSgPCLD2WWxmq6isisz87tzT01tuGhg=="
   "resolved" "https://registry.npmjs.org/is-symbol/-/is-symbol-1.0.4.tgz"
   "version" "1.0.4"
@@ -6633,16 +6601,16 @@
   "version" "1.0.1"
 
 "json5@^1.0.1":
-  "integrity" "sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow=="
-  "resolved" "https://registry.npmjs.org/json5/-/json5-1.0.1.tgz"
-  "version" "1.0.1"
+  "integrity" "sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA=="
+  "resolved" "https://registry.npmjs.org/json5/-/json5-1.0.2.tgz"
+  "version" "1.0.2"
   dependencies:
     "minimist" "^1.2.0"
 
 "json5@^2.1.2", "json5@^2.2.0", "json5@^2.2.1":
-  "integrity" "sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA=="
-  "resolved" "https://registry.npmjs.org/json5/-/json5-2.2.1.tgz"
-  "version" "2.2.1"
+  "integrity" "sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg=="
+  "resolved" "https://registry.npmjs.org/json5/-/json5-2.2.3.tgz"
+  "version" "2.2.3"
 
 "jsonfile@^6.0.1":
   "integrity" "sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ=="
@@ -7687,15 +7655,7 @@
     "@csstools/postcss-progressive-custom-properties" "^1.1.0"
     "postcss-value-parser" "^4.2.0"
 
-"postcss-load-config@^3.0.1", "postcss-load-config@^3.1.4":
-  "integrity" "sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg=="
-  "resolved" "https://registry.npmjs.org/postcss-load-config/-/postcss-load-config-3.1.4.tgz"
-  "version" "3.1.4"
-  dependencies:
-    "lilconfig" "^2.0.5"
-    "yaml" "^1.10.2"
-
-"postcss-load-config@^3.1.0":
+"postcss-load-config@^3.0.1", "postcss-load-config@^3.1.0", "postcss-load-config@^3.1.4":
   "integrity" "sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg=="
   "resolved" "https://registry.npmjs.org/postcss-load-config/-/postcss-load-config-3.1.4.tgz"
   "version" "3.1.4"

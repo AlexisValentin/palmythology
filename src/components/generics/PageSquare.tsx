@@ -14,12 +14,16 @@ const PageSquare: React.FC<Quoi2NeufItemType> = ({
   return available ? (
     <Link
       to={setCardRouteParameters(title, pantheon)}
-      className="border border-transparent rounded-3xl shadow-inner hover:bg-grey-200"
+      className="border border-transparent rounded-3xl shadow-inner hover:bg-red-300 p-6 mx-6"
     >
-      <PageSquareBlock title={title} subtitle={subtitle} icon={icon} />
+      <div className="flex items-center justify-center flex-col">
+        <PageSquareBlock title={title} subtitle={subtitle} icon={icon} />
+      </div>
     </Link>
   ) : (
-    <PageSquareBlock title={title} subtitle={subtitle} icon={icon} />
+    <div className="flex items-center justify-center flex-col p-6 mx-6">
+      <PageSquareBlock title={title} subtitle={subtitle} icon={icon} />
+    </div>
   );
 };
 
@@ -29,13 +33,13 @@ const PageSquareBlock: React.FC<
   const { filename, alt } = icon;
 
   return (
-    <div className="flex items-center justify-center flex-column w-1/2 m-6">
+    <>
       <img className="w-24" src={filename} alt={alt} />
-      <div className="flex items-center justify-center flex-column mt-4">
+      <div className="flex items-center justify-center flex-col mt-4">
         <h2 className="font-bold">{title}</h2>
         <h3 className="italic">{subtitle}</h3>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -32,7 +32,7 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
 
   return (
     <div className="text-center my-6">
-      <table className="shadow-lg mt-6 w-1/2">
+      <table className="shadow-lg mt-6">
         <thead>
           <tr className="bg-gray-900 text-gray-100">
             <th className="px-5">{wording.filter.name}</th>
@@ -54,6 +54,7 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
                   {card.available ? (
                     <Link to={setCardRouteParameters(card.name, card.pantheon)}>
                       <img
+                        className="w-5"
                         src={MagnifyinglassIcon}
                         alt={`Plus de détails sur la fiche ${card.name}`}
                       />

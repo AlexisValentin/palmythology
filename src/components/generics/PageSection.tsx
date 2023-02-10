@@ -39,7 +39,7 @@ const PageSectionTemplate = ({
   iconUrl,
 }: Omit<PageSectionProps, "url">): JSX.Element => (
   <section
-    className={`flex justify-center bg-gradient-to-r from-${gradient?.startingColor} to-${gradient?.endingColor}`}
+    className={`flex bg-gradient-to-r from-${gradient?.startingColor} to-${gradient?.endingColor}`}
   >
     <img className="w-24 m-12" src={iconUrl} alt={`${name} - ${description}`} />
     <div
@@ -47,7 +47,7 @@ const PageSectionTemplate = ({
         gradient && `text-white`
       } mt-12 mb-12 mr-12`}
     >
-      <div className="flex flex-column mt-2 mb-2">
+      <div className="flex flex-col mt-2 mb-2">
         <h2 className="font-semibold text-xl">{name}</h2>
         <div className="font-medium mt-6">{description}</div>
       </div>

@@ -32,7 +32,7 @@ const Filter = (): JSX.Element => {
   };
 
   return (
-    <div className="flex flex-column items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
       <div className="flex items-center justify-center">
         <div className="m-2 w-40">
           <FilterSelect

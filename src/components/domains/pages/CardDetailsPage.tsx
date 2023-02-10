@@ -20,10 +20,10 @@ const CardDetailsPage = (): JSX.Element => {
   if (!available) return <NotFound404 />;
 
   return (
-    <div className="flex items-center justify-center flex-column">
+    <div className="flex items-center justify-center flex-col">
       <PageHeader title={name} subtitle={subtitle} />
       {summary && <Summary content={summary} />}
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center w-full">
         <Carrousel imageList={images} />
       </div>
     </div>

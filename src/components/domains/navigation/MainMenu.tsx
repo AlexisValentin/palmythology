@@ -9,7 +9,7 @@ const MainMenu = (): JSX.Element => {
     wording.sections.home_title === routeName;
 
   return (
-    <nav className={`grid grid-cols-${gridColumns} border border-solid`}>
+    <nav className={`grid grid-cols-${gridColumns} border border-solid z-10`}>
       {ROUTES.map((route, idx) => {
         const { url, name, iconUrl } = route;
 
@@ -20,9 +20,12 @@ const MainMenu = (): JSX.Element => {
           >
             <Link to={url}>
               {isHomePage(name) ? (
-                <div className="border border-transparent rounded-3xl shadow-xl">
-                  <img src={iconUrl} width="40" alt="Logo de la Palmythology" />
-                </div>
+                <img
+                  className="border-2 border-slate-500 rounded-full shadow-xl"
+                  src={iconUrl}
+                  width="40"
+                  alt="Logo de la Palmythology"
+                />
               ) : (
                 name
               )}

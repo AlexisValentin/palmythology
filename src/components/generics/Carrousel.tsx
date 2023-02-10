@@ -17,7 +17,7 @@ interface StoryblokSingleAssetType {
 const Carrousel: React.FC<CarrouselProps> = ({ imageList }): JSX.Element => {
   return (
     <Swiper
-      className="w-1/2 shadow-2xl"
+      className="shadow-2xl"
       modules={[Navigation, Pagination]}
       spaceBetween={50}
       slidesPerView={1}
@@ -26,7 +26,7 @@ const Carrousel: React.FC<CarrouselProps> = ({ imageList }): JSX.Element => {
     >
       {imageList.map((image: StoryblokSingleAssetType, idx: number) => (
         <SwiperSlide key={idx}>
-          <img src={image.filename} alt={image.alt} width="800" />
+          <img src={image.filename} alt={image.alt} />
         </SwiperSlide>
       ))}
     </Swiper>
