@@ -1,4 +1,4 @@
-import { getSummaryBackgroundColor } from "../../types/styles/colors";
+import { getSummaryBackgroundColor } from "../../helpers/colors";
 
 interface SummaryProps {
   content: string;

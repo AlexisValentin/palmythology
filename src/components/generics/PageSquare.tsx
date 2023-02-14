@@ -1,4 +1,8 @@
 import { Link } from "react-router-dom";
+import {
+  getPantheonMainColor,
+  getPantheonTextColor,
+} from "../../helpers/colors";
 import { setCardRouteParameters } from "../../helpers/routes";
 import { Quoi2NeufItemType } from "../../types/consts/quoi2Neuf";
 
@@ -14,7 +18,9 @@ const PageSquare: React.FC<Quoi2NeufItemType> = ({
   return available ? (
     <Link
       to={setCardRouteParameters(title, pantheon)}
-      className="border border-transparent rounded-3xl shadow-inner hover:bg-red-300 p-6 mx-6"
+      className={`border border-transparent rounded-3xl shadow-inner hover:bg-${getPantheonMainColor(
+        pantheon
+      )} hover:text-${getPantheonTextColor(pantheon)} p-6 mx-6`}
     >
       <div className="flex items-center justify-center flex-col">
         <PageSquareBlock title={title} subtitle={subtitle} icon={icon} />
@@ -33,13 +39,13 @@ const PageSquareBlock: React.FC<
   const { filename, alt } = icon;
 
   return (
-    <>
-      <img className="w-24" src={filename} alt={alt} />
+    <div className="flex item-center justify-center flex-col w-52">
       <div className="flex items-center justify-center flex-col mt-4">
+        <img className="w-24 pb-4" src={filename} alt={alt} />
         <h2 className="font-bold">{title}</h2>
         <h3 className="italic">{subtitle}</h3>
       </div>
-    </>
+    </div>
   );
 };
 

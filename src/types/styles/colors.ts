@@ -111,6 +111,3 @@ export type PantheonStyleType = {
   backgroundColor: string;
   textColor: string;
 };
-
-export const getSummaryBackgroundColor = () =>
-  `${BACKGROUND}-${COLORS.GRAY}-${COLOR_TAINTS.SUPER_LIGHT}`;
