@@ -39,7 +39,11 @@ const PageSectionTemplate = ({
   iconUrl,
 }: Omit<PageSectionProps, "url">): JSX.Element => (
   <section
-    className={`flex bg-gradient-to-r from-${gradient?.startingColor} to-${gradient?.endingColor}`}
+    className={`flex ${
+      gradient
+        ? `bg-gradient-to-r from-${gradient?.startingColor} to-${gradient?.endingColor}`
+        : `bg-black text-white`
+    }`}
   >
     <img className="w-24 m-12" src={iconUrl} alt={`${name} - ${description}`} />
     <div
