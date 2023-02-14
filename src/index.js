@@ -4,7 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createRoot } from "react-dom/client";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
-import CardDetailsPage from "./components/domains/pages/CardDetailsPage";
+import CardDetailsPage from "./components/domains/pages/CardDetails.page";
 
 const root = createRoot(document.getElementById("root"));
 
