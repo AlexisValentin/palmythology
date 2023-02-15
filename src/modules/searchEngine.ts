@@ -1,13 +1,27 @@
+import {
+  getPantheonLabelFromValue,
+  getSubjectLabelFromValue,
+} from "../helpers/dictionary";
 import { fetchCardStories } from "../helpers/storyblok";
-import { CardDetails, ResearchCriterias } from "../types/cards/card";
+import {
+  CardDetails,
+  ResearchCriterias,
+  TranslatedCardDetails,
+} from "../types/cards/card";
 
 export const filterCards = (
   searchCriterias?: ResearchCriterias
-): Promise<CardDetails[]> =>
+): Promise<TranslatedCardDetails[]> =>
   fetchCardStories().then((stories) =>
     stories.map((card: CardDetails) => {
       if (isACardFound(searchCriterias, card)) {
-        return card;
+        const { pantheon, subject } = card;
+
+        return {
+          ...card,
+          pantheon: getPantheonLabelFromValue(pantheon),
+          subject: getSubjectLabelFromValue(subject),
+        };
       }
 
       return undefined;

@@ -1,18 +1,24 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { setCardRouteParameters } from "../../../helpers/routes";
-import { getPantheonStyle } from "../../../helpers/styles";
 import { filterCards } from "../../../modules/searchEngine";
-import { CardDetails, ResearchCriterias } from "../../../types/cards/card";
+import {
+  ResearchCriterias,
+  TranslatedCardDetails,
+} from "../../../types/cards/card";
 import { PantheonLabel } from "../../../types/cards/pantheons";
 import { BACKGROUND, TEXT } from "../../../types/styles/colors";
 import { wording } from "../../../wording/fr/main";
 import MagnifyinglassIcon from "../../../assets/icons/magnifying_glass.svg";
 import ForbiddenIcon from "../../../assets/icons/forbidden.svg";
+import { getPantheonStyle } from "../../../helpers/colors";
+import { getPantheonValueFromLabel } from "../../../helpers/dictionary";
 
 const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
   const [searchCriterias, setSearchCriterias] = useState<ResearchCriterias>();
-  const [searchResults, setSearchResults] = useState<CardDetails[]>([]);
+  const [searchResults, setSearchResults] = useState<TranslatedCardDetails[]>(
+    []
+  );
 
   useEffect(() => {
     setSearchCriterias({ pantheon, subject });
@@ -25,7 +31,9 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
   }, [searchCriterias]);
 
   const dynamiseColor = (pantheon: PantheonLabel): string => {
-    const { backgroundColor, textColor } = getPantheonStyle(pantheon);
+    const { backgroundColor, textColor } = getPantheonStyle(
+      getPantheonValueFromLabel(pantheon)
+    );
 
     return `${BACKGROUND}-${backgroundColor} ${TEXT}-${textColor} p-2`;
   };
@@ -52,7 +60,12 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
                 <td className="px-5">{card.subject}</td>
                 <td className="flex justify-center pt-1">
                   {card.available ? (
-                    <Link to={setCardRouteParameters(card.name, card.pantheon)}>
+                    <Link
+                      to={setCardRouteParameters(
+                        card.name,
+                        getPantheonValueFromLabel(card.pantheon)
+                      )}
+                    >
                       <img
                         className="w-5"
                         src={MagnifyinglassIcon}

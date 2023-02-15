@@ -10,7 +10,7 @@ import NotFound404 from "../http/404";
 const CardDetailsPage = (): JSX.Element => {
   const params = useParams();
   const story = useStoryblok(getCardSlug(params.card, params.pantheon), {
-    version: "draft",
+    version: "published",
   });
 
   if (isObjectEmpty(story)) return <NotFound404 />;

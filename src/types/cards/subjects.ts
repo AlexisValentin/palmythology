@@ -4,10 +4,10 @@ export enum SubjectLabel {
   PERSON = "Personnage",
   PLACE = "Lieu",
   TRIBE = "Peuple",
-  WRITINGS = "Ecrits",
+  WRITINGS = "Écrits",
 }
 
-enum SubjectValue {
+export enum SubjectValue {
   MONSTER = "monster",
   DIVINITY = "divinity",
   PERSON = "person",

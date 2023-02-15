@@ -2,7 +2,7 @@ export enum PantheonLabel {
   AZTEC = "Aztèque",
   CELTIC = "Celtique",
   CHINESE = "Chinois",
-  EGYPTIAN = "Egyptien",
+  EGYPTIAN = "Égyptien",
   GREEK = "Grec",
   HINDU = "Hindou",
   JAPANESE = "Japonais",

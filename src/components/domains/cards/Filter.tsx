@@ -24,11 +24,11 @@ const Filter = (): JSX.Element => {
   };
 
   const onPantheonSelectChange = (selected?: ReactSelectValue) => {
-    setPantheonSearchCriterias(selected?.label);
+    setPantheonSearchCriterias(selected?.value);
   };
 
   const onSubjectSelectChange = (selected?: ReactSelectValue) => {
-    setSubjectSearchCriterias(selected?.label);
+    setSubjectSearchCriterias(selected?.value);
   };
 
   return (
