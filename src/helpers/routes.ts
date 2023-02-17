@@ -6,3 +6,6 @@ export const setCardRouteParameters = (cardName: string, pantheon: string) =>
     ":card",
     stripDiacritics(cardName.toLowerCase())
   );
+
+export const setNewsRouteParameters = (newsName: string) =>
+  ROUTE_URLS.ARTICLE.replace(":title", stripDiacritics(newsName.toLowerCase()));

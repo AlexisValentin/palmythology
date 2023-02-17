@@ -7,6 +7,7 @@ import CardDetailsPage from "./components/domains/pages/CardDetails.page";
 import FoldersPage from "./components/domains/pages/Folders.page";
 import HomePage from "./components/domains/pages/Home.page";
 import NewsPage from "./components/domains/pages/News.page";
+import NewsArticleDetailsPage from "./components/domains/pages/NewsArticleDetails.page";
 import QuestCeQueCaFichePage from "./components/domains/pages/QuestCeQueCaFiche.page";
 import Quoi2NeufPage from "./components/domains/pages/Quoi2Neuf.page";
 import SearchPage from "./components/domains/pages/Search.page";
@@ -35,6 +36,11 @@ const App = () => (
             element={<QuestCeQueCaFichePage />}
           />
           <Route exact path={ROUTE_URLS.CARD} element={<CardDetailsPage />} />
+          <Route
+            exact
+            path={ROUTE_URLS.ARTICLE}
+            element={<NewsArticleDetailsPage />}
+          />
         </Routes>
       </div>
       <Footer />

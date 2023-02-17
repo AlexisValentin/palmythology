@@ -1,5 +1,6 @@
 import axios from "axios";
 import { CardDetails } from "../types/cards/card";
+import { NewsItemType } from "../types/consts/news";
 import { QuestCeQueCaFicheItemType } from "../types/consts/questCeQueCaFiche";
 import { Quoi2NeufItemType } from "../types/consts/quoi2Neuf";
 import {
@@ -10,6 +11,9 @@ import {
 
 export const getCardSlug = (cardName?: string, pantheon?: string) =>
   `cards/${pantheon}/${cardName?.toLowerCase()}`;
+
+export const getNewsSlug = (newsTitle?: string) =>
+  `news/${newsTitle?.toLowerCase().replace(/ /g, "-")}`;
 
 const fetchAllStories = () =>
   axios({
@@ -42,6 +46,15 @@ export const fetchQuEstCeQueCaFicheStories = async () =>
       (story) =>
         story.content.component === "quEstCeQueCaFiche" &&
         parseQuEstCeQueCaFicheData(story)
+    )
+  );
+
+export const fetchNewsStories = async () =>
+  await fetchAllStories().then((stories) =>
+    stories.data.stories.map(
+      // @ts-ignore
+      (story) =>
+        story.content.component === "newsArticle" && parseNewsData(story)
     )
   );
 
@@ -82,5 +95,19 @@ const parseQuEstCeQueCaFicheData = (
     summary,
     icon,
     pantheon,
+  };
+};
+
+const parseNewsData = (
+  // @ts-ignore
+  newsItem
+): NewsItemType => {
+  const { title, summary, text, icon } = newsItem.content;
+
+  return {
+    title,
+    summary,
+    text,
+    icon,
   };
 };
