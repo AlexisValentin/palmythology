@@ -9,7 +9,9 @@ const MainMenu = (): JSX.Element => {
     wording.sections.home_title === routeName;
 
   return (
-    <nav className={`grid grid-cols-${gridColumns} border border-solid z-10`}>
+    <nav
+      className={`grid grid-cols-${gridColumns} border border-solid z-10 w-full px-6 md:px-20 xl:px-60`}
+    >
       {ROUTES.map((route, idx) => {
         const { url, name, iconUrl } = route;
 
@@ -27,7 +29,17 @@ const MainMenu = (): JSX.Element => {
                   alt="Logo de la Palmythology"
                 />
               ) : (
-                name
+                <>
+                  <div className="hidden md:block">{name}</div>
+                  <div className="md:hidden block">
+                    <img
+                      className="filter-black"
+                      src={iconUrl}
+                      width="30"
+                      alt={name}
+                    />
+                  </div>
+                </>
               )}
             </Link>
           </div>

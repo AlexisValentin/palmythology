@@ -1,5 +1,5 @@
 import { wording } from "../../wording/fr/main";
-import NewspaperIcon from "../../assets/icons/newspaper.svg";
+import NewIcon from "../../assets/icons/new.svg";
 import MagnifyingGlassIcon from "../../assets/icons/magnifying_glass.svg";
 import InformationIcon from "../../assets/icons/information.svg";
 import FolderIcon from "../../assets/icons/folder.svg";
@@ -44,7 +44,7 @@ export const ROUTES: RouteType[] = [
       startingColor: SECTION_COLORS.NEWS[0],
       endingColor: SECTION_COLORS.NEWS[1],
     },
-    iconUrl: NewspaperIcon,
+    iconUrl: NewIcon,
   },
   {
     name: wording.sections.folders_title,

@@ -9,7 +9,7 @@ import {
 import { PantheonLabel } from "../../../types/cards/pantheons";
 import { BACKGROUND, TEXT } from "../../../types/styles/colors";
 import { wording } from "../../../wording/fr/main";
-import MagnifyinglassIcon from "../../../assets/icons/magnifying_glass.svg";
+import MoreIcon from "../../../assets/icons/more.svg";
 import ForbiddenIcon from "../../../assets/icons/forbidden.svg";
 import { getPantheonStyle } from "../../../helpers/colors";
 import { getPantheonValueFromLabel } from "../../../helpers/dictionary";
@@ -35,18 +35,18 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
       getPantheonValueFromLabel(pantheon)
     );
 
-    return `${BACKGROUND}-${backgroundColor} ${TEXT}-${textColor} p-2`;
+    return `${BACKGROUND}-${backgroundColor} ${TEXT}-${textColor}`;
   };
 
   return (
     <div className="text-center my-6">
-      <table className="shadow-lg mt-6">
+      <table className="shadow-lg mt-6 max-w-xs">
         <thead>
           <tr className="bg-gray-900 text-gray-100">
-            <th className="px-5">{wording.filter.name}</th>
-            <th className="px-5">{wording.filter.pantheon}</th>
-            <th className="px-5">{wording.filter.subject}</th>
-            <th className="px-5">{wording.filter.details}</th>
+            <th className="px-4">{wording.filter.name}</th>
+            <th className="px-4">{wording.filter.pantheon}</th>
+            <th className="px-4">{wording.filter.subject}</th>
+            <th className="px-4">{wording.filter.details}</th>
           </tr>
         </thead>
         <tbody>
@@ -54,30 +54,39 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
             if (!card) return <tr key={idx}></tr>;
 
             return (
-              <tr className={dynamiseColor(card.pantheon)} key={idx}>
-                <td className="px-5">{card.name}</td>
-                <td className="px-5">{card.pantheon}</td>
-                <td className="px-5">{card.subject}</td>
-                <td className="flex justify-center pt-1">
+              <tr className={`${dynamiseColor(card.pantheon)}`} key={idx}>
+                <td className="px-4 py-2">{card.name}</td>
+                <td className="px-4 py-2">{card.pantheon}</td>
+                <td className="px-4 py-2">{card.subject}</td>
+                <td className="py-2">
                   {card.available ? (
                     <Link
+                      className="flex justify-center"
                       to={setCardRouteParameters(
                         card.name,
                         getPantheonValueFromLabel(card.pantheon)
                       )}
                     >
                       <img
-                        className="w-5"
-                        src={MagnifyinglassIcon}
+                        className={`${
+                          card.pantheon === PantheonLabel.JAPANESE &&
+                          `filter-dark-red`
+                        } w-6`}
+                        src={MoreIcon}
                         alt={`Plus de détails sur la fiche ${card.name}`}
                       />
                     </Link>
                   ) : (
-                    <img
-                      className="w-5"
-                      src={ForbiddenIcon}
-                      alt={`La fiche ${card.name} n'est pas encore disponible`}
-                    />
+                    <div className="flex justify-center">
+                      <img
+                        className={`${
+                          card.pantheon === PantheonLabel.JAPANESE &&
+                          `filter-dark-red`
+                        } w-6`}
+                        src={ForbiddenIcon}
+                        alt={`La fiche ${card.name} n'est pas encore disponible`}
+                      />
+                    </div>
                   )}
                 </td>
               </tr>

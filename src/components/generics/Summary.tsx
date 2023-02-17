@@ -5,10 +5,12 @@ interface SummaryProps {
 }
 
 const Summary: React.FC<SummaryProps> = ({ content }): JSX.Element => (
-  <div
-    className={`flex items-center justify-center ${getSummaryBackgroundColor()} italic p-3 mb-10`}
-  >
-    {content}
+  <div className="hidden xl:block">
+    <div
+      className={`flex items-center justify-center ${getSummaryBackgroundColor()} italic p-3 mb-10`}
+    >
+      {content}
+    </div>
   </div>
 );
 
