@@ -2,8 +2,6 @@ import FacebookIcon from "../../assets/icons/social_networks/facebook.svg";
 import InstagramIcon from "../../assets/icons/social_networks/instagram.svg";
 import TwitterIcon from "../../assets/icons/social_networks/twitter.svg";
 import DiscordIcon from "../../assets/icons/social_networks/discord.svg";
-import PinterestIcon from "../../assets/icons/social_networks/pinterest.svg";
-import LinkedinIcon from "../../assets/icons/social_networks/linkedin.svg";
 
 export enum SOCIAL_NETWORK_STATUS {
   ACTIVE = "active",
@@ -39,16 +37,6 @@ export const SOCIAL_NETWORKS: SocialNetworkType[] = [
   {
     name: "Discord",
     iconUrl: DiscordIcon,
-    status: SOCIAL_NETWORK_STATUS.INACTIVE,
-  },
-  {
-    name: "Pinterest",
-    iconUrl: PinterestIcon,
-    status: SOCIAL_NETWORK_STATUS.INACTIVE,
-  },
-  {
-    name: "LinkedIn",
-    iconUrl: LinkedinIcon,
     status: SOCIAL_NETWORK_STATUS.INACTIVE,
   },
 ];
