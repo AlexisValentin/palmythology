@@ -14,11 +14,11 @@ const PageSection: React.FC<PageSectionProps> = ({
   <>
     <Link to={url} className="flex flex-row m-10 sm:block sm:w-full sm:m-0">
       <section
-        className={`flex flex-col items-center sm:flex-row ${
+        className={`flex flex-col items-center rounded-3xl p-2.5 sm:rounded-none sm:flex-row ${
           gradient
             ? `bg-gradient-to-r from-${gradient?.startingColor} to-${gradient?.endingColor}`
             : `bg-black text-white`
-        }`}
+        } sm:p-0`}
       >
         <img
           className="w-24 m-6 sm:m-12"
