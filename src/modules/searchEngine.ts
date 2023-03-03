@@ -13,19 +13,21 @@ export const filterCards = (
   searchCriterias?: ResearchCriterias
 ): Promise<TranslatedCardDetails[]> =>
   fetchCardStories().then((stories) =>
-    stories.map((card: CardDetails) => {
-      if (isACardFound(searchCriterias, card)) {
-        const { pantheon, subject } = card;
+    stories
+      .map((card: CardDetails) => {
+        if (isACardFound(searchCriterias, card)) {
+          const { pantheon, subject } = card;
 
-        return {
-          ...card,
-          pantheon: getPantheonLabelFromValue(pantheon),
-          subject: getSubjectLabelFromValue(subject),
-        };
-      }
+          return {
+            ...card,
+            pantheon: getPantheonLabelFromValue(pantheon),
+            subject: getSubjectLabelFromValue(subject),
+          };
+        }
 
-      return undefined;
-    })
+        return undefined;
+      })
+      .sort((a: CardDetails, b: CardDetails) => a.name.localeCompare(b.name))
   );
 
 export const isACardFound = (
