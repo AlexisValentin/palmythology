@@ -1665,10 +1665,10 @@
     "schema-utils" "^3.0.0"
     "source-map" "^0.7.3"
 
-"@remix-run/router@1.3.2":
-  "integrity" "sha512-t54ONhl/h75X94SWsHGQ4G/ZrCEguKSRQr7DrjTciJXW0YU1QhlwYeycvK5JgkzlxmvrK7wq1NB/PLtHxoiDcA=="
-  "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.3.2.tgz"
-  "version" "1.3.2"
+"@remix-run/router@1.3.3":
+  "integrity" "sha512-YRHie1yQEj0kqqCTCJEfHqYSSNlZQ696QJG+MMiW4mxSl9I0ojz/eRhJS4fs88Z5i6D1SmoF9d3K99/QOhI8/w=="
+  "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.3.3.tgz"
+  "version" "1.3.3"
 
 "@rollup/plugin-babel@^5.2.0":
   "integrity" "sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q=="
@@ -1731,19 +1731,19 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@storyblok/js@^2.0.15":
-  "integrity" "sha512-tfnr48j4p1muDzjyJtQQNqnF0M7Lyw03e8dBkom+715Nn29KAlrpRE5h4VTsL1vHU0+JPd4E01LcrV8SKgPYcA=="
-  "resolved" "https://registry.npmjs.org/@storyblok/js/-/js-2.0.15.tgz"
-  "version" "2.0.15"
+"@storyblok/js@^2.1.0":
+  "integrity" "sha512-P8Z/lt4GJP82KaBuJc5dLU8fJt1acEqmSsBuCHVg7Pie9wyjSxM7s80BhAyqWIj6AJdQa2gaN+dXEtbr3MIXRA=="
+  "resolved" "https://registry.npmjs.org/@storyblok/js/-/js-2.1.0.tgz"
+  "version" "2.1.0"
   dependencies:
     "storyblok-js-client" "^5.4.1"
 
-"@storyblok/react@^2.0.12":
-  "integrity" "sha512-g5YbcWG02lIkT4AatirHijqe97gFuXByNwOa9jsVcfYLv24FEZyRXDhKZLjthwVuX+XZ/bKj83Vh9wmQ4Lqy+g=="
-  "resolved" "https://registry.npmjs.org/@storyblok/react/-/react-2.0.12.tgz"
-  "version" "2.0.12"
+"@storyblok/react@^2.0.14":
+  "integrity" "sha512-ncD87LMsmWGsT55KIXBt257YYR9hEPineLOsGn7/uYL3RkoPkNtBCJoU4mwejooff6e+mbs5Aey9nrCn3j14kg=="
+  "resolved" "https://registry.npmjs.org/@storyblok/react/-/react-2.0.14.tgz"
+  "version" "2.0.14"
   dependencies:
-    "@storyblok/js" "^2.0.15"
+    "@storyblok/js" "^2.1.0"
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   "integrity" "sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ=="
@@ -2109,10 +2109,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.8 || ^17.0 || ^18.0", "@types/react@^18.0.27":
-  "integrity" "sha512-3vtRKHgVxu3Jp9t718R9BuzoD4NcQ8YJ5XRzsSKxNDiDonD2MXIT1TmSkenxuCycZJoQT5d2vE8LwWJxBC1gmA=="
-  "resolved" "https://registry.npmjs.org/@types/react/-/react-18.0.27.tgz"
-  "version" "18.0.27"
+"@types/react@*", "@types/react@^16.8 || ^17.0 || ^18.0", "@types/react@^18.0.28":
+  "integrity" "sha512-RD0ivG1kEztNBdoAK7lekI9M+azSnitIn85h4iOiaLjaTrMjzslhaqCGaI4IyCJ1RljWiLCEu4jyrLLgqxBTew=="
+  "resolved" "https://registry.npmjs.org/@types/react/-/react-18.0.28.tgz"
+  "version" "18.0.28"
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -2806,10 +2806,10 @@
   "resolved" "https://registry.npmjs.org/axe-core/-/axe-core-4.5.2.tgz"
   "version" "4.5.2"
 
-"axios@^1.3.2":
-  "integrity" "sha512-1M3O703bYqYuPhbHeya5bnhpYVsDDRyQSabNja04mZtboLNSuZ4YrltestrLXfHgmzua4TpUqRiVKbiQuo2epw=="
-  "resolved" "https://registry.npmjs.org/axios/-/axios-1.3.2.tgz"
-  "version" "1.3.2"
+"axios@^1.3.4":
+  "integrity" "sha512-toYm+Bsyl6VC5wSkfkbbNB6ROv7KY93PEBBL6xyDczaIHasAiv4wPqQ/c4RjoQzipxRD2W5g21cOqQulZ7rHwQ=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-1.3.4.tgz"
+  "version" "1.3.4"
   dependencies:
     "follow-redirects" "^1.15.0"
     "form-data" "^4.0.0"
@@ -8008,20 +8008,20 @@
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz"
   "version" "0.11.0"
 
-"react-router-dom@^6.8.1":
-  "integrity" "sha512-67EXNfkQgf34P7+PSb6VlBuaacGhkKn3kpE51+P6zYSG2kiRoumXEL6e27zTa9+PGF2MNXbgIUHTVlleLbIcHQ=="
-  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.8.1.tgz"
-  "version" "6.8.1"
+"react-router-dom@^6.8.2":
+  "integrity" "sha512-N/oAF1Shd7g4tWy+75IIufCGsHBqT74tnzHQhbiUTYILYF0Blk65cg+HPZqwC+6SqEyx033nKqU7by38v3lBZg=="
+  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.8.2.tgz"
+  "version" "6.8.2"
   dependencies:
-    "@remix-run/router" "1.3.2"
-    "react-router" "6.8.1"
+    "@remix-run/router" "1.3.3"
+    "react-router" "6.8.2"
 
-"react-router@6.8.1":
-  "integrity" "sha512-Jgi8BzAJQ8MkPt8ipXnR73rnD7EmZ0HFFb7jdQU24TynGW1Ooqin2KVDN9voSC+7xhqbbCd2cjGUepb6RObnyg=="
-  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.8.1.tgz"
-  "version" "6.8.1"
+"react-router@6.8.2":
+  "integrity" "sha512-lF7S0UmXI5Pd8bmHvMdPKI4u4S5McxmHnzJhrYi9ZQ6wE+DA8JN5BzVC5EEBuduWWDaiJ8u6YhVOCmThBli+rw=="
+  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.8.2.tgz"
+  "version" "6.8.2"
   dependencies:
-    "@remix-run/router" "1.3.2"
+    "@remix-run/router" "1.3.3"
 
 "react-scripts@5.0.1":
   "integrity" "sha512-8VAmEm/ZAwQzJ+GOMLbBsTdDKOpuZh7RPs0UymvBR2vRk4iZWCskjbFnxqjrzoIvlNNRZ3QJFx6/qDSi6zSnaQ=="
@@ -8427,10 +8427,10 @@
     "klona" "^2.0.4"
     "neo-async" "^2.6.2"
 
-"sass@^1.3.0", "sass@^1.58.0":
-  "integrity" "sha512-PiMJcP33DdKtZ/1jSjjqVIKihoDc6yWmYr9K/4r3fVVIEDAluD0q7XZiRKrNJcPK3qkLRF/79DND1H5q1LBjgg=="
-  "resolved" "https://registry.npmjs.org/sass/-/sass-1.58.0.tgz"
-  "version" "1.58.0"
+"sass@^1.3.0", "sass@^1.58.3":
+  "integrity" "sha512-Q7RaEtYf6BflYrQ+buPudKR26/lH+10EmO9bBqbmPh/KeLqv8bjpTNqxe71ocONqXq+jYiCbpPUmQMS+JJPk4A=="
+  "resolved" "https://registry.npmjs.org/sass/-/sass-1.58.3.tgz"
+  "version" "1.58.3"
   dependencies:
     "chokidar" ">=3.0.0 <4.0.0"
     "immutable" "^4.0.0"
@@ -8800,10 +8800,10 @@
   "resolved" "https://registry.npmjs.org/statuses/-/statuses-2.0.1.tgz"
   "version" "2.0.1"
 
-"storyblok-generate-ts@^1.12.0":
-  "integrity" "sha512-AXF5sFOhMifoJov4q1evnbsTaotawjx0VZPIYh5726w2FU4P2WBM0RXt4YIAxgFQwDh6a6B/6QoXScm6ClI9pA=="
-  "resolved" "https://registry.npmjs.org/storyblok-generate-ts/-/storyblok-generate-ts-1.12.0.tgz"
-  "version" "1.12.0"
+"storyblok-generate-ts@^1.13.1":
+  "integrity" "sha512-Jkn5mlvefbiiMs1fq6US6a3U8daRyWmJdEnc9TYpGEEv9x8QMki7ZsMR6K628bNW2OnsKWlM8zSSua1+9rZpdQ=="
+  "resolved" "https://registry.npmjs.org/storyblok-generate-ts/-/storyblok-generate-ts-1.13.1.tgz"
+  "version" "1.13.1"
   dependencies:
     "camelcase" "^6.3.0"
     "json-schema-to-typescript" "^11.0.1"
@@ -8811,9 +8811,9 @@
     "tsup" "^6.4.0"
 
 "storyblok-js-client@^5.4.1":
-  "integrity" "sha512-OKwIqRPkxTV+wVhTbH2MgfA82tQeve+Lt8ygsNyCKULPuvZ92XCQbBtSB+uf05SOPBKRzNQXCjUYyGiXaF3xKQ=="
-  "resolved" "https://registry.npmjs.org/storyblok-js-client/-/storyblok-js-client-5.4.2.tgz"
-  "version" "5.4.2"
+  "integrity" "sha512-KXJnYE03iYz3NGC6/cJdjksqvthUSA3rlbSU9Lj0smOaXcPMiU+VTTN3wWWr9okWQtLfyQs2VEw5Z2CPcgxMvQ=="
+  "resolved" "https://registry.npmjs.org/storyblok-js-client/-/storyblok-js-client-5.5.1.tgz"
+  "version" "5.5.1"
 
 "string_decoder@^1.1.1", "string_decoder@~1.1.1":
   "integrity" "sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg=="
@@ -9045,10 +9045,10 @@
     "picocolors" "^1.0.0"
     "stable" "^0.1.8"
 
-"swiper@^9.0.3":
-  "integrity" "sha512-hHYI6CeUHcDyv6IakzAQrUv6nS5BMRn6KOkui16nhtdgYBlWgUdlaMbcdT0o4RJxpwSktCTLgpBtCm+WwwVYRw=="
-  "resolved" "https://registry.npmjs.org/swiper/-/swiper-9.0.3.tgz"
-  "version" "9.0.3"
+"swiper@^9.1.0":
+  "integrity" "sha512-Ck8CywwfUghkbUAHbxTAWyeUAcNrIDNJ6EnKFBGGcHDjeqbh0Jq08RbmD5fMu1a0oOv1eIkUGVkqNJy/asm+yA=="
+  "resolved" "https://registry.npmjs.org/swiper/-/swiper-9.1.0.tgz"
+  "version" "9.1.0"
   dependencies:
     "ssr-window" "^4.0.2"
 
