@@ -10,25 +10,27 @@ const FoldersPage = (): JSX.Element => {
         title={wording.sections.folders_title}
         subtitle={wording.sections.folders_description}
       />
-      {FOLDERS.map((route, idx) => {
-        const { name, url, description, gradient, iconUrl } = route;
-        const { home_title } = wording.sections;
+      <div className="flex flex-row justify-center flex-wrap mx-8 sm:block sm:mx-0">
+        {FOLDERS.map((route, idx) => {
+          const { name, url, description, gradient, iconUrl } = route;
+          const { home_title } = wording.sections;
 
-        if (name === home_title) {
-          return null;
-        }
+          if (name === home_title) {
+            return null;
+          }
 
-        return (
-          <PageSection
-            key={idx}
-            name={name}
-            url={url}
-            description={description}
-            gradient={gradient}
-            iconUrl={iconUrl}
-          />
-        );
-      })}
+          return (
+            <PageSection
+              key={idx}
+              name={name}
+              url={url}
+              description={description}
+              gradient={gradient}
+              iconUrl={iconUrl}
+            />
+          );
+        })}
+      </div>
     </>
   );
 };

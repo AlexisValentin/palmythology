@@ -23,21 +23,23 @@ const QuestCeQueCaFichePage = (): JSX.Element => {
         title={wording.folders.qu_est_ce_que_ca_fiche_title}
         subtitle={wording.folders.qu_est_ce_que_ca_fiche_description}
       />
-      {quEstCeQueCaFicheItems.map((item, idx) => {
-        if (!item) return <div key={idx} />;
+      <div className="flex flex-row justify-center flex-wrap mx-8 sm:block sm:mx-0">
+        {quEstCeQueCaFicheItems.map((item, idx) => {
+          if (!item) return <div key={idx} />;
 
-        const { title, summary, icon, pantheon } = item;
+          const { title, summary, icon, pantheon } = item;
 
-        return (
-          <PageSection
-            key={idx}
-            name={title}
-            description={summary}
-            url={setCardRouteParameters(title, pantheon)}
-            iconUrl={icon.filename}
-          />
-        );
-      })}
+          return (
+            <PageSection
+              key={idx}
+              name={title}
+              description={summary}
+              url={setCardRouteParameters(title, pantheon)}
+              iconUrl={icon.filename}
+            />
+          );
+        })}
+      </div>
     </>
   );
 };

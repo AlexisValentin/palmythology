@@ -21,21 +21,23 @@ const NewsPage = (): JSX.Element => {
         title={wording.sections.news_title}
         subtitle={wording.sections.news_description}
       />
-      {newsItems.map((item, idx) => {
-        if (!item) return <div key={idx} />;
+      <div className="flex flex-row justify-center flex-wrap mx-8 sm:block sm:mx-0">
+        {newsItems.map((item, idx) => {
+          if (!item) return <div key={idx} />;
 
-        const { title, summary, icon } = item;
+          const { title, summary, icon } = item;
 
-        return (
-          <PageSection
-            key={idx}
-            name={title}
-            description={summary}
-            url={setNewsRouteParameters(title)}
-            iconUrl={icon?.filename}
-          />
-        );
-      })}
+          return (
+            <PageSection
+              key={idx}
+              name={title}
+              description={summary}
+              url={setNewsRouteParameters(title)}
+              iconUrl={icon?.filename}
+            />
+          );
+        })}
+      </div>
     </>
   );
 };
