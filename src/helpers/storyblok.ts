@@ -15,15 +15,15 @@ export const getCardSlug = (cardName?: string, pantheon?: string) =>
 export const getNewsSlug = (newsTitle?: string) =>
   `news/${newsTitle?.toLowerCase().replace(/ /g, "-")}`;
 
-const fetchAllStories = () =>
+const fetchStoriesByStartingString = (startingString: string) =>
   axios({
     method: "get",
-    url: `${STORYBLOK_URL_STORIES}?token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+    url: `${STORYBLOK_URL_STORIES}?starts_with=${startingString}&token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
     responseType: "json",
   });
 
 export const fetchCardStories = async () =>
-  await fetchAllStories().then((stories) =>
+  await fetchStoriesByStartingString("card").then((stories) =>
     stories.data.stories.map(
       // @ts-ignore
       (story) => story.content.component === "card" && parseCardData(story)
@@ -31,7 +31,7 @@ export const fetchCardStories = async () =>
   );
 
 export const fetchQuoi2NeufStories = async () =>
-  await fetchAllStories().then((stories) =>
+  await fetchStoriesByStartingString("quoi2neuf").then((stories) =>
     stories.data.stories.map(
       // @ts-ignore
       (story) =>
@@ -40,7 +40,7 @@ export const fetchQuoi2NeufStories = async () =>
   );
 
 export const fetchQuEstCeQueCaFicheStories = async () =>
-  await fetchAllStories().then((stories) =>
+  await fetchStoriesByStartingString("questcequecafiche").then((stories) =>
     stories.data.stories.map(
       // @ts-ignore
       (story) =>
@@ -50,7 +50,7 @@ export const fetchQuEstCeQueCaFicheStories = async () =>
   );
 
 export const fetchNewsStories = async () =>
-  await fetchAllStories().then((stories) =>
+  await fetchStoriesByStartingString("news").then((stories) =>
     stories.data.stories.map(
       // @ts-ignore
       (story) =>
