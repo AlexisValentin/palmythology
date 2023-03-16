@@ -45,7 +45,7 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
           <tr className="bg-gray-900 text-gray-100">
             <th className="px-4">{wording.filter.name}</th>
             <th className="px-4">{wording.filter.pantheon}</th>
-            <th className="px-4">{wording.filter.subject}</th>
+            <th className="px-4 hidden sm:block">{wording.filter.subject}</th>
             <th className="px-4">{wording.filter.details}</th>
           </tr>
         </thead>
@@ -57,7 +57,7 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
               <tr className={`${dynamiseColor(card.pantheon)}`} key={idx}>
                 <td className="px-4 py-2">{card.name}</td>
                 <td className="px-4 py-2">{card.pantheon}</td>
-                <td className="px-4 py-2">{card.subject}</td>
+                <td className="px-4 py-2 hidden sm:block">{card.subject}</td>
                 <td className="py-2">
                   {card.available ? (
                     <Link

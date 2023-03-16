@@ -18,9 +18,13 @@ const PageSquare: React.FC<Quoi2NeufItemType> = ({
   return available ? (
     <Link
       to={setCardRouteParameters(title, pantheon)}
-      className={`border border-transparent rounded-3xl shadow-inner hover:bg-${getPantheonMainColor(
+      className={`border-6 border-transparent rounded-3xl p-6 mx-6 border-${getPantheonMainColor(
         pantheon
-      )} hover:text-${getPantheonTextColor(pantheon)} p-6 mx-6`}
+      )} lg:hover:bg-${getPantheonMainColor(
+        pantheon
+      )} lg:hover:text-${getPantheonTextColor(
+        pantheon
+      )} lg:shadow-inner lg:border-0`}
     >
       <div className="flex items-center justify-center flex-col">
         <PageSquareBlock title={title} subtitle={subtitle} icon={icon} />
