@@ -10,7 +10,7 @@ const MainMenu = (): JSX.Element => {
 
   return (
     <nav
-      className={`grid grid-cols-${gridColumns} border border-solid z-10 w-full px-6 md:px-20 xl:px-60`}
+      className={`grid grid-cols-${gridColumns} border border-solid z-10 w-full px-6 sm:px-24 md:40 lg:px-56 xl:px-72 2xl:px-96`}
     >
       {ROUTES.map((route, idx) => {
         const { url, name, iconUrl } = route;
