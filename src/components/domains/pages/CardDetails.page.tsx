@@ -23,7 +23,7 @@ const CardDetailsPage = (): JSX.Element => {
     <div className="flex items-center justify-center flex-col">
       <PageHeader title={name} subtitle={subtitle} />
       {summary && <Summary content={summary} />}
-      <div className="flex items-center justify-center w-full">
+      <div className="flex items-center justify-center w-3/4">
         <Carrousel imageList={images} />
       </div>
     </div>
