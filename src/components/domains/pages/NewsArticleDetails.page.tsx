@@ -3,8 +3,8 @@ import { useParams } from "react-router";
 import { getNewsSlug } from "../../../helpers/storyblok";
 import { isObjectEmpty } from "../../../helpers/types";
 import PageHeader from "../../generics/PageHeader";
-import Summary from "../../generics/Summary";
 import NotFound404 from "../http/404";
+import TextBlock from "../../generics/TextBlock";
 
 const NewsArticleDetailsPage = (): JSX.Element => {
   const params = useParams();
@@ -14,12 +14,12 @@ const NewsArticleDetailsPage = (): JSX.Element => {
 
   if (isObjectEmpty(story)) return <NotFound404 />;
 
-  const { title, summary, text } = story.content;
+  const { title, summary, newsItem } = story.content;
 
   return (
     <div className="flex items-center justify-center flex-col">
       <PageHeader title={title} subtitle={summary} />
-      {summary && <Summary content={text} />}
+      {newsItem && <TextBlock content={newsItem} />}
     </div>
   );
 };
