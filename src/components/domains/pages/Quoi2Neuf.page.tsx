@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { stringifyMonthCode } from "../../../helpers/dates";
 import { fetchQuoi2NeufStories } from "../../../helpers/storyblok";
-import { Quoi2NeufItemType } from "../../../types/consts/quoi2Neuf";
 import { wording } from "../../../wording/fr/main";
 import PageHeader from "../../generics/PageHeader";
 import PageSquare from "../../generics/PageSquare";
+import { Quoi2NeufItemType } from "../../../types/storyblok";
 
 const Quoi2NeufPage = (): JSX.Element => {
   const [quoi2NeufItems, setQuoi2NeufItems] = useState<Quoi2NeufItemType[]>([]);

@@ -1,8 +1,8 @@
 import { isEven } from "../../helpers/number";
-import { NewsItemType } from "../../types/consts/news";
+import { TextBlockType } from "../../types/storyblok";
 
 interface TextBlockProps {
-  content: NewsItemType[];
+  content: TextBlockType[];
 }
 
 const TextBlock: React.FC<TextBlockProps> = ({ content }): JSX.Element => {

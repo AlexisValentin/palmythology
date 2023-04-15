@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { setCardRouteParameters } from "../../../helpers/routes";
 import { fetchQuEstCeQueCaFicheStories } from "../../../helpers/storyblok";
-import { QuestCeQueCaFicheItemType } from "../../../types/consts/questCeQueCaFiche";
 import { wording } from "../../../wording/fr/main";
 import PageHeader from "../../generics/PageHeader";
 import PageSection from "../../generics/PageSection";
+import { QuestCeQueCaFicheItemType } from "../../../types/storyblok";
 
 const QuestCeQueCaFichePage = (): JSX.Element => {
   const [quEstCeQueCaFicheItems, setQuEstCeQueCaFicheItems] = useState<

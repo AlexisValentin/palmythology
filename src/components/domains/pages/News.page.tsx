@@ -1,10 +1,10 @@
-import { NewsPageType } from "../../../types/consts/news";
 import { useEffect, useState } from "react";
 import { wording } from "../../../wording/fr/main";
 import PageHeader from "../../generics/PageHeader";
 import { fetchNewsStories } from "../../../helpers/storyblok";
 import PageSection from "../../generics/PageSection";
 import { setNewsRouteParameters } from "../../../helpers/routes";
+import { NewsPageType } from "../../../types/storyblok";
 
 const NewsPage = (): JSX.Element => {
   const [newsPages, setNewsPages] = useState<NewsPageType[]>([]);

@@ -1,9 +1,8 @@
 import axios from "axios";
 import { CardDetails } from "../types/cards/card";
-import { NewsPageType } from "../types/consts/news";
-import { QuestCeQueCaFicheItemType } from "../types/consts/questCeQueCaFiche";
-import { Quoi2NeufItemType } from "../types/consts/quoi2Neuf";
 import {
+  NewsPageType,
+  QuestCeQueCaFicheItemType,
   STORYBLOK_TOKEN,
   STORYBLOK_URL_STORIES,
   STORYBLOK_VERSIONS,

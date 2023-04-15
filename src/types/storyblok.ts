@@ -7,3 +7,44 @@ export enum STORYBLOK_VERSIONS {
   DRAFT = "draft",
   PUBLISHED = "published",
 }
+
+export interface NewsPageType {
+  title: string;
+  summary: string;
+  icon: {
+    alt: string;
+    filename: string;
+  };
+  newsItem: TextBlockType[];
+}
+
+export interface QuestCeQueCaFicheItemType {
+  title: string;
+  summary: string;
+  icon: {
+    alt: string;
+    filename: string;
+  };
+  pantheon: string;
+}
+
+export interface Quoi2NeufItemType {
+  title: string;
+  subtitle: string;
+  available: boolean;
+  icon: {
+    alt: string;
+    filename: string;
+  };
+  pantheon: string;
+}
+
+export interface TextBlockType {
+  text: string;
+  illustration: {
+    alt: string;
+    filename: string;
+  };
+  component: string;
+  _uid: string;
+}
