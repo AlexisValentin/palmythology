@@ -14,6 +14,8 @@ export const getCardSlug = (cardName?: string, pantheon?: string) =>
 export const getNewsSlug = (newsTitle?: string) =>
   `news/${newsTitle?.toLowerCase().replace(/ /g, "-")}`;
 
+export const getAboutSlug = () => `about/page`;
+
 const fetchStoriesByStartingString = (startingString: string) =>
   axios({
     method: "get",

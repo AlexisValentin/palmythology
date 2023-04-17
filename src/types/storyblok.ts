@@ -48,3 +48,8 @@ export interface TextBlockType {
   component: string;
   _uid: string;
 }
+
+export type AboutPageType = AboutItemType[];
+export interface AboutItemType {
+  aboutItem: TextBlockType[];
+}

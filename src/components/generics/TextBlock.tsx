@@ -19,7 +19,7 @@ const TextBlock: React.FC<TextBlockProps> = ({ content }): JSX.Element => {
             <div className="flex justify-center items-center px-10 py-3 w-full">
               {block.text}
             </div>
-            {block.illustration.filename && (
+            {block.illustration?.filename && (
               <div className="flex w-3/4">
                 <img
                   src={block.illustration.filename}
