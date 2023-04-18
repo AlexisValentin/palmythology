@@ -4,7 +4,7 @@ import { getNewsSlug } from "../../../helpers/storyblok";
 import { isObjectEmpty } from "../../../helpers/types";
 import PageHeader from "../../generics/PageHeader";
 import NotFound404 from "../http/404";
-import TextBlock from "../../generics/TextBlock";
+import TextBlock, { IconSize } from "../../generics/TextBlock";
 
 const NewsArticleDetailsPage = (): JSX.Element => {
   const params = useParams();
@@ -19,7 +19,7 @@ const NewsArticleDetailsPage = (): JSX.Element => {
   return (
     <div className="flex items-center justify-center flex-col">
       <PageHeader title={title} subtitle={summary} />
-      {newsItem && <TextBlock content={newsItem} />}
+      {newsItem && <TextBlock content={newsItem} iconSize={IconSize.LARGE} />}
     </div>
   );
 };
