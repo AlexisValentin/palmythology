@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { isEven } from "../../helpers/number";
+import { markdownToHtml } from "../../helpers/string";
 import { TextBlockType } from "../../types/storyblok";
 
 export enum IconSize {
@@ -18,6 +20,24 @@ const TextBlock: React.FC<TextBlockProps> = ({
   iconSize,
   leftSiding,
 }): JSX.Element => {
+  const [parsedContent, setParsedContent] = useState<TextBlockType[]>(content);
+
+  useEffect(() => {
+    const parseMarkdownToHtml = async (markdown: TextBlockType["text"]) =>
+      await markdownToHtml(markdown);
+
+    content.forEach((block) => {
+      parseMarkdownToHtml(block.text).then((response) => {
+        setParsedContent((parsedContent) =>
+          parsedContent.concat({
+            ...block,
+            text: response,
+          })
+        );
+      });
+    });
+  }, [content]);
+
   const getIconContainerWidthStyle = (iconWidth: IconSize) => {
     switch (iconWidth) {
       case IconSize.SMALL:
@@ -32,7 +52,7 @@ const TextBlock: React.FC<TextBlockProps> = ({
 
   return (
     <div className="mt-20">
-      {content.map((block, key) => {
+      {parsedContent.map((block, key) => {
         return (
           <div
             key={block._uid}
