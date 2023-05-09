@@ -21,12 +21,12 @@ const TextBlock: React.FC<TextBlockProps> = ({
   const getIconContainerWidthStyle = (iconWidth: IconSize) => {
     switch (iconWidth) {
       case IconSize.SMALL:
-        return `w-1/4`;
+        return `w-1/6`;
       case IconSize.MEDIUM:
-        return `w-1/2`;
+        return `w-1/4`;
       case IconSize.LARGE:
       default:
-        return `w-3/4`;
+        return `w-1/3`;
     }
   };
 
@@ -40,7 +40,11 @@ const TextBlock: React.FC<TextBlockProps> = ({
               isEven(key) && !leftSiding ? `flex-row` : `flex-row-reverse`
             } grow mb-20`}
           >
-            <div className="flex justify-center items-center px-10 py-3 w-full">
+            <div
+              className={`flex ${
+                isEven(key) && !leftSiding ? `justify-end` : `justify-start`
+              } items-center px-10 py-3 w-full`}
+            >
               {block.text}
             </div>
             {block.illustration?.filename && (
