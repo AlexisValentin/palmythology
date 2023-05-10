@@ -18,7 +18,7 @@ const AboutPage = (): JSX.Element => {
       {story?.content?.aboutItems && (
         <TextBlock
           content={story.content.aboutItems}
-          iconSize={IconSize.SMALL}
+          iconSize={IconSize.MEDIUM}
           leftSiding={true}
         />
       )}

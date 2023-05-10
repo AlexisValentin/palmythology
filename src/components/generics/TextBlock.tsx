@@ -21,12 +21,12 @@ const TextBlock: React.FC<TextBlockProps> = ({
   const getIconContainerWidthStyle = (iconWidth: IconSize) => {
     switch (iconWidth) {
       case IconSize.SMALL:
-        return `w-1/6`;
+        return `w-1/12`;
       case IconSize.MEDIUM:
-        return `w-1/4`;
+        return `w-1/6`;
       case IconSize.LARGE:
       default:
-        return `w-1/3`;
+        return `w-1/4`;
     }
   };
 

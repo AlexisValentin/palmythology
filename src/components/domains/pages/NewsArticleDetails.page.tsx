@@ -19,7 +19,7 @@ const NewsArticleDetailsPage = (): JSX.Element => {
   return (
     <div className="flex items-center justify-center flex-col">
       <PageHeader title={title} subtitle={summary} />
-      {newsItem && <TextBlock content={newsItem} iconSize={IconSize.LARGE} />}
+      {newsItem && <TextBlock content={newsItem} iconSize={IconSize.MEDIUM} />}
     </div>
   );
 };
