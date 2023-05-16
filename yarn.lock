@@ -1754,75 +1754,75 @@
   resolved "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.2.0.tgz"
   integrity sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==
 
-"@sentry-internal/tracing@7.51.2":
-  version "7.51.2"
-  resolved "https://registry.npmjs.org/@sentry-internal/tracing/-/tracing-7.51.2.tgz"
-  integrity sha512-OBNZn7C4CyocmlSMUPfkY9ORgab346vTHu5kX35PgW5XR51VD2nO5iJCFbyFcsmmRWyCJcZzwMNARouc2V4V8A==
+"@sentry-internal/tracing@7.52.1":
+  version "7.52.1"
+  resolved "https://registry.npmjs.org/@sentry-internal/tracing/-/tracing-7.52.1.tgz"
+  integrity sha512-6N99rE+Ek0LgbqSzI/XpsKSLUyJjQ9nychViy+MP60p1x+hllukfTsDbNtUNrPlW0Bx+vqUrWKkAqmTFad94TQ==
   dependencies:
-    "@sentry/core" "7.51.2"
-    "@sentry/types" "7.51.2"
-    "@sentry/utils" "7.51.2"
+    "@sentry/core" "7.52.1"
+    "@sentry/types" "7.52.1"
+    "@sentry/utils" "7.52.1"
     tslib "^1.9.3"
 
-"@sentry/browser@7.51.2":
-  version "7.51.2"
-  resolved "https://registry.npmjs.org/@sentry/browser/-/browser-7.51.2.tgz"
-  integrity sha512-FQFEaTFbvYHPQE2emFjNoGSy+jXplwzoM/XEUBRjrGo62lf8BhMvWnPeG3H3UWPgrWA1mq0amvHRwXUkwofk0g==
+"@sentry/browser@7.52.1":
+  version "7.52.1"
+  resolved "https://registry.npmjs.org/@sentry/browser/-/browser-7.52.1.tgz"
+  integrity sha512-HrCOfieX68t+Wj42VIkraLYwx8kN5311SdBkHccevWs2Y2dZU7R9iLbI87+nb5kpOPQ7jVWW7d6QI/yZmliYgQ==
   dependencies:
-    "@sentry-internal/tracing" "7.51.2"
-    "@sentry/core" "7.51.2"
-    "@sentry/replay" "7.51.2"
-    "@sentry/types" "7.51.2"
-    "@sentry/utils" "7.51.2"
+    "@sentry-internal/tracing" "7.52.1"
+    "@sentry/core" "7.52.1"
+    "@sentry/replay" "7.52.1"
+    "@sentry/types" "7.52.1"
+    "@sentry/utils" "7.52.1"
     tslib "^1.9.3"
 
-"@sentry/core@7.51.2":
-  version "7.51.2"
-  resolved "https://registry.npmjs.org/@sentry/core/-/core-7.51.2.tgz"
-  integrity sha512-p8ZiSBxpKe+rkXDMEcgmdoyIHM/1bhpINLZUFPiFH8vzomEr7sgnwRhyrU8y/ADnkPeNg/2YF3QpDpk0OgZJUA==
+"@sentry/core@7.52.1":
+  version "7.52.1"
+  resolved "https://registry.npmjs.org/@sentry/core/-/core-7.52.1.tgz"
+  integrity sha512-36clugQu5z/9jrit1gzI7KfKbAUimjRab39JeR0mJ6pMuKLTTK7PhbpUAD4AQBs9qVeXN2c7h9SVZiSA0UDvkg==
   dependencies:
-    "@sentry/types" "7.51.2"
-    "@sentry/utils" "7.51.2"
+    "@sentry/types" "7.52.1"
+    "@sentry/utils" "7.52.1"
     tslib "^1.9.3"
 
-"@sentry/react@^7.51.2":
-  version "7.51.2"
-  resolved "https://registry.npmjs.org/@sentry/react/-/react-7.51.2.tgz"
-  integrity sha512-NiTbpiRaF7/2YnRONLqn8/bxT5UG+JN5MrR606ipxsl3ejF376VMLCHVvju6gJNw8mkrErEMkfxK+gGYqOdLEA==
+"@sentry/react@^7.52.1":
+  version "7.52.1"
+  resolved "https://registry.npmjs.org/@sentry/react/-/react-7.52.1.tgz"
+  integrity sha512-RRH+GJE5TNg5QS86bSjSZuR2snpBTOO5/SU9t4BOqZMknzhMVTClGMm84hffJa9pMPMJPQ2fWQAbhrlD8RcF6w==
   dependencies:
-    "@sentry/browser" "7.51.2"
-    "@sentry/types" "7.51.2"
-    "@sentry/utils" "7.51.2"
+    "@sentry/browser" "7.52.1"
+    "@sentry/types" "7.52.1"
+    "@sentry/utils" "7.52.1"
     hoist-non-react-statics "^3.3.2"
     tslib "^1.9.3"
 
-"@sentry/replay@7.51.2":
-  version "7.51.2"
-  resolved "https://registry.npmjs.org/@sentry/replay/-/replay-7.51.2.tgz"
-  integrity sha512-W8YnSxkK9LTUXDaYciM7Hn87u57AX9qvH8jGcxZZnvpKqHlDXOpSV8LRtBkARsTwgLgswROImSifY0ic0lyCWg==
+"@sentry/replay@7.52.1":
+  version "7.52.1"
+  resolved "https://registry.npmjs.org/@sentry/replay/-/replay-7.52.1.tgz"
+  integrity sha512-A+RaUmpU9/yBHnU3ATemc6wAvobGno0yf5R6fZYkAFoo2FCR2YG6AXxkTazymIf8v2DnLGaSDORYDPdhQClU9A==
   dependencies:
-    "@sentry/core" "7.51.2"
-    "@sentry/types" "7.51.2"
-    "@sentry/utils" "7.51.2"
+    "@sentry/core" "7.52.1"
+    "@sentry/types" "7.52.1"
+    "@sentry/utils" "7.52.1"
 
-"@sentry/tracing@^7.51.2":
-  version "7.51.2"
-  resolved "https://registry.npmjs.org/@sentry/tracing/-/tracing-7.51.2.tgz"
-  integrity sha512-qYl8TtwdEAtLBFSSTtHX6OpSGI73sgoPZhc3ZtF7+cLe29FRM5M6uyV7HhgIrxCstAx/5lZRlCWJabkIewGfFA==
+"@sentry/tracing@^7.52.1":
+  version "7.52.1"
+  resolved "https://registry.npmjs.org/@sentry/tracing/-/tracing-7.52.1.tgz"
+  integrity sha512-1afFeb0X6YcMK8mcsGXpO9rNFEF4Kd3mAUF22hXyFNWVoPNQsvdh/WxG2t3U+hLhehQ1ps3iJ0jxFRGF5zSboA==
   dependencies:
-    "@sentry-internal/tracing" "7.51.2"
+    "@sentry-internal/tracing" "7.52.1"
 
-"@sentry/types@7.51.2":
-  version "7.51.2"
-  resolved "https://registry.npmjs.org/@sentry/types/-/types-7.51.2.tgz"
-  integrity sha512-/hLnZVrcK7G5BQoD/60u9Qak8c9AvwV8za8TtYPJDUeW59GrqnqOkFji7RVhI7oH1OX4iBxV+9pAKzfYE6A6SA==
+"@sentry/types@7.52.1":
+  version "7.52.1"
+  resolved "https://registry.npmjs.org/@sentry/types/-/types-7.52.1.tgz"
+  integrity sha512-OMbGBPrJsw0iEXwZ2bJUYxewI1IEAU2e1aQGc0O6QW5+6hhCh+8HO8Xl4EymqwejjztuwStkl6G1qhK+Q0/Row==
 
-"@sentry/utils@7.51.2":
-  version "7.51.2"
-  resolved "https://registry.npmjs.org/@sentry/utils/-/utils-7.51.2.tgz"
-  integrity sha512-EcjBU7qG4IG+DpIPvdgIBcdIofROMawKoRUNKraeKzH/waEYH9DzCaqp/mzc5/rPBhpDB4BShX9xDDSeH+8c0A==
+"@sentry/utils@7.52.1":
+  version "7.52.1"
+  resolved "https://registry.npmjs.org/@sentry/utils/-/utils-7.52.1.tgz"
+  integrity sha512-MPt1Xu/jluulknW8CmZ2naJ53jEdtdwCBSo6fXJvOTI0SDqwIPbXDVrsnqLAhVJuIN7xbkj96nuY/VBR6S5sWg==
   dependencies:
-    "@sentry/types" "7.51.2"
+    "@sentry/types" "7.52.1"
     tslib "^1.9.3"
 
 "@sinclair/typebox@^0.24.1":
@@ -1844,19 +1844,19 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@storyblok/js@^2.1.3":
+"@storyblok/js@^2.1.4":
   version "2.1.4"
   resolved "https://registry.npmjs.org/@storyblok/js/-/js-2.1.4.tgz"
   integrity sha512-dFbjRIGIBRSfg+S5a9QsJREa3GmaoQlDtmgEKmmEAvNipZOXNVc0PbigwlY0H1u0Cmi5i+0iq6i2oy60sL9M4A==
   dependencies:
     storyblok-js-client "^5.10.5"
 
-"@storyblok/react@^2.0.18":
-  version "2.0.18"
-  resolved "https://registry.npmjs.org/@storyblok/react/-/react-2.0.18.tgz"
-  integrity sha512-GPoZpwrI72h/TXMN35EmPq5CmVGopz2nFA5HcC1metwQ7TViYdMY1oTKHHtnYAn59Wj3WwauCGHpYZjhYRA/8g==
+"@storyblok/react@^2.0.19":
+  version "2.0.19"
+  resolved "https://registry.npmjs.org/@storyblok/react/-/react-2.0.19.tgz"
+  integrity sha512-hH7iDv+N0xotLPjwARurqE68MBRs2Aun2iqPDaXRg/2LiTJr2+w55zvfJd3xZMpl7b03e5Zk/l+m4Yc7vEQP5g==
   dependencies:
-    "@storyblok/js" "^2.1.3"
+    "@storyblok/js" "^2.1.4"
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
@@ -9630,10 +9630,10 @@ stdout-stream@^1.4.0:
   dependencies:
     readable-stream "^2.0.1"
 
-storyblok-generate-ts@^1.13.2:
-  version "1.13.2"
-  resolved "https://registry.npmjs.org/storyblok-generate-ts/-/storyblok-generate-ts-1.13.2.tgz"
-  integrity sha512-zMHtYbKCCZr/O55i89l1qkOP1AIZaf23ooCGr95jGpHzz7fqA7/wZJnNatFqKU3MgwYeL8eQJK50prsc/V/s9A==
+storyblok-generate-ts@^1.14.0:
+  version "1.14.0"
+  resolved "https://registry.npmjs.org/storyblok-generate-ts/-/storyblok-generate-ts-1.14.0.tgz"
+  integrity sha512-/R+6i0MsiIYcADu4Kx0oPbSIoW0uBd1WB/WhHdYRvxgpjg36pgl0cYr6cjckXaO8scGbUUSg0WN4xbBXWm5SJQ==
   dependencies:
     camelcase "^6.3.0"
     json-schema-to-typescript "^11.0.1"
@@ -9883,10 +9883,10 @@ svgo@^2.7.0:
     picocolors "^1.0.0"
     stable "^0.1.8"
 
-swiper@^9.3.0:
-  version "9.3.0"
-  resolved "https://registry.npmjs.org/swiper/-/swiper-9.3.0.tgz"
-  integrity sha512-iELlQVvWLdyfUjQSfhg8UTKBvgfm3uCfv3wJ3f9wbSWP6spzoOTLcob87A8ywPS2FRc552JmrnyL5+LYfN8j9Q==
+swiper@^9.3.2:
+  version "9.3.2"
+  resolved "https://registry.npmjs.org/swiper/-/swiper-9.3.2.tgz"
+  integrity sha512-Kj9Z4kXRmJR3YT/Wj+XLWj8P6IcRt+WG38uL8M3/Wny7+6sV0TlP9vnE1X+Co9c7VzNooojWGnFa+Wf/9+CUMA==
   dependencies:
     ssr-window "^4.0.2"
 

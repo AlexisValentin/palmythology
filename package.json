@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@sentry/react": "^7.51.2",
-    "@sentry/tracing": "^7.51.2",
-    "@storyblok/react": "^2.0.18",
+    "@sentry/react": "^7.52.1",
+    "@sentry/tracing": "^7.52.1",
+    "@storyblok/react": "^2.0.19",
     "@types/lodash": "^4.14.194",
     "axios": "^1.4.0",
     "cross-env": "^7.0.3",
@@ -19,7 +19,7 @@
     "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.3",
-    "swiper": "^9.3.0",
+    "swiper": "^9.3.2",
     "web-vitals": "^3.3.1"
   },
   "scripts": {
@@ -55,7 +55,7 @@
     "file-loader": "^6.2.0",
     "postcss": "^8.4.23",
     "react-router-dom": "^6.11.1",
-    "storyblok-generate-ts": "^1.13.2",
+    "storyblok-generate-ts": "^1.14.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "typescript": "^5.0.4"
   }
