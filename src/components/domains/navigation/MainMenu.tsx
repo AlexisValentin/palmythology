@@ -3,23 +3,18 @@ import { ROUTES } from "../../../types/consts/routes";
 import { wording } from "../../../wording/fr/main";
 
 const MainMenu = (): JSX.Element => {
-  const gridColumns = ROUTES.length;
-
   const isHomePage = (routeName: string) =>
     wording.sections.home_title === routeName;
 
   return (
     <nav
-      className={`grid grid-cols-${gridColumns} border border-solid z-10 w-full px-6 sm:px-24 md:40 lg:px-56 xl:px-72 2xl:px-96`}
+      className={`flex items-center justify-evenly border border-solid z-10 w-full px-6 sm:px-24 md:40 lg:px-56 xl:px-72 2xl:px-96`}
     >
       {ROUTES.map((route, idx) => {
         const { url, name, iconUrl } = route;
 
         return (
-          <div
-            className={`grid justify-items-center content-center py-3`}
-            key={idx}
-          >
+          <div className={`justify-items-center content-center py-3`} key={idx}>
             <Link to={url}>
               {isHomePage(name) ? (
                 <img
