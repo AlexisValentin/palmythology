@@ -1,3 +1,11 @@
+# Version 1.1.0 (??/??/2023)
+
+## Divers
+
+- Migration de la version `2.2.19` de `tailwindcss` à la version `3.3.2`.
+
+---
+
 # Version 1.0.1 (22/05/2023)
 
 ## Rendu visuel

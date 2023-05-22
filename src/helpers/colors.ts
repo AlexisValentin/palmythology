@@ -72,7 +72,7 @@ export const getPantheonStyle = (
 };
 
 export const getSummaryBackgroundColor = () =>
-  `${BACKGROUND}-${COLORS.GRAY}-${COLOR_TAINTS.SUPER_LIGHT}`;
+  `${BACKGROUND}-${COLORS.NEUTRAL}-${COLOR_TAINTS.SUPER_LIGHT}`;
 
 export const getPantheonMainColor = (pantheon: string) => {
   // @ts-ignore

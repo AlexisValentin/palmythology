@@ -7,24 +7,14 @@ export const COLORS = {
   BLUE: "blue",
   CYAN: "cyan",
   EMERALD: "emerald",
-  FUCHSIA: "fuchsia",
-  GRAY: "gray",
-  GREEN: "green",
   INDIGO: "indigo",
   LIME: "lime",
   NEUTRAL: "neutral",
   ORANGE: "orange",
   PINK: "pink",
-  PURPLE: "purple",
   RED: "red",
-  ROSE: "rose",
   SKY: "sky",
-  SLATE: "slate",
-  STONE: "stone",
-  TEAL: "teal",
   VIOLET: "violet",
-  YELLOW: "yellow",
-  ZINC: "zinc",
 };
 
 export const COLOR_TAINTS = {
@@ -40,10 +30,10 @@ export const COLOR_TAINTS = {
 };
 
 export const TEXT_COLORS = {
-  GENERIC: `${COLORS.GRAY}-${COLOR_TAINTS.EXTRA_LIGHT}`,
+  GENERIC: `${COLORS.NEUTRAL}-${COLOR_TAINTS.EXTRA_LIGHT}`,
   HINDU: `${COLORS.EMERALD}-${COLOR_TAINTS.DARK}`,
   JAPANESE: `${COLORS.RED}-${COLOR_TAINTS.DARKER}`,
-  ROMAN: `${COLORS.YELLOW}-${COLOR_TAINTS.MEDIUM}`,
+  ROMAN: `${COLORS.AMBER}-${COLOR_TAINTS.MEDIUM}`,
 };
 
 export const MYTHOLOGY_COLORS = {
@@ -54,7 +44,7 @@ export const MYTHOLOGY_COLORS = {
   GREEK: `${COLORS.BLUE}-${COLOR_TAINTS.DARKER}`,
   HINDU: `${COLORS.AMBER}-${COLOR_TAINTS.DARK}`,
   JAPANESE: `${COLORS.NEUTRAL}-${COLOR_TAINTS.EXTRA_LIGHT}`,
-  MAYAN: `${COLORS.PURPLE}-${COLOR_TAINTS.SUPER_DARK}`,
+  MAYAN: `${COLORS.VIOLET}-${COLOR_TAINTS.SUPER_DARK}`,
   NORSE: `${COLORS.SKY}-${COLOR_TAINTS.LIGHTER}`,
   ROMAN: `${COLORS.RED}-${COLOR_TAINTS.EXTRA_DARK}`,
 };
@@ -65,25 +55,13 @@ export const FOLDERS_COLORS = {
     `${COLORS.INDIGO}-${COLOR_TAINTS.MEDIUM}`,
   ],
   QUOI_2_NEUF: [
-    `${COLORS.GREEN}-${COLOR_TAINTS.MEDIUM}`,
+    `${COLORS.EMERALD}-${COLOR_TAINTS.MEDIUM}`,
     `${COLORS.LIME}-${COLOR_TAINTS.MEDIUM}`,
   ],
   PANTHEONS: {
-    EGYPTIAN: [
-      `${COLORS.GRAY}-${COLOR_TAINTS.EXTRA_DARK}`,
-      `${MYTHOLOGY_COLORS.EGYPTIAN}`,
-    ],
-    GREEK: [
-      `${COLORS.GRAY}-${COLOR_TAINTS.EXTRA_DARK}`,
-      `${MYTHOLOGY_COLORS.GREEK}`,
-    ],
-    NORSE: [
-      `${COLORS.GRAY}-${COLOR_TAINTS.EXTRA_DARK}`,
-      `${MYTHOLOGY_COLORS.NORSE}`,
-    ],
     DEFAULT: [
-      `${COLORS.GRAY}-${COLOR_TAINTS.EXTRA_DARK}`,
-      `${COLORS.GRAY}-${COLOR_TAINTS.EXTRA_DARK}`,
+      `${COLORS.NEUTRAL}-${COLOR_TAINTS.EXTRA_DARK}`,
+      `${COLORS.NEUTRAL}-${COLOR_TAINTS.EXTRA_DARK}`,
     ],
   },
 };
@@ -91,10 +69,10 @@ export const FOLDERS_COLORS = {
 export const SECTION_COLORS = {
   ABOUT: [
     `${COLORS.BLUE}-${COLOR_TAINTS.MEDIUM}`,
-    `${COLORS.GREEN}-${COLOR_TAINTS.MEDIUM}`,
+    `${COLORS.EMERALD}-${COLOR_TAINTS.MEDIUM}`,
   ],
   NEWS: [
-    `${COLORS.PURPLE}-${COLOR_TAINTS.MEDIUM}`,
+    `${COLORS.VIOLET}-${COLOR_TAINTS.MEDIUM}`,
     `${COLORS.PINK}-${COLOR_TAINTS.MEDIUM}`,
   ],
   FOLDERS: [
@@ -103,7 +81,7 @@ export const SECTION_COLORS = {
   ],
   RESEARCH: [
     `${COLORS.RED}-${COLOR_TAINTS.MEDIUM}`,
-    `${COLORS.YELLOW}-${COLOR_TAINTS.MEDIUM}`,
+    `${COLORS.AMBER}-${COLOR_TAINTS.MEDIUM}`,
   ],
 };
 

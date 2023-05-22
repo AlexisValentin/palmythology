@@ -15,9 +15,7 @@ const FoldersPage = (): JSX.Element => {
           const { name, url, description, gradient, iconUrl } = route;
           const { home_title } = wording.sections;
 
-          if (name === home_title) {
-            return null;
-          }
+          if (name === home_title) return <></>;
 
           return (
             <PageSection
