@@ -1,4 +1,14 @@
-# Version 1.0 (22/05/2023)
+# Version 1.0.1 (22/05/2023)
+
+## Rendu visuel
+
+- Correction d'un bug qui faisait que le menu s'affichait en une seule colonne au lieu de ne s'afficher qu'en une seule ligne.
+- Correction d'un bug qui faisait que les couleurs prédéfinies de `tailwindcss` ne s'affichaient plus.
+- Downgrade de certaines versions de librairies, qui engendraient des problèmes au niveau du build.
+
+---
+
+# Version 1.0.0 (22/05/2023)
 
 Le site web officiel de la Palmythology est enfin disponible ! Retrouvez les notes de versions et les changements importants dans ce fichier, pour vous tenir au courant des nouvelles fonctionnalités mais également des corrections de bugs, des changements techniques et différentes informations.
 
@@ -6,9 +16,9 @@ Le site web officiel de la Palmythology est enfin disponible ! Retrouvez les not
 
 - Les différentes sections sont désormais accessibles via 4 blocs de liens donnant un accès direct aux différentes rubriques du site (Actualités, Dossiers, Recherche, A propos).
 
-## Header
+## Menu
 
-- Le header est sitcky et est présent sur toutes les pages du site.
+- Le menu est sitcky en haut de la page et est présent sur toutes les pages du site.
 - Les différentes sections sont désormais accessibles via 4 blocs de liens donnant un accès direct aux différentes rubriques du site (Actualités, Dossiers, Recherche, A propos).
 - Les blocs de liens s'adaptent correctement à l'affichage sur écran mobile, privilégiant des simples icônes en relation avec les rubriques plutôt que du contenu textuel.
 
