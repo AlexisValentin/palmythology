@@ -11,7 +11,8 @@ const Quoi2NeufPage = (): JSX.Element => {
 
   const date = new Date();
   const month = date.getMonth();
-  const parsedDate = `${stringifyMonthCode(month)} ${date.getFullYear()}`;
+  const year = date.getFullYear();
+  const parsedDate = `${stringifyMonthCode(month)} ${year}`;
 
   useEffect(() => {
     fetchQuoi2NeufStories().then((items) => {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { allPantheon } from "../../../types/cards/pantheons";
 import { allSubject } from "../../../types/cards/subjects";
 import { BASE_INPUT_NAMES } from "../../../types/consts/form";
@@ -23,13 +23,13 @@ const Filter = (): JSX.Element => {
     subject: BASE_INPUT_NAMES.SUBJECT,
   };
 
-  const onPantheonSelectChange = (selected?: ReactSelectValue) => {
+  const onPantheonSelectChange = useCallback((selected?: ReactSelectValue) => {
     setPantheonSearchCriterias(selected?.value);
-  };
+  }, []);
 
-  const onSubjectSelectChange = (selected?: ReactSelectValue) => {
+  const onSubjectSelectChange = useCallback((selected?: ReactSelectValue) => {
     setSubjectSearchCriterias(selected?.value);
-  };
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center">

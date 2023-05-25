@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { setCardRouteParameters } from "../../../helpers/routes";
 import { filterCards } from "../../../modules/searchEngine";
@@ -30,13 +30,13 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
     });
   }, [searchCriterias]);
 
-  const dynamiseColor = (pantheon: PantheonLabel): string => {
+  const dynamiseColor = useCallback((pantheon: PantheonLabel): string => {
     const { backgroundColor, textColor } = getPantheonStyle(
       getPantheonValueFromLabel(pantheon)
     );
 
     return `${BACKGROUND}-${backgroundColor} ${TEXT}-${textColor}`;
-  };
+  }, []);
 
   return (
     <div className="text-center my-6">

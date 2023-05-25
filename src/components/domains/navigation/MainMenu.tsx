@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../types/consts/routes";
 import { wording } from "../../../wording/fr/main";
+import { useCallback } from "react";
 
 const MainMenu = (): JSX.Element => {
-  const isHomePage = (routeName: string) =>
-    wording.sections.home_title === routeName;
+  const isHomePage = useCallback((routeName: string) => {
+    return wording.sections.home_title === routeName;
+  }, []);
 
   return (
     <nav

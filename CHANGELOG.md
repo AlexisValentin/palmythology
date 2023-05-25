@@ -3,6 +3,7 @@
 ## Divers
 
 - Migration de la version `2.2.19` de `tailwindcss` à la version `3.3.2`.
+- Amélioration très légère de performance avec l'utilisation des hooks `useCallback` afin d'éviter de solliciter des méthodes susceptibles de renvoyer le même résultat régulièrement.
 
 ---
 

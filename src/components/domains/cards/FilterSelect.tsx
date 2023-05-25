@@ -7,7 +7,7 @@ interface FilterSelectProps {
   selectLabel: string;
   selectName: string;
   onChange: (selected?: ReactSelectValue) => void;
-  options: readonly PantheonSelectType[] | SubjectSelectType[];
+  options: PantheonSelectType[] | SubjectSelectType[];
 }
 
 const FilterSelect: React.FC<FilterSelectProps> = ({
