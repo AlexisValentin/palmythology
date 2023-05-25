@@ -7,12 +7,13 @@ import {
   STORYBLOK_URL_STORIES,
   STORYBLOK_VERSIONS,
 } from "../types/storyblok";
+import { parseStringToSlug } from "./string";
 
-export const getCardSlug = (cardName?: string, pantheon?: string) =>
-  `cards/${pantheon}/${cardName?.toLowerCase()}`;
+export const getCardSlug = (cardName: string, pantheon: string) =>
+  `cards/${parseStringToSlug(pantheon)}/${parseStringToSlug(cardName)}`;
 
-export const getNewsSlug = (newsTitle?: string) =>
-  `news/${newsTitle?.toLowerCase().replace(/ /g, "-")}`;
+export const getNewsSlug = (newsTitle: string) =>
+  `news/${parseStringToSlug(newsTitle)}`;
 
 export const getAboutSlug = () => `about/page`;
 
