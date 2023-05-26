@@ -1,14 +1,15 @@
 import { useStoryblok } from "@storyblok/react";
 import { useParams } from "react-router-dom";
 import { getCardSlug } from "../../../helpers/storyblok";
-import { isObjectEmpty } from "../../../helpers/types";
 import Carrousel from "../../generics/Carrousel";
 import PageHeader from "../../generics/PageHeader";
 import Summary from "../../generics/Summary";
 import NotFound404 from "../http/404";
+import { isObjectEmpty } from "../../../helpers/object";
 
 const CardDetailsPage = (): JSX.Element => {
   const params = useParams();
+  // @ts-ignore
   const story = useStoryblok(getCardSlug(params.card, params.pantheon), {
     version: "published",
   });

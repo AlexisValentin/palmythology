@@ -1,10 +1,25 @@
 import {
+  isStringEmpty,
   parseStringToSlug,
   replaceSpacesByDashes,
   stripDiacritics,
 } from "./string";
 
 describe("helpers/string", () => {
+  describe("isStringEmpty", () => {
+    test("should return `true` if string is empty", () => {
+      expect(isStringEmpty("")).toEqual(true);
+    });
+
+    test("should return `false` if string is blankisObjectEmpty space", () => {
+      expect(isStringEmpty(" ")).toEqual(false);
+    });
+
+    test("should return `false` if string is not empty", () => {
+      expect(isStringEmpty("Poséidon")).toEqual(false);
+    });
+  });
+
   describe("stripDiacritics", () => {
     test("should not modify unaccentuated string", () =>
       expect(stripDiacritics("Ulysse")).toEqual("Ulysse"));

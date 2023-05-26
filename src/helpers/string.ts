@@ -1,3 +1,5 @@
+export const isStringEmpty = (value?: string): boolean => value === "";
+
 export const stripDiacritics = (stringToStrip: string): string =>
   stringToStrip?.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
