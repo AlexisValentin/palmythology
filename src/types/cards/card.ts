@@ -50,6 +50,6 @@ export type CardName =
   | RomanNames;
 
 export interface ResearchCriterias {
-  pantheon?: string;
-  subject?: string;
+  pantheon: string;
+  subject: string;
 }

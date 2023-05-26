@@ -21,7 +21,7 @@ export interface SubjectSelectType {
   label: SubjectLabel;
 }
 
-export const allSubject: SubjectSelectType[] = [
+export const ALL_SUBJECT: SubjectSelectType[] = [
   { value: SubjectValue.MONSTER, label: SubjectLabel.MONSTER },
   { value: SubjectValue.DIVINITY, label: SubjectLabel.DIVINITY },
   { value: SubjectValue.PERSON, label: SubjectLabel.PERSON },

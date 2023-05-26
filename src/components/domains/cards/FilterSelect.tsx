@@ -6,6 +6,7 @@ import { ReactSelectValue } from "./Filter";
 interface FilterSelectProps {
   selectLabel: string;
   selectName: string;
+  defaultValue?: { value: string; label: string };
   onChange: (selected?: ReactSelectValue) => void;
   options: PantheonSelectType[] | SubjectSelectType[];
 }
@@ -13,6 +14,7 @@ interface FilterSelectProps {
 const FilterSelect: React.FC<FilterSelectProps> = ({
   selectLabel,
   selectName,
+  defaultValue,
   onChange,
   options,
 }): JSX.Element => {
@@ -28,6 +30,7 @@ const FilterSelect: React.FC<FilterSelectProps> = ({
         onChange={onChange}
         isClearable
         isSearchable
+        defaultValue={defaultValue}
         autoFocus
       />
     </label>
