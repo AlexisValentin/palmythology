@@ -74,18 +74,18 @@ export const getPantheonStyle = (
 export const getSummaryBackgroundColor = () =>
   `${BACKGROUND}-${COLORS.NEUTRAL}-${COLOR_TAINTS.SUPER_LIGHT}`;
 
-export const getPantheonMainColor = (pantheon: string) => {
+export const getPantheonMainColor = (pantheon: PantheonValue) => {
   // @ts-ignore
   return MYTHOLOGY_COLORS[pantheon.toUpperCase()];
 };
 
-export const getPantheonTextColor = (pantheon: string) =>
+export const getPantheonTextColor = (pantheon: PantheonValue) =>
   hasSpecialTextColor(pantheon)
     ? // @ts-ignore
       TEXT_COLORS[pantheon.toUpperCase()]
     : TEXT_COLORS.GENERIC;
 
-const hasSpecialTextColor = (pantheon: string) =>
+export const hasSpecialTextColor = (pantheon: PantheonValue) =>
   [PantheonValue.HINDU, PantheonValue.JAPANESE, PantheonValue.ROMAN].includes(
     // @ts-ignore
     pantheon
