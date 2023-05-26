@@ -1,4 +1,4 @@
-const MONTHS = [
+export const MONTHS = [
   "Janvier",
   "Février",
   "Mars",
@@ -13,4 +13,7 @@ const MONTHS = [
   "Décembre",
 ];
 
-export const stringifyMonthCode = (monthCode: number) => MONTHS[monthCode];
+export const isMonthCodeRelevant = (monthCode: number) =>
+  monthCode >= 0 && monthCode < 12;
+export const stringifyMonthCode = (monthCode: number) =>
+  isMonthCodeRelevant(monthCode) ? MONTHS[monthCode] : "???";
