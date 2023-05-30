@@ -29,7 +29,7 @@ export interface PantheonSelectType {
   label: PantheonLabel;
 }
 
-export const allPantheon: PantheonSelectType[] = [
+export const ALL_PANTHEON: PantheonSelectType[] = [
   { value: PantheonValue.AZTEC, label: PantheonLabel.AZTEC },
   { value: PantheonValue.CELTIC, label: PantheonLabel.CELTIC },
   { value: PantheonValue.CHINESE, label: PantheonLabel.CHINESE },

@@ -3,7 +3,7 @@ import { SubjectLabel, SubjectValue } from "../types/cards/subjects";
 
 export const getPantheonLabelFromValue = (
   pantheon: PantheonValue
-): PantheonLabel => {
+): PantheonLabel | null => {
   switch (pantheon) {
     case PantheonValue.AZTEC:
       return PantheonLabel.AZTEC;
@@ -24,13 +24,15 @@ export const getPantheonLabelFromValue = (
     case PantheonValue.NORSE:
       return PantheonLabel.NORSE;
     case PantheonValue.ROMAN:
-      return PantheonLabel.ROMAN;
+      return PantheonLabel.ROMAN
+    default:
+      return null;
   }
 };
 
 export const getPantheonValueFromLabel = (
   pantheon: PantheonLabel
-): PantheonValue => {
+): PantheonValue | null => {
   switch (pantheon) {
     case PantheonLabel.AZTEC:
       return PantheonValue.AZTEC;
@@ -52,12 +54,14 @@ export const getPantheonValueFromLabel = (
       return PantheonValue.NORSE;
     case PantheonLabel.ROMAN:
       return PantheonValue.ROMAN;
+    default:
+      return null;
   }
 };
 
 export const getSubjectLabelFromValue = (
   subject: SubjectValue
-): SubjectLabel => {
+): SubjectLabel | null => {
   switch (subject) {
     case SubjectValue.DIVINITY:
       return SubjectLabel.DIVINITY;
@@ -71,5 +75,7 @@ export const getSubjectLabelFromValue = (
       return SubjectLabel.TRIBE;
     case SubjectValue.WRITINGS:
       return SubjectLabel.WRITINGS;
+    default:
+      return null;
   }
 };

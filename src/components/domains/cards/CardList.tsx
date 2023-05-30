@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 import { Link } from "react-router-dom";
 import { setCardRouteParameters } from "../../../helpers/routes";
 import { filterCards } from "../../../modules/searchEngine";
@@ -13,30 +13,85 @@ import MoreIcon from "../../../assets/icons/more.svg";
 import ForbiddenIcon from "../../../assets/icons/forbidden.svg";
 import { getPantheonStyle } from "../../../helpers/colors";
 import { getPantheonValueFromLabel } from "../../../helpers/dictionary";
+import {
+  CARD_LIST_ACTIONS,
+  CardListState,
+  cardListReducer,
+} from "../../../reducers/searchReducers";
+import {
+  SESSION_STORAGE_KEYS,
+  getFromSessionStorage,
+} from "../../../helpers/storage";
+
+const initialState: CardListState = {
+  searchCriterias: undefined,
+  searchResults: [],
+};
 
 const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
-  const [searchCriterias, setSearchCriterias] = useState<ResearchCriterias>();
-  const [searchResults, setSearchResults] = useState<TranslatedCardDetails[]>(
-    []
-  );
+  const [state, dispatch] = useReducer(cardListReducer, initialState);
 
   useEffect(() => {
-    setSearchCriterias({ pantheon, subject });
+    const pantheonSearchCriterias = getFromSessionStorage(
+      SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_PANTHEON
+    );
+    const subjectSearchCriterias = getFromSessionStorage(
+      SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_SUBJECT
+    );
+
+    if (pantheonSearchCriterias || subjectSearchCriterias) {
+      dispatch({
+        type: CARD_LIST_ACTIONS.SET_SEARCH_CRITERIAS,
+        payload: {
+          pantheon: pantheonSearchCriterias ?? "",
+          subject: subjectSearchCriterias ?? "",
+        },
+      });
+
+      setTimeout(
+        () =>
+          filterCards({
+            pantheon: pantheonSearchCriterias ?? "",
+            subject: subjectSearchCriterias ?? "",
+          }).then((card) => {
+            dispatch({
+              type: CARD_LIST_ACTIONS.SET_SEARCH_RESULTS,
+              payload: card,
+            });
+          }),
+        500
+      );
+    }
+  }, []);
+
+  useEffect(() => {
+    dispatch({
+      type: CARD_LIST_ACTIONS.SET_SEARCH_CRITERIAS,
+      payload: { pantheon, subject },
+    });
   }, [pantheon, subject]);
 
   useEffect(() => {
-    filterCards(searchCriterias).then((card) => {
-      setSearchResults(() => card);
+    filterCards(state.searchCriterias).then((card) => {
+      dispatch({
+        type: CARD_LIST_ACTIONS.SET_SEARCH_RESULTS,
+        payload: card,
+      });
     });
-  }, [searchCriterias]);
+  }, [state.searchCriterias]);
 
-  const dynamiseColor = useCallback((pantheon: PantheonLabel): string => {
-    const { backgroundColor, textColor } = getPantheonStyle(
-      getPantheonValueFromLabel(pantheon)
-    );
+  const dynamiseColor = useCallback(
+    (pantheon: PantheonLabel): string | undefined => {
+      const pantheonValue = getPantheonValueFromLabel(pantheon);
 
-    return `${BACKGROUND}-${backgroundColor} ${TEXT}-${textColor}`;
-  }, []);
+      if (pantheonValue === null) return undefined;
+
+      const { backgroundColor, textColor } = getPantheonStyle(pantheonValue);
+
+      return `${BACKGROUND}-${backgroundColor} ${TEXT}-${textColor}`;
+    },
+    []
+  );
 
   return (
     <div className="text-center my-6">
@@ -50,48 +105,50 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
           </tr>
         </thead>
         <tbody>
-          {searchResults.map((card, idx) => {
-            if (!card) return <tr key={idx}></tr>;
+          {state.searchResults.map(
+            (card: TranslatedCardDetails, idx: number) => {
+              if (!card) return <tr key={idx}></tr>;
 
-            return (
-              <tr className={`${dynamiseColor(card.pantheon)}`} key={idx}>
-                <td className="px-4 py-2">{card.name}</td>
-                <td className="px-4 py-2">{card.pantheon}</td>
-                <td className="px-4 py-2 hidden sm:block">{card.subject}</td>
-                <td className="py-2">
-                  {card.available ? (
-                    <Link
-                      className="flex justify-center"
-                      to={setCardRouteParameters(
-                        card.name,
-                        getPantheonValueFromLabel(card.pantheon)
-                      )}
-                    >
-                      <img
-                        className={`${
-                          card.pantheon === PantheonLabel.JAPANESE &&
-                          `filter-dark-red`
-                        } w-6`}
-                        src={MoreIcon}
-                        alt={`Plus de détails sur la fiche ${card.name}`}
-                      />
-                    </Link>
-                  ) : (
-                    <div className="flex justify-center">
-                      <img
-                        className={`${
-                          card.pantheon === PantheonLabel.JAPANESE &&
-                          `filter-dark-red`
-                        } w-6`}
-                        src={ForbiddenIcon}
-                        alt={`La fiche ${card.name} n'est pas encore disponible`}
-                      />
-                    </div>
-                  )}
-                </td>
-              </tr>
-            );
-          })}
+              return (
+                <tr className={`${dynamiseColor(card.pantheon)}`} key={idx}>
+                  <td className="px-4 py-2">{card.name}</td>
+                  <td className="px-4 py-2">{card.pantheon}</td>
+                  <td className="px-4 py-2 hidden sm:block">{card.subject}</td>
+                  <td className="py-2">
+                    {card.available ? (
+                      <Link
+                        className="flex justify-center"
+                        to={setCardRouteParameters(
+                          card.name,
+                          getPantheonValueFromLabel(card.pantheon) ?? ""
+                        )}
+                      >
+                        <img
+                          className={`${
+                            card.pantheon === PantheonLabel.JAPANESE &&
+                            `filter-dark-red`
+                          } w-6`}
+                          src={MoreIcon}
+                          alt={`Plus de détails sur la fiche ${card.name}`}
+                        />
+                      </Link>
+                    ) : (
+                      <div className="flex justify-center">
+                        <img
+                          className={`${
+                            card.pantheon === PantheonLabel.JAPANESE &&
+                            `filter-dark-red`
+                          } w-6`}
+                          src={ForbiddenIcon}
+                          alt={`La fiche ${card.name} n'est pas encore disponible`}
+                        />
+                      </div>
+                    )}
+                  </td>
+                </tr>
+              );
+            }
+          )}
         </tbody>
       </table>
     </div>
