@@ -24,6 +24,7 @@ export const getPantheonLabelFromValue = (
     case PantheonValue.NORSE:
       return PantheonLabel.NORSE;
     case PantheonValue.ROMAN:
+      return PantheonLabel.ROMAN
     default:
       return null;
   }
