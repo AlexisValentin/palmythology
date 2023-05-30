@@ -89,3 +89,10 @@ export type PantheonStyleType = {
   backgroundColor: string;
   textColor: string;
 };
+
+export type GradientType = {
+  startingColor: string;
+  endingColor: string;
+};
+
+export const BLACK_COLOR = `${COLORS.NEUTRAL}-${COLOR_TAINTS.EXTRA_DARK}`;

@@ -3,7 +3,7 @@ import NewIcon from "../../assets/icons/new.svg";
 import MagnifyingGlassIcon from "../../assets/icons/magnifying_glass.svg";
 import InformationIcon from "../../assets/icons/information.svg";
 import FolderIcon from "../../assets/icons/folder.svg";
-import { SECTION_COLORS } from "../styles/colors";
+import { GradientType, SECTION_COLORS } from "../styles/colors";
 import PalmythologyLogo from "../../assets/images/logo.webp";
 
 export const ROOT = "/";
@@ -12,10 +12,7 @@ export interface RouteType {
   name: string;
   url: string;
   description: string;
-  gradient?: {
-    startingColor: string;
-    endingColor: string;
-  };
+  gradient?: GradientType;
   iconUrl?: string;
 }
 

@@ -5,6 +5,9 @@ import { wording } from "../../../wording/fr/main";
 import PageHeader from "../../generics/PageHeader";
 import PageSection from "../../generics/PageSection";
 import { QuestCeQueCaFicheItemType } from "../../../types/storyblok";
+import { BLACK_COLOR, GradientType } from "../../../types/styles/colors";
+import { getPantheonMainColor } from "../../../helpers/colors";
+import { PantheonValue } from "../../../types/cards/pantheons";
 
 const QuestCeQueCaFichePage = (): JSX.Element => {
   const [quEstCeQueCaFicheItems, setQuEstCeQueCaFicheItems] = useState<
@@ -28,6 +31,10 @@ const QuestCeQueCaFichePage = (): JSX.Element => {
           if (!item) return <div key={idx} />;
 
           const { title, summary, icon, pantheon } = item;
+          const gradient: GradientType = {
+            startingColor: BLACK_COLOR,
+            endingColor: getPantheonMainColor(pantheon as PantheonValue),
+          };
 
           return (
             <PageSection
@@ -36,6 +43,7 @@ const QuestCeQueCaFichePage = (): JSX.Element => {
               description={summary}
               url={setCardRouteParameters(title, pantheon)}
               iconUrl={icon.filename}
+              gradient={gradient}
             />
           );
         })}
