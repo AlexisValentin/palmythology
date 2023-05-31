@@ -10,6 +10,7 @@
 - Migration de la version `2.2.19` de `tailwindcss` à la version `3.3.2`.
 - Certains hooks `useState` ont été migrés vers des hooks `useReducer` afin de mieux gérer les changement d'état de l'application, mais aussi pour rendre les tests plus robustes.
 - Amélioration très légère de performance avec l'utilisation des hooks `useCallback` afin d'éviter de solliciter des méthodes susceptibles de renvoyer le même résultat régulièrement.
+- Mise à jour de toutes les dépendances du projet (patchs, versions mineures et versions majeures).
 
 ---
 
