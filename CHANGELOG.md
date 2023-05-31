@@ -1,3 +1,11 @@
+# Version 1.2.0 (??/??/2023)
+
+## Sécurité
+
+- Ajout de la license `GNU General Public License v3.0`.
+
+---
+
 # Version 1.1.0 (31/05/2023)
 
 ## Recherche
