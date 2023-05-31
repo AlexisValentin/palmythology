@@ -22,6 +22,7 @@ import {
   SESSION_STORAGE_KEYS,
   getFromSessionStorage,
 } from "../../../helpers/storage";
+import { HALF_SECOND_IN_MS } from "../../../types/consts/time";
 
 const initialState: CardListState = {
   searchCriterias: undefined,
@@ -59,7 +60,7 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
               payload: card,
             });
           }),
-        500
+        HALF_SECOND_IN_MS
       );
     }
   }, []);
