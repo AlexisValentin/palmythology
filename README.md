@@ -17,9 +17,21 @@ The following statements list the recommendations for the best possible experien
 
 ## Scripts
 
-### `npm run start`
+### `npm run dev`
 
 Automatically launches a local web server on your browers, allowing you to build and running the website, starting from the home page.
+
+### `npm run test`
+
+Runs all unit tests from the `.test.ts` files and prompt their success of their failure.
+
+### `npm run watch`
+
+Similar to `npm run test` except it can take an additional parameter `[pattern]` to only run the unit tests on the matched pattern file names.
+
+### `npm run coverage`
+
+Will do the same as `npm run test`, except is will display the current test coverage in percentage, in order to show what test files could be improved or not, and if all the cases are tested.
 
 ### `npm run prettier`
 
@@ -30,13 +42,26 @@ Runs `prettier` formatting and all the following extension files :
 - styling files `.css`
   Note : `node_modules` files are of course ignored.
 
-### `npm run fast`
+### `npm run push`
 
-Allows you to quickly push your diff to the remote. It performs `git` instrucions in that order :
+Allows you to push any new commit to a known branch (pushing to an undefined remote branch will cause prompt to display the following parameter for `git push` : `--set-upstream origin new_branch`). It will execute the following command lines :
+
+- `git add .` -> adds all updated files of the current folder
+- `npm run test` -> runs all unit tests to make sure they all are successful
+- `git commit` -> creates a new commit and will provide a prompt in order to name it
+- `git push` -> pushed your commit to the known remote branch
+
+### `npm run push:fast`
+
+Allows you to quickly push your diff to the remote. It will execute the following command lines :
 
 - `git add .` -> adds all updated files of the current folder
 - `git commit --amend -no-edit` -> merge current staging into the previous commit and keep the same name
 - `git push --force-with-lease` -> force push to the remote without risking overwritting any modification
+
+### `npm run build`
+
+Provided an archive of the built sources, mostly in order to optimize production usage and to prepare website deployment.
 
 ### ncu (npm-check-updates)
 
