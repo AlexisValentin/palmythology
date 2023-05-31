@@ -4,6 +4,10 @@
 
 - Ajout de la license `GNU General Public License v3.0`.
 
+## Tech
+
+- Migration de certains fichiers `javascript` en `typescript`.
+
 ---
 
 # Version 1.1.0 (31/05/2023)
