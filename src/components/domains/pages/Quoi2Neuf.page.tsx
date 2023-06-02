@@ -28,7 +28,7 @@ const Quoi2NeufPage = (): JSX.Element => {
       />
       <div className="flex items-center justify-center flex-wrap">
         {quoi2NeufItems.map((item, idx) => {
-          const { title, subtitle, icon, available, pantheon } = item;
+          const { title, subtitle, icon, pantheon, available, isFolder } = item;
 
           return (
             <PageSquare
@@ -36,6 +36,7 @@ const Quoi2NeufPage = (): JSX.Element => {
               title={title}
               subtitle={subtitle}
               icon={icon}
+              isFolder={isFolder}
               available={available}
               pantheon={pantheon}
             />

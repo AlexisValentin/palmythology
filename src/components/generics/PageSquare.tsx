@@ -10,6 +10,7 @@ const PageSquare: React.FC<Quoi2NeufItemType> = ({
   title,
   subtitle,
   available,
+  isFolder,
   icon,
   pantheon,
 }): JSX.Element => {
@@ -41,7 +42,7 @@ const PageSquare: React.FC<Quoi2NeufItemType> = ({
 };
 
 const PageSquareBlock: React.FC<
-  Omit<Quoi2NeufItemType, "available" | "pantheon">
+  Omit<Quoi2NeufItemType, "available" | "pantheon" | "isFolder">
 > = ({ title, subtitle, icon }): JSX.Element => {
   const { filename, alt } = icon;
 
@@ -49,8 +50,8 @@ const PageSquareBlock: React.FC<
     <div className="flex item-center justify-center flex-col w-52">
       <div className="flex items-center justify-center flex-col mt-4">
         <img className="w-24 pb-4" src={filename} alt={alt} />
-        <h2 className="font-bold">{title}</h2>
-        <h3 className="italic">{subtitle}</h3>
+        <h2 className="font-bold truncate">{title}</h2>
+        <h3 className="italic truncate">{subtitle}</h3>
       </div>
     </div>
   );

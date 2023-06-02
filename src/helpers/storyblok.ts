@@ -74,7 +74,8 @@ const parseCardData = (card): CardDetails => {
 
 // @ts-ignore
 const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufItemType => {
-  const { title, subtitle, icon, available, pantheon } = quoi2NeufItem.content;
+  const { title, subtitle, icon, available, isFolder, pantheon } =
+    quoi2NeufItem.content;
 
   return {
     title,
@@ -82,6 +83,7 @@ const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufItemType => {
     icon,
     available,
     pantheon,
+    isFolder,
   };
 };
 
