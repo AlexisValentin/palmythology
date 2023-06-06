@@ -1,5 +1,9 @@
 # Version 1.2.0 (??/??/2023)
 
+## Quoi 2 Neuf
+
+- Les fiches "Qu'est-ce que ça fiche ?" sont désormais affichées parmi les autres sujets de la page "Quoi 2 neuf ?" pour le mois en cours.
+
 ## Sécurité
 
 - Ajout de la license `GNU General Public License v3.0`.
