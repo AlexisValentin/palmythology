@@ -1,3 +1,5 @@
+"use client";
+
 import { HelmetProvider } from "react-helmet-async";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/domains/footer/Footer";

@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bahnschrift";
+  src: url("../src/assets/fonts/Bahnschrift.ttf");
+}
+
+body {
+  height: 100%;
+  max-width: 100%;
+  margin-bottom: 150px;
+  font-family: -apple-system, BlinkMacSystemFont, "Bahnschrift", "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.filter-black {
+  filter: invert(100%);
+}
+
+.filter-dark-red {
+  filter: invert(87%) sepia(62%) saturate(6288%) hue-rotate(355deg)
+    brightness(91%) contrast(87%);
+}
