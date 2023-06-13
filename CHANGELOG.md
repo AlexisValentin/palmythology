@@ -11,6 +11,7 @@
 ## Tech
 
 - Migration de certains fichiers `javascript` en `typescript`.
+- Mise à jour de dépendences vers leurs dernières versions disponibles.
 
 ---
 
