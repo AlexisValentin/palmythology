@@ -4,6 +4,10 @@
 
 - Les fiches "Qu'est-ce que ça fiche ?" sont désormais affichées parmi les autres sujets de la page "Quoi 2 neuf ?" pour le mois en cours.
 
+## SEO
+
+- Création d'un module afin d'améliorer le référencement du site, notamment en rajoutant des balise `title` et `meta` dans les différentes pages du site web.
+
 ## Sécurité
 
 - Ajout de la license `GNU General Public License v3.0`.
