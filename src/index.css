@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Bahnschrift";
-  src: url("assets/fonts/Bahnschrift.ttf");
+  font-family: 'Bahnschrift';
+  src: url('assets/fonts/Bahnschrift.ttf');
 }
 
 body {
   height: 100%;
   max-width: 100%;
   margin-bottom: 150px;
-  font-family: -apple-system, BlinkMacSystemFont, "Bahnschrift", "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Bahnschrift', 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

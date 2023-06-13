@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-import { FoldersType } from "../../types/consts/folders";
-import { RouteType } from "../../types/consts/routes";
+import { Link } from 'react-router-dom'
+import { FoldersType } from '../../types/consts/folders'
+import { RouteType } from '../../types/consts/routes'
 
-type PageSectionProps = RouteType | FoldersType;
+type PageSectionProps = RouteType | FoldersType
 
 const PageSection: React.FC<PageSectionProps> = ({
   name,
@@ -36,6 +36,6 @@ const PageSection: React.FC<PageSectionProps> = ({
       </div>
     </section>
   </Link>
-);
+)
 
-export default PageSection;
+export default PageSection

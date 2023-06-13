@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
-import { setCardRouteParameters } from "../../../helpers/routes";
-import { fetchQuEstCeQueCaFicheStories } from "../../../helpers/storyblok";
-import { wording } from "../../../wording/fr/main";
-import PageHeader from "../../generics/PageHeader";
-import PageSection from "../../generics/PageSection";
-import { QuestCeQueCaFicheItemType } from "../../../types/storyblok";
-import { BLACK_COLOR, GradientType } from "../../../types/styles/colors";
-import { getPantheonMainColor } from "../../../helpers/colors";
-import { PantheonValue } from "../../../types/cards/pantheons";
+import { useEffect, useState } from 'react'
+import { setCardRouteParameters } from '../../../helpers/routes'
+import { fetchQuEstCeQueCaFicheStories } from '../../../helpers/storyblok'
+import { wording } from '../../../wording/fr/main'
+import PageHeader from '../../generics/PageHeader'
+import PageSection from '../../generics/PageSection'
+import { QuestCeQueCaFicheItemType } from '../../../types/storyblok'
+import { BLACK_COLOR, GradientType } from '../../../types/styles/colors'
+import { getPantheonMainColor } from '../../../helpers/colors'
+import { PantheonValue } from '../../../types/cards/pantheons'
 
 const QuestCeQueCaFichePage = (): JSX.Element => {
   const [quEstCeQueCaFicheItems, setQuEstCeQueCaFicheItems] = useState<
     QuestCeQueCaFicheItemType[]
-  >([]);
+  >([])
 
   useEffect(() => {
     fetchQuEstCeQueCaFicheStories().then((items) => {
-      setQuEstCeQueCaFicheItems(() => items);
-    });
-  }, []);
+      setQuEstCeQueCaFicheItems(() => items)
+    })
+  }, [])
 
   return (
     <>
@@ -28,13 +28,13 @@ const QuestCeQueCaFichePage = (): JSX.Element => {
       />
       <div className="flex flex-row justify-center flex-wrap mx-8 sm:block sm:mx-0">
         {quEstCeQueCaFicheItems.map((item, idx) => {
-          if (!item) return <div key={idx} />;
+          if (!item) return <div key={idx} />
 
-          const { title, summary, icon, pantheon } = item;
+          const { title, summary, icon, pantheon } = item
           const gradient: GradientType = {
             startingColor: BLACK_COLOR,
             endingColor: getPantheonMainColor(pantheon as PantheonValue),
-          };
+          }
 
           return (
             <PageSection
@@ -45,11 +45,11 @@ const QuestCeQueCaFichePage = (): JSX.Element => {
               iconUrl={icon.filename}
               gradient={gradient}
             />
-          );
+          )
         })}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default QuestCeQueCaFichePage;
+export default QuestCeQueCaFichePage

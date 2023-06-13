@@ -1,6 +1,6 @@
-import { wording } from "../../../wording/fr/main";
-import PageHeader from "../../generics/PageHeader";
-import Filter from "../cards/Filter";
+import { wording } from '../../../wording/fr/main'
+import PageHeader from '../../generics/PageHeader'
+import Filter from '../cards/Filter'
 
 const SearchPage = (): JSX.Element => {
   return (
@@ -11,7 +11,7 @@ const SearchPage = (): JSX.Element => {
       />
       <Filter />
     </>
-  );
-};
+  )
+}
 
-export default SearchPage;
+export default SearchPage

@@ -1,24 +1,24 @@
-import { useStoryblok } from "@storyblok/react";
-import { useParams } from "react-router-dom";
-import { getCardSlug } from "../../../helpers/storyblok";
-import Carrousel from "../../generics/Carrousel";
-import PageHeader from "../../generics/PageHeader";
-import Summary from "../../generics/Summary";
-import NotFound404 from "../http/404";
-import { isObjectEmpty } from "../../../helpers/object";
+import { useStoryblok } from '@storyblok/react'
+import { useParams } from 'react-router-dom'
+import { getCardSlug } from '../../../helpers/storyblok'
+import Carrousel from '../../generics/Carrousel'
+import PageHeader from '../../generics/PageHeader'
+import Summary from '../../generics/Summary'
+import NotFound404 from '../http/404'
+import { isObjectEmpty } from '../../../helpers/object'
 
 const CardDetailsPage = (): JSX.Element => {
-  const params = useParams();
+  const params = useParams()
   // @ts-ignore
   const story = useStoryblok(getCardSlug(params.card, params.pantheon), {
-    version: "published",
-  });
+    version: 'published',
+  })
 
-  if (isObjectEmpty(story)) return <NotFound404 />;
+  if (isObjectEmpty(story)) return <NotFound404 />
 
-  const { name, subtitle, summary, images, available } = story.content;
+  const { name, subtitle, summary, images, available } = story.content
 
-  if (!available) return <NotFound404 />;
+  if (!available) return <NotFound404 />
 
   return (
     <div className="flex items-center justify-center flex-col">
@@ -28,7 +28,7 @@ const CardDetailsPage = (): JSX.Element => {
         <Carrousel imageList={images} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CardDetailsPage;
+export default CardDetailsPage

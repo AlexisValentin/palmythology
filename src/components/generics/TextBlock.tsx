@@ -1,16 +1,16 @@
-import { isEven } from "../../helpers/number";
-import { TextBlockType } from "../../types/storyblok";
+import { isEven } from '../../helpers/number'
+import { TextBlockType } from '../../types/storyblok'
 
 export enum IconSize {
-  SMALL = "small",
-  MEDIUM = "medium",
-  LARGE = "large",
+  SMALL = 'small',
+  MEDIUM = 'medium',
+  LARGE = 'large',
 }
 
 interface TextBlockProps {
-  content: TextBlockType[];
-  iconSize: IconSize;
-  leftSiding?: boolean;
+  content: TextBlockType[]
+  iconSize: IconSize
+  leftSiding?: boolean
 }
 
 const TextBlock: React.FC<TextBlockProps> = ({
@@ -21,14 +21,14 @@ const TextBlock: React.FC<TextBlockProps> = ({
   const getIconContainerWidthStyle = (iconWidth: IconSize) => {
     switch (iconWidth) {
       case IconSize.SMALL:
-        return `w-1/12`;
+        return `w-1/12`
       case IconSize.MEDIUM:
-        return `w-1/6`;
+        return `w-1/6`
       case IconSize.LARGE:
       default:
-        return `w-1/4`;
+        return `w-1/4`
     }
-  };
+  }
 
   return (
     <div className="mt-20">
@@ -56,10 +56,10 @@ const TextBlock: React.FC<TextBlockProps> = ({
               </div>
             )}
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-export default TextBlock;
+export default TextBlock

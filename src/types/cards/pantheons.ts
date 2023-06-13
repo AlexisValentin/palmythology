@@ -1,32 +1,32 @@
 export enum PantheonLabel {
-  AZTEC = "Aztèque",
-  CELTIC = "Celtique",
-  CHINESE = "Chinois",
-  EGYPTIAN = "Égyptien",
-  GREEK = "Grec",
-  HINDU = "Hindou",
-  JAPANESE = "Japonais",
-  MAYAN = "Maya",
-  NORSE = "Scandinave",
-  ROMAN = "Romain",
+  AZTEC = 'Aztèque',
+  CELTIC = 'Celtique',
+  CHINESE = 'Chinois',
+  EGYPTIAN = 'Égyptien',
+  GREEK = 'Grec',
+  HINDU = 'Hindou',
+  JAPANESE = 'Japonais',
+  MAYAN = 'Maya',
+  NORSE = 'Scandinave',
+  ROMAN = 'Romain',
 }
 
 export enum PantheonValue {
-  AZTEC = "aztec",
-  CELTIC = "celtic",
-  CHINESE = "chinese",
-  EGYPTIAN = "egyptian",
-  GREEK = "greek",
-  HINDU = "hindu",
-  JAPANESE = "japanese",
-  MAYAN = "mayan",
-  NORSE = "norse",
-  ROMAN = "roman",
+  AZTEC = 'aztec',
+  CELTIC = 'celtic',
+  CHINESE = 'chinese',
+  EGYPTIAN = 'egyptian',
+  GREEK = 'greek',
+  HINDU = 'hindu',
+  JAPANESE = 'japanese',
+  MAYAN = 'mayan',
+  NORSE = 'norse',
+  ROMAN = 'roman',
 }
 
 export interface PantheonSelectType {
-  value: PantheonValue;
-  label: PantheonLabel;
+  value: PantheonValue
+  label: PantheonLabel
 }
 
 export const ALL_PANTHEON: PantheonSelectType[] = [
@@ -40,4 +40,4 @@ export const ALL_PANTHEON: PantheonSelectType[] = [
   { value: PantheonValue.MAYAN, label: PantheonLabel.MAYAN },
   { value: PantheonValue.NORSE, label: PantheonLabel.NORSE },
   { value: PantheonValue.ROMAN, label: PantheonLabel.ROMAN },
-];
+]

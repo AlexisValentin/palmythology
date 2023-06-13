@@ -1,104 +1,104 @@
-import { useCallback, useEffect, useReducer } from "react";
-import { ALL_PANTHEON, PantheonValue } from "../../../types/cards/pantheons";
-import { SubjectValue, ALL_SUBJECT } from "../../../types/cards/subjects";
-import { BASE_INPUT_NAMES } from "../../../types/consts/form";
-import { wording } from "../../../wording/fr/main";
-import CardList from "./CardList";
-import FilterSelect from "./FilterSelect";
+import { useCallback, useEffect, useReducer } from 'react'
+import { ALL_PANTHEON, PantheonValue } from '../../../types/cards/pantheons'
+import { SubjectValue, ALL_SUBJECT } from '../../../types/cards/subjects'
+import { BASE_INPUT_NAMES } from '../../../types/consts/form'
+import { wording } from '../../../wording/fr/main'
+import CardList from './CardList'
+import FilterSelect from './FilterSelect'
 import {
   SESSION_STORAGE_KEYS,
   getFromSessionStorage,
   setInSessionStorage,
-} from "../../../helpers/storage";
+} from '../../../helpers/storage'
 import {
   getPantheonLabelFromValue,
   getSubjectLabelFromValue,
-} from "../../../helpers/dictionary";
+} from '../../../helpers/dictionary'
 import {
   FILTER_ACTIONS,
   FilterState,
   filterReducer,
-} from "../../../reducers/searchReducers";
+} from '../../../reducers/searchReducers'
 
 interface FilterSelectProps {
-  value: string;
-  label: string;
+  value: string
+  label: string
 }
 
-export type ReactSelectValue = FilterSelectProps | null;
+export type ReactSelectValue = FilterSelectProps | null
 const initialState: FilterState = {
-  pantheonSearchCriterias: "",
-  subjectSearchCriterias: "",
-};
+  pantheonSearchCriterias: '',
+  subjectSearchCriterias: '',
+}
 
 const Filter = (): JSX.Element => {
-  const [state, dispatch] = useReducer(filterReducer, initialState);
+  const [state, dispatch] = useReducer(filterReducer, initialState)
 
   const selectNames = {
     pantheon: BASE_INPUT_NAMES.PANTHEON,
     subject: BASE_INPUT_NAMES.SUBJECT,
-  };
+  }
 
   const getSelectDefaultValue = useCallback(
     (sessionStorageKey: SESSION_STORAGE_KEYS) => {
       const sessionStorageData = getFromSessionStorage(sessionStorageKey) as
         | PantheonValue
-        | SubjectValue;
+        | SubjectValue
 
       const selectLabel =
         sessionStorageKey === SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_PANTHEON
           ? getPantheonLabelFromValue(sessionStorageData as PantheonValue)
-          : getSubjectLabelFromValue(sessionStorageData as SubjectValue);
+          : getSubjectLabelFromValue(sessionStorageData as SubjectValue)
 
-      const selectValue = getFromSessionStorage(sessionStorageKey) ?? undefined;
+      const selectValue = getFromSessionStorage(sessionStorageKey) ?? undefined
 
       return {
-        label: selectLabel ?? "",
-        value: selectValue ?? "",
-      };
+        label: selectLabel ?? '',
+        value: selectValue ?? '',
+      }
     },
-    []
-  );
+    [],
+  )
 
   useEffect(() => {
     const selectedPantheonDefaultValue = getSelectDefaultValue(
-      SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_PANTHEON
-    );
+      SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_PANTHEON,
+    )
     const selectedSubjectDefaultValue = getSelectDefaultValue(
-      SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_SUBJECT
-    );
+      SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_SUBJECT,
+    )
 
     dispatch({
       type: FILTER_ACTIONS.SET_PANTHEON_SEARCH_CRITERIAS,
       payload: selectedPantheonDefaultValue?.value,
-    });
+    })
     dispatch({
       type: FILTER_ACTIONS.SET_SUBJECT_SEARCH_CRITERIAS,
       payload: selectedSubjectDefaultValue?.value,
-    });
-  }, [getSelectDefaultValue]);
+    })
+  }, [getSelectDefaultValue])
 
   const onPantheonSelectChange = useCallback((selected?: ReactSelectValue) => {
     dispatch({
       type: FILTER_ACTIONS.SET_PANTHEON_SEARCH_CRITERIAS,
       payload: selected?.value,
-    });
+    })
     setInSessionStorage(
       SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_PANTHEON,
-      selected?.value
-    );
-  }, []);
+      selected?.value,
+    )
+  }, [])
 
   const onSubjectSelectChange = useCallback((selected?: ReactSelectValue) => {
     dispatch({
       type: FILTER_ACTIONS.SET_SUBJECT_SEARCH_CRITERIAS,
       payload: selected?.value,
-    });
+    })
     setInSessionStorage(
       SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_SUBJECT,
-      selected?.value
-    );
-  }, []);
+      selected?.value,
+    )
+  }, [])
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -107,7 +107,7 @@ const Filter = (): JSX.Element => {
           <FilterSelect
             key="pantheon_select"
             defaultValue={getSelectDefaultValue(
-              SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_PANTHEON
+              SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_PANTHEON,
             )}
             selectLabel={wording.filter.pantheon}
             selectName={selectNames.pantheon}
@@ -119,7 +119,7 @@ const Filter = (): JSX.Element => {
           <FilterSelect
             key="subject_select"
             defaultValue={getSelectDefaultValue(
-              SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_SUBJECT
+              SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_SUBJECT,
             )}
             selectLabel={wording.filter.subject}
             selectName={selectNames.subject}
@@ -133,7 +133,7 @@ const Filter = (): JSX.Element => {
         subject={state.subjectSearchCriterias}
       />
     </div>
-  );
-};
+  )
+}
 
-export default Filter;
+export default Filter

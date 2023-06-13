@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 import {
   getPantheonMainColor,
   getPantheonTextColor,
-} from "../../helpers/colors";
-import { setCardRouteParameters } from "../../helpers/routes";
-import { Quoi2NeufItemType } from "../../types/storyblok";
+} from '../../helpers/colors'
+import { setCardRouteParameters } from '../../helpers/routes'
+import { Quoi2NeufItemType } from '../../types/storyblok'
 
 const PageSquare: React.FC<Quoi2NeufItemType> = ({
   title,
@@ -14,20 +14,20 @@ const PageSquare: React.FC<Quoi2NeufItemType> = ({
   icon,
   pantheon,
 }): JSX.Element => {
-  if (available === undefined) return <></>;
+  if (available === undefined) return <></>
 
   return available ? (
     <Link
       to={setCardRouteParameters(title, pantheon)}
       className={`border-6 border-transparent rounded-3xl p-6 mx-6 bg-${getPantheonMainColor(
-        pantheon
+        pantheon,
       )} text-${getPantheonTextColor(pantheon)} 
       lg:bg-transparent
       lg:text-black
       lg:hover:bg-${getPantheonMainColor(
-        pantheon
+        pantheon,
       )} lg:hover:text-${getPantheonTextColor(
-        pantheon
+        pantheon,
       )} lg:shadow-inner lg:border-0`}
     >
       <div className="flex items-center justify-center flex-col">
@@ -38,13 +38,13 @@ const PageSquare: React.FC<Quoi2NeufItemType> = ({
     <div className="flex items-center justify-center flex-col p-6 mx-6">
       <PageSquareBlock title={title} subtitle={subtitle} icon={icon} />
     </div>
-  );
-};
+  )
+}
 
 const PageSquareBlock: React.FC<
-  Omit<Quoi2NeufItemType, "available" | "pantheon" | "isFolder">
+  Omit<Quoi2NeufItemType, 'available' | 'pantheon' | 'isFolder'>
 > = ({ title, subtitle, icon }): JSX.Element => {
-  const { filename, alt } = icon;
+  const { filename, alt } = icon
 
   return (
     <div className="flex item-center justify-center flex-col w-52">
@@ -54,7 +54,7 @@ const PageSquareBlock: React.FC<
         <h3 className="italic truncate">{subtitle}</h3>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PageSquare;
+export default PageSquare

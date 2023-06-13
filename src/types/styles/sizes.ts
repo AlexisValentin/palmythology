@@ -1,10 +1,10 @@
 const STANDARD_SIZES = {
-  EXTRA_SMALL: "xs",
-  SMALL: "sm",
-  NORMAL: "base",
-  LARGE: "lg",
-  EXTRA_LARGE: "xl",
-};
+  EXTRA_SMALL: 'xs',
+  SMALL: 'sm',
+  NORMAL: 'base',
+  LARGE: 'lg',
+  EXTRA_LARGE: 'xl',
+}
 
 export const SIZES = {
   EXTRA_SMALL: STANDARD_SIZES.EXTRA_SMALL,
@@ -20,4 +20,4 @@ export const SIZES = {
   SEVEN_XL: `7${STANDARD_SIZES.EXTRA_LARGE}`,
   EIGHT_XL: `8${STANDARD_SIZES.EXTRA_LARGE}`,
   NINE_XL: `9${STANDARD_SIZES.EXTRA_LARGE}`,
-};
+}

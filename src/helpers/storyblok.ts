@@ -1,67 +1,67 @@
-import axios from "axios";
-import { CardDetails } from "../types/cards/card";
+import axios from 'axios'
+import { CardDetails } from '../types/cards/card'
 import {
   NewsPageType,
   QuestCeQueCaFicheItemType,
   STORYBLOK_TOKEN,
   STORYBLOK_URL_STORIES,
   STORYBLOK_VERSIONS,
-} from "../types/storyblok";
-import { parseStringToSlug } from "./string";
+} from '../types/storyblok'
+import { parseStringToSlug } from './string'
 
 export const getCardSlug = (cardName: string, pantheon: string) =>
-  `cards/${parseStringToSlug(pantheon)}/${parseStringToSlug(cardName)}`;
+  `cards/${parseStringToSlug(pantheon)}/${parseStringToSlug(cardName)}`
 
 export const getNewsSlug = (newsTitle: string) =>
-  `news/${parseStringToSlug(newsTitle)}`;
+  `news/${parseStringToSlug(newsTitle)}`
 
-export const getAboutSlug = () => `about/page`;
+export const getAboutSlug = () => `about/page`
 
 const fetchStoriesByStartingString = (startingString: string) =>
   axios({
-    method: "get",
+    method: 'get',
     url: `${STORYBLOK_URL_STORIES}?starts_with=${startingString}&token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
-    responseType: "json",
-  });
+    responseType: 'json',
+  })
 
 export const fetchCardStories = async () =>
-  await fetchStoriesByStartingString("card").then((stories) =>
+  await fetchStoriesByStartingString('card').then((stories) =>
     stories.data.stories.map(
       // @ts-ignore
-      (story) => story.content.component === "card" && parseCardData(story)
-    )
-  );
+      (story) => story.content.component === 'card' && parseCardData(story),
+    ),
+  )
 
 export const fetchQuoi2NeufStories = async () =>
-  await fetchStoriesByStartingString("quoi2neuf").then((stories) =>
+  await fetchStoriesByStartingString('quoi2neuf').then((stories) =>
     stories.data.stories.map(
       // @ts-ignore
       (story) =>
-        story.content.component === "quoi2Neuf" && parseQuoi2NeufData(story)
-    )
-  );
+        story.content.component === 'quoi2Neuf' && parseQuoi2NeufData(story),
+    ),
+  )
 
 export const fetchQuEstCeQueCaFicheStories = async () =>
-  await fetchStoriesByStartingString("questcequecafiche").then((stories) =>
+  await fetchStoriesByStartingString('questcequecafiche').then((stories) =>
     stories.data.stories.map(
       // @ts-ignore
       (story) =>
-        story.content.component === "quEstCeQueCaFiche" &&
-        parseQuEstCeQueCaFicheData(story)
-    )
-  );
+        story.content.component === 'quEstCeQueCaFiche' &&
+        parseQuEstCeQueCaFicheData(story),
+    ),
+  )
 
 export const fetchNewsStories = async () =>
-  await fetchStoriesByStartingString("news").then((stories) =>
+  await fetchStoriesByStartingString('news').then((stories) =>
     stories.data.stories.map(
       // @ts-ignore
-      (story) => story.content.component === "newsPage" && parseNewsData(story)
-    )
-  );
+      (story) => story.content.component === 'newsPage' && parseNewsData(story),
+    ),
+  )
 
 // @ts-ignore
 const parseCardData = (card): CardDetails => {
-  const { name, pantheon, subject, available, isFolder } = card.content;
+  const { name, pantheon, subject, available, isFolder } = card.content
 
   return {
     name,
@@ -69,13 +69,13 @@ const parseCardData = (card): CardDetails => {
     subject,
     available,
     isFolder,
-  };
-};
+  }
+}
 
 // @ts-ignore
 const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufItemType => {
   const { title, subtitle, icon, available, isFolder, pantheon } =
-    quoi2NeufItem.content;
+    quoi2NeufItem.content
 
   return {
     title,
@@ -84,33 +84,33 @@ const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufItemType => {
     available,
     pantheon,
     isFolder,
-  };
-};
+  }
+}
 
 const parseQuEstCeQueCaFicheData = (
   // @ts-ignore
-  quEstCeQueCaFicheItem
+  quEstCeQueCaFicheItem,
 ): QuestCeQueCaFicheItemType => {
-  const { title, summary, icon, pantheon } = quEstCeQueCaFicheItem.content;
+  const { title, summary, icon, pantheon } = quEstCeQueCaFicheItem.content
 
   return {
     title,
     summary,
     icon,
     pantheon,
-  };
-};
+  }
+}
 
 const parseNewsData = (
   // @ts-ignore
-  newsArticle
+  newsArticle,
 ): NewsPageType => {
-  const { title, summary, icon, newsItem } = newsArticle.content;
+  const { title, summary, icon, newsItem } = newsArticle.content
 
   return {
     title,
     summary,
     icon,
     newsItem,
-  };
-};
+  }
+}

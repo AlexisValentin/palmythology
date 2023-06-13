@@ -1,98 +1,98 @@
-import { useCallback, useEffect, useReducer } from "react";
-import { Link } from "react-router-dom";
-import { setCardRouteParameters } from "../../../helpers/routes";
-import { filterCards } from "../../../modules/searchEngine";
+import { useCallback, useEffect, useReducer } from 'react'
+import { Link } from 'react-router-dom'
+import { setCardRouteParameters } from '../../../helpers/routes'
+import { filterCards } from '../../../modules/searchEngine'
 import {
   ResearchCriterias,
   TranslatedCardDetails,
-} from "../../../types/cards/card";
-import { PantheonLabel } from "../../../types/cards/pantheons";
-import { BACKGROUND, TEXT } from "../../../types/styles/colors";
-import { wording } from "../../../wording/fr/main";
-import MoreIcon from "../../../assets/icons/more.svg";
-import ForbiddenIcon from "../../../assets/icons/forbidden.svg";
-import { getPantheonStyle } from "../../../helpers/colors";
-import { getPantheonValueFromLabel } from "../../../helpers/dictionary";
+} from '../../../types/cards/card'
+import { PantheonLabel } from '../../../types/cards/pantheons'
+import { BACKGROUND, TEXT } from '../../../types/styles/colors'
+import { wording } from '../../../wording/fr/main'
+import MoreIcon from '../../../assets/icons/more.svg'
+import ForbiddenIcon from '../../../assets/icons/forbidden.svg'
+import { getPantheonStyle } from '../../../helpers/colors'
+import { getPantheonValueFromLabel } from '../../../helpers/dictionary'
 import {
   CARD_LIST_ACTIONS,
   CardListState,
   cardListReducer,
-} from "../../../reducers/searchReducers";
+} from '../../../reducers/searchReducers'
 import {
   SESSION_STORAGE_KEYS,
   getFromSessionStorage,
-} from "../../../helpers/storage";
-import { HALF_SECOND_IN_MS } from "../../../types/consts/time";
+} from '../../../helpers/storage'
+import { HALF_SECOND_IN_MS } from '../../../types/consts/time'
 
 const initialState: CardListState = {
   searchCriterias: undefined,
   searchResults: [],
-};
+}
 
 const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
-  const [state, dispatch] = useReducer(cardListReducer, initialState);
+  const [state, dispatch] = useReducer(cardListReducer, initialState)
 
   useEffect(() => {
     const pantheonSearchCriterias = getFromSessionStorage(
-      SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_PANTHEON
-    );
+      SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_PANTHEON,
+    )
     const subjectSearchCriterias = getFromSessionStorage(
-      SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_SUBJECT
-    );
+      SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_SUBJECT,
+    )
 
     if (pantheonSearchCriterias || subjectSearchCriterias) {
       dispatch({
         type: CARD_LIST_ACTIONS.SET_SEARCH_CRITERIAS,
         payload: {
-          pantheon: pantheonSearchCriterias ?? "",
-          subject: subjectSearchCriterias ?? "",
+          pantheon: pantheonSearchCriterias ?? '',
+          subject: subjectSearchCriterias ?? '',
         },
-      });
+      })
 
       setTimeout(
         () =>
           filterCards({
-            pantheon: pantheonSearchCriterias ?? "",
-            subject: subjectSearchCriterias ?? "",
+            pantheon: pantheonSearchCriterias ?? '',
+            subject: subjectSearchCriterias ?? '',
           }).then((card) => {
             dispatch({
               type: CARD_LIST_ACTIONS.SET_SEARCH_RESULTS,
               payload: card,
-            });
+            })
           }),
-        HALF_SECOND_IN_MS
-      );
+        HALF_SECOND_IN_MS,
+      )
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
     dispatch({
       type: CARD_LIST_ACTIONS.SET_SEARCH_CRITERIAS,
       payload: { pantheon, subject },
-    });
-  }, [pantheon, subject]);
+    })
+  }, [pantheon, subject])
 
   useEffect(() => {
     filterCards(state.searchCriterias).then((card) => {
       dispatch({
         type: CARD_LIST_ACTIONS.SET_SEARCH_RESULTS,
         payload: card,
-      });
-    });
-  }, [state.searchCriterias]);
+      })
+    })
+  }, [state.searchCriterias])
 
   const dynamiseColor = useCallback(
     (pantheon: PantheonLabel): string | undefined => {
-      const pantheonValue = getPantheonValueFromLabel(pantheon);
+      const pantheonValue = getPantheonValueFromLabel(pantheon)
 
-      if (pantheonValue === null) return undefined;
+      if (pantheonValue === null) return undefined
 
-      const { backgroundColor, textColor } = getPantheonStyle(pantheonValue);
+      const { backgroundColor, textColor } = getPantheonStyle(pantheonValue)
 
-      return `${BACKGROUND}-${backgroundColor} ${TEXT}-${textColor}`;
+      return `${BACKGROUND}-${backgroundColor} ${TEXT}-${textColor}`
     },
-    []
-  );
+    [],
+  )
 
   return (
     <div className="text-center my-6">
@@ -108,7 +108,7 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
         <tbody>
           {state.searchResults.map(
             (card: TranslatedCardDetails, idx: number) => {
-              if (!card) return <tr key={idx}></tr>;
+              if (!card) return <tr key={idx}></tr>
 
               return (
                 <tr className={`${dynamiseColor(card.pantheon)}`} key={idx}>
@@ -121,7 +121,7 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
                         className="flex justify-center"
                         to={setCardRouteParameters(
                           card.name,
-                          getPantheonValueFromLabel(card.pantheon) ?? ""
+                          getPantheonValueFromLabel(card.pantheon) ?? '',
                         )}
                       >
                         <img
@@ -147,13 +147,13 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
                     )}
                   </td>
                 </tr>
-              );
-            }
+              )
+            },
           )}
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default CardList;
+export default CardList

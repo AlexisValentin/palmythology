@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
-import { stringifyMonthCode } from "../../../helpers/dates";
-import { fetchQuoi2NeufStories } from "../../../helpers/storyblok";
-import { wording } from "../../../wording/fr/main";
-import PageHeader from "../../generics/PageHeader";
-import PageSquare from "../../generics/PageSquare";
-import { Quoi2NeufItemType } from "../../../types/storyblok";
+import { useEffect, useState } from 'react'
+import { stringifyMonthCode } from '../../../helpers/dates'
+import { fetchQuoi2NeufStories } from '../../../helpers/storyblok'
+import { wording } from '../../../wording/fr/main'
+import PageHeader from '../../generics/PageHeader'
+import PageSquare from '../../generics/PageSquare'
+import { Quoi2NeufItemType } from '../../../types/storyblok'
 
 const Quoi2NeufPage = (): JSX.Element => {
-  const [quoi2NeufItems, setQuoi2NeufItems] = useState<Quoi2NeufItemType[]>([]);
+  const [quoi2NeufItems, setQuoi2NeufItems] = useState<Quoi2NeufItemType[]>([])
 
-  const date = new Date();
-  const month = date.getMonth();
-  const year = date.getFullYear();
-  const parsedDate = `${stringifyMonthCode(month)} ${year}`;
+  const date = new Date()
+  const month = date.getMonth()
+  const year = date.getFullYear()
+  const parsedDate = `${stringifyMonthCode(month)} ${year}`
 
   useEffect(() => {
     fetchQuoi2NeufStories().then((items) => {
-      setQuoi2NeufItems(() => items);
-    });
-  }, []);
+      setQuoi2NeufItems(() => items)
+    })
+  }, [])
 
   return (
     <>
@@ -28,7 +28,7 @@ const Quoi2NeufPage = (): JSX.Element => {
       />
       <div className="flex items-center justify-center flex-wrap">
         {quoi2NeufItems.map((item, idx) => {
-          const { title, subtitle, icon, pantheon, available, isFolder } = item;
+          const { title, subtitle, icon, pantheon, available, isFolder } = item
 
           return (
             <PageSquare
@@ -40,11 +40,11 @@ const Quoi2NeufPage = (): JSX.Element => {
               available={available}
               pantheon={pantheon}
             />
-          );
+          )
         })}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Quoi2NeufPage;
+export default Quoi2NeufPage

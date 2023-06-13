@@ -1,24 +1,24 @@
-import { wording } from "../../wording/fr/main";
-import { FOLDERS_COLORS } from "../styles/colors";
-import NumberTwoIcon from "../../assets/icons/number_two.svg";
-import QuestionMarkIcon from "../../assets/icons/question_mark.svg";
-import { ROOT } from "./routes";
+import { wording } from '../../wording/fr/main'
+import { FOLDERS_COLORS } from '../styles/colors'
+import NumberTwoIcon from '../../assets/icons/number_two.svg'
+import QuestionMarkIcon from '../../assets/icons/question_mark.svg'
+import { ROOT } from './routes'
 
 export interface FoldersType {
-  name: string;
-  url: string;
-  description: string;
+  name: string
+  url: string
+  description: string
   gradient?: {
-    startingColor: string;
-    endingColor: string;
-  };
-  iconUrl?: string;
+    startingColor: string
+    endingColor: string
+  }
+  iconUrl?: string
 }
 
 export const FOLDERS_URLS = {
   QUOI_2_NEUF: `${ROOT}folders/q2n`,
   QU_EST_CE_QUE_CA_FICHE: `${ROOT}folders/qqcf`,
-};
+}
 
 export const FOLDERS: FoldersType[] = [
   {
@@ -41,4 +41,4 @@ export const FOLDERS: FoldersType[] = [
     },
     iconUrl: QuestionMarkIcon,
   },
-];
+]

@@ -1,17 +1,17 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination } from 'swiper'
 
-import "swiper/scss";
-import "swiper/scss/navigation";
-import "swiper/scss/pagination";
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
 
 type CarrouselProps = {
-  imageList: StoryblokSingleAssetType[];
-};
+  imageList: StoryblokSingleAssetType[]
+}
 
 interface StoryblokSingleAssetType {
-  filename: string;
-  alt: string;
+  filename: string
+  alt: string
 }
 
 const Carrousel: React.FC<CarrouselProps> = ({ imageList }): JSX.Element => {
@@ -30,7 +30,7 @@ const Carrousel: React.FC<CarrouselProps> = ({ imageList }): JSX.Element => {
         </SwiperSlide>
       ))}
     </Swiper>
-  );
-};
+  )
+}
 
-export default Carrousel;
+export default Carrousel

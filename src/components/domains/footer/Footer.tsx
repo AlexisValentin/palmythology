@@ -1,5 +1,5 @@
-import Copyrights from "../../generics/Copyrights";
-import SocialNetworks from "../../generics/SocialNetworks";
+import Copyrights from '../../generics/Copyrights'
+import SocialNetworks from '../../generics/SocialNetworks'
 
 const Footer = (): JSX.Element => {
   return (
@@ -11,7 +11,7 @@ const Footer = (): JSX.Element => {
         <SocialNetworks />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,13 +1,13 @@
-import { useStoryblok } from "@storyblok/react";
-import { getAboutSlug } from "../../../helpers/storyblok";
-import { wording } from "../../../wording/fr/main";
-import PageHeader from "../../generics/PageHeader";
-import TextBlock, { IconSize } from "../../generics/TextBlock";
+import { useStoryblok } from '@storyblok/react'
+import { getAboutSlug } from '../../../helpers/storyblok'
+import { wording } from '../../../wording/fr/main'
+import PageHeader from '../../generics/PageHeader'
+import TextBlock, { IconSize } from '../../generics/TextBlock'
 
 const AboutPage = (): JSX.Element => {
   const story = useStoryblok(getAboutSlug(), {
-    version: "published",
-  });
+    version: 'published',
+  })
 
   return (
     <>
@@ -23,7 +23,7 @@ const AboutPage = (): JSX.Element => {
         />
       )}
     </>
-  );
-};
+  )
+}
 
-export default AboutPage;
+export default AboutPage

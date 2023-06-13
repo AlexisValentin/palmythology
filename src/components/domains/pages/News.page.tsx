@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react";
-import { wording } from "../../../wording/fr/main";
-import PageHeader from "../../generics/PageHeader";
-import { fetchNewsStories } from "../../../helpers/storyblok";
-import PageSection from "../../generics/PageSection";
-import { setNewsRouteParameters } from "../../../helpers/routes";
-import { NewsPageType } from "../../../types/storyblok";
+import { useEffect, useState } from 'react'
+import { wording } from '../../../wording/fr/main'
+import PageHeader from '../../generics/PageHeader'
+import { fetchNewsStories } from '../../../helpers/storyblok'
+import PageSection from '../../generics/PageSection'
+import { setNewsRouteParameters } from '../../../helpers/routes'
+import { NewsPageType } from '../../../types/storyblok'
 
 const NewsPage = (): JSX.Element => {
-  const [newsPages, setNewsPages] = useState<NewsPageType[]>([]);
+  const [newsPages, setNewsPages] = useState<NewsPageType[]>([])
 
   useEffect(() => {
     fetchNewsStories().then((items) => {
-      setNewsPages(() => items);
-    });
-  }, []);
+      setNewsPages(() => items)
+    })
+  }, [])
 
   return (
     <>
@@ -23,9 +23,9 @@ const NewsPage = (): JSX.Element => {
       />
       <div className="flex flex-row justify-cente r flex-wrap mx-8 sm:block sm:mx-0">
         {newsPages.map((item, idx) => {
-          if (!item) return <div key={idx} />;
+          if (!item) return <div key={idx} />
 
-          const { title, summary, icon } = item;
+          const { title, summary, icon } = item
 
           return (
             <PageSection
@@ -35,11 +35,11 @@ const NewsPage = (): JSX.Element => {
               url={setNewsRouteParameters(title)}
               iconUrl={icon?.filename}
             />
-          );
+          )
         })}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default NewsPage;
+export default NewsPage

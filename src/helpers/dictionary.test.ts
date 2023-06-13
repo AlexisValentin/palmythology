@@ -1,105 +1,105 @@
-import { PantheonLabel, PantheonValue } from "../types/cards/pantheons";
-import { SubjectLabel, SubjectValue } from "../types/cards/subjects";
+import { PantheonLabel, PantheonValue } from '../types/cards/pantheons'
+import { SubjectLabel, SubjectValue } from '../types/cards/subjects'
 import {
   getPantheonLabelFromValue,
   getPantheonValueFromLabel,
   getSubjectLabelFromValue,
-} from "./dictionary";
+} from './dictionary'
 
-describe("helpers/dictionary", () => {
-  describe("getPantheonLabelFromValue", () => {
-    test("should return the related pantheon label when pantheon value is provided", () => {
+describe('helpers/dictionary', () => {
+  describe('getPantheonLabelFromValue', () => {
+    test('should return the related pantheon label when pantheon value is provided', () => {
       expect(getPantheonLabelFromValue(PantheonValue.AZTEC)).toEqual(
-        PantheonLabel.AZTEC
-      );
+        PantheonLabel.AZTEC,
+      )
       expect(getPantheonLabelFromValue(PantheonValue.CELTIC)).toEqual(
-        PantheonLabel.CELTIC
-      );
+        PantheonLabel.CELTIC,
+      )
       expect(getPantheonLabelFromValue(PantheonValue.CHINESE)).toEqual(
-        PantheonLabel.CHINESE
-      );
+        PantheonLabel.CHINESE,
+      )
       expect(getPantheonLabelFromValue(PantheonValue.EGYPTIAN)).toEqual(
-        PantheonLabel.EGYPTIAN
-      );
+        PantheonLabel.EGYPTIAN,
+      )
       expect(getPantheonLabelFromValue(PantheonValue.GREEK)).toEqual(
-        PantheonLabel.GREEK
-      );
+        PantheonLabel.GREEK,
+      )
       expect(getPantheonLabelFromValue(PantheonValue.HINDU)).toEqual(
-        PantheonLabel.HINDU
-      );
+        PantheonLabel.HINDU,
+      )
       expect(getPantheonLabelFromValue(PantheonValue.JAPANESE)).toEqual(
-        PantheonLabel.JAPANESE
-      );
+        PantheonLabel.JAPANESE,
+      )
       expect(getPantheonLabelFromValue(PantheonValue.MAYAN)).toEqual(
-        PantheonLabel.MAYAN
-      );
+        PantheonLabel.MAYAN,
+      )
       expect(getPantheonLabelFromValue(PantheonValue.NORSE)).toEqual(
-        PantheonLabel.NORSE
-      );
+        PantheonLabel.NORSE,
+      )
       expect(getPantheonLabelFromValue(PantheonValue.ROMAN)).toEqual(
-        PantheonLabel.ROMAN
-      );
-    });
-  });
+        PantheonLabel.ROMAN,
+      )
+    })
+  })
 
-  describe("getPantheonValueFromLabel", () => {
-    test("should return the related pantheon value when pantheon label is provided", () => {
+  describe('getPantheonValueFromLabel', () => {
+    test('should return the related pantheon value when pantheon label is provided', () => {
       expect(getPantheonValueFromLabel(PantheonLabel.AZTEC)).toEqual(
-        PantheonValue.AZTEC
-      );
+        PantheonValue.AZTEC,
+      )
       expect(getPantheonValueFromLabel(PantheonLabel.CELTIC)).toEqual(
-        PantheonValue.CELTIC
-      );
+        PantheonValue.CELTIC,
+      )
       expect(getPantheonValueFromLabel(PantheonLabel.CHINESE)).toEqual(
-        PantheonValue.CHINESE
-      );
+        PantheonValue.CHINESE,
+      )
       expect(getPantheonValueFromLabel(PantheonLabel.CHINESE)).toEqual(
-        PantheonValue.CHINESE
-      );
+        PantheonValue.CHINESE,
+      )
       expect(getPantheonValueFromLabel(PantheonLabel.EGYPTIAN)).toEqual(
-        PantheonValue.EGYPTIAN
-      );
+        PantheonValue.EGYPTIAN,
+      )
       expect(getPantheonValueFromLabel(PantheonLabel.GREEK)).toEqual(
-        PantheonValue.GREEK
-      );
+        PantheonValue.GREEK,
+      )
       expect(getPantheonValueFromLabel(PantheonLabel.HINDU)).toEqual(
-        PantheonValue.HINDU
-      );
+        PantheonValue.HINDU,
+      )
       expect(getPantheonValueFromLabel(PantheonLabel.JAPANESE)).toEqual(
-        PantheonValue.JAPANESE
-      );
+        PantheonValue.JAPANESE,
+      )
       expect(getPantheonValueFromLabel(PantheonLabel.MAYAN)).toEqual(
-        PantheonValue.MAYAN
-      );
+        PantheonValue.MAYAN,
+      )
       expect(getPantheonValueFromLabel(PantheonLabel.NORSE)).toEqual(
-        PantheonValue.NORSE
-      );
+        PantheonValue.NORSE,
+      )
       expect(getPantheonValueFromLabel(PantheonLabel.ROMAN)).toEqual(
-        PantheonValue.ROMAN
-      );
-    });
-  });
+        PantheonValue.ROMAN,
+      )
+    })
+  })
 
-  describe("getSubjectLabelFromValue", () => {
-    test("should return the related subject label when subject value is provided", () => {
+  describe('getSubjectLabelFromValue', () => {
+    test('should return the related subject label when subject value is provided', () => {
       expect(getSubjectLabelFromValue(SubjectValue.DIVINITY)).toEqual(
-        SubjectLabel.DIVINITY
-      );
+        SubjectLabel.DIVINITY,
+      )
       expect(getSubjectLabelFromValue(SubjectValue.MONSTER)).toEqual(
-        SubjectLabel.MONSTER
-      );
+        SubjectLabel.MONSTER,
+      )
       expect(getSubjectLabelFromValue(SubjectValue.PERSON)).toEqual(
-        SubjectLabel.PERSON
-      );
+        SubjectLabel.PERSON,
+      )
       expect(getSubjectLabelFromValue(SubjectValue.PLACE)).toEqual(
-        SubjectLabel.PLACE
-      );
+        SubjectLabel.PLACE,
+      )
       expect(getSubjectLabelFromValue(SubjectValue.TRIBE)).toEqual(
-        SubjectLabel.TRIBE
-      );
+        SubjectLabel.TRIBE,
+      )
       expect(getSubjectLabelFromValue(SubjectValue.WRITINGS)).toEqual(
-        SubjectLabel.WRITINGS
-      );
-    });
-  });
-});
+        SubjectLabel.WRITINGS,
+      )
+    })
+  })
+})

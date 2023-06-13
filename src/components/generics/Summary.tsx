@@ -1,7 +1,7 @@
-import { getSummaryBackgroundColor } from "../../helpers/colors";
+import { getSummaryBackgroundColor } from '../../helpers/colors'
 
 interface SummaryProps {
-  content: string;
+  content: string
 }
 
 const Summary: React.FC<SummaryProps> = ({ content }): JSX.Element => (
@@ -12,6 +12,6 @@ const Summary: React.FC<SummaryProps> = ({ content }): JSX.Element => (
       {content}
     </div>
   </div>
-);
+)
 
-export default Summary;
+export default Summary

@@ -1,7 +1,7 @@
 interface PageHeaderProps {
-  title: string;
-  subtitle?: string;
-  hasFadingEffect?: boolean;
+  title: string
+  subtitle?: string
+  hasFadingEffect?: boolean
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({
@@ -16,6 +16,6 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       </h3>
     )}
   </div>
-);
+)
 
-export default PageHeader;
+export default PageHeader

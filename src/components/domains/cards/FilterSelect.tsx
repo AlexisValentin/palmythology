@@ -1,14 +1,14 @@
-import Select from "react-select";
-import { PantheonSelectType } from "../../../types/cards/pantheons";
-import { SubjectSelectType } from "../../../types/cards/subjects";
-import { ReactSelectValue } from "./Filter";
+import Select from 'react-select'
+import { PantheonSelectType } from '../../../types/cards/pantheons'
+import { SubjectSelectType } from '../../../types/cards/subjects'
+import { ReactSelectValue } from './Filter'
 
 interface FilterSelectProps {
-  selectLabel: string;
-  selectName: string;
-  defaultValue?: { value: string; label: string };
-  onChange: (selected?: ReactSelectValue) => void;
-  options: PantheonSelectType[] | SubjectSelectType[];
+  selectLabel: string
+  selectName: string
+  defaultValue?: { value: string; label: string }
+  onChange: (selected?: ReactSelectValue) => void
+  options: PantheonSelectType[] | SubjectSelectType[]
 }
 
 const FilterSelect: React.FC<FilterSelectProps> = ({
@@ -34,7 +34,7 @@ const FilterSelect: React.FC<FilterSelectProps> = ({
         autoFocus
       />
     </label>
-  );
-};
+  )
+}
 
-export default FilterSelect;
+export default FilterSelect

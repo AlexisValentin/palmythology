@@ -1,21 +1,21 @@
-export const BACKGROUND = "bg";
-export const GRADIENT = "gradient";
-export const TEXT = "text";
+export const BACKGROUND = 'bg'
+export const GRADIENT = 'gradient'
+export const TEXT = 'text'
 
 export const COLORS = {
-  AMBER: "amber",
-  BLUE: "blue",
-  CYAN: "cyan",
-  EMERALD: "emerald",
-  INDIGO: "indigo",
-  LIME: "lime",
-  NEUTRAL: "neutral",
-  ORANGE: "orange",
-  PINK: "pink",
-  RED: "red",
-  SKY: "sky",
-  VIOLET: "violet",
-};
+  AMBER: 'amber',
+  BLUE: 'blue',
+  CYAN: 'cyan',
+  EMERALD: 'emerald',
+  INDIGO: 'indigo',
+  LIME: 'lime',
+  NEUTRAL: 'neutral',
+  ORANGE: 'orange',
+  PINK: 'pink',
+  RED: 'red',
+  SKY: 'sky',
+  VIOLET: 'violet',
+}
 
 export const COLOR_TAINTS = {
   EXTRA_LIGHT: 100,
@@ -27,14 +27,14 @@ export const COLOR_TAINTS = {
   DARKER: 700,
   SUPER_DARK: 800,
   EXTRA_DARK: 900,
-};
+}
 
 export const TEXT_COLORS = {
   GENERIC: `${COLORS.NEUTRAL}-${COLOR_TAINTS.EXTRA_LIGHT}`,
   HINDU: `${COLORS.EMERALD}-${COLOR_TAINTS.DARK}`,
   JAPANESE: `${COLORS.RED}-${COLOR_TAINTS.DARKER}`,
   ROMAN: `${COLORS.AMBER}-${COLOR_TAINTS.MEDIUM}`,
-};
+}
 
 export const MYTHOLOGY_COLORS = {
   AZTEC: `${COLORS.ORANGE}-${COLOR_TAINTS.DARK}`,
@@ -47,7 +47,7 @@ export const MYTHOLOGY_COLORS = {
   MAYAN: `${COLORS.VIOLET}-${COLOR_TAINTS.SUPER_DARK}`,
   NORSE: `${COLORS.SKY}-${COLOR_TAINTS.LIGHTER}`,
   ROMAN: `${COLORS.RED}-${COLOR_TAINTS.EXTRA_DARK}`,
-};
+}
 
 export const FOLDERS_COLORS = {
   QU_EST_CE_QUE_CA_FICHE: [
@@ -64,7 +64,7 @@ export const FOLDERS_COLORS = {
       `${COLORS.NEUTRAL}-${COLOR_TAINTS.EXTRA_DARK}`,
     ],
   },
-};
+}
 
 export const SECTION_COLORS = {
   ABOUT: [
@@ -83,16 +83,16 @@ export const SECTION_COLORS = {
     `${COLORS.RED}-${COLOR_TAINTS.MEDIUM}`,
     `${COLORS.AMBER}-${COLOR_TAINTS.MEDIUM}`,
   ],
-};
+}
 
 export type PantheonStyleType = {
-  backgroundColor: string;
-  textColor: string;
-};
+  backgroundColor: string
+  textColor: string
+}
 
 export type GradientType = {
-  startingColor: string;
-  endingColor: string;
-};
+  startingColor: string
+  endingColor: string
+}
 
-export const BLACK_COLOR = `${COLORS.NEUTRAL}-${COLOR_TAINTS.EXTRA_DARK}`;
+export const BLACK_COLOR = `${COLORS.NEUTRAL}-${COLOR_TAINTS.EXTRA_DARK}`

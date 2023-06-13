@@ -1,18 +1,18 @@
-import { HelmetProvider } from "react-helmet-async";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Footer from "./components/domains/footer/Footer";
-import MainMenu from "./components/domains/navigation/MainMenu";
-import AboutPage from "./components/domains/pages/About.page";
-import CardDetailsPage from "./components/domains/pages/CardDetails.page";
-import FoldersPage from "./components/domains/pages/Folders.page";
-import HomePage from "./components/domains/pages/Home.page";
-import NewsPage from "./components/domains/pages/News.page";
-import NewsArticleDetailsPage from "./components/domains/pages/NewsArticleDetails.page";
-import QuestCeQueCaFichePage from "./components/domains/pages/QuestCeQueCaFiche.page";
-import Quoi2NeufPage from "./components/domains/pages/Quoi2Neuf.page";
-import SearchPage from "./components/domains/pages/Search.page";
-import { FOLDERS_URLS } from "./types/consts/folders";
-import { ROUTE_URLS } from "./types/consts/routes";
+import { HelmetProvider } from 'react-helmet-async'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import Footer from './components/domains/footer/Footer'
+import MainMenu from './components/domains/navigation/MainMenu'
+import AboutPage from './components/domains/pages/About.page'
+import CardDetailsPage from './components/domains/pages/CardDetails.page'
+import FoldersPage from './components/domains/pages/Folders.page'
+import HomePage from './components/domains/pages/Home.page'
+import NewsPage from './components/domains/pages/News.page'
+import NewsArticleDetailsPage from './components/domains/pages/NewsArticleDetails.page'
+import QuestCeQueCaFichePage from './components/domains/pages/QuestCeQueCaFiche.page'
+import Quoi2NeufPage from './components/domains/pages/Quoi2Neuf.page'
+import SearchPage from './components/domains/pages/Search.page'
+import { FOLDERS_URLS } from './types/consts/folders'
+import { ROUTE_URLS } from './types/consts/routes'
 
 const App = () => (
   <BrowserRouter>
@@ -40,6 +40,6 @@ const App = () => (
       <Footer />
     </HelmetProvider>
   </BrowserRouter>
-);
+)
 
-export default App;
+export default App

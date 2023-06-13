@@ -1,19 +1,19 @@
-import { wording } from "../../wording/fr/main";
-import NewIcon from "../../assets/icons/new.svg";
-import MagnifyingGlassIcon from "../../assets/icons/magnifying_glass.svg";
-import InformationIcon from "../../assets/icons/information.svg";
-import FolderIcon from "../../assets/icons/folder.svg";
-import { GradientType, SECTION_COLORS } from "../styles/colors";
-import PalmythologyLogo from "../../assets/images/logo.webp";
+import { wording } from '../../wording/fr/main'
+import NewIcon from '../../assets/icons/new.svg'
+import MagnifyingGlassIcon from '../../assets/icons/magnifying_glass.svg'
+import InformationIcon from '../../assets/icons/information.svg'
+import FolderIcon from '../../assets/icons/folder.svg'
+import { GradientType, SECTION_COLORS } from '../styles/colors'
+import PalmythologyLogo from '../../assets/images/logo.webp'
 
-export const ROOT = "/";
+export const ROOT = '/'
 
 export interface RouteType {
-  name: string;
-  url: string;
-  description: string;
-  gradient?: GradientType;
-  iconUrl?: string;
+  name: string
+  url: string
+  description: string
+  gradient?: GradientType
+  iconUrl?: string
 }
 
 export const ROUTE_URLS = {
@@ -24,7 +24,7 @@ export const ROUTE_URLS = {
   FOLDERS: `${ROOT}folders`,
   CARD: `${ROOT}cards/:pantheon/:card`,
   ARTICLE: `${ROOT}news/:title`,
-};
+}
 
 export const ROUTES: RouteType[] = [
   {
@@ -73,4 +73,4 @@ export const ROUTES: RouteType[] = [
     },
     iconUrl: InformationIcon,
   },
-];
+]

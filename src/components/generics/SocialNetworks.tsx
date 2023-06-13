@@ -1,13 +1,13 @@
 import {
   SOCIAL_NETWORKS,
   SOCIAL_NETWORK_STATUS,
-} from "../../types/consts/socialNetworks";
+} from '../../types/consts/socialNetworks'
 
 const SocialNetworks = (): JSX.Element => {
   return (
     <>
       {SOCIAL_NETWORKS.map(({ name, url, iconUrl, status }, idx) => {
-        if (status === SOCIAL_NETWORK_STATUS.INACTIVE) return null;
+        if (status === SOCIAL_NETWORK_STATUS.INACTIVE) return null
 
         return (
           <a href={url} target="_blank" rel="noreferrer" key={idx}>
@@ -15,10 +15,10 @@ const SocialNetworks = (): JSX.Element => {
               <img className="w-10" src={iconUrl} alt={`Logo ${name}`} />
             </div>
           </a>
-        );
+        )
       })}
     </>
-  );
-};
+  )
+}
 
-export default SocialNetworks;
+export default SocialNetworks
