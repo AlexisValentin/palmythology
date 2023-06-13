@@ -5,6 +5,8 @@ import { wording } from '../../../wording/fr/main'
 import PageHeader from '../../generics/PageHeader'
 import PageSquare from '../../generics/PageSquare'
 import { Quoi2NeufItemType } from '../../../types/storyblok'
+import Meta from '../../generics/Meta'
+import { SEO_WORDING } from '../../../wording/fr/seo'
 
 const Quoi2NeufPage = (): JSX.Element => {
   const [quoi2NeufItems, setQuoi2NeufItems] = useState<Quoi2NeufItemType[]>([])
@@ -22,6 +24,10 @@ const Quoi2NeufPage = (): JSX.Element => {
 
   return (
     <>
+      <Meta
+        title={SEO_WORDING.Q2N.title}
+        description={SEO_WORDING.Q2N.description}
+      />
       <PageHeader
         title={`${wording.folders.quoi_2_neuf_title}`}
         subtitle={`${parsedDate}`}

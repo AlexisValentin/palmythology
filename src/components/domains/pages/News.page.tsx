@@ -5,6 +5,8 @@ import { fetchNewsStories } from '../../../helpers/storyblok'
 import PageSection from '../../generics/PageSection'
 import { setNewsRouteParameters } from '../../../helpers/routes'
 import { NewsPageType } from '../../../types/storyblok'
+import { SEO_WORDING } from '../../../wording/fr/seo'
+import Meta from '../../generics/Meta'
 
 const NewsPage = (): JSX.Element => {
   const [newsPages, setNewsPages] = useState<NewsPageType[]>([])
@@ -17,6 +19,10 @@ const NewsPage = (): JSX.Element => {
 
   return (
     <>
+      <Meta
+        title={SEO_WORDING.NEWS.title}
+        description={SEO_WORDING.NEWS.description}
+      />
       <PageHeader
         title={wording.sections.news_title}
         subtitle={wording.sections.news_description}

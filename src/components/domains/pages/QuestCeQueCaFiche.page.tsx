@@ -8,6 +8,8 @@ import { QuestCeQueCaFicheItemType } from '../../../types/storyblok'
 import { BLACK_COLOR, GradientType } from '../../../types/styles/colors'
 import { getPantheonMainColor } from '../../../helpers/colors'
 import { PantheonValue } from '../../../types/cards/pantheons'
+import Meta from '../../generics/Meta'
+import { SEO_WORDING } from '../../../wording/fr/seo'
 
 const QuestCeQueCaFichePage = (): JSX.Element => {
   const [quEstCeQueCaFicheItems, setQuEstCeQueCaFicheItems] = useState<
@@ -22,6 +24,10 @@ const QuestCeQueCaFichePage = (): JSX.Element => {
 
   return (
     <>
+      <Meta
+        title={SEO_WORDING.QQCF.title}
+        description={SEO_WORDING.QQCF.description}
+      />
       <PageHeader
         title={wording.folders.qu_est_ce_que_ca_fiche_title}
         subtitle={wording.folders.qu_est_ce_que_ca_fiche_description}

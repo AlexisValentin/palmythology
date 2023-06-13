@@ -3,6 +3,8 @@ import { getAboutSlug } from '../../../helpers/storyblok'
 import { wording } from '../../../wording/fr/main'
 import PageHeader from '../../generics/PageHeader'
 import TextBlock, { IconSize } from '../../generics/TextBlock'
+import { SEO_WORDING } from '../../../wording/fr/seo'
+import Meta from '../../generics/Meta'
 
 const AboutPage = (): JSX.Element => {
   const story = useStoryblok(getAboutSlug(), {
@@ -11,6 +13,10 @@ const AboutPage = (): JSX.Element => {
 
   return (
     <>
+      <Meta
+        title={SEO_WORDING.ABOUT.title}
+        description={SEO_WORDING.ABOUT.description}
+      />
       <PageHeader
         title={wording.sections.about_title}
         subtitle={wording.sections.about_description}

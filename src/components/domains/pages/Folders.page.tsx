@@ -1,11 +1,17 @@
 import { FOLDERS } from '../../../types/consts/folders'
 import { wording } from '../../../wording/fr/main'
+import { SEO_WORDING } from '../../../wording/fr/seo'
+import Meta from '../../generics/Meta'
 import PageHeader from '../../generics/PageHeader'
 import PageSection from '../../generics/PageSection'
 
 const FoldersPage = (): JSX.Element => {
   return (
     <>
+      <Meta
+        title={SEO_WORDING.FOLDERS.title}
+        description={SEO_WORDING.FOLDERS.description}
+      />
       <PageHeader
         title={wording.sections.folders_title}
         subtitle={wording.sections.folders_description}

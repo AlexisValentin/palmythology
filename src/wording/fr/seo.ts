@@ -1,7 +1,33 @@
-export const SEO_WORDING = {
+type SeoWordingType = { title: string; description: string }
+
+export const SEO_WORDING: Record<string, SeoWordingType> = {
   HOME: {
-    title: "Palmythology | Page d'accueil",
+    title: `Palmythology | Page d'accueil`,
+    description: `Bienvenue sur le site de la Palmythology ! Découvrez les mythologies du monde en plongeant dans l'histoire et la culture divine à travers des fiches simple, intuitives et pédagogiques. Que vous souhaitiez en savoir plus sur les dieux, déesses, héros légendaires ou créatures mythiques, la Palmythology saura vous transporter dans une aventure éducative et divertissante !`,
+  },
+  NEWS: {
+    title: 'Palmythology | Actualités',
+    description: `A l'image d'un blog, la section d'actualités de la Palmythology vous dévoile toutes les nouveautés que vous pourrez retrouver à la fois sur le site web et les réseaux sociaux (Instagram, Facebook et Twitter). Suivez les nouveaux articles et les annonces des prochaines événements à paraître dans l'écosystème de la Palmythology !`,
+  },
+  FOLDERS: {
+    title: 'Palmythology | Dossiers',
+    description: `Que ce soit pour découvrir le planning du mois en cours grâce à la rubrique "Quoi 2 Neuf" ou pour plonger dans les dossiers mythologiques "Qu'est-ce que ça fiche ?" pour obtenir de plus amples informations, la Palmythology vous propose différents formats pour vous orienter naturellement et intuitivement vers les rubriques du site web que vous recherchez..`,
+  },
+  SEARCH: {
+    title: 'Palmythology | Recherche de contenu',
+    description: `Vous êtes à la recherche d'informations mythologiques ? La Palmythology vous propose un moteur de recherche spécial pour trouver la fiche qu'il vous faut. Peaufiner votre recherche avec les 10 panthéons disponibles (Aztèque, Celtique, Chinois, Égyptien, Grec, Hindou, Japonais, MAya, Scandinave, Romain) et les 6 différents sujets (Créature, Divinité; Personnage, Lieu, Peuple, Écrits).`,
+  },
+  Q2N: {
+    title: 'Palmythology | Quoi 2 Neuf',
+    description: `C'est dans la section "Quoi 2 Neuf" que vous pouvez consulter le planning du mois en cours, ainsi que les fiches prévues qui sont déjà disponible sur le site web de la Palmythology et les réseaux sociaux ! Chaque fiche prévue est inscrite avec son illustration, son nom et son sous-titre tel qu'il paraîtra dans le mois courant.`,
+  },
+  QQCF: {
+    title: `Palmythology | Qu'est-ce que ça fiche ?`,
+    description: `C'est dans la section "Qu'est-ce que ça fiche ?" que les fiches détaillées sont accessibles plus en profondeur par rapport aux fiches classiques de la Palmythology. Suivez la section pour connaître les derniers sujets "Qu'est-ce que ça fiche ?" de la Palmtyhology et ainsi améliorer vos connaisances en la matière !`,
+  },
+  ABOUT: {
+    title: 'Palmythology | À propos',
     description:
-      "Bienvenue sur le site de la Palmythology ! Découvrez les mythologies du monde en plongeant dans l'histoire et la culture divine à travers des fiches simple, intuitives et pédagogiques. Que vous souhaitiez-en savoir plus sur les dieux, déesses, héros légendaires ou créatures mythiques, la Palmythology saura vous transporter dans une aventure éducative et divertissante !",
+      'Tout ce que vous avez toujours voulu savoir sur les secrets de la Palmythology. Retrouvez les informations bonus sur le créateur du site web et du concept de la Palmythology, les détails techniques concernant le développement du site web, mais aussi les informations de contact afin de pouvoir à la fois, proposer des idées, suggérer du contenu, poser des questions et éventuellement participer au développement de la Palmythology de manière générale.',
   },
 }
