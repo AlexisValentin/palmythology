@@ -9,6 +9,10 @@ export const SEO_WORDING: Record<string, SeoWordingType> = {
     title: 'Palmythology | Actualités',
     description: `A l'image d'un blog, la section d'actualités de la Palmythology vous dévoile toutes les nouveautés que vous pourrez retrouver à la fois sur le site web et les réseaux sociaux (Instagram, Facebook et Twitter). Suivez les nouveaux articles et les annonces des prochaines événements à paraître dans l'écosystème de la Palmythology !`,
   },
+  NEWS_ARTICLE: {
+    title: 'Palmythology | Article',
+    description: `Guettez en détail les actualités du site web de la Palmythology afin de vous renseigner sur les dernières nouveautés du projet mythologique et pédagogique : nouveaux formats, mises à jours, événements, retrouvez tous les détails essentiels dans les articles concernant l'actualité de la Palmythology.`,
+  },
   FOLDERS: {
     title: 'Palmythology | Dossiers',
     description: `Que ce soit pour découvrir le planning du mois en cours grâce à la rubrique "Quoi 2 Neuf" ou pour plonger dans les dossiers mythologiques "Qu'est-ce que ça fiche ?" pour obtenir de plus amples informations, la Palmythology vous propose différents formats pour vous orienter naturellement et intuitivement vers les rubriques du site web que vous recherchez..`,
@@ -16,6 +20,10 @@ export const SEO_WORDING: Record<string, SeoWordingType> = {
   SEARCH: {
     title: 'Palmythology | Recherche de contenu',
     description: `Vous êtes à la recherche d'informations mythologiques ? La Palmythology vous propose un moteur de recherche spécial pour trouver la fiche qu'il vous faut. Peaufiner votre recherche avec les 10 panthéons disponibles (Aztèque, Celtique, Chinois, Égyptien, Grec, Hindou, Japonais, MAya, Scandinave, Romain) et les 6 différents sujets (Créature, Divinité; Personnage, Lieu, Peuple, Écrits).`,
+  },
+  CARD_DETAILS: {
+    title: 'Palmythology | Fiche détaillée',
+    description: `C'est ici que vous retrouverez toutes les informations sur la fiche de la Plamythology de vos rêves : que ce soit les divinités grecques, les créatures égyptiennes ou encore les batailles légendaire scandinaves, retrouvez avec détails toutes les informations sur le sujet de votre choix, avec des fiches agrémentées d'illustrations attrayantes et d'explications passionantes.`,
   },
   Q2N: {
     title: 'Palmythology | Quoi 2 Neuf',
