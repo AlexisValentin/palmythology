@@ -15,11 +15,15 @@ import { FOLDERS_URLS } from './types/consts/folders'
 import { ROUTE_URLS } from './types/consts/routes'
 import { createContext, useState } from 'react'
 import { DEFAULT_THEME, THEMES } from './types/styles/theme'
+import { LOCAL_STORAGE_KEYS, getFromLocalStorage } from './helpers/storage'
 
 export const ThemeContext = createContext(THEMES.LIGHT)
 
 const App = () => {
-  const [appTheme, setAppTheme] = useState(DEFAULT_THEME)
+  const [appTheme, setAppTheme] = useState(
+    (getFromLocalStorage(LOCAL_STORAGE_KEYS.APP_THEME) as THEMES) ??
+      DEFAULT_THEME,
+  )
 
   return (
     <BrowserRouter>

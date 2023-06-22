@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../../types/consts/routes'
 import { wording } from '../../../wording/fr/main'
-import { useCallback, useContext } from 'react'
+import { useCallback } from 'react'
 import { THEMES } from '../../../types/styles/theme'
-import { ThemeContext } from '../../../App'
 import ThemeButtonSwitch from '../../generics/ThemeButtonSwitch'
 
 interface MainMenuProps {
@@ -11,8 +10,6 @@ interface MainMenuProps {
 }
 
 const MainMenu: React.FC<MainMenuProps> = ({ setAppTheme }): JSX.Element => {
-  const appTheme = useContext(ThemeContext)
-
   const isHomePage = useCallback((routeName: string) => {
     return wording.sections.home_title === routeName
   }, [])
@@ -51,7 +48,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ setAppTheme }): JSX.Element => {
           </div>
         )
       })}
-      <ThemeButtonSwitch appTheme={appTheme} setAppTheme={setAppTheme} />
+      <ThemeButtonSwitch setAppTheme={setAppTheme} />
     </nav>
   )
 }
