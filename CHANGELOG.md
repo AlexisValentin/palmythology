@@ -1,12 +1,17 @@
 # Version 1.2.0 (??/??/2023)
 
+## Les grandes lignes
+
+- Le resumé des fiches "Les grandes lignes" possède désormais une largeur équivalente à celle du carrousel situé en-dessous.
+- Le résumé ne s'affiche que les écrans d'une largeur minimale de 1280 pixels.
+
 ## Quoi 2 Neuf
 
 - Les fiches "Qu'est-ce que ça fiche ?" sont désormais affichées parmi les autres sujets de la page "Quoi 2 neuf ?" pour le mois en cours.
 
 ## SEO
 
-- Création d'un module afin d'améliorer le référencement du site, notamment en rajoutant des balise `title` et `meta` dans les différentes pages du site web.
+- Création d'un module statique afin d'améliorer le référencement du site, notamment en rajoutant des balises `title` et `meta` dans les différentes pages du site web.
 
 ## Sécurité
 
