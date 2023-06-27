@@ -9,22 +9,20 @@
 
 - Les fiches "Qu'est-ce que ça fiche ?" sont désormais affichées parmi les autres sujets de la page "Quoi 2 neuf ?" pour le mois en cours.
 
+## Correction de bugs
+
+- Correction d'un bug en production qui déclenchait une erreur lorsque l'utilisateur rafraîchissait une page en dehors de la page d'accueil.
+
 ## SEO
 
 - Création d'un module statique afin d'améliorer le référencement du site, notamment en rajoutant des balises `title` et `meta` dans les différentes pages du site web.
 
-## Sécurité
+## Divers
 
 - Ajout de la license `GNU General Public License v3.0`.
-
-## Tech
-
 - Migration de certains fichiers `javascript` en `typescript`.
-- Mise à jour de dépendences vers leurs dernières versions disponibles.
-
-## Correction de bugs
-
-- Correction d'un bug en production qui déclenchait une erreur lorsque l'utilisateur rafraîchissait une page en dehors de la page d'accueil.
+- Mise à jour de dépendences vers des versions plus récentes :
+  - Renommage de la dépendance `coverage-c8` en `coverage-v8`.
 
 ---
 
@@ -34,7 +32,7 @@
 
 - Sauvegarde désormais les critères de recherche de la session si les deux champs ont été sélectionnés (à la fois le panthéon et le sujet). Fermer l'onglet ou quitter le site réinitialisera les choix qui ont été faits par l'utlisateur.
 
-## Tech
+## Divers
 
 - Mise à jour du `README.md` pour appréhender plus facilement le projet côté développeur.
 - Ajout de tests unitaires sur l'ensemble des méthodes du projet via `vitest`.
