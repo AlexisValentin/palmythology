@@ -1,4 +1,4 @@
-# Version 1.2.0 (??/??/2023)
+# Version 1.2.0 (30/06/2023)
 
 ## Les grandes lignes
 
@@ -21,6 +21,10 @@
 
 - Migration de certains fichiers `javascript` en `typescript`.
 - Mise à jour de dépendences vers leurs dernières versions disponibles.
+
+## Correction de bugs
+
+- Correction d'un bug en production qui déclenchait une erreur lorsque l'utilisateur rafraîchissait une page en dehors de la page d'accueil.
 
 ---
 
