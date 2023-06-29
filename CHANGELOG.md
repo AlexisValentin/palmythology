@@ -2,6 +2,7 @@
 
 ## Les grandes lignes
 
+- Ajout des liens/icônes vers le ou les réseaux sociaux où la fiche est également disponible.
 - Le resumé des fiches "Les grandes lignes" possède désormais une largeur équivalente à celle du carrousel situé en-dessous.
 - Le résumé ne s'affiche que les écrans d'une largeur minimale de 1280 pixels.
 
