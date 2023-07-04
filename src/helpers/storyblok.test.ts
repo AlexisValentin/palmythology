@@ -9,21 +9,37 @@ describe('helpers/storyblok', () => {
   })
 
   describe('getCardSlug', () => {
-    beforeEach(() => {
-      vi.mocked(parseStringToSlug).mockReturnValueOnce('grec')
-      vi.mocked(parseStringToSlug).mockReturnValueOnce('zeus')
+    describe('when all data is provided', () => {
+      beforeEach(() => {
+        vi.mocked(parseStringToSlug).mockReturnValueOnce('grec')
+        vi.mocked(parseStringToSlug).mockReturnValueOnce('zeus')
+      })
+
+      test('should call `parseStringToSlug` twice', () => {
+        getCardSlug('zeus', 'grec')
+
+        expect(parseStringToSlug).toHaveBeenCalledTimes(2)
+        expect(parseStringToSlug).toHaveBeenNthCalledWith(1, 'grec')
+        expect(parseStringToSlug).toHaveBeenNthCalledWith(2, 'zeus')
+      })
+
+      test('should provide card slug', () =>
+        expect(getCardSlug('zeus', 'grec')).toEqual('cards/grec/zeus'))
     })
 
-    test('should call `parseStringToSlug` twice', () => {
-      getCardSlug('zeus', 'grec')
+    describe('should return an empty string', () => {
+      test('when name parameter is not provided', () => {
+        expect(getCardSlug(undefined, 'grec')).toEqual('')
+      })
 
-      expect(parseStringToSlug).toHaveBeenCalledTimes(2)
-      expect(parseStringToSlug).toHaveBeenNthCalledWith(1, 'grec')
-      expect(parseStringToSlug).toHaveBeenNthCalledWith(2, 'zeus')
+      test('when pantheon parameter is not provided', () => {
+        expect(getCardSlug('zeus', undefined)).toEqual('')
+      })
+
+      test('when no parameters are provided', () => {
+        expect(getCardSlug(undefined, undefined)).toEqual('')
+      })
     })
-
-    test('should provide card slug', () =>
-      expect(getCardSlug('zeus', 'grec')).toEqual('cards/grec/zeus'))
   })
 
   describe('getNewsSlug', () => {

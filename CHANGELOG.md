@@ -4,6 +4,11 @@
 
 - Correction d'un bug visuel qui faisait que les éléments se collaient sur les écrans mobiles et tablettes.
 
+## Divers
+
+- Suppression des annotations `// @ts-ignore` afin de renforcer la robustesse du code.
+- Ajout de tests unitaires dans le but de renforcer la robustesse du code.
+
 ---
 
 # Version 1.2.0 (30/06/2023)
