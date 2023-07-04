@@ -4,7 +4,7 @@ import PageHeader from '../../generics/PageHeader'
 import { fetchNewsStories } from '../../../helpers/storyblok'
 import PageSection from '../../generics/PageSection'
 import { setNewsRouteParameters } from '../../../helpers/routes'
-import { NewsPageType } from '../../../types/storyblok'
+import { NewsPageType } from '../../../types/storyblok/storyblok'
 import { SEO_WORDING } from '../../../wording/fr/seo'
 import Meta from '../../generics/Meta'
 

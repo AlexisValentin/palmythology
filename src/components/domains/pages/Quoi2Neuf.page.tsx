@@ -4,7 +4,7 @@ import { fetchQuoi2NeufStories } from '../../../helpers/storyblok'
 import { wording } from '../../../wording/fr/main'
 import PageHeader from '../../generics/PageHeader'
 import PageSquare from '../../generics/PageSquare'
-import { Quoi2NeufItemType } from '../../../types/storyblok'
+import { Quoi2NeufItemType } from '../../../types/storyblok/storyblok'
 import Meta from '../../generics/Meta'
 import { SEO_WORDING } from '../../../wording/fr/seo'
 

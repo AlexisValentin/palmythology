@@ -3,17 +3,28 @@ import { CardDetails } from '../types/cards/card'
 import {
   NewsPageType,
   QuestCeQueCaFicheItemType,
+  Quoi2NeufItemType,
   STORYBLOK_TOKEN,
   STORYBLOK_URL_STORIES,
   STORYBLOK_VERSIONS,
-} from '../types/storyblok'
+} from '../types/storyblok/storyblok'
 import { parseStringToSlug } from './string'
+import {
+  StoryblokCardComponentType,
+  StoryblokNewsComponentType,
+  StoryblokQ2NComponentType,
+  StoryblokQQCFComponentType,
+} from '../types/storyblok/stories'
 
-export const getCardSlug = (cardName: string, pantheon: string) =>
-  `cards/${parseStringToSlug(pantheon)}/${parseStringToSlug(cardName)}`
+export const getCardSlug = (cardName?: string, pantheon?: string) => {
+  return !cardName || !pantheon
+    ? ''
+    : `cards/${parseStringToSlug(pantheon)}/${parseStringToSlug(cardName)}`
+}
 
-export const getNewsSlug = (newsTitle: string) =>
-  `news/${parseStringToSlug(newsTitle)}`
+export const getNewsSlug = (newsTitle?: string) => {
+  return !newsTitle ? '' : `news/${parseStringToSlug(newsTitle)}`
+}
 
 export const getAboutSlug = () => `about/page`
 
@@ -27,16 +38,15 @@ const fetchStoriesByStartingString = (startingString: string) =>
 export const fetchCardStories = async () =>
   await fetchStoriesByStartingString('card').then((stories) =>
     stories.data.stories.map(
-      // @ts-ignore
-      (story) => story.content.component === 'card' && parseCardData(story),
+      (story: StoryblokCardComponentType) =>
+        story.content.component === 'card' && parseCardData(story),
     ),
   )
 
 export const fetchQuoi2NeufStories = async () =>
   await fetchStoriesByStartingString('quoi2neuf').then((stories) =>
     stories.data.stories.map(
-      // @ts-ignore
-      (story) =>
+      (story: StoryblokQ2NComponentType) =>
         story.content.component === 'quoi2Neuf' && parseQuoi2NeufData(story),
     ),
   )
@@ -44,8 +54,7 @@ export const fetchQuoi2NeufStories = async () =>
 export const fetchQuEstCeQueCaFicheStories = async () =>
   await fetchStoriesByStartingString('questcequecafiche').then((stories) =>
     stories.data.stories.map(
-      // @ts-ignore
-      (story) =>
+      (story: StoryblokQQCFComponentType) =>
         story.content.component === 'quEstCeQueCaFiche' &&
         parseQuEstCeQueCaFicheData(story),
     ),
@@ -54,13 +63,12 @@ export const fetchQuEstCeQueCaFicheStories = async () =>
 export const fetchNewsStories = async () =>
   await fetchStoriesByStartingString('news').then((stories) =>
     stories.data.stories.map(
-      // @ts-ignore
-      (story) => story.content.component === 'newsPage' && parseNewsData(story),
+      (story: StoryblokNewsComponentType) =>
+        story.content.component === 'newsPage' && parseNewsData(story),
     ),
   )
 
-// @ts-ignore
-const parseCardData = (card): CardDetails => {
+const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
   const { name, pantheon, subject, available, isFolder } = card.content
 
   return {
@@ -86,8 +94,7 @@ const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufItemType => {
 }
 
 const parseQuEstCeQueCaFicheData = (
-  // @ts-ignore
-  quEstCeQueCaFicheItem,
+  quEstCeQueCaFicheItem: StoryblokQQCFComponentType,
 ): QuestCeQueCaFicheItemType => {
   const { title, summary, icon, pantheon } = quEstCeQueCaFicheItem.content
 
@@ -100,8 +107,7 @@ const parseQuEstCeQueCaFicheData = (
 }
 
 const parseNewsData = (
-  // @ts-ignore
-  newsArticle,
+  newsArticle: StoryblokNewsComponentType,
 ): NewsPageType => {
   const { title, summary, icon, newsItem } = newsArticle.content
 

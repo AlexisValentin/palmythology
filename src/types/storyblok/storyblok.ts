@@ -1,3 +1,5 @@
+import { TextBlockType } from './stories'
+
 export const STORYBLOK_TOKEN = 'Q7BU90ToNkaevy4h0HpEbwtt'
 export const STORYBLOK_CV = '1671618809'
 const STORYBLOK_URL = 'https://api.storyblok.com/'
@@ -37,16 +39,6 @@ export interface Quoi2NeufItemType {
     filename: string
   }
   pantheon: string
-}
-
-export interface TextBlockType {
-  text: string
-  illustration: {
-    alt: string
-    filename: string
-  }
-  component: string
-  _uid: string
 }
 
 export type AboutPageType = AboutItemType[]

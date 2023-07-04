@@ -17,24 +17,21 @@ const FilterSelect: React.FC<FilterSelectProps> = ({
   defaultValue,
   onChange,
   options,
-}): JSX.Element => {
-  return (
-    <label className="block">
-      <span className="block text-sm font-medium text-slate-700">
-        {selectLabel}
-      </span>
-      <Select
-        name={selectName}
-        // @ts-ignore
-        options={options}
-        onChange={onChange}
-        isClearable
-        isSearchable
-        defaultValue={defaultValue}
-        autoFocus
-      />
-    </label>
-  )
-}
+}): JSX.Element => (
+  <label className="block">
+    <span className="block text-sm font-medium text-slate-700">
+      {selectLabel}
+    </span>
+    <Select
+      name={selectName}
+      options={options}
+      onChange={onChange}
+      isClearable
+      isSearchable
+      defaultValue={defaultValue}
+      autoFocus
+    />
+  </label>
+)
 
 export default FilterSelect
