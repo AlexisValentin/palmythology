@@ -11,6 +11,7 @@
     "cross-env": "^7.0.3",
     "lodash": "^4.17.21",
     "lodash.uniq": "^4.5.0",
+    "next": "^13.4.8",
     "node-sass": "^9.0.0",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
@@ -25,12 +26,13 @@
     "typescript": "^5.0.4"
   },
   "scripts": {
-    "dev": "cross-env BROWSER=none react-scripts start",
-    "build": "react-scripts build",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "test": "vitest",
     "watch": "vitest watch",
     "coverage": "vitest run --coverage",
-    "eject": "react-scripts eject",
     "prettier": "prettier --write \"**/*.{tsx,ts,js,css}\"",
     "push": "git add . && npm run test && git commit && git push",
     "push:fast": "git add . && git commit --amend --no-edit && git push --force-with-lease"
