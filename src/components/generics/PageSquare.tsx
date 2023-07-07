@@ -5,12 +5,12 @@ import {
 } from '../../helpers/colors'
 import { setCardRouteParameters } from '../../helpers/routes'
 import { Quoi2NeufItemType } from '../../types/storyblok'
+import { PantheonValue } from '../../types/cards/pantheons'
 
 const PageSquare: React.FC<Quoi2NeufItemType> = ({
   title,
   subtitle,
   available,
-  isFolder,
   icon,
   pantheon,
 }): JSX.Element => {
@@ -19,15 +19,15 @@ const PageSquare: React.FC<Quoi2NeufItemType> = ({
   return available ? (
     <Link
       to={setCardRouteParameters(title, pantheon)}
-      className={`border-6 border-transparent rounded-3xl p-6 mx-6 bg-${getPantheonMainColor(
-        pantheon,
-      )} text-${getPantheonTextColor(pantheon)} 
+      className={`border-6 border-transparent rounded-3xl p-6 m-6 bg-${getPantheonMainColor(
+        pantheon as PantheonValue,
+      )} text-${getPantheonTextColor(pantheon as PantheonValue)} 
       lg:bg-transparent
       lg:text-black
       lg:hover:bg-${getPantheonMainColor(
-        pantheon,
+        pantheon as PantheonValue,
       )} lg:hover:text-${getPantheonTextColor(
-        pantheon,
+        pantheon as PantheonValue,
       )} lg:shadow-inner lg:border-0`}
     >
       <div className="flex items-center justify-center flex-col">

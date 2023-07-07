@@ -32,7 +32,6 @@ export interface Quoi2NeufItemType {
   title: string
   subtitle: string
   available: boolean
-  isFolder: boolean
   icon: {
     alt: string
     filename: string

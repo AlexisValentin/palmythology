@@ -1,3 +1,11 @@
+# Version 1.3.0 (31/07/2023)
+
+## Quoi 2 Neuf
+
+- Correction d'un bug visuel qui faisait que les éléments se collaient sur les écrans mobiles et tablettes.
+
+---
+
 # Version 1.2.0 (30/06/2023)
 
 ## Les grandes lignes
