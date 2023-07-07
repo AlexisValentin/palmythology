@@ -12,7 +12,7 @@ import SocialNetworks from '../../generics/SocialNetworks'
 
 const CardDetailsPage = (): JSX.Element => {
   const params = useParams()
-  // @ts-ignore
+
   const story = useStoryblok(getCardSlug(params.card, params.pantheon), {
     version: 'published',
   })

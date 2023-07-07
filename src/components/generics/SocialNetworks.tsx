@@ -21,25 +21,21 @@ const SocialNetwork: React.FC<SocialNetworkProps> = ({
   name,
   url,
   iconUrl,
-}): JSX.Element => {
-  console.log(url)
-
-  return (
-    <>
-      {url && (
-        <a href={url} target="_blank" rel="noreferrer">
-          <div className="flex items-center justify-center m-2">
-            <img
-              className="w-10"
-              src={iconUrl}
-              alt={`Logo du réseau social ${name}`}
-            />
-          </div>
-        </a>
-      )}
-    </>
-  )
-}
+}): JSX.Element => (
+  <>
+    {url && (
+      <a href={url} target="_blank" rel="noreferrer">
+        <div className="flex items-center justify-center m-2">
+          <img
+            className="w-10"
+            src={iconUrl}
+            alt={`Logo du réseau social ${name}`}
+          />
+        </div>
+      </a>
+    )}
+  </>
+)
 
 const SocialNetworks: React.FC<SocialNetworksProps> = ({
   customLinks,

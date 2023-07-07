@@ -10,7 +10,7 @@ import Meta from '../../generics/Meta'
 
 const NewsArticleDetailsPage = (): JSX.Element => {
   const params = useParams()
-  // @ts-ignore
+
   const story = useStoryblok(getNewsSlug(params.title), {
     version: 'published',
   })

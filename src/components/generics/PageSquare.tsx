@@ -4,7 +4,7 @@ import {
   getPantheonTextColor,
 } from '../../helpers/colors'
 import { setCardRouteParameters } from '../../helpers/routes'
-import { Quoi2NeufItemType } from '../../types/storyblok'
+import { Quoi2NeufItemType } from '../../types/storyblok/storyblok'
 import { PantheonValue } from '../../types/cards/pantheons'
 
 const PageSquare: React.FC<Quoi2NeufItemType> = ({
