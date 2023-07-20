@@ -4,6 +4,10 @@
 
 - Correction d'un bug visuel qui faisait que les éléments se collaient sur les écrans mobiles et tablettes.
 
+## Les grandes lignes
+
+- Correction d'un bug visuels qui faisait que la section "Disponible sur" n'était pas centré et laissait apparaître un espace en fin de ligne.
+
 ## Divers
 
 - Suppression des annotations `// @ts-ignore` afin de renforcer la robustesse du code.
