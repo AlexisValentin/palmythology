@@ -23,10 +23,10 @@ const TextBlock: React.FC<TextBlockProps> = ({
       case IconSize.SMALL:
         return `w-1/12`
       case IconSize.MEDIUM:
-        return `w-1/6`
+        return `w-32`
       case IconSize.LARGE:
       default:
-        return `w-1/4`
+        return `w-1/6`
     }
   }
 

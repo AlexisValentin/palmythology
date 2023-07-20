@@ -1,5 +1,9 @@
 # Version 1.3.0 (31/07/2023)
 
+## Actualités
+
+- Réduction légère de la taille des icônes à proximité des blocs de texte.
+
 ## Quoi 2 Neuf
 
 - Correction d'un bug visuel qui faisait que les éléments se collaient sur les écrans mobiles et tablettes.
@@ -13,7 +17,7 @@
 - Suppression des annotations `// @ts-ignore` afin de renforcer la robustesse du code.
 - Ajout de tests unitaires dans le but de renforcer la robustesse du code.
 
----P
+---
 
 # Version 1.2.0 (30/06/2023)
 
