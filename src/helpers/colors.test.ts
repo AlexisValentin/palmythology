@@ -35,7 +35,7 @@ describe('helpers/colors', () => {
         textColor: 'emerald-600',
       })
       expect(getPantheonStyle(PantheonValue.JAPANESE)).toEqual({
-        backgroundColor: 'neutral-100',
+        backgroundColor: 'neutral-300',
         textColor: 'red-700',
       })
       expect(getPantheonStyle(PantheonValue.MAYAN)).toEqual({
@@ -68,7 +68,7 @@ describe('helpers/colors', () => {
       expect(getPantheonMainColor(PantheonValue.GREEK)).toEqual('blue-700')
       expect(getPantheonMainColor(PantheonValue.HINDU)).toEqual('amber-600')
       expect(getPantheonMainColor(PantheonValue.JAPANESE)).toEqual(
-        'neutral-100',
+        'neutral-300',
       )
       expect(getPantheonMainColor(PantheonValue.MAYAN)).toEqual('violet-800')
       expect(getPantheonMainColor(PantheonValue.NORSE)).toEqual('sky-300')

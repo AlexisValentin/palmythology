@@ -44,11 +44,12 @@ const SocialNetworks: React.FC<SocialNetworksProps> = ({
     return (
       <>
         <div className="flex align-center justify-center">
-          <h3>Disponible sur</h3>
+          <h3 className="font-semibold">Disponible sur</h3>
         </div>
-        <div className="flex flex-row align-center">
+        <div className="flex flex-row align-center justify-center">
           {Object.values(customLinks).map((socialLink, idx) => (
             <SocialNetwork
+              key={`${SOCIAL_NETWORKS[idx].name}-${idx}`}
               name={SOCIAL_NETWORKS[idx].name}
               url={socialLink}
               iconUrl={SOCIAL_NETWORKS[idx].iconUrl}

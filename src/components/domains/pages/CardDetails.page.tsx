@@ -9,6 +9,8 @@ import { isObjectEmpty } from '../../../helpers/object'
 import Meta from '../../generics/Meta'
 import { SEO_WORDING } from '../../../wording/fr/seo'
 import SocialNetworks from '../../generics/SocialNetworks'
+import PageSquare from '../../generics/PageSquare'
+import { CardRelatedType } from '../../../types/storyblok/storyblok'
 
 const CardDetailsPage = (): JSX.Element => {
   const params = useParams()
@@ -28,6 +30,7 @@ const CardDetailsPage = (): JSX.Element => {
     instagramUrl,
     facebookUrl,
     twitterUrl,
+    relatedCards,
   } = story.content
 
   if (!available) return <NotFound404 />
@@ -51,6 +54,22 @@ const CardDetailsPage = (): JSX.Element => {
         <div className="flex items-center justify-center w-full lg:w-3/4">
           <Carrousel imageList={images} />
         </div>
+        {relatedCards && relatedCards.length > 0 && (
+          <div className="flex flex-col mt-16">
+            <div className="flex align-center justify-center">
+              <h3 className="font-semibold">Dans le même sujet</h3>
+            </div>
+            {relatedCards.map((card: CardRelatedType) => (
+              <PageSquare
+                key={`${card.name}-${card.subtitle}}`}
+                title={card.name}
+                subtitle={card.subtitle}
+                pantheon={card.pantheon}
+                icon={card.icon}
+              />
+            ))}
+          </div>
+        )}
         <div className="mt-16">
           {hasCustomLinks && <SocialNetworks customLinks={socialLinks} />}
         </div>
