@@ -42,9 +42,11 @@ const SocialNetworks: React.FC<SocialNetworksProps> = ({
 }): JSX.Element => {
   if (customLinks) {
     return (
-      <div className="flex flex-col align-center">
-        <h3>Disponible sur</h3>
-        <div className="flex flex-row align-center justify-center">
+      <>
+        <div className="flex align-center justify-center">
+          <h3>Disponible sur</h3>
+        </div>
+        <div className="flex flex-row align-center">
           {Object.values(customLinks).map((socialLink, idx) => (
             <SocialNetwork
               name={SOCIAL_NETWORKS[idx].name}
@@ -53,7 +55,7 @@ const SocialNetworks: React.FC<SocialNetworksProps> = ({
             />
           ))}
         </div>
-      </div>
+      </>
     )
   }
 

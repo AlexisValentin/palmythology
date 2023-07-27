@@ -51,7 +51,7 @@ const CardDetailsPage = (): JSX.Element => {
         <div className="flex items-center justify-center w-full lg:w-3/4">
           <Carrousel imageList={images} />
         </div>
-        <div className="flex flex-row mt-16">
+        <div className="mt-16">
           {hasCustomLinks && <SocialNetworks customLinks={socialLinks} />}
         </div>
       </div>
