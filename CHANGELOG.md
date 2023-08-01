@@ -1,3 +1,11 @@
+# Version 1.4.0 (01/08/2023)
+
+## Divers
+
+- Mise à jour des dépendances du projet (versions de patch seulement `X.X.0`).
+
+---
+
 # Version 1.3.0 (01/08/2023)
 
 ## Actualités
