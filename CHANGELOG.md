@@ -2,7 +2,7 @@
 
 ## Divers
 
-- Mise à jour des dépendances du projet (versions de patch seulement `X.X.0`).
+- Mise à jour de la quasi-totalité des dépendances du projets (excepté `typescript`).
 
 ---
 
