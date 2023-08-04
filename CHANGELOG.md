@@ -1,4 +1,8 @@
-# Version 1.4.0 (01/08/2023)
+# Version 1.3.1 (04/08/2023)
+
+## Recherche
+
+- Correction d'un bug qui empêchait de visualiser et consulter l'ensemble de toutes les fiches disponibles.
 
 ## Divers
 

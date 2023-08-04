@@ -31,7 +31,7 @@ export const getAboutSlug = () => `about/page`
 const fetchStoriesByStartingString = (startingString: string) =>
   axios({
     method: 'get',
-    url: `${STORYBLOK_URL_STORIES}?starts_with=${startingString}&token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+    url: `${STORYBLOK_URL_STORIES}?starts_with=${startingString}&token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=100`,
     responseType: 'json',
   })
 

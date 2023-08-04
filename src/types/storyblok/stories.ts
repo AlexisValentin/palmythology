@@ -1,5 +1,6 @@
 import { PantheonValue } from '../cards/pantheons'
 import { SubjectValue } from '../cards/subjects'
+import { StoryblokImageType } from './storyblok'
 
 export interface StoryblokCardComponentType {
   content: {
@@ -37,7 +38,7 @@ export interface StoryblokNewsComponentType {
     component: string
     title: string
     summary: string
-    icon: { alt: string; filename: string }
+    icon: StoryblokImageType[]
     newsItem: TextBlockType[]
   }
 }

@@ -12,7 +12,7 @@ export enum STORYBLOK_VERSIONS {
   PUBLISHED = 'published',
 }
 
-interface StoryblokImageType {
+export interface StoryblokImageType {
   alt: string
   filename: string
 }
