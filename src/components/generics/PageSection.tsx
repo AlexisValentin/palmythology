@@ -23,6 +23,8 @@ const PageSection: React.FC<PageSectionProps> = ({
         className="w-24 m-6 sm:m-12"
         src={iconUrl}
         alt={`${name} - ${description}`}
+        width={100}
+        height={100}
       />
       <div
         className={`flex items-center grow ${

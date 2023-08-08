@@ -52,6 +52,8 @@ const TextBlock: React.FC<TextBlockProps> = ({
                 <img
                   src={block.illustration.filename}
                   alt={block.illustration.alt}
+                  width={100}
+                  height={100}
                 />
               </div>
             )}

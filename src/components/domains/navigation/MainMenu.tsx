@@ -22,8 +22,9 @@ const MainMenu = (): JSX.Element => {
                 <img
                   className="border-2 border-slate-500 rounded-full shadow-xl"
                   src={iconUrl}
-                  width="40"
                   alt="Logo de la Palmythology"
+                  width={40}
+                  height={40}
                 />
               ) : (
                 <>
@@ -32,8 +33,9 @@ const MainMenu = (): JSX.Element => {
                     <img
                       className="filter-black"
                       src={iconUrl}
-                      width="30"
                       alt={name}
+                      width={40}
+                      height={40}
                     />
                   </div>
                 </>

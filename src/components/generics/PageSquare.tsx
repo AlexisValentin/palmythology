@@ -45,7 +45,13 @@ const PageSquareBlock: React.FC<
 > = ({ title, subtitle, icon }): JSX.Element => (
   <div className="flex item-center justify-center flex-col w-52">
     <div className="flex items-center justify-center flex-col mt-4">
-      <img className="w-24 pb-4" src={icon.filename} alt={icon.alt} />
+      <img
+        className="w-24 pb-4"
+        src={icon.filename}
+        alt={icon.alt}
+        width={100}
+        height={100}
+      />
       <h2 className="font-bold truncate">{title}</h2>
       <h3 className="italic truncate">{subtitle}</h3>
     </div>

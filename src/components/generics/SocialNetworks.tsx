@@ -30,6 +30,8 @@ const SocialNetwork: React.FC<SocialNetworkProps> = ({
             className="w-10"
             src={iconUrl}
             alt={`Logo du réseau social ${name}`}
+            width={24}
+            height={24}
           />
         </div>
       </a>

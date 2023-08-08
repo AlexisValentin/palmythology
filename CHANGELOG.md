@@ -1,3 +1,16 @@
+# Version 1.4.0 (??/08/2023)
+
+## Les grandes lignes
+
+- Les recommandations d'autres fiches s'alignent désormais en ligne plutôt qu'en colonne.
+- Les recommandations d'autres fiches sont temporairement indisponibles sur mobile en mode portrait.
+
+## Divers
+
+- Ajustement de l'ensemble des tailles des images du site à des fins de performances d'affichage.
+
+---
+
 # Version 1.3.1 (04/08/2023)
 
 ## Recherche

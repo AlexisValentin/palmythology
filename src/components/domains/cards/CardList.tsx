@@ -131,6 +131,8 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
                           } w-6`}
                           src={MoreIcon}
                           alt={`Plus de détails sur la fiche ${card.name}`}
+                          width={24}
+                          height={24}
                         />
                       </Link>
                     ) : (
@@ -142,6 +144,8 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
                           } w-6`}
                           src={ForbiddenIcon}
                           alt={`La fiche ${card.name} n'est pas encore disponible`}
+                          width={24}
+                          height={24}
                         />
                       </div>
                     )}
