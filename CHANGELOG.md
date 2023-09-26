@@ -8,6 +8,7 @@
 ## Divers
 
 - Ajustement de l'ensemble des tailles des images du site à des fins de performances d'affichage.
+- Mise à jour de la totalité des dépendances du projets.
 
 ---
 
