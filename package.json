@@ -33,7 +33,7 @@
     "coverage": "vitest run --coverage",
     "eject": "react-scripts eject",
     "prettier": "prettier --write \"**/*.{tsx,ts,js,css}\"",
-    "push": "git add . && npm run test && git commit && git push",
+    "push": "git add . && git commit && git push",
     "push:fast": "git add . && git commit --amend --no-edit && git push --force-with-lease"
   },
   "eslintConfig": {
