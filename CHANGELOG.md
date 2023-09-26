@@ -2,6 +2,7 @@
 
 ## Les grandes lignes
 
+- La page revient désormais en position haute lorsqu'elle est chargée depuis un lien d'un bloc de recommendation d'une autre fiche.
 - Les recommandations d'autres fiches s'alignent désormais en ligne plutôt qu'en colonne.
 - Les recommandations d'autres fiches sont temporairement indisponibles sur mobile en mode portrait.
 

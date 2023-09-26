@@ -11,13 +11,15 @@ import { SEO_WORDING } from '../../../wording/fr/seo'
 import SocialNetworks from '../../generics/SocialNetworks'
 import PageSquare from '../../generics/PageSquare'
 import { CardRelatedType } from '../../../types/storyblok/storyblok'
+import useScrollToTop from '../../../hooks/ui/useScrollToTop'
 
 const CardDetailsPage = (): JSX.Element => {
   const params = useParams()
-
   const story = useStoryblok(getCardSlug(params.card, params.pantheon), {
     version: 'published',
   })
+
+  useScrollToTop()
 
   if (isObjectEmpty(story)) return <NotFound404 />
 
