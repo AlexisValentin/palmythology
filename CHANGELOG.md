@@ -1,3 +1,11 @@
+# Version 1.5.0 (??/10/2023)
+
+## Divers
+
+- Suppression de la bordure du logo de la Palmythology dans le menu en haut de page.
+
+---
+
 # Version 1.4.0 (26/09/2023)
 
 ## Les grandes lignes

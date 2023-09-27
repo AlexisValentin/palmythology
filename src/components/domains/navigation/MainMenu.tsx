@@ -20,7 +20,7 @@ const MainMenu = (): JSX.Element => {
             <Link to={url}>
               {isHomePage(name) ? (
                 <img
-                  className="border-2 border-slate-500 rounded-full shadow-xl"
+                  className="rounded-full shadow-xl"
                   src={iconUrl}
                   alt="Logo de la Palmythology"
                   width={40}
