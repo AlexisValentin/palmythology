@@ -123,6 +123,7 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
                           card.name,
                           getPantheonValueFromLabel(card.pantheon) ?? '',
                         )}
+                        target='_blank'
                       >
                         <img
                           className={`${

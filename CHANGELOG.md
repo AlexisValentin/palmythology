@@ -3,6 +3,7 @@
 ## Recherche
 
 - L'état de la recherche précédente n'est désormais plus sauvegardée dans le navigateur, notamment à cause des soucis que cela pouvait engendre si l'un des champs n'avais pas été remplis précédement.
+- En contrepartie, consulter une fiche depuis les réultats de recherche ouvre un nouvel onglet afin de pouvoir retrouver rapidement le précédent filtre appliqué.
 
 ## Divers
 
