@@ -1,5 +1,9 @@
 # Version 1.5.0 (??/10/2023)
 
+## Recherche
+
+- L'état de la recherche précédente n'est désormais plus sauvegardée dans le navigateur, notamment à cause des soucis que cela pouvait engendre si l'un des champs n'avais pas été remplis précédement.
+
 ## Divers
 
 - Suppression de la bordure du logo de la Palmythology dans le menu en haut de page.
