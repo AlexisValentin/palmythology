@@ -12,6 +12,7 @@ import SocialNetworks from '../../generics/SocialNetworks'
 import PageSquare from '../../generics/PageSquare'
 import { CardRelatedType } from '../../../types/storyblok/storyblok'
 import useScrollToTop from '../../../hooks/ui/useScrollToTop'
+import Forbidden403 from '../http/403'
 
 const CardDetailsPage = (): JSX.Element => {
   const params = useParams()
@@ -35,7 +36,7 @@ const CardDetailsPage = (): JSX.Element => {
     relatedCards,
   } = story.content
 
-  if (!available) return <NotFound404 />
+  if (!available) return <Forbidden403 hasFadingEffect={true} />
 
   const hasCustomLinks = instagramUrl.url || facebookUrl.url || twitterUrl.url
   const socialLinks = hasCustomLinks && {

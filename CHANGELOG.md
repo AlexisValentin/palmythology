@@ -8,6 +8,7 @@
 ## Les grandes lignes
 
 - Ajout d'un délai d'affichage d'une erreur HTTP 404 lors du chargement d'une fiche, afin d'éviter un sursaut à l'écran et un message d'erreur erroné.
+- Ajout d'une page d'erreur HTTP 403 (Forbidden) se déclenchant lorsque l'utilisateur tente d'accéder à une fiche existante mais qui n'est pas encore accessible (la fiche remonte dans les résultats de recherche mais le lien d'accès ne peut pas être cliqué).
 
 ## Divers
 
