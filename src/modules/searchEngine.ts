@@ -3,32 +3,35 @@ import {
   getSubjectLabelFromValue,
 } from '../helpers/dictionary'
 import { fetchCardStories } from '../helpers/storyblok'
-import {
-  CardDetails,
-  ResearchCriterias,
-  TranslatedCardDetails,
-} from '../types/cards/card'
+import { CardDetails, ResearchCriterias } from '../types/cards/card'
 
 export const filterCards = (
+  currentPage: number,
   searchCriterias?: ResearchCriterias,
-): Promise<TranslatedCardDetails[]> =>
-  fetchCardStories().then((stories) =>
-    stories
-      .map((card: CardDetails) => {
-        if (isACardFound(searchCriterias, card)) {
-          const { pantheon, subject } = card
+) =>
+  fetchCardStories(
+    searchCriterias ?? { pantheon: '', subject: '' },
+    currentPage,
+  ).then((stories) => {
+    return {
+      total: stories.total,
+      results: stories.results
+        .map((card: CardDetails) => {
+          if (isACardFound(searchCriterias, card)) {
+            const { pantheon, subject } = card
 
-          return {
-            ...card,
-            pantheon: getPantheonLabelFromValue(pantheon),
-            subject: getSubjectLabelFromValue(subject),
+            return {
+              ...card,
+              pantheon: getPantheonLabelFromValue(pantheon),
+              subject: getSubjectLabelFromValue(subject),
+            }
           }
-        }
 
-        return undefined
-      })
-      .filter((card: CardDetails) => card !== undefined),
-  )
+          return undefined
+        })
+        .filter((card: CardDetails) => card !== undefined),
+    }
+  })
 
 export const isACardFound = (
   asked?: ResearchCriterias,

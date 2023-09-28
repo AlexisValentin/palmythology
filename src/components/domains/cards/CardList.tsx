@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useReducer } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { setCardRouteParameters } from '../../../helpers/routes'
 import { filterCards } from '../../../modules/searchEngine'
@@ -13,73 +13,45 @@ import MoreIcon from '../../../assets/icons/more.svg'
 import ForbiddenIcon from '../../../assets/icons/forbidden.svg'
 import { getPantheonStyle } from '../../../helpers/colors'
 import { getPantheonValueFromLabel } from '../../../helpers/dictionary'
-import {
-  CARD_LIST_ACTIONS,
-  CardListState,
-  cardListReducer,
-} from '../../../reducers/searchReducers'
-import {
-  SESSION_STORAGE_KEYS,
-  getFromSessionStorage,
-} from '../../../helpers/storage'
-import { HALF_SECOND_IN_MS } from '../../../types/consts/time'
+import Pagination from '../../generics/Pagination'
+import { STORYBLOK_RESULTS_PER_PAGE } from '../../../types/storyblok/storyblok'
+import { isStringEmpty } from '../../../helpers/string'
 
-const initialState: CardListState = {
-  searchCriterias: undefined,
-  searchResults: [],
-}
-
-const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
-  const [state, dispatch] = useReducer(cardListReducer, initialState)
-
-  useEffect(() => {
-    const pantheonSearchCriterias = getFromSessionStorage(
-      SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_PANTHEON,
-    )
-    const subjectSearchCriterias = getFromSessionStorage(
-      SESSION_STORAGE_KEYS.SEARCH_CRITERIAS_SUBJECT,
-    )
-
-    if (pantheonSearchCriterias || subjectSearchCriterias) {
-      dispatch({
-        type: CARD_LIST_ACTIONS.SET_SEARCH_CRITERIAS,
-        payload: {
-          pantheon: pantheonSearchCriterias ?? '',
-          subject: subjectSearchCriterias ?? '',
-        },
-      })
-
-      setTimeout(
-        () =>
-          filterCards({
-            pantheon: pantheonSearchCriterias ?? '',
-            subject: subjectSearchCriterias ?? '',
-          }).then((card) => {
-            dispatch({
-              type: CARD_LIST_ACTIONS.SET_SEARCH_RESULTS,
-              payload: card,
-            })
-          }),
-        HALF_SECOND_IN_MS,
-      )
-    }
-  }, [])
+const CardList: React.FC<ResearchCriterias> = ({
+  pantheon,
+  subject,
+}): JSX.Element => {
+  const [searchCriterias, setSearchCriterias] = useState<ResearchCriterias>({
+    pantheon: '',
+    subject: '',
+  })
+  const [searchResults, setSearchResults] = useState<TranslatedCardDetails[]>(
+    [],
+  )
+  const [totalResult, setTotalResult] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
-    dispatch({
-      type: CARD_LIST_ACTIONS.SET_SEARCH_CRITERIAS,
-      payload: { pantheon, subject },
-    })
+    setSearchCriterias({ pantheon, subject })
   }, [pantheon, subject])
 
   useEffect(() => {
-    filterCards(state.searchCriterias).then((card) => {
-      dispatch({
-        type: CARD_LIST_ACTIONS.SET_SEARCH_RESULTS,
-        payload: card,
+    filterCards(currentPage, searchCriterias)
+      .then((cards) => {
+        const { results, total } = cards
+        setSearchResults(results)
+
+        return total
       })
-    })
-  }, [state.searchCriterias])
+      .then((total) => setTotalResult(total))
+  }, [searchCriterias, currentPage])
+
+  const areFiltersUnfilled = useCallback(
+    () =>
+      isStringEmpty(searchCriterias.pantheon) &&
+      isStringEmpty(searchCriterias.subject),
+    [searchCriterias],
+  )
 
   const dynamiseColor = useCallback(
     (pantheon: PantheonLabel): string | undefined => {
@@ -106,57 +78,62 @@ const CardList = ({ pantheon, subject }: ResearchCriterias): JSX.Element => {
           </tr>
         </thead>
         <tbody>
-          {state.searchResults.map(
-            (card: TranslatedCardDetails, idx: number) => {
-              if (!card) return <tr key={idx}></tr>
+          {searchResults.map((card: TranslatedCardDetails, idx: number) => {
+            if (!card) return <tr key={idx}></tr>
 
-              return (
-                <tr className={`${dynamiseColor(card.pantheon)}`} key={idx}>
-                  <td className="px-4 py-2">{card.name}</td>
-                  <td className="px-4 py-2">{card.pantheon}</td>
-                  <td className="px-4 py-2 hidden sm:block">{card.subject}</td>
-                  <td className="py-2">
-                    {card.available ? (
-                      <Link
-                        className="flex justify-center"
-                        to={setCardRouteParameters(
-                          card.name,
-                          getPantheonValueFromLabel(card.pantheon) ?? '',
-                        )}
-                        target='_blank'
-                      >
-                        <img
-                          className={`${
-                            card.pantheon === PantheonLabel.JAPANESE &&
-                            `filter-dark-red`
-                          } w-6`}
-                          src={MoreIcon}
-                          alt={`Plus de détails sur la fiche ${card.name}`}
-                          width={24}
-                          height={24}
-                        />
-                      </Link>
-                    ) : (
-                      <div className="flex justify-center">
-                        <img
-                          className={`${
-                            card.pantheon === PantheonLabel.JAPANESE &&
-                            `filter-dark-red`
-                          } w-6`}
-                          src={ForbiddenIcon}
-                          alt={`La fiche ${card.name} n'est pas encore disponible`}
-                          width={24}
-                          height={24}
-                        />
-                      </div>
-                    )}
-                  </td>
-                </tr>
-              )
-            },
-          )}
+            return (
+              <tr className={`${dynamiseColor(card.pantheon)}`} key={idx}>
+                <td className="px-4 py-2">{card.name}</td>
+                <td className="px-4 py-2">{card.pantheon}</td>
+                <td className="px-4 py-2 hidden sm:block">{card.subject}</td>
+                <td className="py-2">
+                  {card.available ? (
+                    <Link
+                      className="flex justify-center"
+                      to={setCardRouteParameters(
+                        card.name,
+                        getPantheonValueFromLabel(card.pantheon) ?? '',
+                      )}
+                      target="_blank"
+                    >
+                      <img
+                        className={`${
+                          card.pantheon === PantheonLabel.JAPANESE &&
+                          `filter-dark-red`
+                        } w-6`}
+                        src={MoreIcon}
+                        alt={`Plus de détails sur la fiche ${card.name}`}
+                        width={24}
+                        height={24}
+                      />
+                    </Link>
+                  ) : (
+                    <div className="flex justify-center">
+                      <img
+                        className={`${
+                          card.pantheon === PantheonLabel.JAPANESE &&
+                          `filter-dark-red`
+                        } w-6`}
+                        src={ForbiddenIcon}
+                        alt={`La fiche ${card.name} n'est pas encore disponible`}
+                        width={24}
+                        height={24}
+                      />
+                    </div>
+                  )}
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
+      {totalResult > 0 && !areFiltersUnfilled() && (
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          nbPages={Math.floor(totalResult / STORYBLOK_RESULTS_PER_PAGE)}
+        />
+      )}
     </div>
   )
 }

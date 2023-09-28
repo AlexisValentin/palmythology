@@ -1,9 +1,10 @@
 import axios from 'axios'
-import { CardDetails } from '../types/cards/card'
+import { CardDetails, ResearchCriterias } from '../types/cards/card'
 import {
   NewsPageType,
   QuestCeQueCaFicheItemType,
   Quoi2NeufItemType,
+  STORYBLOK_RESULTS_PER_PAGE,
   STORYBLOK_TOKEN,
   STORYBLOK_URL_STORIES,
   STORYBLOK_VERSIONS,
@@ -31,16 +32,42 @@ export const getAboutSlug = () => `about/page`
 const fetchStoriesByStartingString = (startingString: string) =>
   axios({
     method: 'get',
-    url: `${STORYBLOK_URL_STORIES}?starts_with=${startingString}&token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=100`,
+    url: `${STORYBLOK_URL_STORIES}?starts_with=${startingString}&token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_RESULTS_PER_PAGE}`,
     responseType: 'json',
   })
 
-export const fetchCardStories = async () =>
-  await fetchStoriesByStartingString('card').then((stories) =>
-    stories.data.stories.map(
-      (story: StoryblokCardComponentType) =>
-        story.content.component === 'card' && parseCardData(story),
-    ),
+const fetchCardStoriesFromFilters = (
+  startingString: string,
+  searchCriterias: ResearchCriterias,
+  currentPage: number,
+) => {
+  const { pantheon, subject } = searchCriterias
+
+  return axios({
+    method: 'get',
+    url: `${STORYBLOK_URL_STORIES}?starts_with=${startingString}&token=${STORYBLOK_TOKEN}&version=${
+      STORYBLOK_VERSIONS.PUBLISHED
+    }&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=${currentPage}&${
+      pantheon && `filter_query[pantheon][in]=${pantheon}`
+    }&${subject && `filter_query[subject][in]=${subject}`}`,
+    responseType: 'json',
+  })
+}
+
+export const fetchCardStories = async (
+  searchCriterias: ResearchCriterias,
+  currentPage: number,
+) =>
+  await fetchCardStoriesFromFilters('card', searchCriterias, currentPage).then(
+    (stories) => {
+      return {
+        total: stories.headers.total,
+        results: stories.data.stories.map(
+          (story: StoryblokCardComponentType) =>
+            story.content.component === 'card' && parseCardData(story),
+        ),
+      }
+    },
   )
 
 export const fetchQuoi2NeufStories = async () =>
