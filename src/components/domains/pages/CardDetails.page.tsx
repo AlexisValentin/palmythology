@@ -21,7 +21,7 @@ const CardDetailsPage = (): JSX.Element => {
 
   useScrollToTop()
 
-  if (isObjectEmpty(story)) return <NotFound404 />
+  if (isObjectEmpty(story)) return <NotFound404 hasFadingEffect={true} />
 
   const {
     name,

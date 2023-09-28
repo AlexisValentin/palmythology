@@ -5,8 +5,14 @@
 - L'état de la recherche précédente n'est désormais plus sauvegardée dans le navigateur, notamment à cause des soucis que cela pouvait engendre si l'un des champs n'avais pas été remplis précédement.
 - En contrepartie, consulter une fiche depuis les réultats de recherche ouvre un nouvel onglet afin de pouvoir retrouver rapidement le précédent filtre appliqué.
 
+## Les grandes lignes
+
+- Ajout d'un délai d'affichage d'une erreur HTTP 404 lors du chargement d'une fiche, afin d'éviter un sursaut à l'écran et un message d'erreur erroné.
+
 ## Divers
 
+- Changement du message d'erreur des requêtes HTTP échouant en 404 de `Oops, on dirait que cette page n'existe pas...` en `On dirait qu'il y a comme un couac !`.
+- Ajout d'un sous-titre pour l'entête de page lors des requêtes HTTP échouant en 404 : `La page demandée est introuvable`.
 - Suppression de la bordure du logo de la Palmythology dans le menu en haut de page.
 
 ---
@@ -116,7 +122,7 @@
 
 # Version 1.0.1 (22/05/2023)
 
-## Rendu visuel
+## Divers
 
 - Correction d'un bug qui faisait que le menu s'affichait en une seule colonne au lieu de ne s'afficher qu'en une seule ligne.
 - Correction d'un bug qui faisait que les couleurs prédéfinies de `tailwindcss` ne s'affichaient plus.

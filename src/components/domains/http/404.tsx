@@ -1,9 +1,16 @@
 import PageHeader from '../../generics/PageHeader'
 
-const NotFound404 = (): JSX.Element => (
+interface NotFound404Props {
+  hasFadingEffect?: boolean
+}
+
+const NotFound404: React.FC<NotFound404Props> = ({
+  hasFadingEffect = false,
+}): JSX.Element => (
   <PageHeader
-    title="Oops, on dirait que cette page n'existe pas..."
-    hasFadingEffect
+    title="On dirait qu'il y a comme un couac !"
+    subtitle="La page demandée est introuvable"
+    hasFadingEffect={hasFadingEffect}
   />
 )
 

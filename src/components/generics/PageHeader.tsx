@@ -1,10 +1,12 @@
+import FadeIn from 'react-fade-in'
+
 interface PageHeaderProps {
   title: string
   subtitle?: string
   hasFadingEffect?: boolean
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({
+const PageHeaderContent: React.FC<Omit<PageHeaderProps, 'hasFadingEffect'>> = ({
   title,
   subtitle,
 }): JSX.Element => (
@@ -17,5 +19,18 @@ const PageHeader: React.FC<PageHeaderProps> = ({
     )}
   </div>
 )
+
+const PageHeader: React.FC<PageHeaderProps> = ({
+  title,
+  subtitle,
+  hasFadingEffect = false,
+}): JSX.Element =>
+  hasFadingEffect ? (
+    <FadeIn delay={1000} transitionDuration={3000}>
+      <PageHeaderContent title={title} subtitle={subtitle} />
+    </FadeIn>
+  ) : (
+    <PageHeaderContent title={title} subtitle={subtitle} />
+  )
 
 export default PageHeader
