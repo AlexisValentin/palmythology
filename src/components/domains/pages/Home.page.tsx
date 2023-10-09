@@ -22,7 +22,7 @@ const HomePage = (): JSX.Element => {
           const { home_title } = wording.sections
 
           if (name === home_title) {
-            return <></>
+            return <div key={idx} />
           }
 
           return (
