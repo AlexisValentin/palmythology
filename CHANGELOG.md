@@ -1,4 +1,8 @@
-# Version 1.5.0 (??/10/2023)
+# Version 1.5.0 (09/10/2023)
+
+## Général
+
+- Ajout du panthéon Mésopotamien.
 
 ## Recherche
 
@@ -15,6 +19,7 @@
 - Changement du message d'erreur des requêtes HTTP échouant en 404 de `Oops, on dirait que cette page n'existe pas...` en `On dirait qu'il y a comme un couac !`.
 - Ajout d'un sous-titre pour l'entête de page lors des requêtes HTTP échouant en 404 : `La page demandée est introuvable`.
 - Suppression de la bordure du logo de la Palmythology dans le menu en haut de page.
+- Correction d'erreurs dans la console Chrome.
 
 ---
 

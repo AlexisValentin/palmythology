@@ -52,6 +52,11 @@ export const getPantheonStyle = (
         backgroundColor: MYTHOLOGY_COLORS.MAYAN,
         textColor: TEXT_COLORS.GENERIC,
       }
+    case PantheonValue.MESOPOTAMIAN:
+      return {
+        backgroundColor: MYTHOLOGY_COLORS.MESOPOTAMIAN,
+        textColor: TEXT_COLORS.GENERIC,
+      }
     case PantheonValue.NORSE:
       return {
         backgroundColor: MYTHOLOGY_COLORS.NORSE,

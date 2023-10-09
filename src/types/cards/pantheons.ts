@@ -7,6 +7,7 @@ export enum PantheonLabel {
   HINDU = 'Hindou',
   JAPANESE = 'Japonais',
   MAYAN = 'Maya',
+  MESOPOTAMIAN = 'Mésopotamien',
   NORSE = 'Scandinave',
   ROMAN = 'Romain',
 }
@@ -20,6 +21,7 @@ export enum PantheonValue {
   HINDU = 'hindu',
   JAPANESE = 'japanese',
   MAYAN = 'mayan',
+  MESOPOTAMIAN = 'mesopotamian',
   NORSE = 'norse',
   ROMAN = 'roman',
 }
@@ -38,6 +40,7 @@ export const ALL_PANTHEON: PantheonSelectType[] = [
   { value: PantheonValue.HINDU, label: PantheonLabel.HINDU },
   { value: PantheonValue.JAPANESE, label: PantheonLabel.JAPANESE },
   { value: PantheonValue.MAYAN, label: PantheonLabel.MAYAN },
+  { value: PantheonValue.MESOPOTAMIAN, label: PantheonLabel.MESOPOTAMIAN },
   { value: PantheonValue.NORSE, label: PantheonLabel.NORSE },
   { value: PantheonValue.ROMAN, label: PantheonLabel.ROMAN },
 ]

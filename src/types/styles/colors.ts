@@ -7,6 +7,7 @@ export const COLORS = {
   BLUE: 'blue',
   CYAN: 'cyan',
   EMERALD: 'emerald',
+  FUCHSIA: 'fuchsia',
   INDIGO: 'indigo',
   LIME: 'lime',
   NEUTRAL: 'neutral',
@@ -45,6 +46,7 @@ export const MYTHOLOGY_COLORS = {
   HINDU: `${COLORS.AMBER}-${COLOR_TAINTS.DARK}`,
   JAPANESE: `${COLORS.NEUTRAL}-${COLOR_TAINTS.LIGHTER}`,
   MAYAN: `${COLORS.VIOLET}-${COLOR_TAINTS.SUPER_DARK}`,
+  MESOPOTAMIAN: `${COLORS.PINK}-${COLOR_TAINTS.MEDIUM}`,
   NORSE: `${COLORS.SKY}-${COLOR_TAINTS.LIGHTER}`,
   ROMAN: `${COLORS.RED}-${COLOR_TAINTS.EXTRA_DARK}`,
 }

@@ -42,6 +42,10 @@ describe('helpers/colors', () => {
         backgroundColor: 'violet-800',
         textColor: 'neutral-100',
       })
+      expect(getPantheonStyle(PantheonValue.MESOPOTAMIAN)).toEqual({
+        backgroundColor: 'pink-500',
+        textColor: 'neutral-100',
+      })
       expect(getPantheonStyle(PantheonValue.NORSE)).toEqual({
         backgroundColor: 'sky-300',
         textColor: 'neutral-100',
@@ -71,6 +75,9 @@ describe('helpers/colors', () => {
         'neutral-300',
       )
       expect(getPantheonMainColor(PantheonValue.MAYAN)).toEqual('violet-800')
+      expect(getPantheonMainColor(PantheonValue.MESOPOTAMIAN)).toEqual(
+        'pink-500',
+      )
       expect(getPantheonMainColor(PantheonValue.NORSE)).toEqual('sky-300')
       expect(getPantheonMainColor(PantheonValue.ROMAN)).toEqual('red-900')
     })
@@ -88,6 +95,9 @@ describe('helpers/colors', () => {
       expect(getPantheonTextColor(PantheonValue.HINDU)).toEqual('emerald-600')
       expect(getPantheonTextColor(PantheonValue.JAPANESE)).toEqual('red-700')
       expect(getPantheonTextColor(PantheonValue.MAYAN)).toEqual('neutral-100')
+      expect(getPantheonTextColor(PantheonValue.MESOPOTAMIAN)).toEqual(
+        'neutral-100',
+      )
       expect(getPantheonTextColor(PantheonValue.NORSE)).toEqual('neutral-100')
       expect(getPantheonTextColor(PantheonValue.ROMAN)).toEqual('amber-500')
     })

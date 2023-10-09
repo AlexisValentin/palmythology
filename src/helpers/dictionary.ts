@@ -21,6 +21,8 @@ export const getPantheonLabelFromValue = (
       return PantheonLabel.JAPANESE
     case PantheonValue.MAYAN:
       return PantheonLabel.MAYAN
+    case PantheonValue.MESOPOTAMIAN:
+      return PantheonLabel.MESOPOTAMIAN
     case PantheonValue.NORSE:
       return PantheonLabel.NORSE
     case PantheonValue.ROMAN:
@@ -50,6 +52,8 @@ export const getPantheonValueFromLabel = (
       return PantheonValue.JAPANESE
     case PantheonLabel.MAYAN:
       return PantheonValue.MAYAN
+    case PantheonLabel.MESOPOTAMIAN:
+      return PantheonValue.MESOPOTAMIAN
     case PantheonLabel.NORSE:
       return PantheonValue.NORSE
     case PantheonLabel.ROMAN:
