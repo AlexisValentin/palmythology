@@ -2,6 +2,8 @@
 
 ## Général
 
+- Augmentation globale de la hauteur du footer.
+- Ajout du numéro de version du site dans le footer.
 - Le footer du site ne s'affiche désormais plus en permanence sur l'écran mais reste toujours au plus bas de la page actuelle.
 
 ## Divers
