@@ -1,3 +1,11 @@
+# Version 1.6.0 (??/10/2023)
+
+## Divers
+
+- Modification des balises SEO de certaines pages afin d'améliorer le référencement naturel du site Internet.
+
+---
+
 # Version 1.5.0 (09/10/2023)
 
 ## Général

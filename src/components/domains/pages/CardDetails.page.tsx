@@ -48,8 +48,8 @@ const CardDetailsPage = (): JSX.Element => {
   return (
     <>
       <Meta
-        title={SEO_WORDING.CARD_DETAILS.title}
-        description={SEO_WORDING.CARD_DETAILS.description}
+        title={`${name}, ${subtitle}`}
+        description={summary ? summary : SEO_WORDING.CARD_DETAILS.description}
       />
       <div className="flex items-center justify-center flex-col">
         <PageHeader title={name} subtitle={subtitle} />

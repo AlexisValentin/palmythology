@@ -25,7 +25,7 @@ const Quoi2NeufPage = (): JSX.Element => {
   return (
     <>
       <Meta
-        title={SEO_WORDING.Q2N.title}
+        title={`${SEO_WORDING.Q2N.title} - ${parsedDate}`}
         description={SEO_WORDING.Q2N.description}
       />
       <PageHeader

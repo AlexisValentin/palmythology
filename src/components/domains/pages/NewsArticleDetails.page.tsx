@@ -22,8 +22,8 @@ const NewsArticleDetailsPage = (): JSX.Element => {
   return (
     <>
       <Meta
-        title={SEO_WORDING.NEWS_ARTICLE.title}
-        description={SEO_WORDING.NEWS_ARTICLE.description}
+        title={title}
+        description={summary ? summary : SEO_WORDING.NEWS_ARTICLE.description}
       />
       <div className="flex items-center justify-center flex-col">
         <PageHeader title={title} subtitle={summary} />
