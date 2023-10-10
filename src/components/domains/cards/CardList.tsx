@@ -31,27 +31,29 @@ const CardList: React.FC<ResearchCriterias> = ({
   const [totalResult, setTotalResult] = useState(0)
   const [currentPage, setCurrentPage] = useState(1)
 
-  useEffect(() => {
-    setSearchCriterias({ pantheon, subject })
-  }, [pantheon, subject])
-
-  useEffect(() => {
-    filterCards(currentPage, searchCriterias)
-      .then((cards) => {
-        const { results, total } = cards
-        setSearchResults(results)
-
-        return total
-      })
-      .then((total) => setTotalResult(total))
-  }, [searchCriterias, currentPage])
-
   const areFiltersUnfilled = useCallback(
     () =>
       isStringEmpty(searchCriterias.pantheon) &&
       isStringEmpty(searchCriterias.subject),
     [searchCriterias],
   )
+
+  useEffect(() => {
+    setSearchCriterias({ pantheon, subject })
+  }, [pantheon, subject])
+
+  useEffect(() => {
+    if (!areFiltersUnfilled()) {
+      filterCards(currentPage, searchCriterias)
+        .then((cards) => {
+          const { results, total } = cards
+          setSearchResults(results)
+
+          return total
+        })
+        .then((total) => setTotalResult(total))
+    }
+  }, [searchCriterias, currentPage, areFiltersUnfilled])
 
   const dynamiseColor = useCallback(
     (pantheon: PantheonLabel): string | undefined => {
@@ -68,6 +70,7 @@ const CardList: React.FC<ResearchCriterias> = ({
 
   return (
     <div className="text-center my-6">
+      Total de {totalResult} résultats
       <table className="shadow-lg mt-6 max-w-xs">
         <thead>
           <tr className="bg-gray-900 text-gray-100">
@@ -127,7 +130,7 @@ const CardList: React.FC<ResearchCriterias> = ({
           })}
         </tbody>
       </table>
-      {totalResult > 0 && !areFiltersUnfilled() && (
+      {totalResult > STORYBLOK_RESULTS_PER_PAGE && (
         <Pagination
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
