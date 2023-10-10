@@ -1,5 +1,9 @@
 # Version 1.6.0 (??/10/2023)
 
+## Général
+
+- Le footer du site ne s'affiche désormais plus en permanence sur l'écran mais reste toujours au plus bas de la page actuelle.
+
 ## Divers
 
 - Modification des balises SEO de certaines pages afin d'améliorer le référencement naturel du site Internet.
