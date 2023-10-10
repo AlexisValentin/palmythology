@@ -1,6 +1,7 @@
 import FacebookIcon from '../../assets/icons/social_networks/facebook.svg'
 import InstagramIcon from '../../assets/icons/social_networks/instagram.svg'
 import TwitterIcon from '../../assets/icons/social_networks/twitter.svg'
+import TipeeeIcon from '../../assets/icons/social_networks/tipeee.png'
 
 export enum SOCIAL_NETWORK_STATUS {
   ACTIVE = 'active',
@@ -32,6 +33,12 @@ export const SOCIAL_NETWORKS: SocialNetworkType[] = [
     name: 'Twitter',
     url: 'https://twitter.com/palmythology',
     iconUrl: TwitterIcon,
+    status: SOCIAL_NETWORK_STATUS.ACTIVE,
+  },
+  {
+    name: 'Tipeee',
+    url: 'https://fr.tipeee.com/palmythology',
+    iconUrl: TipeeeIcon,
     status: SOCIAL_NETWORK_STATUS.ACTIVE,
   },
 ]
