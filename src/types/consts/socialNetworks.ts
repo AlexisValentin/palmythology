@@ -1,7 +1,7 @@
 import FacebookIcon from '../../assets/icons/social_networks/facebook.svg'
 import InstagramIcon from '../../assets/icons/social_networks/instagram.svg'
 import TwitterIcon from '../../assets/icons/social_networks/twitter.svg'
-import TipeeeIcon from '../../assets/icons/social_networks/tipeee.png'
+import TipeeeIcon from '../../assets/icons/social_networks/tipeee.svg'
 
 export enum SOCIAL_NETWORK_STATUS {
   ACTIVE = 'active',
