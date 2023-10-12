@@ -21,9 +21,9 @@ export const wording = {
     about_title: 'A propos',
     about_description:
       'Retrouvez des informations pratiques sur la Palmythology et son site web',
-    folders_description:
-      'Consultez les dossiers dédiés aux divers thèmes des légendes',
-    folders_title: 'Dossiers',
+    q2n_description:
+      'Découvrez le planning de sortie des fiches "Les grandes lignes" pour le mois en cours',
+    q2n_title: 'Quoi 2 Neuf ?',
     home_description: 'Bienvenue sur le site officiel de la Palmythology',
     home_title: 'Palmythology',
     news_description:

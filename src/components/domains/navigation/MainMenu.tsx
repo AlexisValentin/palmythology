@@ -31,7 +31,7 @@ const MainMenu = (): JSX.Element => {
                   <div className="hidden md:block">{name}</div>
                   <div className="md:hidden block">
                     <img
-                      className="filter-black"
+                      className={name !== 'Quoi 2 Neuf ?' ? `filter-black` : ''}
                       src={iconUrl}
                       alt={name}
                       width={40}

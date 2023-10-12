@@ -2,7 +2,7 @@ import { wording } from '../../wording/fr/main'
 import NewIcon from '../../assets/icons/new.svg'
 import MagnifyingGlassIcon from '../../assets/icons/magnifying_glass.svg'
 import InformationIcon from '../../assets/icons/information.svg'
-import FolderIcon from '../../assets/icons/folder.svg'
+import Q2NIcon from '../../assets/icons/number_two.svg'
 import { GradientType, SECTION_COLORS } from '../styles/colors'
 import PalmythologyLogo from '../../assets/images/logo.webp'
 
@@ -21,7 +21,7 @@ export const ROUTE_URLS = {
   RESEARCH: `${ROOT}research`,
   ABOUT: `${ROOT}about`,
   NEWS: `${ROOT}news`,
-  FOLDERS: `${ROOT}folders`,
+  Q2N: `${ROOT}q2n`,
   CARD: `${ROOT}cards/:pantheon/:card`,
   ARTICLE: `${ROOT}news/:title`,
 }
@@ -34,6 +34,16 @@ export const ROUTES: RouteType[] = [
     iconUrl: PalmythologyLogo,
   },
   {
+    name: wording.sections.q2n_title,
+    url: ROUTE_URLS.Q2N,
+    description: wording.sections.q2n_description,
+    gradient: {
+      startingColor: SECTION_COLORS.Q2N[0],
+      endingColor: SECTION_COLORS.Q2N[1],
+    },
+    iconUrl: Q2NIcon,
+  },
+  {
     name: wording.sections.news_title,
     url: ROUTE_URLS.NEWS,
     description: wording.sections.news_description,
@@ -42,16 +52,6 @@ export const ROUTES: RouteType[] = [
       endingColor: SECTION_COLORS.NEWS[1],
     },
     iconUrl: NewIcon,
-  },
-  {
-    name: wording.sections.folders_title,
-    url: ROUTE_URLS.FOLDERS,
-    description: wording.sections.folders_description,
-    gradient: {
-      startingColor: SECTION_COLORS.FOLDERS[0],
-      endingColor: SECTION_COLORS.FOLDERS[1],
-    },
-    iconUrl: FolderIcon,
   },
   {
     name: wording.sections.research_title,
