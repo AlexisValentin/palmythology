@@ -5,8 +5,6 @@ import reportWebVitals from './reportWebVitals'
 import { createRoot } from 'react-dom/client'
 import { storyblokInit, apiPlugin } from '@storyblok/react'
 import CardDetailsPage from './components/domains/pages/CardDetails.page'
-import * as Sentry from '@sentry/react'
-import { BrowserTracing } from '@sentry/tracing'
 
 const root = createRoot(document.getElementById('root'))
 
@@ -16,12 +14,6 @@ storyblokInit({
   components: {
     card: CardDetailsPage,
   },
-})
-
-Sentry.init({
-  dsn: 'https://6ff17ab9290746df92b9acee7b22fa90@o4504854021865472.ingest.sentry.io/4504854030057472',
-  integrations: [new BrowserTracing()],
-  tracesSampleRate: 1.0,
 })
 
 root.render(
