@@ -58,11 +58,11 @@ const CardDetailsPage = (): JSX.Element => {
           <Carrousel imageList={images} />
         </div>
         {relatedCards && relatedCards.length > 0 && (
-          <div className="hidden sm:block flex flex-col mt-16">
+          <div className="flex flex-col mt-16">
             <div className="flex align-center justify-center">
               <h3 className="font-semibold">Dans le même sujet</h3>
             </div>
-            <div className="sm:flex mt-4">
+            <div className="flex flex-col lg:flex-row mt-4">
               {relatedCards.map((card: CardRelatedType) => (
                 <PageSquare
                   key={`${card.name}-${card.subtitle}}`}

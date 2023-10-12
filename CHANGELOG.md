@@ -1,3 +1,11 @@
+# Version 1.6.0 (??/??/2023)
+
+## Les grandes lignes
+
+- La suggestion de fiches en lien avec celle actuellement consultée est à nouveau disponible sur écrans mobiles !
+
+---
+
 # Version 1.5.1 (12/10/2023)
 
 ## Général
