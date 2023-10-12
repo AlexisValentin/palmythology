@@ -1,5 +1,9 @@
 # Version 1.6.0 (??/??/2023)
 
+## Général
+
+- Création d'une nouvelle rubrique "Panthéons" qui a pour but 1er de faciliter le référencement naturel du site, mais également d'orienter l'utilisateur quant aux différents contenus disponibles concernant certains panthéons bien précis.
+
 ## Les grandes lignes
 
 - La suggestion de fiches en lien avec celle actuellement consultée est à nouveau disponible sur écrans mobiles !

@@ -4,9 +4,18 @@ import {
   getPantheonTextColor,
 } from '../../helpers/colors'
 import { setCardRouteParameters } from '../../helpers/routes'
-import { Quoi2NeufItemType } from '../../types/storyblok/storyblok'
+import { StoryblokImageType } from '../../types/storyblok/storyblok'
+import { PantheonValue } from '../../types/cards/pantheons'
 
-const PageSquare: React.FC<Quoi2NeufItemType> = ({
+interface PageSquareProps {
+  title: string
+  subtitle?: string
+  pantheon: PantheonValue
+  icon: StoryblokImageType
+  available?: boolean
+}
+
+const PageSquare: React.FC<PageSquareProps> = ({
   title,
   subtitle,
   pantheon,
@@ -41,7 +50,7 @@ const PageSquare: React.FC<Quoi2NeufItemType> = ({
 }
 
 const PageSquareBlock: React.FC<
-  Omit<Quoi2NeufItemType, 'available' | 'pantheon' | 'isFolder'>
+  Omit<PageSquareProps, 'available' | 'pantheon' | 'isFolder'>
 > = ({ title, subtitle, icon }): JSX.Element => (
   <div className="flex item-center justify-center flex-col w-52">
     <div className="flex items-center justify-center flex-col mt-4">

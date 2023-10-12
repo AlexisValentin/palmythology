@@ -32,6 +32,9 @@ export const wording = {
     research_title: 'Recherche',
     research_description:
       'Recherchez votre fiche préférée parmi les 9 panthéons que couvre la Palmythology',
+    pantheon_title: 'Panthéons',
+    pantheon_description:
+      'Consultez tous les détails de chaque panthéon mythologique',
   },
   copyrights: 'Palmythology © 2020-2023 - Tous droits réservés',
 }

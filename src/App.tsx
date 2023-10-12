@@ -10,6 +10,7 @@ import NewsArticleDetailsPage from './components/domains/pages/NewsArticleDetail
 import Quoi2NeufPage from './components/domains/pages/Quoi2Neuf.page'
 import SearchPage from './components/domains/pages/Search.page'
 import { ROUTE_URLS } from './types/consts/routes'
+import PantheonsPage from './components/domains/pages/Pantheons.page'
 
 const App = () => (
   <BrowserRouter>
@@ -20,6 +21,7 @@ const App = () => (
           <Routes>
             <Route path={ROUTE_URLS.HOME} element={<HomePage />} />
             <Route path={ROUTE_URLS.NEWS} element={<NewsPage />} />
+            <Route path={ROUTE_URLS.PANTHEONS} element={<PantheonsPage />} />
             <Route path={ROUTE_URLS.RESEARCH} element={<SearchPage />} />
             <Route path={ROUTE_URLS.ABOUT} element={<AboutPage />} />
             <Route path={ROUTE_URLS.Q2N} element={<Quoi2NeufPage />} />
