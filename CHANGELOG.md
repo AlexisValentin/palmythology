@@ -15,6 +15,7 @@
 
 - Modification des balises SEO de certaines pages afin d'améliorer le référencement naturel du site.
 - Suppression de la librairies de logs d'erreur Sentry.
+- Mise à jour des dépendances du projets à leurs dernières versions.
 
 ---
 
