@@ -3,8 +3,7 @@ import { wording } from '../../../wording/fr/main'
 import { SEO_WORDING } from '../../../wording/fr/seo'
 import Meta from '../../generics/Meta'
 import PageHeader from '../../generics/PageHeader'
-import PageSquare from '../../generics/PageSquare'
-import TextBlock, { IconSize } from '../../generics/TextBlock'
+import PageSquare, { CONTENT_TYPE } from '../../generics/PageSquare'
 
 const PantheonsPage = (): JSX.Element => {
   return (
@@ -18,14 +17,16 @@ const PantheonsPage = (): JSX.Element => {
         subtitle={wording.sections.pantheon_description}
       />
       <div className="flex flex-col items-center justify-center flex-wrap md:flex-row mt-4">
-        {ALL_PANTHEON.map((pantheon) => (
+        {ALL_PANTHEON.map((pantheon, idx) => (
           <PageSquare
             title={pantheon.label}
             pantheon={pantheon.value}
+            key={idx}
             icon={{
               alt: `Icône du panthéon ${pantheon.label}`,
               filename: pantheon.icon,
             }}
+            contentType={CONTENT_TYPE.PANTHEON}
           />
         ))}
       </div>

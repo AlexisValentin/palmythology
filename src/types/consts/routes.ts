@@ -26,6 +26,7 @@ export const ROUTE_URLS = {
   CARD: `${ROOT}cards/:pantheon/:card`,
   ARTICLE: `${ROOT}news/:title`,
   PANTHEONS: `${ROOT}pantheons`,
+  PANTHEON: `${ROOT}pantheons/:pantheon`,
 }
 
 export const ROUTES: RouteType[] = [

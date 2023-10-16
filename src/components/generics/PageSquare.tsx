@@ -3,9 +3,18 @@ import {
   getPantheonMainColor,
   getPantheonTextColor,
 } from '../../helpers/colors'
-import { setCardRouteParameters } from '../../helpers/routes'
+import {
+  setCardRouteParameters,
+  setPantheonRouteParameters,
+} from '../../helpers/routes'
 import { StoryblokImageType } from '../../types/storyblok/storyblok'
 import { PantheonValue } from '../../types/cards/pantheons'
+import { useCallback } from 'react'
+
+export enum CONTENT_TYPE {
+  CARD = 'card',
+  PANTHEON = 'pantheon',
+}
 
 interface PageSquareProps {
   title: string
@@ -13,6 +22,7 @@ interface PageSquareProps {
   pantheon: PantheonValue
   icon: StoryblokImageType
   available?: boolean
+  contentType: CONTENT_TYPE
 }
 
 const PageSquare: React.FC<PageSquareProps> = ({
@@ -21,12 +31,24 @@ const PageSquare: React.FC<PageSquareProps> = ({
   pantheon,
   icon,
   available = true,
+  contentType,
 }): JSX.Element => {
-  if (available === undefined) return <></>
+  const buildLink = useCallback(() => {
+    switch (contentType) {
+      case CONTENT_TYPE.CARD:
+        return setCardRouteParameters(title, pantheon)
+      case CONTENT_TYPE.PANTHEON:
+        return setPantheonRouteParameters(pantheon)
+      default:
+        return null
+    }
+  }, [contentType, title, pantheon])
+
+  if (available === undefined || !buildLink()) return <></>
 
   return available ? (
     <Link
-      to={setCardRouteParameters(title, pantheon)}
+      to={buildLink()!}
       className={`border-4 border-${getPantheonMainColor(
         pantheon,
       )} rounded-3xl p-6 m-6 bg-${getPantheonMainColor(
@@ -50,7 +72,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
 }
 
 const PageSquareBlock: React.FC<
-  Omit<PageSquareProps, 'available' | 'pantheon' | 'isFolder'>
+  Pick<PageSquareProps, 'title' | 'subtitle' | 'icon'>
 > = ({ title, subtitle, icon }): JSX.Element => (
   <div className="flex item-center justify-center flex-col w-52">
     <div className="flex items-center justify-center flex-col mt-4">
