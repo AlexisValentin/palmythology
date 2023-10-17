@@ -2,7 +2,6 @@ import axios from 'axios'
 import { CardDetails, ResearchCriterias } from '../types/cards/card'
 import {
   NewsPageType,
-  QuestCeQueCaFicheItemType,
   Quoi2NeufItemType,
   STORYBLOK_RESULTS_PER_PAGE,
   STORYBLOK_TOKEN,
@@ -14,14 +13,16 @@ import {
   StoryblokCardComponentType,
   StoryblokNewsComponentType,
   StoryblokQ2NComponentType,
-  StoryblokQQCFComponentType,
 } from '../types/storyblok/stories'
+import { PantheonValue } from '../types/cards/pantheons'
 
-export const getCardSlug = (cardName?: string, pantheon?: string) => {
-  return !cardName || !pantheon
+export const getCardSlug = (cardName?: string, pantheon?: string) =>
+  !cardName || !pantheon
     ? ''
     : `cards/${parseStringToSlug(pantheon)}/${parseStringToSlug(cardName)}`
-}
+
+export const getPantheonLandingPageSlut = (pantheon?: PantheonValue) =>
+  !pantheon ? '' : `pantheons/${pantheon}`
 
 export const getNewsSlug = (newsTitle?: string) => {
   return !newsTitle ? '' : `news/${parseStringToSlug(newsTitle)}`
@@ -78,15 +79,6 @@ export const fetchQuoi2NeufStories = async () =>
     ),
   )
 
-export const fetchQuEstCeQueCaFicheStories = async () =>
-  await fetchStoriesByStartingString('questcequecafiche').then((stories) =>
-    stories.data.stories.map(
-      (story: StoryblokQQCFComponentType) =>
-        story.content.component === 'quEstCeQueCaFiche' &&
-        parseQuEstCeQueCaFicheData(story),
-    ),
-  )
-
 export const fetchNewsStories = async () =>
   await fetchStoriesByStartingString('news').then((stories) =>
     stories.data.stories.map(
@@ -116,19 +108,6 @@ const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufItemType => {
     subtitle,
     icon,
     available,
-    pantheon,
-  }
-}
-
-const parseQuEstCeQueCaFicheData = (
-  quEstCeQueCaFicheItem: StoryblokQQCFComponentType,
-): QuestCeQueCaFicheItemType => {
-  const { title, summary, icon, pantheon } = quEstCeQueCaFicheItem.content
-
-  return {
-    title,
-    summary,
-    icon,
     pantheon,
   }
 }
