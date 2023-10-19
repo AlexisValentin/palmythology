@@ -29,24 +29,18 @@ const PantheonLandingPage: React.FC = (): JSX.Element => {
 
   if (isObjectEmpty(story)) return <NotFound404 hasFadingEffect={true} />
 
-  const { summary, relatedCards } = story.content
+  const { summary, relatedCards, metaDescription } = story.content
 
   return (
     <>
-      <Meta title={`Panthéon ${params.pantheon}`} description={summary} />
-      <PageHeader
-        title={`Panthéon ${pantheonLabel?.toLowerCase()}`}
-        subtitle={'Pantheon landing page'}
+      <Meta
+        title={`Panthéon ${params.pantheon}`}
+        description={metaDescription}
       />
+      <PageHeader title={`Panthéon ${pantheonLabel?.toLowerCase()}`} />
       {summary && <Summary content={summary} />}
       {relatedCards && relatedCards.length > 0 && (
-        <div className="flex flex-col mt-16">
-          <div className="flex align-center justify-center">
-            <h3 className="font-semibold">
-              Les fiches les plus populaires du panthéon{' '}
-              {pantheonLabel?.toLowerCase()}
-            </h3>
-          </div>
+        <div className="flex flex-col mt-2 xl:mt-0">
           <div className="flex flex-col lg:flex-row mt-4">
             {relatedCards.map((card: CardRelatedType) => (
               <PageSquare

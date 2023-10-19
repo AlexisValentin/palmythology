@@ -10,6 +10,7 @@
 ## Les grandes lignes
 
 - La suggestion de fiches en lien avec celle actuellement consultée est à nouveau disponible sur écrans mobiles !
+- Le style des blocs de résumé a été modifié pour avoir des bordures rondes et une légère ombre projetée.
 
 ---
 
