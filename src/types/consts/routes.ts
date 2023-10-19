@@ -3,6 +3,7 @@ import NewIcon from '../../assets/icons/new.svg'
 import MagnifyingGlassIcon from '../../assets/icons/magnifying_glass.svg'
 import InformationIcon from '../../assets/icons/information.svg'
 import Q2NIcon from '../../assets/icons/number_two.svg'
+import LaurelIcon from '../../assets/icons/laurel.svg'
 import { GradientType, SECTION_COLORS } from '../styles/colors'
 import PalmythologyLogo from '../../assets/images/logo.webp'
 
@@ -24,6 +25,8 @@ export const ROUTE_URLS = {
   Q2N: `${ROOT}q2n`,
   CARD: `${ROOT}cards/:pantheon/:card`,
   ARTICLE: `${ROOT}news/:title`,
+  PANTHEONS: `${ROOT}pantheons`,
+  PANTHEON: `${ROOT}pantheons/:pantheon`,
 }
 
 export const ROUTES: RouteType[] = [
@@ -52,6 +55,16 @@ export const ROUTES: RouteType[] = [
       endingColor: SECTION_COLORS.NEWS[1],
     },
     iconUrl: NewIcon,
+  },
+  {
+    name: wording.sections.pantheon_title,
+    url: ROUTE_URLS.PANTHEONS,
+    description: wording.sections.pantheon_description,
+    gradient: {
+      startingColor: SECTION_COLORS.PANTHEONS[0],
+      endingColor: SECTION_COLORS.PANTHEONS[1],
+    },
+    iconUrl: LaurelIcon,
   },
   {
     name: wording.sections.research_title,

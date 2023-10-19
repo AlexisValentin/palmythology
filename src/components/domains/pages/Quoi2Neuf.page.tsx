@@ -3,7 +3,7 @@ import { stringifyMonthCode } from '../../../helpers/dates'
 import { fetchQuoi2NeufStories } from '../../../helpers/storyblok'
 import { wording } from '../../../wording/fr/main'
 import PageHeader from '../../generics/PageHeader'
-import PageSquare from '../../generics/PageSquare'
+import PageSquare, { CONTENT_TYPE } from '../../generics/PageSquare'
 import { Quoi2NeufItemType } from '../../../types/storyblok/storyblok'
 import Meta from '../../generics/Meta'
 import { SEO_WORDING } from '../../../wording/fr/seo'
@@ -44,6 +44,7 @@ const Quoi2NeufPage = (): JSX.Element => {
               icon={icon}
               available={available}
               pantheon={pantheon}
+              contentType={CONTENT_TYPE.CARD}
             />
           )
         })}

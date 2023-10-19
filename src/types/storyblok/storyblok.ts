@@ -42,18 +42,16 @@ export interface CardItemType {
   relatedCards: CardRelatedType[]
 }
 
+export interface PantheonLandingPageType {
+  summary: string
+  relatedCards: CardRelatedType[]
+}
+
 export interface NewsPageType {
   title: string
   summary: string
   icon: StoryblokImageType[]
   newsItem: TextBlockType[]
-}
-
-export interface QuestCeQueCaFicheItemType {
-  title: string
-  summary: string
-  icon: StoryblokImageType
-  pantheon: string
 }
 
 export interface Quoi2NeufItemType {

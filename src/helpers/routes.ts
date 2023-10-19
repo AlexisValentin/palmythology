@@ -7,6 +7,9 @@ export const setCardRouteParameters = (cardName: string, pantheon: string) =>
     parseStringToSlug(cardName.toLowerCase()),
   )
 
+export const setPantheonRouteParameters = (pantheon: string) =>
+  ROUTE_URLS.PANTHEON.replace(':pantheon', pantheon)
+
 export const setNewsRouteParameters = (newsName: string) =>
   ROUTE_URLS.ARTICLE.replace(
     ':title',

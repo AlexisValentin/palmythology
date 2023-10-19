@@ -9,7 +9,7 @@ import { isObjectEmpty } from '../../../helpers/object'
 import Meta from '../../generics/Meta'
 import { SEO_WORDING } from '../../../wording/fr/seo'
 import SocialNetworks from '../../generics/SocialNetworks'
-import PageSquare from '../../generics/PageSquare'
+import PageSquare, { CONTENT_TYPE } from '../../generics/PageSquare'
 import { CardRelatedType } from '../../../types/storyblok/storyblok'
 import useScrollToTop from '../../../hooks/ui/useScrollToTop'
 import Forbidden403 from '../http/403'
@@ -70,6 +70,7 @@ const CardDetailsPage = (): JSX.Element => {
                   subtitle={card.subtitle}
                   pantheon={card.pantheon}
                   icon={card.icon}
+                  contentType={CONTENT_TYPE.CARD}
                 />
               ))}
             </div>

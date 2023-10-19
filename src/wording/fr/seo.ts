@@ -38,4 +38,9 @@ export const SEO_WORDING: Record<string, SeoWordingType> = {
     description:
       'Tout ce que vous avez toujours voulu savoir sur les secrets de la Palmythology. Retrouvez les informations bonus sur le créateur du site web et du concept de la Palmythology, les détails techniques concernant le développement du site web, mais aussi les informations de contact afin de pouvoir à la fois, proposer des idées, suggérer du contenu, poser des questions et éventuellement participer au développement de la Palmythology de manière générale.',
   },
+  PANTHEONS: {
+    title: 'Liste des panthéons',
+    description:
+      'Sélectionnez un panthéon mythologique parmi 11 différents : grec, égyptien, scandinave, celtique, japonais, chinois, maya, aztèque, hindou, romain et mésopotamien.',
+  },
 }
