@@ -41,7 +41,7 @@ const PantheonLandingPage: React.FC = (): JSX.Element => {
       {summary && <Summary content={summary} />}
       {relatedCards && relatedCards.length > 0 && (
         <div className="flex flex-col mt-2 xl:mt-0">
-          <div className="flex flex-col lg:flex-row mt-4">
+          <div className="flex flex-col justify-center lg:flex-wrap lg:flex-row mt-4">
             {relatedCards.map((card: CardRelatedType) => (
               <PageSquare
                 key={`${card.name}-${card.subtitle}}`}
