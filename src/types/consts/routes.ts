@@ -1,5 +1,5 @@
 import { wording } from '../../wording/fr/main'
-import NewIcon from '../../assets/icons/new.svg'
+import NewsIcon from '../../assets/icons/news.svg'
 import MagnifyingGlassIcon from '../../assets/icons/magnifying_glass.svg'
 import InformationIcon from '../../assets/icons/information.svg'
 import Q2NIcon from '../../assets/icons/number_two.svg'
@@ -54,7 +54,7 @@ export const ROUTES: RouteType[] = [
       startingColor: SECTION_COLORS.NEWS[0],
       endingColor: SECTION_COLORS.NEWS[1],
     },
-    iconUrl: NewIcon,
+    iconUrl: NewsIcon,
   },
   {
     name: wording.sections.pantheon_title,

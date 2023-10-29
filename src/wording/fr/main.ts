@@ -31,7 +31,7 @@ export const wording = {
     news_title: 'Actualités',
     research_title: 'Recherche',
     research_description:
-      'Recherchez votre fiche préférée parmi les 9 panthéons que couvre la Palmythology',
+      'Recherchez votre fiche préférée parmi les panthéons que couvre la Palmythology',
     pantheon_title: 'Panthéons',
     pantheon_description:
       'Consultez tous les détails de chaque panthéon mythologique',
