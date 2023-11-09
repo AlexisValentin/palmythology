@@ -1,3 +1,11 @@
+# Version 1.6.1 (09/11/2023)
+
+## Général
+
+- Amélioration du référencement naturel en autorisant l'accès aux navigateurs dépourvus de javascript.
+
+---
+
 # Version 1.6.0 (29/10/2023)
 
 ## Général
