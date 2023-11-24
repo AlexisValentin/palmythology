@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { CardDetails, ResearchCriterias } from '../types/cards/card'
 import {
-  NewsPageType,
   Quoi2NeufItemType,
   STORYBLOK_RESULTS_PER_PAGE,
   STORYBLOK_TOKEN,
@@ -11,7 +10,6 @@ import {
 import { parseStringToSlug } from './string'
 import {
   StoryblokCardComponentType,
-  StoryblokNewsComponentType,
   StoryblokQ2NComponentType,
 } from '../types/storyblok/stories'
 import { PantheonValue } from '../types/cards/pantheons'
@@ -23,10 +21,6 @@ export const getCardSlug = (cardName?: string, pantheon?: string) =>
 
 export const getPantheonLandingPageSlut = (pantheon?: PantheonValue) =>
   !pantheon ? '' : `pantheons/${pantheon}`
-
-export const getNewsSlug = (newsTitle?: string) => {
-  return !newsTitle ? '' : `news/${parseStringToSlug(newsTitle)}`
-}
 
 export const getAboutSlug = () => `about/page`
 
@@ -79,14 +73,6 @@ export const fetchQuoi2NeufStories = async () =>
     ),
   )
 
-export const fetchNewsStories = async () =>
-  await fetchStoriesByStartingString('news').then((stories) =>
-    stories.data.stories.map(
-      (story: StoryblokNewsComponentType) =>
-        story.content.component === 'newsPage' && parseNewsData(story),
-    ),
-  )
-
 const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
   const { name, pantheon, subject, available, isFolder } = card.content
 
@@ -109,18 +95,5 @@ const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufItemType => {
     icon,
     available,
     pantheon,
-  }
-}
-
-const parseNewsData = (
-  newsArticle: StoryblokNewsComponentType,
-): NewsPageType => {
-  const { title, summary, icon, newsItem } = newsArticle.content
-
-  return {
-    title,
-    summary,
-    icon,
-    newsItem,
   }
 }

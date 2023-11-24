@@ -47,13 +47,6 @@ export interface PantheonLandingPageType {
   relatedCards: CardRelatedType[]
 }
 
-export interface NewsPageType {
-  title: string
-  summary: string
-  icon: StoryblokImageType[]
-  newsItem: TextBlockType[]
-}
-
 export interface Quoi2NeufItemType {
   title: string
   subtitle: string
