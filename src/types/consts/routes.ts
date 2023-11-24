@@ -13,12 +13,12 @@ export interface RouteType {
   url: string
   description: string
   gradient?: GradientType
-  iconUrl?: string
+  iconUrl: string
 }
 
 export const ROUTE_URLS = {
   HOME: ROOT,
-  RESEARCH: `${ROOT}research`,
+  SEARCH: `${ROOT}search`,
   ABOUT: `${ROOT}about`,
   Q2N: `${ROOT}q2n`,
   CARD: `${ROOT}cards/:pantheon/:card`,
@@ -55,7 +55,7 @@ export const ROUTES: RouteType[] = [
   },
   {
     name: wording.sections.research_title,
-    url: ROUTE_URLS.RESEARCH,
+    url: ROUTE_URLS.SEARCH,
     description: wording.sections.research_description,
     gradient: {
       startingColor: SECTION_COLORS.RESEARCH[0],

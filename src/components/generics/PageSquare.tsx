@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import {
   getPantheonMainColor,
   getPantheonTextColor,
@@ -10,6 +9,7 @@ import {
 import { StoryblokImageType } from '../../types/storyblok/storyblok'
 import { PantheonValue } from '../../types/cards/pantheons'
 import { useCallback } from 'react'
+import Link from 'next/link'
 
 export enum CONTENT_TYPE {
   CARD = 'card',
@@ -48,7 +48,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
 
   return available ? (
     <Link
-      to={buildLink()!}
+      href={buildLink()!}
       className={`border-4 border-${getPantheonMainColor(
         pantheon,
       )} rounded-3xl p-6 m-6 bg-${getPantheonMainColor(

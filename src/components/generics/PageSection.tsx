@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
+import Image from 'next/image'
 import { RouteType } from '../../types/consts/routes'
 
 type PageSectionProps = RouteType
@@ -10,7 +11,7 @@ const PageSection: React.FC<PageSectionProps> = ({
   gradient,
   iconUrl,
 }): JSX.Element => (
-  <Link to={url} className="flex flex-row m-5 sm:block sm:w-full sm:m-0">
+  <Link href={url} className="flex flex-row m-5 sm:block sm:w-full sm:m-0">
     <section
       className={`flex flex-col items-center rounded-3xl p-2.5 w-60 sm:w-full sm:rounded-none sm:flex-row ${
         gradient
@@ -18,7 +19,7 @@ const PageSection: React.FC<PageSectionProps> = ({
           : `bg-black text-white`
       } sm:p-0`}
     >
-      <img
+      <Image
         className="w-24 m-6 sm:m-12"
         src={iconUrl}
         alt={`${name} - ${description}`}

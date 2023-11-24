@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import {
   SOCIAL_NETWORKS,
   SOCIAL_NETWORK_STATUS,
@@ -6,7 +7,7 @@ import {
 interface SocialNetworkProps {
   name: string
   url?: string
-  iconUrl?: string
+  iconUrl: string
 }
 
 interface SocialNetworksProps {
@@ -26,7 +27,7 @@ const SocialNetwork: React.FC<SocialNetworkProps> = ({
     {url && (
       <a href={url} target="_blank" rel="noreferrer">
         <div className="flex items-center justify-center m-2">
-          <img
+          <Image
             className="w-10"
             src={iconUrl}
             alt={`Logo du réseau social ${name}`}

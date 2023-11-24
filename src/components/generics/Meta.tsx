@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import Head from 'next/head'
 
 type MetaProps = {
   title: string
@@ -6,12 +6,12 @@ type MetaProps = {
 }
 
 const Meta: React.FC<MetaProps> = ({ title, description }) => (
-  <Helmet>
+  <Head>
     <title>{`Palmythology | ${title}`}</title>
     <meta property="og:title" content={title} />
     <meta name="description" content={description} />
     <meta property="og:description" content={description} />
-  </Helmet>
+  </Head>
 )
 
 export default Meta

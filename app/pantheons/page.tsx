@@ -1,9 +1,11 @@
-import { ALL_PANTHEON } from '../../../types/cards/pantheons'
-import { wording } from '../../../wording/fr/main'
-import { SEO_WORDING } from '../../../wording/fr/seo'
-import Meta from '../../generics/Meta'
-import PageHeader from '../../generics/PageHeader'
-import PageSquare, { CONTENT_TYPE } from '../../generics/PageSquare'
+import Meta from '../../src/components/generics/Meta'
+import PageHeader from '../../src/components/generics/PageHeader'
+import PageSquare, {
+  CONTENT_TYPE,
+} from '../../src/components/generics/PageSquare'
+import { ALL_PANTHEON } from '../../src/types/cards/pantheons'
+import { wording } from '../../src/wording/fr/main'
+import { SEO_WORDING } from '../../src/wording/fr/seo'
 
 const PantheonsPage = (): JSX.Element => {
   return (
