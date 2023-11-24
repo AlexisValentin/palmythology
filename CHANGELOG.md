@@ -3,6 +3,7 @@
 ## Divers
 
 - Mise à jour des dépendances du projet vers leurs dernières versions.
+- Mise en place du hook git `commit-msg` dans le but de lancer les tests unitaires pour valider le code à pousser.
 
 ---
 
