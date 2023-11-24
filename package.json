@@ -52,6 +52,8 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "@types/jest": "^29.5.10",
     "@types/react": "^18.2.38",
     "@types/styled-components": "^5.1.32",
@@ -61,12 +63,12 @@
     "@vitest/coverage-v8": "^0.34.6",
     "autoprefixer": "^10.4.16",
     "file-loader": "^6.2.0",
+    "husky": "^8.0.0",
     "postcss": "^8.4.31",
     "react-router-dom": "^6.20.0",
     "storyblok-generate-ts": "^2.0.1",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.3.2",
-    "vitest": "^0.34.6",
-    "husky": "^8.0.0"
+    "vitest": "^0.34.6"
   }
 }
