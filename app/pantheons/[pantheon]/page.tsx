@@ -1,7 +1,6 @@
 'use client'
 
 import { useStoryblok } from '@storyblok/react'
-import Meta from '../../../src/components/generics/Meta'
 import PageHeader from '../../../src/components/generics/PageHeader'
 import Summary from '../../../src/components/generics/Summary'
 import NotFound404 from '../../../src/components/domains/http/404'
@@ -39,10 +38,6 @@ const PantheonPage = ({ params }: PantheonPagePropsType) => {
 
   return (
     <>
-      <Meta
-        title={`Panthéon ${params.pantheon}`}
-        description={metaDescription}
-      />
       <PageHeader title={`Panthéon ${pantheonLabel?.toLowerCase()}`} />
       {summary && <Summary content={summary} />}
       {relatedCards && relatedCards.length > 0 && (

@@ -4,8 +4,6 @@ import React, { useEffect, useState } from 'react'
 import { Quoi2NeufItemType } from '../../src/types/storyblok/storyblok'
 import { stringifyMonthCode } from '../../src/helpers/dates'
 import { fetchQuoi2NeufStories } from '../../src/helpers/storyblok'
-import { SEO_WORDING } from '../../src/wording/fr/seo'
-import Meta from '../../src/components/generics/Meta'
 import PageHeader from '../../src/components/generics/PageHeader'
 import { wording } from '../../src/wording/fr/main'
 import PageSquare, {
@@ -28,10 +26,6 @@ const Q2NPage: React.FC = () => {
 
   return (
     <>
-      <Meta
-        title={`${SEO_WORDING.Q2N.title} - ${parsedDate}`}
-        description={SEO_WORDING.Q2N.description}
-      />
       <PageHeader
         title={`${wording.folders.quoi_2_neuf_title}`}
         subtitle={`${parsedDate}`}

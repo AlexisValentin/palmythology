@@ -6,8 +6,6 @@ import { getCardSlug } from '../../../src/helpers/storyblok'
 import { isObjectEmpty } from '../../../src/helpers/object'
 import NotFound404 from '../../../src/components/domains/http/404'
 import Forbidden403 from '../../../src/components/domains/http/403'
-import Meta from '../../../src/components/generics/Meta'
-import { SEO_WORDING } from '../../../src/wording/fr/seo'
 import PageHeader from '../../../src/components/generics/PageHeader'
 import Summary from '../../../src/components/generics/Summary'
 import Carrousel from '../../../src/components/generics/Carrousel'
@@ -52,41 +50,35 @@ const CardPage: React.FC<CardPagePropsType> = ({ params }) => {
   }
 
   return (
-    <>
-      <Meta
-        title={`${name}, ${subtitle}`}
-        description={summary ?? SEO_WORDING.CARD_DETAILS.description}
-      />
-      <div className="flex items-center justify-center flex-col">
-        <PageHeader title={name} subtitle={subtitle} />
-        {summary && <Summary content={summary} />}
-        <div className="flex items-center justify-center w-full lg:w-3/4">
-          <Carrousel imageList={images} />
-        </div>
-        {relatedCards && relatedCards.length > 0 && (
-          <div className="flex flex-col mt-16">
-            <div className="flex align-center justify-center">
-              <h3 className="font-semibold">Dans le même sujet</h3>
-            </div>
-            <div className="flex flex-col lg:flex-row mt-4">
-              {relatedCards.map((card: CardRelatedType) => (
-                <PageSquare
-                  key={`${card.name}-${card.subtitle}}`}
-                  title={card.name}
-                  subtitle={card.subtitle}
-                  pantheon={card.pantheon}
-                  icon={card.icon}
-                  contentType={CONTENT_TYPE.CARD}
-                />
-              ))}
-            </div>
-          </div>
-        )}
-        <div className="mt-16">
-          {hasCustomLinks && <SocialNetworks customLinks={socialLinks} />}
-        </div>
+    <div className="flex items-center justify-center flex-col">
+      <PageHeader title={name} subtitle={subtitle} />
+      {summary && <Summary content={summary} />}
+      <div className="flex items-center justify-center w-full lg:w-3/4">
+        <Carrousel imageList={images} />
       </div>
-    </>
+      {relatedCards && relatedCards.length > 0 && (
+        <div className="flex flex-col mt-16">
+          <div className="flex align-center justify-center">
+            <h3 className="font-semibold">Dans le même sujet</h3>
+          </div>
+          <div className="flex flex-col lg:flex-row mt-4">
+            {relatedCards.map((card: CardRelatedType) => (
+              <PageSquare
+                key={`${card.name}-${card.subtitle}}`}
+                title={card.name}
+                subtitle={card.subtitle}
+                pantheon={card.pantheon}
+                icon={card.icon}
+                contentType={CONTENT_TYPE.CARD}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+      <div className="mt-16">
+        {hasCustomLinks && <SocialNetworks customLinks={socialLinks} />}
+      </div>
+    </div>
   )
 }
 
