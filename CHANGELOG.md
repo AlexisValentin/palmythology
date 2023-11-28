@@ -1,3 +1,11 @@
+# Version 1.6.3 (27/11/2023)
+
+## Divers
+
+- Correction d'un problème qui faisait que le nouveau fichier `sitemap.xml` n'était pas consultable depuis le répértoire `public`.
+
+--- 
+
 # Version 1.6.2 (27/11/2023)
 
 ## Divers
