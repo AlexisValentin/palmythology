@@ -1,11 +1,5 @@
-'use client'
-
-import { useStoryblok } from '@storyblok/react'
 import React from 'react'
-import { getCardSlug } from '../../../src/helpers/storyblok'
-import { isObjectEmpty } from '../../../src/helpers/object'
-import NotFound404 from '../../../src/components/domains/http/404'
-import Forbidden403 from '../../../src/components/domains/http/403'
+import { getCardSlug, getCardStory } from '../../../src/helpers/storyblok'
 import PageHeader from '../../../src/components/generics/PageHeader'
 import Summary from '../../../src/components/generics/Summary'
 import Carrousel from '../../../src/components/generics/Carrousel'
@@ -19,14 +13,14 @@ interface CardPagePropsType {
   params: { card: string[] }
 }
 
-const CardPage: React.FC<CardPagePropsType> = ({ params }) => {
+const CardPage = async ({ params }: CardPagePropsType) => {
   const pantheon = params.card[0]
   const title = params.card[1]
-  const story = useStoryblok(getCardSlug(title, pantheon), {
-    version: 'published',
-  })
+  const story = await getCardStory(title, pantheon)
 
-  if (isObjectEmpty(story)) return <NotFound404 />
+  console.log('STORY -> ', story.data.story.content)
+
+  if (!story?.data?.story?.content) return <></>
 
   const {
     name,
@@ -38,9 +32,9 @@ const CardPage: React.FC<CardPagePropsType> = ({ params }) => {
     facebookUrl,
     twitterUrl,
     relatedCards,
-  } = story.content
+  } = story.data.story.content
 
-  if (!available) return <Forbidden403 />
+  if (!available) return <></>
 
   const hasCustomLinks = instagramUrl.url || facebookUrl.url || twitterUrl.url
   const socialLinks = hasCustomLinks && {

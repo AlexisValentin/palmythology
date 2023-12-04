@@ -1,8 +1,15 @@
 import React from 'react'
+import { Metadata } from 'next'
 import PageHeader from '../src/components/generics/PageHeader'
 import { wording } from '../src/wording/fr/main'
 import { ROUTES } from '../src/types/consts/routes'
 import PageSection from '../src/components/generics/PageSection'
+import { SEO_WORDING } from '../src/wording/fr/seo'
+
+export const metadata: Metadata = {
+  title: SEO_WORDING.HOME.title,
+  description: SEO_WORDING.HOME.description,
+}
 
 const HomePage = (): JSX.Element => {
   return (

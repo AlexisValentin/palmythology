@@ -1,15 +1,15 @@
-'use client'
-import { useStoryblok } from '@storyblok/react'
 import React from 'react'
-import { getAboutSlug } from '../../src/helpers/storyblok'
+import { getAboutStory } from '../../src/helpers/storyblok'
 import { wording } from '../../src/wording/fr/main'
 import TextBlock, { IconSize } from '../../src/components/generics/TextBlock'
 import PageHeader from '../../src/components/generics/PageHeader'
 
-const AboutPage: React.FC = () => {
-  const story = useStoryblok(getAboutSlug(), {
-    version: 'published',
-  })
+const AboutPage = async () => {
+  const story = await getAboutStory()
+
+  const { aboutItems } = story.data.story.content
+
+  if (!story?.data?.story?.content) return <></>
 
   return (
     <>
@@ -17,9 +17,9 @@ const AboutPage: React.FC = () => {
         title={wording.sections.about_title}
         subtitle={wording.sections.about_description}
       />
-      {story?.content?.aboutItems && (
+      {aboutItems && (
         <TextBlock
-          content={story.content.aboutItems}
+          content={aboutItems}
           iconSize={IconSize.MEDIUM}
           leftSiding={true}
         />

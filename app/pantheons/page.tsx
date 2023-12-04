@@ -1,9 +1,16 @@
+import { Metadata } from 'next'
 import PageHeader from '../../src/components/generics/PageHeader'
 import PageSquare, {
   CONTENT_TYPE,
 } from '../../src/components/generics/PageSquare'
 import { ALL_PANTHEON } from '../../src/types/cards/pantheons'
 import { wording } from '../../src/wording/fr/main'
+import { SEO_WORDING } from '../../src/wording/fr/seo'
+
+export const metadata: Metadata = {
+  title: SEO_WORDING.PANTHEONS.title,
+  description: SEO_WORDING.PANTHEONS.description,
+}
 
 const PantheonsPage = (): JSX.Element => {
   return (

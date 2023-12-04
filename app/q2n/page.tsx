@@ -1,28 +1,24 @@
-'use client'
-
-import React, { useEffect, useState } from 'react'
-import { Quoi2NeufItemType } from '../../src/types/storyblok/storyblok'
+import React from 'react'
+import { Metadata } from 'next'
 import { stringifyMonthCode } from '../../src/helpers/dates'
 import { fetchQuoi2NeufStories } from '../../src/helpers/storyblok'
 import PageHeader from '../../src/components/generics/PageHeader'
 import { wording } from '../../src/wording/fr/main'
-import PageSquare, {
-  CONTENT_TYPE,
-} from '../../src/components/generics/PageSquare'
+import Q2NItemList from '../../src/components/domains/cards/Quoi2NeufCardList'
+import { SEO_WORDING } from '../../src/wording/fr/seo'
 
-const Q2NPage: React.FC = () => {
-  const [quoi2NeufItems, setQuoi2NeufItems] = useState<Quoi2NeufItemType[]>([])
+export const metadata: Metadata = {
+  title: SEO_WORDING.Q2N.title,
+  description: SEO_WORDING.Q2N.description,
+}
+
+const Quoi2NeufPage = async () => {
+  const stories = await fetchQuoi2NeufStories()
 
   const date = new Date()
   const month = date.getMonth()
   const year = date.getFullYear()
   const parsedDate = `${stringifyMonthCode(month)} ${year}`
-
-  useEffect(() => {
-    fetchQuoi2NeufStories().then((items) => {
-      setQuoi2NeufItems(() => items)
-    })
-  }, [])
 
   return (
     <>
@@ -30,25 +26,9 @@ const Q2NPage: React.FC = () => {
         title={`${wording.folders.quoi_2_neuf_title}`}
         subtitle={`${parsedDate}`}
       />
-      <div className="flex items-center justify-center flex-wrap">
-        {quoi2NeufItems.map((item, idx) => {
-          const { title, subtitle, icon, pantheon, available } = item
-
-          return (
-            <PageSquare
-              key={idx}
-              title={title}
-              subtitle={subtitle}
-              icon={icon}
-              available={available}
-              pantheon={pantheon}
-              contentType={CONTENT_TYPE.CARD}
-            />
-          )
-        })}
-      </div>
+      <Q2NItemList quoi2NeufStories={stories} />
     </>
   )
 }
 
-export default Q2NPage
+export default Quoi2NeufPage
