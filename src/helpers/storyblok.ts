@@ -32,6 +32,13 @@ export const getCardStory = (title: string, pantheon: string) =>
     responseType: 'json',
   })
 
+export const getPantheonStory = (pantheon: string) =>
+  axios({
+    method: 'get',
+    url: `${STORYBLOK_URL_STORIES}pantheons/${pantheon}/?token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+    responseType: 'json',
+  })
+
 export const getAboutStory = () =>
   axios({
     method: 'get',
@@ -88,15 +95,6 @@ export const fetchQuoi2NeufStories = async () =>
     ),
   )
 
-export const fetchPantheonLandingPage = async (pantheon: string) =>
-  await fetchStoriesByStartingString('pantheonLandingPage').then((stories) =>
-    stories.data.stories.map(
-      (story: StoryblokQ2NComponentType) =>
-        story.content.component === 'pantheonLandingPage' &&
-        parsePantheonLandingPageData(story),
-    ),
-  )
-
 const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
   const { name, pantheon, subject, available, isFolder } = card.content
 
@@ -119,18 +117,5 @@ const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufStoryType => {
     icon,
     available,
     pantheon,
-  }
-}
-
-const parsePantheonLandingPageData = (
-  // @ts-ignore
-  pantheonLandingPage,
-): PantheonLandingPageType => {
-  const { summary, relatedCards, metaDescription } = pantheonLandingPage.content
-
-  return {
-    summary,
-    relatedCards,
-    metaDescription,
   }
 }

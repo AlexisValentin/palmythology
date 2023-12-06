@@ -2,7 +2,7 @@ import PageHeader from '../../../src/components/generics/PageHeader'
 import NotFound404 from '../../../src/components/domains/http/404'
 import { getPantheonLabelFromValue } from '../../../src/helpers/dictionary'
 import { PantheonValue } from '../../../src/types/cards/pantheons'
-import { fetchPantheonLandingPage } from '../../../src/helpers/storyblok'
+import { getPantheonStory } from '../../../src/helpers/storyblok'
 import { isObjectEmpty } from '../../../src/helpers/object'
 
 import React from 'react'
@@ -14,7 +14,11 @@ interface PantheonPagePropsType {
 
 const PantheonPage = async ({ params }: PantheonPagePropsType) => {
   const pantheon = params.pantheon
-  const story = await fetchPantheonLandingPage(pantheon)
+  const story = await getPantheonStory(pantheon)
+
+  if (!story?.data?.story?.content) return <></>
+
+  const { relatedCards, summary } = story.data.story.content
 
   const pantheonLabel = getPantheonLabelFromValue(
     params.pantheon! as PantheonValue,
@@ -25,7 +29,7 @@ const PantheonPage = async ({ params }: PantheonPagePropsType) => {
   return (
     <>
       <PageHeader title={`Panthéon ${pantheonLabel?.toLowerCase()}`} />
-      <PantheonCardList pantheon={pantheon} pantheonCardList={story} />
+      <PantheonCardList summary={summary} relatedCards={relatedCards} />
     </>
   )
 }

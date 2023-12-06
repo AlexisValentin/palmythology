@@ -7,9 +7,9 @@ import PageHeader from '../../src/components/generics/PageHeader'
 const AboutPage = async () => {
   const story = await getAboutStory()
 
-  const { aboutItems } = story.data.story.content
-
   if (!story?.data?.story?.content) return <></>
+
+  const { aboutItems } = story.data.story.content
 
   return (
     <>
