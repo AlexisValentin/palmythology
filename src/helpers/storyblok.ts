@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { CardDetails, ResearchCriterias } from '../types/cards/card'
 import {
-  PantheonLandingPageType,
   Quoi2NeufStoryType,
   STORYBLOK_RESULTS_PER_PAGE,
   STORYBLOK_TOKEN,

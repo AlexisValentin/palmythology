@@ -1,5 +1,5 @@
 import React from 'react'
-import { getCardSlug, getCardStory } from '../../../src/helpers/storyblok'
+import { getCardStory } from '../../../src/helpers/storyblok'
 import PageHeader from '../../../src/components/generics/PageHeader'
 import Summary from '../../../src/components/generics/Summary'
 import Carrousel from '../../../src/components/generics/Carrousel'
@@ -8,7 +8,6 @@ import PageSquare, {
 } from '../../../src/components/generics/PageSquare'
 import SocialNetworks from '../../../src/components/generics/SocialNetworks'
 import { CardRelatedType } from '../../../src/types/storyblok/storyblok'
-import { ResolvingMetadata } from 'next'
 import { SEO_WORDING } from '../../../src/wording/fr/seo'
 import { capitalize } from '../../../src/helpers/string'
 
