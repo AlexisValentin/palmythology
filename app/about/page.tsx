@@ -3,6 +3,13 @@ import { getAboutStory } from '../../src/helpers/storyblok'
 import { wording } from '../../src/wording/fr/main'
 import TextBlock, { IconSize } from '../../src/components/generics/TextBlock'
 import PageHeader from '../../src/components/generics/PageHeader'
+import { Metadata } from 'next'
+import { SEO_WORDING } from '../../src/wording/fr/seo'
+
+export const metadata: Metadata = {
+  title: SEO_WORDING.ABOUT.title,
+  description: SEO_WORDING.ABOUT.description,
+}
 
 const AboutPage = async () => {
   const story = await getAboutStory()

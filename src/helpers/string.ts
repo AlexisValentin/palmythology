@@ -8,3 +8,8 @@ export const replaceSpacesByDashes = (stringToParse: string): string =>
 
 export const parseStringToSlug = (stringToParse: string): string =>
   replaceSpacesByDashes(stripDiacritics(stringToParse)).toLowerCase()
+
+export const capitalize = (str: string): string =>
+  str
+    .toLowerCase()
+    .replace(/(?:^|\s|["'([{])+\S/g, (match) => match.toUpperCase())

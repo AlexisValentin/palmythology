@@ -8,17 +8,37 @@ import PageSquare, {
 } from '../../../src/components/generics/PageSquare'
 import SocialNetworks from '../../../src/components/generics/SocialNetworks'
 import { CardRelatedType } from '../../../src/types/storyblok/storyblok'
+import { ResolvingMetadata } from 'next'
+import { SEO_WORDING } from '../../../src/wording/fr/seo'
+import { capitalize } from '../../../src/helpers/string'
 
 interface CardPagePropsType {
   params: { card: string[] }
+}
+
+export const generateMetadata = async ({ params }: CardPagePropsType) => {
+  const pantheon = params.card[0]
+  const title = params.card[1]
+  const story = await getCardStory(title, pantheon)
+
+  if (!story?.data?.story?.content) {
+    return {
+      title: SEO_WORDING.CARD.title,
+      description: SEO_WORDING.CARD.description,
+    }
+  }
+
+  return {
+    title: `${capitalize(title)}, ${story.data.story.content
+      ?.subtitle} | Palmythology`,
+    description: story.data.story.content?.summary,
+  }
 }
 
 const CardPage = async ({ params }: CardPagePropsType) => {
   const pantheon = params.card[0]
   const title = params.card[1]
   const story = await getCardStory(title, pantheon)
-
-  console.log('STORY -> ', story.data.story.content)
 
   if (!story?.data?.story?.content) return <></>
 

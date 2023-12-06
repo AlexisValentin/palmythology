@@ -7,9 +7,29 @@ import { isObjectEmpty } from '../../../src/helpers/object'
 
 import React from 'react'
 import PantheonCardList from '../../../src/components/domains/cards/PantheonCardList'
+import { SEO_WORDING } from '../../../src/wording/fr/seo'
 
 interface PantheonPagePropsType {
   params: { pantheon: string }
+}
+
+export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
+  const pantheon = params.pantheon
+  const story = await getPantheonStory(pantheon)
+
+  if (!story?.data?.story?.content) {
+    return {
+      title: pantheon,
+      description: SEO_WORDING.PANTHEON.description,
+    }
+  }
+
+  return {
+    title: `Panthéon ${getPantheonLabelFromValue(
+      pantheon as PantheonValue,
+    )} | Palmythology`,
+    description: story.data.story.content?.summary,
+  }
 }
 
 const PantheonPage = async ({ params }: PantheonPagePropsType) => {
