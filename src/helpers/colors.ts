@@ -80,11 +80,13 @@ export const getSummaryBackgroundColor = () =>
   `${BACKGROUND}-${COLORS.NEUTRAL}-${COLOR_TAINTS.SUPER_LIGHT}`
 
 export const getPantheonMainColor = (pantheon: PantheonValue) =>
+  // @ts-ignore
   MYTHOLOGY_COLORS[pantheon.toUpperCase()]
 
 export const getPantheonTextColor = (pantheon: PantheonValue) =>
   hasSpecialTextColor(pantheon)
-    ? TEXT_COLORS[pantheon.toUpperCase()]
+    ? // @ts-ignore
+      TEXT_COLORS[pantheon.toUpperCase()]
     : TEXT_COLORS.GENERIC
 
 export const hasSpecialTextColor = (pantheon: PantheonValue) =>
