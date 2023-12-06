@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
+import Image from 'next/image'
 import { ROUTES } from '../../../types/consts/routes'
 import { wording } from '../../../wording/fr/main'
 import { useCallback } from 'react'
@@ -17,9 +18,9 @@ const MainMenu = (): JSX.Element => {
 
         return (
           <div className={`justify-items-center content-center py-3`} key={idx}>
-            <Link to={url}>
+            <Link href={url}>
               {isHomePage(name) ? (
-                <img
+                <Image
                   className="rounded-full shadow-xl"
                   src={iconUrl}
                   alt="Logo de la Palmythology"

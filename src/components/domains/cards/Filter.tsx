@@ -1,3 +1,5 @@
+'use client'
+
 import { useCallback, useState } from 'react'
 import { ALL_PANTHEON } from '../../../types/cards/pantheons'
 import { ALL_SUBJECT } from '../../../types/cards/subjects'

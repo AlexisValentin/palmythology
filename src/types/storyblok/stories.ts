@@ -33,16 +33,6 @@ export interface StoryblokPantheonLandingPageType {
   }
 }
 
-export interface StoryblokNewsComponentType {
-  content: {
-    component: string
-    title: string
-    summary: string
-    icon: StoryblokImageType[]
-    newsItem: TextBlockType[]
-  }
-}
-
 export interface TextBlockType {
   text: string
   illustration: {

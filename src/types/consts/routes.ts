@@ -1,5 +1,4 @@
 import { wording } from '../../wording/fr/main'
-import NewsIcon from '../../assets/icons/news.svg'
 import MagnifyingGlassIcon from '../../assets/icons/magnifying_glass.svg'
 import InformationIcon from '../../assets/icons/information.svg'
 import Q2NIcon from '../../assets/icons/number_two.svg'
@@ -14,17 +13,15 @@ export interface RouteType {
   url: string
   description: string
   gradient?: GradientType
-  iconUrl?: string
+  iconUrl: string
 }
 
 export const ROUTE_URLS = {
   HOME: ROOT,
-  RESEARCH: `${ROOT}research`,
+  SEARCH: `${ROOT}search`,
   ABOUT: `${ROOT}about`,
-  NEWS: `${ROOT}news`,
   Q2N: `${ROOT}q2n`,
   CARD: `${ROOT}cards/:pantheon/:card`,
-  ARTICLE: `${ROOT}news/:title`,
   PANTHEONS: `${ROOT}pantheons`,
   PANTHEON: `${ROOT}pantheons/:pantheon`,
 }
@@ -47,16 +44,6 @@ export const ROUTES: RouteType[] = [
     iconUrl: Q2NIcon,
   },
   {
-    name: wording.sections.news_title,
-    url: ROUTE_URLS.NEWS,
-    description: wording.sections.news_description,
-    gradient: {
-      startingColor: SECTION_COLORS.NEWS[0],
-      endingColor: SECTION_COLORS.NEWS[1],
-    },
-    iconUrl: NewsIcon,
-  },
-  {
     name: wording.sections.pantheon_title,
     url: ROUTE_URLS.PANTHEONS,
     description: wording.sections.pantheon_description,
@@ -68,7 +55,7 @@ export const ROUTES: RouteType[] = [
   },
   {
     name: wording.sections.research_title,
-    url: ROUTE_URLS.RESEARCH,
+    url: ROUTE_URLS.SEARCH,
     description: wording.sections.research_description,
     gradient: {
       startingColor: SECTION_COLORS.RESEARCH[0],

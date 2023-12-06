@@ -1,17 +1,20 @@
-import { ALL_PANTHEON } from '../../../types/cards/pantheons'
-import { wording } from '../../../wording/fr/main'
-import { SEO_WORDING } from '../../../wording/fr/seo'
-import Meta from '../../generics/Meta'
-import PageHeader from '../../generics/PageHeader'
-import PageSquare, { CONTENT_TYPE } from '../../generics/PageSquare'
+import { Metadata } from 'next'
+import PageHeader from '../../src/components/generics/PageHeader'
+import PageSquare, {
+  CONTENT_TYPE,
+} from '../../src/components/generics/PageSquare'
+import { ALL_PANTHEON } from '../../src/types/cards/pantheons'
+import { wording } from '../../src/wording/fr/main'
+import { SEO_WORDING } from '../../src/wording/fr/seo'
+
+export const metadata: Metadata = {
+  title: SEO_WORDING.PANTHEONS.title,
+  description: SEO_WORDING.PANTHEONS.description,
+}
 
 const PantheonsPage = (): JSX.Element => {
   return (
     <>
-      <Meta
-        title={SEO_WORDING.PANTHEONS.title}
-        description={SEO_WORDING.PANTHEONS.description}
-      />
       <PageHeader
         title={wording.sections.pantheon_title}
         subtitle={wording.sections.pantheon_description}

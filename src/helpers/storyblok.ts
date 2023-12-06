@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { CardDetails, ResearchCriterias } from '../types/cards/card'
 import {
-  NewsPageType,
-  Quoi2NeufItemType,
+  PantheonLandingPageType,
+  Quoi2NeufStoryType,
   STORYBLOK_RESULTS_PER_PAGE,
   STORYBLOK_TOKEN,
   STORYBLOK_URL_STORIES,
@@ -11,7 +11,6 @@ import {
 import { parseStringToSlug } from './string'
 import {
   StoryblokCardComponentType,
-  StoryblokNewsComponentType,
   StoryblokQ2NComponentType,
 } from '../types/storyblok/stories'
 import { PantheonValue } from '../types/cards/pantheons'
@@ -24,11 +23,28 @@ export const getCardSlug = (cardName?: string, pantheon?: string) =>
 export const getPantheonLandingPageSlut = (pantheon?: PantheonValue) =>
   !pantheon ? '' : `pantheons/${pantheon}`
 
-export const getNewsSlug = (newsTitle?: string) => {
-  return !newsTitle ? '' : `news/${parseStringToSlug(newsTitle)}`
-}
-
 export const getAboutSlug = () => `about/page`
+
+export const getCardStory = (title: string, pantheon: string) =>
+  axios({
+    method: 'get',
+    url: `${STORYBLOK_URL_STORIES}cards/${pantheon}/${title}/?token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+    responseType: 'json',
+  })
+
+export const getPantheonStory = (pantheon: string) =>
+  axios({
+    method: 'get',
+    url: `${STORYBLOK_URL_STORIES}pantheons/${pantheon}/?token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+    responseType: 'json',
+  })
+
+export const getAboutStory = () =>
+  axios({
+    method: 'get',
+    url: `${STORYBLOK_URL_STORIES}about/page/?token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+    responseType: 'json',
+  })
 
 const fetchStoriesByStartingString = (startingString: string) =>
   axios({
@@ -79,14 +95,6 @@ export const fetchQuoi2NeufStories = async () =>
     ),
   )
 
-export const fetchNewsStories = async () =>
-  await fetchStoriesByStartingString('news').then((stories) =>
-    stories.data.stories.map(
-      (story: StoryblokNewsComponentType) =>
-        story.content.component === 'newsPage' && parseNewsData(story),
-    ),
-  )
-
 const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
   const { name, pantheon, subject, available, isFolder } = card.content
 
@@ -100,7 +108,7 @@ const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
 }
 
 // @ts-ignore
-const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufItemType => {
+const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufStoryType => {
   const { title, subtitle, icon, available, pantheon } = quoi2NeufItem.content
 
   return {
@@ -109,18 +117,5 @@ const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufItemType => {
     icon,
     available,
     pantheon,
-  }
-}
-
-const parseNewsData = (
-  newsArticle: StoryblokNewsComponentType,
-): NewsPageType => {
-  const { title, summary, icon, newsItem } = newsArticle.content
-
-  return {
-    title,
-    summary,
-    icon,
-    newsItem,
   }
 }

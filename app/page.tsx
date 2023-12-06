@@ -1,17 +1,19 @@
-import { ROUTES } from '../../../types/consts/routes'
-import { wording } from '../../../wording/fr/main'
-import PageHeader from '../../generics/PageHeader'
-import PageSection from '../../generics/PageSection'
-import Meta from '../../generics/Meta'
-import { SEO_WORDING } from '../../../wording/fr/seo'
+import React from 'react'
+import { Metadata } from 'next'
+import PageHeader from '../src/components/generics/PageHeader'
+import { wording } from '../src/wording/fr/main'
+import { ROUTES } from '../src/types/consts/routes'
+import PageSection from '../src/components/generics/PageSection'
+import { SEO_WORDING } from '../src/wording/fr/seo'
+
+export const metadata: Metadata = {
+  title: SEO_WORDING.HOME.title,
+  description: SEO_WORDING.HOME.description,
+}
 
 const HomePage = (): JSX.Element => {
   return (
     <>
-      <Meta
-        title={SEO_WORDING.HOME.title}
-        description={SEO_WORDING.HOME.description}
-      />
       <PageHeader
         title={wording.sections.home_title}
         subtitle={wording.sections.home_description}

@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { setCardRouteParameters } from '../../../helpers/routes'
 import { filterCards } from '../../../modules/searchEngine'
 import {
@@ -16,6 +15,8 @@ import { getPantheonValueFromLabel } from '../../../helpers/dictionary'
 import Pagination from '../../generics/Pagination'
 import { STORYBLOK_RESULTS_PER_PAGE } from '../../../types/storyblok/storyblok'
 import { isStringEmpty } from '../../../helpers/string'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const CardList: React.FC<ResearchCriterias> = ({
   pantheon,
@@ -93,13 +94,13 @@ const CardList: React.FC<ResearchCriterias> = ({
                   {card.available ? (
                     <Link
                       className="flex justify-center"
-                      to={setCardRouteParameters(
+                      href={setCardRouteParameters(
                         card.name,
                         getPantheonValueFromLabel(card.pantheon) ?? '',
                       )}
                       target="_blank"
                     >
-                      <img
+                      <Image
                         className={`${
                           card.pantheon === PantheonLabel.JAPANESE &&
                           `filter-dark-red`
@@ -112,7 +113,7 @@ const CardList: React.FC<ResearchCriterias> = ({
                     </Link>
                   ) : (
                     <div className="flex justify-center">
-                      <img
+                      <Image
                         className={`${
                           card.pantheon === PantheonLabel.JAPANESE &&
                           `filter-dark-red`
