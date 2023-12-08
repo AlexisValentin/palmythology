@@ -1,4 +1,10 @@
-# Version 2.0.0 (06/12/202?)
+# Version 2.0.1 (??/12/2023)
+
+## Divers
+
+- Mise à jour de la version de `NextJS` à la dernière connue (`v14.0.4`).
+
+# Version 2.0.0 (06/12/2023)
 
 ## Général
 
