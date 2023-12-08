@@ -31,7 +31,7 @@ const MainMenu = (): JSX.Element => {
                 <>
                   <div className="hidden md:block">{name}</div>
                   <div className="md:hidden block">
-                    <img src={iconUrl} alt={name} width={40} height={40} />
+                    <Image src={iconUrl} alt={name} width={40} height={40} />
                   </div>
                 </>
               )}
