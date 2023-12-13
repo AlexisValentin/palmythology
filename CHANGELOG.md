@@ -3,6 +3,7 @@
 ## Divers
 
 - Mise à jour des dépendences à leurs dernières versions.
+- Mise à jour du `sitemap.xml` du site web.
 
 ---
 
