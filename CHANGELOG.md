@@ -1,5 +1,9 @@
 # Version 2.1.0 (??/12/2023)
 
+## Divers
+
+- Correction d'un problème d'affichage qui faisait que parfois le sous-titre de la rubrique n'était pas alignée avec le reste du titre.
+
 ---
 
 # Version 2.0.1 (19/12/2023)
