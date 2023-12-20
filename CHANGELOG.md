@@ -2,6 +2,8 @@
 
 ## Divers
 
+- Ajout du logo du réseau social `Threads` en tant que lien personnalisé pour la fiche concernée.
+- Ajout du logo du réseau social `Threads` dans le footer du site.
 - Correction d'un problème d'affichage qui faisait que parfois le sous-titre de la rubrique n'était pas alignée avec le reste du titre.
 
 ---

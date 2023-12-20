@@ -30,15 +30,15 @@ export const SOCIAL_NETWORKS: SocialNetworkType[] = [
     status: SOCIAL_NETWORK_STATUS.ACTIVE,
   },
   {
-    name: 'Threads',
-    url: 'https://threads.net/@palmythology',
-    iconUrl: ThreadsIcon,
-    status: SOCIAL_NETWORK_STATUS.ACTIVE,
-  },
-  {
     name: 'Twitter',
     url: 'https://twitter.com/palmythology',
     iconUrl: TwitterIcon,
+    status: SOCIAL_NETWORK_STATUS.ACTIVE,
+  },
+  {
+    name: 'Threads',
+    url: 'https://threads.net/@palmythology',
+    iconUrl: ThreadsIcon,
     status: SOCIAL_NETWORK_STATUS.ACTIVE,
   },
   {
