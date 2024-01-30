@@ -39,5 +39,5 @@ export const wording = {
     subject_description:
       'Découvrez les fiches les plus populaires classées par thème',
   },
-  copyrights: 'Palmythology © 2020-2023 - Tous droits réservés',
+  copyrights: 'Palmythology © 2020-2024 - Tous droits réservés',
 }
