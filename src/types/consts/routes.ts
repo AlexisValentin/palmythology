@@ -24,6 +24,8 @@ export const ROUTE_URLS = {
   CARD: `${ROOT}cards/:pantheon/:card`,
   PANTHEONS: `${ROOT}pantheons`,
   PANTHEON: `${ROOT}pantheons/:pantheon`,
+  SUBJECTS: `${ROOT}subjects`,
+  SUBJECT: `${ROOT}subject/:subject`,
 }
 
 export const ROUTES: RouteType[] = [
@@ -50,6 +52,16 @@ export const ROUTES: RouteType[] = [
     gradient: {
       startingColor: SECTION_COLORS.PANTHEONS[0],
       endingColor: SECTION_COLORS.PANTHEONS[1],
+    },
+    iconUrl: LaurelIcon,
+  },
+  {
+    name: wording.sections.subject_title,
+    url: ROUTE_URLS.SUBJECTS,
+    description: wording.sections.subject_description,
+    gradient: {
+      startingColor: SECTION_COLORS.SUBJECTS[0],
+      endingColor: SECTION_COLORS.SUBJECTS[1],
     },
     iconUrl: LaurelIcon,
   },

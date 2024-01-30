@@ -35,6 +35,9 @@ export const wording = {
     pantheon_title: 'Panthéons',
     pantheon_description:
       'Consultez tous les détails de chaque panthéon mythologique',
+    subject_title: 'Sujets',
+    subject_description:
+      'Découvrez les fiches les plus populaires classées par thème',
   },
   copyrights: 'Palmythology © 2020-2023 - Tous droits réservés',
 }

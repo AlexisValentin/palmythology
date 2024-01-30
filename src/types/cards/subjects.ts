@@ -19,13 +19,38 @@ export enum SubjectValue {
 export interface SubjectSelectType {
   value: SubjectValue
   label: SubjectLabel
+  icon: string
 }
 
 export const ALL_SUBJECT: SubjectSelectType[] = [
-  { value: SubjectValue.MONSTER, label: SubjectLabel.MONSTER },
-  { value: SubjectValue.DIVINITY, label: SubjectLabel.DIVINITY },
-  { value: SubjectValue.PERSON, label: SubjectLabel.PERSON },
-  { value: SubjectValue.PLACE, label: SubjectLabel.PLACE },
-  { value: SubjectValue.TRIBE, label: SubjectLabel.TRIBE },
-  { value: SubjectValue.WRITINGS, label: SubjectLabel.WRITINGS },
+  {
+    value: SubjectValue.MONSTER,
+    label: SubjectLabel.MONSTER,
+    icon: 'https://a.storyblok.com/f/187414/150x150/3548952805/aztec.svg',
+  },
+  {
+    value: SubjectValue.DIVINITY,
+    label: SubjectLabel.DIVINITY,
+    icon: 'https://a.storyblok.com/f/187414/150x150/3548952805/aztec.svg',
+  },
+  {
+    value: SubjectValue.PERSON,
+    label: SubjectLabel.PERSON,
+    icon: 'https://a.storyblok.com/f/187414/150x150/3548952805/aztec.svg',
+  },
+  {
+    value: SubjectValue.PLACE,
+    label: SubjectLabel.PLACE,
+    icon: 'https://a.storyblok.com/f/187414/150x150/3548952805/aztec.svg',
+  },
+  {
+    value: SubjectValue.TRIBE,
+    label: SubjectLabel.TRIBE,
+    icon: 'https://a.storyblok.com/f/187414/150x150/3548952805/aztec.svg',
+  },
+  {
+    value: SubjectValue.WRITINGS,
+    label: SubjectLabel.WRITINGS,
+    icon: 'https://a.storyblok.com/f/187414/150x150/3548952805/aztec.svg',
+  },
 ]

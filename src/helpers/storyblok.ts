@@ -38,6 +38,13 @@ export const getPantheonStory = (pantheon: string) =>
     responseType: 'json',
   })
 
+export const getSubjectStory = (subject: string) =>
+  axios({
+    method: 'get',
+    url: `${STORYBLOK_URL_STORIES}subjects/${subject}/?token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+    responseType: 'json',
+  })
+
 export const getAboutStory = () =>
   axios({
     method: 'get',

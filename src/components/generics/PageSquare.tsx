@@ -5,21 +5,26 @@ import {
 import {
   setCardRouteParameters,
   setPantheonRouteParameters,
+  setSubjectRouteParameters,
 } from '../../helpers/routes'
 import { StoryblokImageType } from '../../types/storyblok/storyblok'
 import { PantheonValue } from '../../types/cards/pantheons'
 import { useCallback } from 'react'
 import Link from 'next/link'
+import { BLACK_COLOR, WHITE_COLOR } from '../../types/styles/colors'
+import { SubjectValue } from '../../types/cards/subjects'
 
 export enum CONTENT_TYPE {
   CARD = 'card',
   PANTHEON = 'pantheon',
+  SUBJECT = 'subject',
 }
 
 interface PageSquareProps {
   title: string
   subtitle?: string
-  pantheon: PantheonValue
+  pantheon?: PantheonValue
+  subject?: SubjectValue
   icon: StoryblokImageType
   available?: boolean
   contentType: CONTENT_TYPE
@@ -29,6 +34,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
   title,
   subtitle,
   pantheon,
+  subject,
   icon,
   available = true,
   contentType,
@@ -36,29 +42,31 @@ const PageSquare: React.FC<PageSquareProps> = ({
   const buildLink = useCallback(() => {
     switch (contentType) {
       case CONTENT_TYPE.CARD:
-        return setCardRouteParameters(title, pantheon)
+        return setCardRouteParameters(title, pantheon!)
       case CONTENT_TYPE.PANTHEON:
-        return setPantheonRouteParameters(pantheon)
+        return setPantheonRouteParameters(pantheon!)
+      case CONTENT_TYPE.SUBJECT:
+        return setSubjectRouteParameters(subject!)
       default:
         return null
     }
-  }, [contentType, title, pantheon])
+  }, [contentType, title, pantheon, subject])
 
   if (available === undefined || !buildLink()) return <></>
 
   return available ? (
     <Link
       href={buildLink()!}
-      className={`border-4 border-${getPantheonMainColor(
-        pantheon,
-      )} rounded-3xl p-6 m-6 bg-${getPantheonMainColor(
-        pantheon,
-      )} text-${getPantheonTextColor(pantheon)} 
+      className={`border-4 border-${
+        pantheon ? getPantheonMainColor(pantheon) : BLACK_COLOR
+      } rounded-3xl p-6 m-6 bg-${
+        pantheon ? getPantheonMainColor(pantheon) : WHITE_COLOR
+      } text-${pantheon ? getPantheonTextColor(pantheon) : BLACK_COLOR} 
       lg:bg-transparent
       lg:text-black
-      lg:hover:bg-${getPantheonMainColor(
-        pantheon,
-      )} lg:hover:text-${getPantheonTextColor(pantheon)}`}
+      lg:hover:bg-${
+        pantheon ? getPantheonMainColor(pantheon) : BLACK_COLOR
+      } lg:hover:text-${pantheon ? getPantheonTextColor(pantheon) : WHITE_COLOR}`}
     >
       <div className="flex items-center justify-center flex-col">
         <PageSquareBlock title={title} subtitle={subtitle} icon={icon} />

@@ -3,6 +3,7 @@ export const URLS = {
     'https://palmythology.com',
     'https://palmythology.com/q2n',
     'https://palmythology.com/pantheons',
+    'https://palmythology.com/sujets',
     'https://palmythology.com/search',
     'https://palmythology.com/about',
   ],
@@ -17,6 +18,14 @@ export const URLS = {
     'https://palmythology.com/pantheons/mayan',
     'https://palmythology.com/pantheons/norse',
     'https://palmythology.com/pantheons/roman',
+  ],
+  SUBJECTS: [
+    'https://palmythology.com/subjects/divinity',
+    'https://palmythology.com/subjects/person',
+    'https://palmythology.com/subjects/monster',
+    'https://palmythology.com/subjects/tribe',
+    'https://palmythology.com/subjects/writings',
+    'https://palmythology.com/subjects/place',
   ],
   CARDS: [
     'https://palmythology.com/cards/aztec/quetzacoatl',
