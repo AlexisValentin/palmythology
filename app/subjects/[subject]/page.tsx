@@ -28,9 +28,9 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
   }
 
   return {
-    title: `Panthéon ${getPantheonLabelFromValue(
-      subject as PantheonValue,
-    )} | Palmythology`,
+    title: `Sujet ${getSubjectLabelFromValue(
+      subject as SubjectValue,
+    )?.toLowerCase()} | Palmythology`,
     description: story.data.story.content?.summary,
   }
 }

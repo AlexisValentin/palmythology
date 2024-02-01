@@ -25,7 +25,7 @@ export const ROUTE_URLS = {
   PANTHEONS: `${ROOT}pantheons`,
   PANTHEON: `${ROOT}pantheons/:pantheon`,
   SUBJECTS: `${ROOT}subjects`,
-  SUBJECT: `${ROOT}subject/:subject`,
+  SUBJECT: `${ROOT}subjects/:subject`,
 }
 
 export const ROUTES: RouteType[] = [
