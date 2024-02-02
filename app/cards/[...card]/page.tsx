@@ -50,19 +50,16 @@ const CardPage = async ({ params }: CardPagePropsType) => {
     available,
     instagramUrl,
     facebookUrl,
-    twitterUrl,
     threadsUrl,
     relatedCards,
   } = story.data.story.content
 
   if (!available) return <></>
 
-  const hasCustomLinks =
-    instagramUrl.url || facebookUrl.url || twitterUrl.url || threadsUrl.url
+  const hasCustomLinks = instagramUrl.url || facebookUrl.url || threadsUrl.url
   const socialLinks = hasCustomLinks && {
     instagram: instagramUrl?.url,
     facebook: facebookUrl?.url,
-    twitter: twitterUrl?.url,
     threads: threadsUrl?.url,
   }
 

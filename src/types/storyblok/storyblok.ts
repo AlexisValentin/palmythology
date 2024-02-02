@@ -38,7 +38,7 @@ export interface CardItemType {
   available: boolean
   isFolder: boolean
   instagramUrl: StoryblokLinkType
-  twitterUrl: StoryblokLinkType
+  threadsUrl: StoryblokLinkType
   relatedCards: CardRelatedType[]
 }
 

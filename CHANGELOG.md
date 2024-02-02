@@ -1,5 +1,9 @@
 # Version 2.1.0 (??/02/2024)
 
+## Réseaux Sociaux
+
+- Suppression de l'accès au réseau social X (désolidarisation).
+
 ## Sujets
 
 - Création d'une nouvelle page concernant les différents abordés au sein de la Palmythology. A l'image de la page Panthéons, cette section permettra de rechercher les fiches les plus populaires selon les thèmes donnés.

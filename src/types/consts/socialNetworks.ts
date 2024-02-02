@@ -1,6 +1,5 @@
 import FacebookIcon from '../../assets/icons/social_networks/facebook.svg'
 import InstagramIcon from '../../assets/icons/social_networks/instagram.svg'
-import TwitterIcon from '../../assets/icons/social_networks/twitter.svg'
 import ThreadsIcon from '../../assets/icons/social_networks/threads.svg'
 import TipeeeIcon from '../../assets/icons/social_networks/tipeee.svg'
 
@@ -27,12 +26,6 @@ export const SOCIAL_NETWORKS: SocialNetworkType[] = [
     name: 'Facebook',
     url: 'https://www.facebook.com/profile.php?id=100089045127860',
     iconUrl: FacebookIcon,
-    status: SOCIAL_NETWORK_STATUS.ACTIVE,
-  },
-  {
-    name: 'Twitter',
-    url: 'https://twitter.com/palmythology',
-    iconUrl: TwitterIcon,
     status: SOCIAL_NETWORK_STATUS.ACTIVE,
   },
   {
