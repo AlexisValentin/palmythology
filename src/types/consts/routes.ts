@@ -3,6 +3,7 @@ import MagnifyingGlassIcon from '../../assets/icons/magnifying_glass.svg'
 import InformationIcon from '../../assets/icons/information.svg'
 import Q2NIcon from '../../assets/icons/number_two.svg'
 import LaurelIcon from '../../assets/icons/laurel.svg'
+import FoldersIcon from '../../assets/icons/folders.svg'
 import { GradientType, SECTION_COLORS } from '../styles/colors'
 import PalmythologyLogo from '../../assets/images/logo.webp'
 
@@ -62,8 +63,9 @@ export const ROUTES: RouteType[] = [
     gradient: {
       startingColor: SECTION_COLORS.SUBJECTS[0],
       endingColor: SECTION_COLORS.SUBJECTS[1],
+      intermediateColor: SECTION_COLORS.SUBJECTS[2],
     },
-    iconUrl: LaurelIcon,
+    iconUrl: FoldersIcon,
   },
   {
     name: wording.sections.research_title,

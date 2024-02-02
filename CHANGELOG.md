@@ -3,6 +3,8 @@
 ## Réseaux Sociaux
 
 - Suppression de l'accès au réseau social X (désolidarisation).
+- Ajout du logo du réseau social `Threads` en tant que lien personnalisé pour la fiche concernée.
+- Ajout du logo du réseau social `Threads` dans le footer du site.
 
 ## Sujets
 
@@ -10,12 +12,11 @@
 
 ## Divers
 
-- Ajout du logo du réseau social `Threads` en tant que lien personnalisé pour la fiche concernée.
-- Ajout du logo du réseau social `Threads` dans le footer du site.
 - Correction d'un problème d'affichage qui faisait que parfois le sous-titre de la rubrique n'était pas alignée avec le reste du titre.
 - Génération d'un fichier `sitemap.xml` dynamique pour faciliter l'interaction avec les crawlers Google.
 - Mise à jour des copyrights en bas de page du site pour intégrer l'année 2024.
-- Mise à jour des dépendences à leurs dernières versions :
+- Ajout de l'utilisation des couleurs intermédiaires pour les gradiants, notamment pour les composants `PageSection`.
+- Mise à jour des dépendances à leurs dernières versions :
 
   | Librairie                        | Version précédente | Nouvelles versions |
   | -------------------------------- | ------------------ | ------------------ |
