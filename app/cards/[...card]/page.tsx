@@ -56,7 +56,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 
   if (!available) return <></>
 
-  const hasCustomLinks = instagramUrl.url || facebookUrl.url || threadsUrl.url
+  const hasCustomLinks = instagramUrl?.url || facebookUrl?.url || threadsUrl?.url
   const socialLinks = hasCustomLinks && {
     instagram: instagramUrl?.url,
     facebook: facebookUrl?.url,
