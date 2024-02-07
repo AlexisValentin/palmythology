@@ -1,3 +1,5 @@
+'use client'
+
 import { useCallback, useEffect, useState } from 'react'
 import { setCardRouteParameters } from '../../../helpers/routes'
 import { filterCards } from '../../../modules/searchEngine'

@@ -14,7 +14,7 @@ interface SocialNetworksProps {
   customLinks?: {
     instagram: string
     facebook: string
-    twitter: string
+    threads: string
   }
 }
 

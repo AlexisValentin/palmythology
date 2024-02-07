@@ -9,3 +9,6 @@ export const setCardRouteParameters = (cardName: string, pantheon: string) =>
 
 export const setPantheonRouteParameters = (pantheon: string) =>
   ROUTE_URLS.PANTHEON.replace(':pantheon', pantheon)
+
+export const setSubjectRouteParameters = (subject: string) =>
+  ROUTE_URLS.SUBJECT.replace(':subject', subject)

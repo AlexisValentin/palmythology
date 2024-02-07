@@ -31,4 +31,13 @@ export const SEO_WORDING: Record<string, SeoWordingType> = {
     description:
       'Sélectionnez un panthéon mythologique parmi 11 différents : grec, égyptien, scandinave, celtique, japonais, chinois, maya, aztèque, hindou, romain.',
   },
+  SUBJECT: {
+    title: 'Sujet spécifique | Palmythology',
+    description: `Retrouvez la fiche qu'il vous faut à travers la page dédiée aux thématiques dédiées présentées par la Palmythology.`,
+  },
+  SUBJECTS: {
+    title: 'Liste des sujets | Palmythology',
+    description:
+      'Découvrez les fiches les plus populaires classées par thèmatiques : personnages, divinités, monstres, peuples, écrits et lieux.',
+  },
 }

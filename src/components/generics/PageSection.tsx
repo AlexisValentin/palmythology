@@ -15,7 +15,7 @@ const PageSection: React.FC<PageSectionProps> = ({
     <section
       className={`flex flex-col items-center rounded-3xl p-2.5 w-60 sm:w-full sm:rounded-none sm:flex-row ${
         gradient
-          ? `bg-gradient-to-r from-${gradient?.startingColor} to-${gradient?.endingColor}`
+          ? `bg-gradient-to-r from-${gradient?.startingColor} ${gradient?.intermediateColor ? `via-${gradient?.intermediateColor}` : ''} to-${gradient?.endingColor}`
           : `bg-black text-white`
       } sm:p-0`}
     >

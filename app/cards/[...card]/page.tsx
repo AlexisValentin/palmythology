@@ -28,8 +28,9 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
   }
 
   return {
-    title: `${capitalize(title)}, ${story.data.story.content
-      ?.subtitle} | Palmythology`,
+    title: `${capitalize(title)}, ${
+      story.data.story.content?.subtitle
+    } | Palmythology`,
     description: story.data.story.content?.summary,
   }
 }
@@ -49,17 +50,17 @@ const CardPage = async ({ params }: CardPagePropsType) => {
     available,
     instagramUrl,
     facebookUrl,
-    twitterUrl,
+    threadsUrl,
     relatedCards,
   } = story.data.story.content
 
   if (!available) return <></>
 
-  const hasCustomLinks = instagramUrl.url || facebookUrl.url || twitterUrl.url
+  const hasCustomLinks = instagramUrl?.url || facebookUrl?.url || threadsUrl?.url
   const socialLinks = hasCustomLinks && {
-    instagram: instagramUrl.url,
-    facebook: facebookUrl.url,
-    twitter: twitterUrl.url,
+    instagram: instagramUrl?.url,
+    facebook: facebookUrl?.url,
+    threads: threadsUrl?.url,
   }
 
   return (

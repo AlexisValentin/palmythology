@@ -8,6 +8,7 @@ export const COLORS = {
   CYAN: 'cyan',
   EMERALD: 'emerald',
   FUCHSIA: 'fuchsia',
+  GREEN: 'green',
   INDIGO: 'indigo',
   LIME: 'lime',
   NEUTRAL: 'neutral',
@@ -16,6 +17,7 @@ export const COLORS = {
   RED: 'red',
   SKY: 'sky',
   VIOLET: 'violet',
+  YELLOW: 'yellow',
 }
 
 export const COLOR_TAINTS = {
@@ -85,6 +87,11 @@ export const SECTION_COLORS = {
     `${COLORS.LIME}-${COLOR_TAINTS.DARKER}`,
     `${COLORS.AMBER}-${COLOR_TAINTS.DARKER}`,
   ],
+  SUBJECTS: [
+    `${COLORS.GREEN}-${COLOR_TAINTS.LIGHT}`,
+    `${COLORS.RED}-${COLOR_TAINTS.LIGHT}`,
+    `${COLORS.YELLOW}-${COLOR_TAINTS.LIGHT}`,
+  ],
   RESEARCH: [
     `${COLORS.EMERALD}-${COLOR_TAINTS.DARKER}`,
     `${COLORS.AMBER}-${COLOR_TAINTS.LIGHTER}`,
@@ -98,7 +105,9 @@ export type PantheonStyleType = {
 
 export type GradientType = {
   startingColor: string
+  intermediateColor?: string
   endingColor: string
 }
 
 export const BLACK_COLOR = `${COLORS.NEUTRAL}-${COLOR_TAINTS.EXTRA_DARK}`
+export const WHITE_COLOR = `${COLORS.NEUTRAL}-${COLOR_TAINTS.EXTRA_LIGHT}`

@@ -7,10 +7,10 @@ const PageHeaderContent: React.FC<PageHeaderProps> = ({
   title,
   subtitle,
 }): JSX.Element => (
-  <div className="p-10">
-    <h1 className="flex justify-center text-2xl font-bold">{title}</h1>
+  <div className="flex flex-col items-center justify-center p-10">
+    <h1 className=" text-2xl font-bold">{title}</h1>
     {subtitle && (
-      <h3 className="hidden md:flex justify-center italic md:text-sm lg:text-base pt-2">
+      <h3 className="hidden italic md:block md:text-sm lg:text-base pt-2">
         {subtitle}
       </h3>
     )}
