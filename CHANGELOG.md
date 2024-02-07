@@ -1,3 +1,7 @@
+# Version 2.2.0 (??/02/2024)
+
+---
+
 # Version 2.1.0 (06/02/2024)
 
 ## Réseaux Sociaux
@@ -8,7 +12,7 @@
 
 ## Sujets
 
-- Création d'une nouvelle page concernant les différents abordés au sein de la Palmythology. A l'image de la page Panthéons, cette section permettra de rechercher les fiches les plus populaires selon les thèmes donnés.
+- Création d'une nouvelle page concernant les différents sujets abordés au sein de la Palmythology. A l'image de la page Panthéons, cette section permettra de rechercher les fiches les plus populaires selon les thèmes donnés.
 
 ## Divers
 
