@@ -49,7 +49,7 @@ const SubjectPage = async ({ params }: SubjectPagePropsType) => {
 
   return (
     <>
-      <PageHeader title={`Sujet ${subjectLabel?.toLowerCase()}`} />
+      <PageHeader title={`${subjectLabel}`} />
       <SubjectCardList summary={summary} relatedCards={relatedCards} />
     </>
   )
