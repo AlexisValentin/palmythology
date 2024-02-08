@@ -5,7 +5,7 @@ import { ALL_PANTHEON } from '../../../types/cards/pantheons'
 import { ALL_SUBJECT } from '../../../types/cards/subjects'
 import { BASE_INPUT_NAMES } from '../../../types/consts/form'
 import { wording } from '../../../wording/fr/main'
-import CardList from './CardList'
+import SearchResults from './SearchResults'
 import FilterSelect from './FilterSelect'
 
 interface FilterSelectProps {
@@ -54,7 +54,7 @@ const Filter = (): JSX.Element => {
           />
         </div>
       </div>
-      <CardList
+      <SearchResults
         pantheon={pantheonSearchCriteria}
         subject={subjectSearchCriteria}
       />

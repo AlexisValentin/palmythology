@@ -1,11 +1,13 @@
 import { PantheonValue } from '../cards/pantheons'
 import { SubjectValue } from '../cards/subjects'
-import { CardRelatedType } from './storyblok'
+import { CardRelatedType, StoryblokImageType } from './storyblok'
 
 export interface StoryblokCardComponentType {
   content: {
     component: string
     name: string
+    subtitle: string
+    icon: StoryblokImageType
     pantheon: PantheonValue
     subject: SubjectValue
     available: boolean

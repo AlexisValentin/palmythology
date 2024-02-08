@@ -1,5 +1,9 @@
 # Version 2.2.0 (??/02/2024)
 
+## Recherche
+
+- Mise à jour de la représentation des résultats de recherche, afin de coller avec direction artistique de la Palmythology.
+
 ---
 
 # Version 2.1.0 (06/02/2024)
