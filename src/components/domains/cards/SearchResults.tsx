@@ -35,6 +35,7 @@ const SearchResults: React.FC<ResearchCriterias> = ({
 
   useEffect(() => {
     setSearchCriterias({ pantheon, subject })
+    setCurrentPage(1)
   }, [pantheon, subject])
 
   useEffect(() => {
