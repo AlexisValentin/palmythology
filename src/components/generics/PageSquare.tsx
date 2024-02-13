@@ -91,8 +91,8 @@ const PageSquareBlock: React.FC<
         width={100}
         height={100}
       />
-      <h2 className="font-bold truncate">{title}</h2>
-      <h3 className="italic truncate">{subtitle}</h3>
+      <h2 className="font-bold truncate px-2">{title}</h2>
+      <h3 className="italic truncate px-2">{subtitle}</h3>
     </div>
   </div>
 )

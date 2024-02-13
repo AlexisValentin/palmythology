@@ -4,6 +4,7 @@
 
 - Mise à jour de la représentation des résultats de recherche, afin de coller avec direction artistique de la Palmythology.
 - Correction d'un bug qui faisait que le changement de filtre ne faisait pas rebasculer l'utilisateur sur la 1ère page des résultats de recherche.
+- Correction d'un bug visuel qui faisait que le sous-titre et parfois même le titre étaient légérement tronqués.
 
 ## Accessibilité
 
