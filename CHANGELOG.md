@@ -5,6 +5,19 @@
 - Mise à jour de la représentation des résultats de recherche, afin de coller avec direction artistique de la Palmythology.
 - Correction d'un bug qui faisait que le changement de filtre ne faisait pas rebasculer l'utilisateur sur la 1ère page des résultats de recherche.
 
+## Accessibilité
+
+- Correction de l'élément de sous-titre de la page qui faisait que les liseuses ne pouvaient pas assimiler la hiérarchie HTML correctement.
+- Correction de couleurs de constraste pour certaines mythologies, annotées comme étant peu lisible pour des utilisateurs malvoyants :
+
+  | Panthéons  | Contraste précédent      | Nouveau contraste        |
+  | ---------- | ------------------------ | ------------------------ |
+  | Aztèque    | orange-600 / neutral-100 | orange-700 / neutral-100 |
+  | Egyptien   | amber-500 / neutral-100  | amber-400 / neutral-900  |
+  | Hindou     | amber-600 / emerald-600  | amber-500 / emerald-900  |
+  | Japonais   | neutral-300 / red-700    | neutral-300 / red-800    |
+  | Scandinave | sky-300 / neutral-100    | sky-500 / neutral-100    |
+
 ---
 
 # Version 2.1.0 (06/02/2024)

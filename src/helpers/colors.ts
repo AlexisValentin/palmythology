@@ -30,7 +30,7 @@ export const getPantheonStyle = (
     case PantheonValue.EGYPTIAN:
       return {
         backgroundColor: MYTHOLOGY_COLORS.EGYPTIAN,
-        textColor: TEXT_COLORS.GENERIC,
+        textColor: TEXT_COLORS.EGYPTIAN,
       }
     case PantheonValue.GREEK:
       return {
@@ -90,6 +90,9 @@ export const getPantheonTextColor = (pantheon: PantheonValue) =>
     : TEXT_COLORS.GENERIC
 
 export const hasSpecialTextColor = (pantheon: PantheonValue) =>
-  [PantheonValue.HINDU, PantheonValue.JAPANESE, PantheonValue.ROMAN].includes(
-    pantheon,
-  )
+  [
+    PantheonValue.EGYPTIAN,
+    PantheonValue.HINDU,
+    PantheonValue.JAPANESE,
+    PantheonValue.ROMAN,
+  ].includes(pantheon)

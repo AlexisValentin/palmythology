@@ -11,7 +11,7 @@ describe('helpers/colors', () => {
   describe('getPantheonStyle', () => {
     test('should return correct color properties for each of the 10 pantheons', () => {
       expect(getPantheonStyle(PantheonValue.AZTEC)).toEqual({
-        backgroundColor: 'orange-600',
+        backgroundColor: 'orange-700',
         textColor: 'neutral-100',
       })
       expect(getPantheonStyle(PantheonValue.CELTIC)).toEqual({
@@ -23,20 +23,20 @@ describe('helpers/colors', () => {
         textColor: 'neutral-100',
       })
       expect(getPantheonStyle(PantheonValue.EGYPTIAN)).toEqual({
-        backgroundColor: 'amber-500',
-        textColor: 'neutral-100',
+        backgroundColor: 'amber-400',
+        textColor: 'neutral-900',
       })
       expect(getPantheonStyle(PantheonValue.GREEK)).toEqual({
         backgroundColor: 'blue-700',
         textColor: 'neutral-100',
       })
       expect(getPantheonStyle(PantheonValue.HINDU)).toEqual({
-        backgroundColor: 'amber-600',
-        textColor: 'emerald-600',
+        backgroundColor: 'amber-500',
+        textColor: 'emerald-900',
       })
       expect(getPantheonStyle(PantheonValue.JAPANESE)).toEqual({
         backgroundColor: 'neutral-300',
-        textColor: 'red-700',
+        textColor: 'red-800',
       })
       expect(getPantheonStyle(PantheonValue.MAYAN)).toEqual({
         backgroundColor: 'violet-800',
@@ -47,7 +47,7 @@ describe('helpers/colors', () => {
         textColor: 'neutral-100',
       })
       expect(getPantheonStyle(PantheonValue.NORSE)).toEqual({
-        backgroundColor: 'sky-300',
+        backgroundColor: 'sky-500',
         textColor: 'neutral-100',
       })
       expect(getPantheonStyle(PantheonValue.ROMAN)).toEqual({
@@ -65,12 +65,12 @@ describe('helpers/colors', () => {
 
   describe('getPantheonMainColor', () => {
     test('should return correct pantheon main color properties for each of the 10 pantheons', () => {
-      expect(getPantheonMainColor(PantheonValue.AZTEC)).toEqual('orange-600')
+      expect(getPantheonMainColor(PantheonValue.AZTEC)).toEqual('orange-700')
       expect(getPantheonMainColor(PantheonValue.CELTIC)).toEqual('emerald-700')
       expect(getPantheonMainColor(PantheonValue.CHINESE)).toEqual('red-700')
-      expect(getPantheonMainColor(PantheonValue.EGYPTIAN)).toEqual('amber-500')
+      expect(getPantheonMainColor(PantheonValue.EGYPTIAN)).toEqual('amber-400')
       expect(getPantheonMainColor(PantheonValue.GREEK)).toEqual('blue-700')
-      expect(getPantheonMainColor(PantheonValue.HINDU)).toEqual('amber-600')
+      expect(getPantheonMainColor(PantheonValue.HINDU)).toEqual('amber-500')
       expect(getPantheonMainColor(PantheonValue.JAPANESE)).toEqual(
         'neutral-300',
       )
@@ -78,7 +78,7 @@ describe('helpers/colors', () => {
       expect(getPantheonMainColor(PantheonValue.MESOPOTAMIAN)).toEqual(
         'pink-500',
       )
-      expect(getPantheonMainColor(PantheonValue.NORSE)).toEqual('sky-300')
+      expect(getPantheonMainColor(PantheonValue.NORSE)).toEqual('sky-500')
       expect(getPantheonMainColor(PantheonValue.ROMAN)).toEqual('red-900')
     })
   })
@@ -89,11 +89,11 @@ describe('helpers/colors', () => {
       expect(getPantheonTextColor(PantheonValue.CELTIC)).toEqual('neutral-100')
       expect(getPantheonTextColor(PantheonValue.CHINESE)).toEqual('neutral-100')
       expect(getPantheonTextColor(PantheonValue.EGYPTIAN)).toEqual(
-        'neutral-100',
+        'neutral-900',
       )
       expect(getPantheonTextColor(PantheonValue.GREEK)).toEqual('neutral-100')
-      expect(getPantheonTextColor(PantheonValue.HINDU)).toEqual('emerald-600')
-      expect(getPantheonTextColor(PantheonValue.JAPANESE)).toEqual('red-700')
+      expect(getPantheonTextColor(PantheonValue.HINDU)).toEqual('emerald-900')
+      expect(getPantheonTextColor(PantheonValue.JAPANESE)).toEqual('red-800')
       expect(getPantheonTextColor(PantheonValue.MAYAN)).toEqual('neutral-100')
       expect(getPantheonTextColor(PantheonValue.MESOPOTAMIAN)).toEqual(
         'neutral-100',
@@ -114,7 +114,7 @@ describe('helpers/colors', () => {
       expect(hasSpecialTextColor(PantheonValue.AZTEC)).toEqual(false)
       expect(hasSpecialTextColor(PantheonValue.CELTIC)).toEqual(false)
       expect(hasSpecialTextColor(PantheonValue.CHINESE)).toEqual(false)
-      expect(hasSpecialTextColor(PantheonValue.EGYPTIAN)).toEqual(false)
+      expect(hasSpecialTextColor(PantheonValue.EGYPTIAN)).toEqual(true)
       expect(hasSpecialTextColor(PantheonValue.GREEK)).toEqual(false)
       expect(hasSpecialTextColor(PantheonValue.MAYAN)).toEqual(false)
       expect(hasSpecialTextColor(PantheonValue.NORSE)).toEqual(false)
