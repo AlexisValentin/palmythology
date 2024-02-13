@@ -3,7 +3,7 @@ export const wording = {
     qu_est_ce_que_ca_fiche_title: "Qu'est-ce que ça fiche ?",
     qu_est_ce_que_ca_fiche_description:
       'Abordez les grands thèmes de la mythologie avec sérénité',
-    quoi_2_neuf_title: 'Quoi 2 neuf ?',
+    quoi_2_neuf_title: 'Quoi 2 Neuf ?',
     quoi_2_neuf_description:
       'Retrouvez tout le contenu qui est prévu pour ce mois-ci',
   },
@@ -24,7 +24,7 @@ export const wording = {
     q2n_description:
       'Découvrez le planning de sortie des fiches "Les grandes lignes" pour le mois en cours',
     q2n_title: 'Quoi 2 Neuf ?',
-    home_description: 'Bienvenue sur le site officiel de la Palmythology',
+    home_description: `L'encyclopédie mythologique`,
     home_title: 'Palmythology',
     news_description:
       'Retrouvez les derniers articles phares sur la Palmythology',

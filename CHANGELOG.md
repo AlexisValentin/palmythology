@@ -8,6 +8,8 @@
 
 ## Accessibilité
 
+- Mise à jour du menu principal qui reste désormais en haut de l'écran, peu importe où l'utilisateur se situe dans la page.
+- Ajout d'un fond gris en surbrillance des éléments du menu principale pour facilité l'accessibilité du site.
 - Correction de l'élément de sous-titre de la page qui faisait que les liseuses ne pouvaient pas assimiler la hiérarchie HTML correctement.
 - Correction de couleurs de constraste pour certaines mythologies, annotées comme étant peu lisible pour des utilisateurs malvoyants :
 
@@ -21,6 +23,7 @@
 
 ## Divers
 
+- Changement du sous-titre de la page d'accueil en de "Bienvenue sur le site de la Palmythologie" en "L'encyclopédie mythologique".
 - Relocalisation des certains fichiers dans un domaine nommé `search`.
 
 ---
