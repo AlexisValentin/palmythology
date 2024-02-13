@@ -19,6 +19,10 @@
   | Japonais   | neutral-300 / red-700    | neutral-300 / red-800    |
   | Scandinave | sky-300 / neutral-100    | sky-500 / neutral-100    |
 
+## Divers
+
+- Relocalisation des certains fichiers dans un domaine nommé `search`.
+
 ---
 
 # Version 2.1.0 (06/02/2024)

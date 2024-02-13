@@ -1,6 +1,6 @@
 import React from 'react'
 import PageHeader from '../../src/components/generics/PageHeader'
-import Filter from '../../src/components/domains/cards/Filter'
+import Filter from '../../src/components/domains/search/Filter'
 import { wording } from '../../src/wording/fr/main'
 import { SEO_WORDING } from '../../src/wording/fr/seo'
 import { Metadata } from 'next'
