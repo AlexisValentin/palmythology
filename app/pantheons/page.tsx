@@ -20,11 +20,11 @@ const PantheonsPage = (): JSX.Element => {
         subtitle={wording.sections.pantheon_description}
       />
       <div className="flex flex-col items-center justify-center flex-wrap md:flex-row mt-4">
-        {ALL_PANTHEON.map((pantheon, idx) => (
+        {ALL_PANTHEON.map((pantheon) => (
           <PageSquare
             title={pantheon.label}
             pantheon={pantheon.value}
-            key={idx}
+            key={`pantheon-${pantheon.value}`}
             icon={{
               alt: `Icône du panthéon ${pantheon.label}`,
               filename: pantheon.icon,

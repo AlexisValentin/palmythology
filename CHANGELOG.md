@@ -1,5 +1,9 @@
 # Version 2.2.0 (??/02/2024)
 
+## Panthéons
+
+- Ajout du panthéon mésopotamien dans la section des `Panthéons`.
+
 ## Recherche
 
 - Mise à jour de la représentation des résultats de recherche, afin de coller avec direction artistique de la Palmythology.
