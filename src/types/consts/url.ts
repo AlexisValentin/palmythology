@@ -72,6 +72,7 @@ export const URLS = {
     'https://palmythology.com/cards/egyptian/thot',
 
     'https://palmythology.com/cards/greek/aphrodite',
+    'https://palmythology.com/cards/greek/apollon',
     'https://palmythology.com/cards/greek/arachne',
     'https://palmythology.com/cards/greek/ares',
     'https://palmythology.com/cards/greek/artemis',
@@ -111,6 +112,8 @@ export const URLS = {
     'https://palmythology.com/cards/mayan/popol-vuh',
     'https://palmythology.com/cards/mayan/xquic',
 
+    'https://palmythology.com/cards/mesopotamian/enlil',
+
     'https://palmythology.com/cards/norse/asgard',
     'https://palmythology.com/cards/norse/baldr',
     'https://palmythology.com/cards/norse/einherjar',
@@ -129,6 +132,7 @@ export const URLS = {
     'https://palmythology.com/cards/norse/odin',
     'https://palmythology.com/cards/norse/thor',
     'https://palmythology.com/cards/norse/tyr',
+    'https://palmythology.com/cards/norse/valkyries',
 
     'https://palmythology.com/cards/roman/flora',
     'https://palmythology.com/cards/roman/janus',
