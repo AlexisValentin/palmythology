@@ -1,4 +1,4 @@
-# Version 2.2.0 (??/02/2024)
+# Version 2.2.0 (14/02/2024)
 
 ## Panthéons
 
@@ -29,6 +29,16 @@
 
 - Changement du sous-titre de la page d'accueil en de "Bienvenue sur le site de la Palmythologie" en "L'encyclopédie mythologique".
 - Relocalisation des certains fichiers dans un domaine nommé `search`.
+- Mise à jour des dépendances à leurs dernières versions :
+
+  | Librairie                        | Version précédente | Nouvelles versions |
+  | -------------------------------- | ------------------ | ------------------ |
+  | @commitlint/cli                  | ^18.6.0            | ^18.6.1            |
+  | @commitlint/config-conventional  | ^18.6.0            | ^18.6.2            |
+  | @typescript-eslint/eslint-plugin | ^6.21.0            | ^7.0.1             |
+  | @typescript-eslint/parser        | ^6.21.0            | ^7.0.1             |
+  | husky                            | ^9.0.10            | ^9.0.11            |
+  | postcss                          | ^8.4.34            | ^8.4.35            |
 
 ---
 
