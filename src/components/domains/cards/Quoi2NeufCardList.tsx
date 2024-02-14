@@ -8,12 +8,12 @@ const Q2NItemList = ({
 }) => {
   return (
     <div className="flex items-center justify-center flex-wrap">
-      {quoi2NeufStories.map((item, idx) => {
+      {quoi2NeufStories.map((item) => {
         const { title, subtitle, icon, pantheon, available } = item
 
         return (
           <PageSquare
-            key={idx}
+            key={`q2n-${title}-${subtitle}`}
             title={title}
             subtitle={subtitle}
             icon={icon}

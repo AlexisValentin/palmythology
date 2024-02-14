@@ -102,10 +102,13 @@ export const fetchQuoi2NeufStories = async () =>
   )
 
 const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
-  const { name, pantheon, subject, available, isFolder } = card.content
+  const { name, subtitle, icon, pantheon, subject, available, isFolder } =
+    card.content
 
   return {
     name,
+    subtitle,
+    icon,
     pantheon,
     subject,
     available,

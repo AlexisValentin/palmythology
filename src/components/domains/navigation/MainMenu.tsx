@@ -10,15 +10,17 @@ const MainMenu = (): JSX.Element => {
   }, [])
 
   return (
-    <nav
-      className={`flex items-center justify-evenly border border-solid z-10 w-full px-6 sm:px-24 md:40 lg:px-56 xl:px-72 2xl:px-96`}
-    >
-      {ROUTES.map((route, idx) => {
+    <nav className="flex items-center justify-evenly sticky top-0 z-10 drop-shadow-md bg-neutral-100 w-full px-6 sm:px-24 md:40 lg:px-56 xl:px-72 2xl:px-96 min-h-16">
+      {ROUTES.map((route) => {
         const { url, name, iconUrl } = route
 
         return (
-          <div className={`justify-items-center content-center py-3`} key={idx}>
-            <Link href={url}>
+          <Link
+            className="px-2 md:px-2 rounded-3xl hover:bg-neutral-300"
+            href={url}
+            key={`section-${name}`}
+          >
+            <div className="justify-items-center content-center py-3">
               {isHomePage(name) ? (
                 <Image
                   className="rounded-full shadow-xl"
@@ -35,8 +37,8 @@ const MainMenu = (): JSX.Element => {
                   </div>
                 </>
               )}
-            </Link>
-          </div>
+            </div>
+          </Link>
         )
       })}
     </nav>

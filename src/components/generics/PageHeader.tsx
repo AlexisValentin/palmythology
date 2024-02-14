@@ -10,9 +10,9 @@ const PageHeaderContent: React.FC<PageHeaderProps> = ({
   <div className="flex flex-col items-center justify-center p-10">
     <h1 className=" text-2xl font-bold">{title}</h1>
     {subtitle && (
-      <h3 className="hidden italic md:block md:text-sm lg:text-base pt-2">
+      <h2 className="hidden italic md:block md:text-sm lg:text-base pt-2">
         {subtitle}
-      </h3>
+      </h2>
     )}
   </div>
 )

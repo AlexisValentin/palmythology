@@ -74,6 +74,11 @@ export const ALL_PANTHEON: PantheonSelectType[] = [
     icon: 'https://a.storyblok.com/f/187414/512x512/41bbaee10a/mayan.svg',
   },
   {
+    value: PantheonValue.MESOPOTAMIAN,
+    label: PantheonLabel.MESOPOTAMIAN,
+    icon: 'https://a.storyblok.com/f/187414/683x683/4842050766/mesopotamian.svg',
+  },
+  {
     value: PantheonValue.NORSE,
     label: PantheonLabel.NORSE,
     icon: 'https://a.storyblok.com/f/187414/512x512/608f27b0b1/norse.svg',

@@ -1,3 +1,4 @@
+import { StoryblokImageType } from '../storyblok/storyblok'
 import {
   AztecNames,
   CelticNames,
@@ -19,6 +20,8 @@ export interface Card {
 
 export interface CardDetails {
   name: string
+  subtitle: string
+  icon: StoryblokImageType
   pantheon: PantheonValue
   subject: SubjectValue
   available: boolean
@@ -29,6 +32,8 @@ export interface CardDetails {
 
 export interface TranslatedCardDetails {
   name: string
+  subtitle: string
+  icon: StoryblokImageType
   pantheon: PantheonLabel
   subject: SubjectLabel
   available: boolean
