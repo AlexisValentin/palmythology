@@ -6,8 +6,13 @@ import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/scss'
 import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
+import { useEffect } from 'react'
+
+import { sendGAEvent } from '@next/third-parties/google'
 
 type CarrouselProps = {
+  title: string
+  pantheon: string
   imageList: StoryblokSingleAssetType[]
 }
 
@@ -16,7 +21,22 @@ interface StoryblokSingleAssetType {
   alt: string
 }
 
-const Carrousel: React.FC<CarrouselProps> = ({ imageList }): JSX.Element => {
+const Carrousel: React.FC<CarrouselProps> = ({
+  title,
+  pantheon,
+  imageList,
+}): JSX.Element => {
+  useEffect(() => {
+    sendGAEvent({
+      event: 'display_card',
+      value: {
+        title,
+        pantheon,
+      },
+    })
+    console.log('sending gtm event')
+  }, [title, pantheon])
+
   return (
     <Swiper
       className="shadow-2xl"

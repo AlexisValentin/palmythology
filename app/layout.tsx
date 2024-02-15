@@ -2,11 +2,13 @@ import StoryblokProvider from '../src/components/StoryblokProvider'
 import Footer from '../src/components/domains/footer/Footer'
 import MainMenu from '../src/components/domains/navigation/MainMenu'
 import '../src/global.css'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const HomeLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <StoryblokProvider>
       <html lang="fr">
+        <GoogleAnalytics gaId="G-JRNM02PV43" />
         <body>
           <MainMenu />
           <div className="flex flex-col min-h-screen">

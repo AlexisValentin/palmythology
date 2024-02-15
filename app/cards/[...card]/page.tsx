@@ -56,7 +56,8 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 
   if (!available) return <></>
 
-  const hasCustomLinks = instagramUrl?.url || facebookUrl?.url || threadsUrl?.url
+  const hasCustomLinks =
+    instagramUrl?.url || facebookUrl?.url || threadsUrl?.url
   const socialLinks = hasCustomLinks && {
     instagram: instagramUrl?.url,
     facebook: facebookUrl?.url,
@@ -68,7 +69,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
       <PageHeader title={name} subtitle={subtitle} />
       {summary && <Summary content={summary} />}
       <div className="flex items-center justify-center w-full lg:w-3/4">
-        <Carrousel imageList={images} />
+        <Carrousel title={name} pantheon={pantheon} imageList={images} />
       </div>
       {relatedCards && relatedCards.length > 0 && (
         <div className="flex flex-col mt-16">

@@ -1,5 +1,10 @@
 # Version 2.3.0 (??/03/2024)
 
+## Tracking
+
+- Mise en place de **Google Tag Manager** afin de mesurer les différentes utilisations des utilisateurs.
+  - Intégration de **Google Tag Manager** dans l'architecture **NextJS**.
+
 ---
 
 # Version 2.2.0 (14/02/2024)
