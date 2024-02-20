@@ -1,22 +1,24 @@
+import { sha1 } from 'js-sha1'
 import { createPool } from '@vercel/postgres'
 
-export const getVercelPool = () =>
-  createPool({
-    connectionString: process.env.PALMYTHOLOGY_POSTGRES_URL,
-  })
+const getShaOne = (stringToHash: string) => sha1(stringToHash)
 
-export const checkCredentials = async (
+const getVercelPool = () =>
+  createPool({
+    connectionString: process.env.NEXT_PUBLIC_PALMYTHOLOGY_POSTGRES_URL,
+  })
+export const selectUsersWithPassword = async (
   loginValue: string,
   passwordValue: string,
 ) => {
   try {
     const { rows } = await getVercelPool().query(
-      'SELECT login FROM users WHERE login = $1 AND password = $2;',
-      [loginValue, passwordValue],
+      'SELECT username FROM users WHERE username = $1 AND password = $2;',
+      [loginValue.toLowerCase(), getShaOne(passwordValue)],
     )
 
     return Promise.resolve({
-      username: rows[0].login,
+      username: rows[0]?.username,
     })
   } catch (error) {
     return Promise.reject(error)

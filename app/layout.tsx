@@ -1,3 +1,4 @@
+import React from 'react'
 import StoryblokProvider from '../src/components/StoryblokProvider'
 import Footer from '../src/components/domains/footer/Footer'
 import MainMenu from '../src/components/domains/navigation/MainMenu'
