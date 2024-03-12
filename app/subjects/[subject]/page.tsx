@@ -2,10 +2,8 @@ import React from 'react'
 import PageHeader from '../../../src/components/generics/PageHeader'
 import NotFound404 from '../../../src/components/domains/http/404'
 import {
-  getPantheonLabelFromValue,
   getSubjectLabelFromValue,
 } from '../../../src/helpers/dictionary'
-import { PantheonValue } from '../../../src/types/cards/pantheons'
 import { getSubjectStory } from '../../../src/helpers/storyblok'
 import { isObjectEmpty } from '../../../src/helpers/object'
 import { SEO_WORDING } from '../../../src/wording/fr/seo'

@@ -1,5 +1,27 @@
 # Version 2.3.0 (??/03/2024)
 
+## Divers
+
+- Mise à jour des librairies suivantes à leur dernières versions :
+
+  | Librairie                        | Version précédente | Nouvelles versions |
+  | -------------------------------- | ------------------ | ------------------ |
+  | @commitlint/cli                  | ^18.6.1            | ^19.1.0            |
+  | @commitlint/config-conventional  | ^18.6.0            | ^19.1.0            |
+  | @storyblok/react                 | ^3.0.8             | ^3.0.9             |
+  | @types/lodash                    | ^4.14.202          | ^4.17.0            |
+  | @types/react                     | ^18.2.55           | ^18.2.65           |
+  | @typescript-eslint/eslint-plugin | ^7.0.1             | ^7.2.0             |
+  | @typescript-eslint/parser        | ^7.0.1             | ^7.2.0             |
+  | @vitest/coverage-v8              | ^1.2.2             | ^1.3.1             |
+  | autoprefixer                     | ^10.4.17           | ^10.4.18           |
+  | next                             | ^14.1.0            | ^14.1.3            |
+  | sass                             | ^1.70.0            | ^1.71.1            |
+  | storyblok-generate-ts            | ^2.0.1             | ^2.0.2             |
+  | swiper                           | ^11.0.6            | ^11.0.7            |
+  | typescript                       | ^5.3.3             | ^5.4.2             |
+  | vitest                           | ^1.2.2             | ^1.3.1             |
+
 ---
 
 # Version 2.2.0 (14/02/2024)
