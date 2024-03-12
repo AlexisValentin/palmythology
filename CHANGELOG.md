@@ -2,6 +2,7 @@
 
 ## Divers
 
+- Mise à jour du `README.md` du projet _Github_.
 - Mise à jour des librairies suivantes à leur dernières versions :
 
   | Librairie                        | Version précédente | Nouvelles versions |
