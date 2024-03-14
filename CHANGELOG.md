@@ -5,6 +5,10 @@
 - Ajout d'un _favicon_ par défaut qui est affiché sur toutes les pages exceptées les fiches détaillées.
 - Ajout d'un _favicon_ dédié au symbole de représentation de la fiche consultée. Il peut être vu dans le nom de l'onglet du navigateur, et remonte également directement en libellé de lien des moteurs de recherche.
 
+## Footer
+
+- Ajout d'un filtre de transparence au survol des icônes de réseaux sociaux afin d'avoir un indicateur d'accessibilité.
+
 ## Divers
 
 - Suppresion du nom technique `pantheonLandingPage` qui n'est plus utilisé au travers de l'application.
