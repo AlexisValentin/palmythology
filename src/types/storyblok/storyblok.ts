@@ -42,23 +42,12 @@ export interface CardItemType {
   relatedCards: CardRelatedType[]
 }
 
-export interface PantheonLandingPageType {
-  summary: string
-  relatedCards: CardRelatedType[]
-}
-
 export interface Quoi2NeufStoryType {
   title: string
   subtitle: string
   pantheon: PantheonValue
   icon: StoryblokImageType
   available?: boolean
-}
-
-export interface PantheonLandingPageType {
-  summary: string
-  relatedCards: CardRelatedType[]
-  metaDescription: string
 }
 
 export type AboutPageType = AboutItemType[]

@@ -2,6 +2,7 @@
 
 ## Divers
 
+- Suppresion du nom technique `pantheonLandingPage` qui n'est plus utilisé au travers de l'application.
 - Mise à jour du `README.md` du projet _Github_.
 - Mise à jour des librairies suivantes à leur dernières versions :
 

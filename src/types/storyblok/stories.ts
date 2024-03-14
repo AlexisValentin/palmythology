@@ -27,14 +27,6 @@ export interface StoryblokQ2NComponentType {
   }
 }
 
-export interface StoryblokPantheonLandingPageType {
-  content: {
-    component: string
-    summary?: string
-    relatedCards: CardRelatedType[]
-  }
-}
-
 export interface TextBlockType {
   text: string
   illustration: {

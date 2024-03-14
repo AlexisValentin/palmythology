@@ -12,15 +12,11 @@ import {
   StoryblokCardComponentType,
   StoryblokQ2NComponentType,
 } from '../types/storyblok/stories'
-import { PantheonValue } from '../types/cards/pantheons'
 
 export const getCardSlug = (cardName?: string, pantheon?: string) =>
   !cardName || !pantheon
     ? ''
     : `cards/${parseStringToSlug(pantheon)}/${parseStringToSlug(cardName)}`
-
-export const getPantheonLandingPageSlut = (pantheon?: PantheonValue) =>
-  !pantheon ? '' : `pantheons/${pantheon}`
 
 export const getAboutSlug = () => `about/page`
 
