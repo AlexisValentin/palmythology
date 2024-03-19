@@ -1,26 +1,28 @@
 import { sha1 } from 'js-sha1'
-import { createPool } from '@vercel/postgres'
+import { createClient } from '@supabase/supabase-js'
 
 const getShaOne = (stringToHash: string) => sha1(stringToHash)
 
-const getVercelPool = () =>
-  createPool({
-    connectionString: process.env.NEXT_PUBLIC_PALMYTHOLOGY_POSTGRES_URL,
-  })
-export const selectUsersWithPassword = async (
+const getSupabase = () =>
+  createClient('https://palmythology.supabase.co', 'my-anon-key')
+
+export const checkCredentials = async (
   loginValue: string,
   passwordValue: string,
 ) => {
   try {
-    const { rows } = await getVercelPool().query(
-      'SELECT username FROM users WHERE username = $1 AND password = $2;',
-      [loginValue.toLowerCase(), getShaOne(passwordValue)],
-    )
+    const { data, error } = await getSupabase()
+      .from('users')
+      .select('username')
+      .eq('username', loginValue)
+      .eq('password', getShaOne(passwordValue))
+
+    if (error) return Promise.reject(`[Supabase] Error -> ${error}`)
 
     return Promise.resolve({
-      username: rows[0]?.username,
+      username: data.find((info) => info.username === loginValue),
     })
-  } catch (error) {
-    return Promise.reject(error)
+  } catch (e) {
+    return Promise.reject(`[Typescript] Error -> ${e}`)
   }
 }

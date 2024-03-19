@@ -1,0 +1,2 @@
+export const SET_IDENTIFIER = 'SET_IDENTIFIER'
+export const SET_PASSWORD = 'SET_PASSWORD'
