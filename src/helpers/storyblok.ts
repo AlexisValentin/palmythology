@@ -18,8 +18,6 @@ export const getCardSlug = (cardName?: string, pantheon?: string) =>
     ? ''
     : `cards/${parseStringToSlug(pantheon)}/${parseStringToSlug(cardName)}`
 
-export const getAboutSlug = () => `about/page`
-
 export const getCardStory = (title: string, pantheon: string) =>
   axios({
     method: 'get',
@@ -38,13 +36,6 @@ export const getSubjectStory = (subject: string) =>
   axios({
     method: 'get',
     url: `${STORYBLOK_URL_STORIES}subjects/${subject}/?token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
-    responseType: 'json',
-  })
-
-export const getAboutStory = () =>
-  axios({
-    method: 'get',
-    url: `${STORYBLOK_URL_STORIES}about/page/?token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
     responseType: 'json',
   })
 
