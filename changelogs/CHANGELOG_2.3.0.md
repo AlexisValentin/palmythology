@@ -9,6 +9,7 @@
 
 - Ajout d'un filtre de transparence au survol des icônes de réseaux sociaux afin d'avoir un indicateur d'accessibilité.
 - Ajout d'un lien sur le numéro de version du site, permettant d'accéder au changelog.
+- Suppression des liens d'accès à la page Facebook suite à un problème d'upload multiple depuis Instagram.
 
 ## A propos
 
