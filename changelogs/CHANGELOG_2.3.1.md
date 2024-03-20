@@ -1,4 +1,4 @@
-# Notes de version 2.3.0 (20/03/2024)
+# Notes de version 2.3.1 (20/03/2024)
 
 ## Recherche
 
