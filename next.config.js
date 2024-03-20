@@ -17,6 +17,10 @@ const nextConfig = {
 
     return config
   },
+  env: {
+    STORYBLOK_TOKEN: process.env.STORYBLOK_TOKEN,
+    STORYBLOK_BASE_URL: process.env.STORYBLOK_BASE_URL,
+  },
 }
 
 module.exports = nextConfig
