@@ -32,6 +32,11 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
       story.data.story.content?.subtitle
     } | Palmythology`,
     description: story.data.story.content?.summary,
+    icons: {
+      icon: story.data.story.content?.icon?.filename,
+      shortcut: story.data.story.content?.icon?.filename,
+      apple: story.data.story.content?.icon?.filename,
+    },
   }
 }
 
@@ -56,7 +61,8 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 
   if (!available) return <></>
 
-  const hasCustomLinks = instagramUrl?.url || facebookUrl?.url || threadsUrl?.url
+  const hasCustomLinks =
+    instagramUrl?.url || facebookUrl?.url || threadsUrl?.url
   const socialLinks = hasCustomLinks && {
     instagram: instagramUrl?.url,
     facebook: facebookUrl?.url,
@@ -64,35 +70,37 @@ const CardPage = async ({ params }: CardPagePropsType) => {
   }
 
   return (
-    <div className="flex items-center justify-center flex-col">
-      <PageHeader title={name} subtitle={subtitle} />
-      {summary && <Summary content={summary} />}
-      <div className="flex items-center justify-center w-full lg:w-3/4">
-        <Carrousel imageList={images} />
-      </div>
-      {relatedCards && relatedCards.length > 0 && (
-        <div className="flex flex-col mt-16">
-          <div className="flex align-center justify-center">
-            <h3 className="font-semibold">Dans le même sujet</h3>
-          </div>
-          <div className="flex flex-col lg:flex-row mt-4">
-            {relatedCards.map((card: CardRelatedType) => (
-              <PageSquare
-                key={`${card.name}-${card.subtitle}}`}
-                title={card.name}
-                subtitle={card.subtitle}
-                pantheon={card.pantheon}
-                icon={card.icon}
-                contentType={CONTENT_TYPE.CARD}
-              />
-            ))}
-          </div>
+    <>
+      <div className="flex items-center justify-center flex-col">
+        <PageHeader title={name} subtitle={subtitle} />
+        {summary && <Summary content={summary} />}
+        <div className="flex items-center justify-center w-full lg:w-3/4">
+          <Carrousel imageList={images} />
         </div>
-      )}
-      <div className="mt-16">
-        {hasCustomLinks && <SocialNetworks customLinks={socialLinks} />}
+        {relatedCards && relatedCards.length > 0 && (
+          <div className="flex flex-col mt-16">
+            <div className="flex align-center justify-center">
+              <h3 className="font-semibold">Dans le même sujet</h3>
+            </div>
+            <div className="flex flex-col lg:flex-row mt-4">
+              {relatedCards.map((card: CardRelatedType) => (
+                <PageSquare
+                  key={`${card.name}-${card.subtitle}}`}
+                  title={card.name}
+                  subtitle={card.subtitle}
+                  pantheon={card.pantheon}
+                  icon={card.icon}
+                  contentType={CONTENT_TYPE.CARD}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+        <div className="mt-16">
+          {hasCustomLinks && <SocialNetworks customLinks={socialLinks} />}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

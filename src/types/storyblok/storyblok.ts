@@ -2,11 +2,7 @@ import { PantheonValue } from '../cards/pantheons'
 import { SubjectValue } from '../cards/subjects'
 import { TextBlockType } from './stories'
 
-export const STORYBLOK_TOKEN = 'Q7BU90ToNkaevy4h0HpEbwtt'
-export const STORYBLOK_CV = '1671618809'
-const STORYBLOK_URL = 'https://api.storyblok.com/'
-export const STORYBLOK_URL_STORIES = `${STORYBLOK_URL}v2/cdn/stories/`
-export const STORYBLOK_RESULTS_PER_PAGE = 9
+export const STORYBLOK_RESULTS_PER_PAGE = 12
 
 export enum STORYBLOK_VERSIONS {
   DRAFT = 'draft',
@@ -42,23 +38,12 @@ export interface CardItemType {
   relatedCards: CardRelatedType[]
 }
 
-export interface PantheonLandingPageType {
-  summary: string
-  relatedCards: CardRelatedType[]
-}
-
 export interface Quoi2NeufStoryType {
   title: string
   subtitle: string
   pantheon: PantheonValue
   icon: StoryblokImageType
   available?: boolean
-}
-
-export interface PantheonLandingPageType {
-  summary: string
-  relatedCards: CardRelatedType[]
-  metaDescription: string
 }
 
 export type AboutPageType = AboutItemType[]

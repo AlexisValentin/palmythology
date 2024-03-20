@@ -1,6 +1,6 @@
 import { PantheonValue } from '../cards/pantheons'
 import { SubjectValue } from '../cards/subjects'
-import { CardRelatedType, StoryblokImageType } from './storyblok'
+import { StoryblokImageType } from './storyblok'
 
 export interface StoryblokCardComponentType {
   content: {
@@ -24,14 +24,6 @@ export interface StoryblokQ2NComponentType {
     available: boolean
     isFolder: boolean
     pantheon: PantheonValue
-  }
-}
-
-export interface StoryblokPantheonLandingPageType {
-  content: {
-    component: string
-    summary?: string
-    relatedCards: CardRelatedType[]
   }
 }
 

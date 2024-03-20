@@ -3,8 +3,6 @@ import { CardDetails, ResearchCriterias } from '../types/cards/card'
 import {
   Quoi2NeufStoryType,
   STORYBLOK_RESULTS_PER_PAGE,
-  STORYBLOK_TOKEN,
-  STORYBLOK_URL_STORIES,
   STORYBLOK_VERSIONS,
 } from '../types/storyblok/storyblok'
 import { parseStringToSlug } from './string'
@@ -12,50 +10,40 @@ import {
   StoryblokCardComponentType,
   StoryblokQ2NComponentType,
 } from '../types/storyblok/stories'
-import { PantheonValue } from '../types/cards/pantheons'
+
+export const getStoryblokToken = () => process.env.STORYBLOK_TOKEN
+export const getStoryblokBaseUrl = () => process.env.STORYBLOK_BASE_URL
 
 export const getCardSlug = (cardName?: string, pantheon?: string) =>
   !cardName || !pantheon
     ? ''
     : `cards/${parseStringToSlug(pantheon)}/${parseStringToSlug(cardName)}`
 
-export const getPantheonLandingPageSlut = (pantheon?: PantheonValue) =>
-  !pantheon ? '' : `pantheons/${pantheon}`
-
-export const getAboutSlug = () => `about/page`
-
 export const getCardStory = (title: string, pantheon: string) =>
   axios({
     method: 'get',
-    url: `${STORYBLOK_URL_STORIES}cards/${pantheon}/${title}/?token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+    url: `${getStoryblokBaseUrl()}cards/${pantheon}/${title}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
     responseType: 'json',
   })
 
 export const getPantheonStory = (pantheon: string) =>
   axios({
     method: 'get',
-    url: `${STORYBLOK_URL_STORIES}pantheons/${pantheon}/?token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+    url: `${getStoryblokBaseUrl()}pantheons/${pantheon}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
     responseType: 'json',
   })
 
 export const getSubjectStory = (subject: string) =>
   axios({
     method: 'get',
-    url: `${STORYBLOK_URL_STORIES}subjects/${subject}/?token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
-    responseType: 'json',
-  })
-
-export const getAboutStory = () =>
-  axios({
-    method: 'get',
-    url: `${STORYBLOK_URL_STORIES}about/page/?token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+    url: `${getStoryblokBaseUrl()}subjects/${subject}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
     responseType: 'json',
   })
 
 const fetchStoriesByStartingString = (startingString: string) =>
   axios({
     method: 'get',
-    url: `${STORYBLOK_URL_STORIES}?starts_with=${startingString}&token=${STORYBLOK_TOKEN}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_RESULTS_PER_PAGE}`,
+    url: `${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_RESULTS_PER_PAGE}`,
     responseType: 'json',
   })
 
@@ -68,7 +56,7 @@ const fetchCardStoriesFromFilters = (
 
   return axios({
     method: 'get',
-    url: `${STORYBLOK_URL_STORIES}?starts_with=${startingString}&token=${STORYBLOK_TOKEN}&version=${
+    url: `${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${
       STORYBLOK_VERSIONS.PUBLISHED
     }&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=${currentPage}&${
       pantheon && `filter_query[pantheon][in]=${pantheon}`

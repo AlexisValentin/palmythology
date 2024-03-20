@@ -26,7 +26,7 @@ const SocialNetwork: React.FC<SocialNetworkProps> = ({
   <>
     {url && (
       <a href={url} target="_blank" rel="noreferrer">
-        <div className="flex items-center justify-center m-2">
+        <div className="flex items-center justify-center m-2 hover:opacity-50">
           <Image
             className="w-10"
             src={iconUrl}

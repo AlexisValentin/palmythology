@@ -26,7 +26,7 @@ export const SOCIAL_NETWORKS: SocialNetworkType[] = [
     name: 'Facebook',
     url: 'https://www.facebook.com/profile.php?id=100089045127860',
     iconUrl: FacebookIcon,
-    status: SOCIAL_NETWORK_STATUS.ACTIVE,
+    status: SOCIAL_NETWORK_STATUS.INACTIVE,
   },
   {
     name: 'Threads',
