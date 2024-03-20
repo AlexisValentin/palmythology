@@ -17,9 +17,10 @@
 
 ## Divers
 
+- Correction d'un bug qui faisait que certaines données d'accès au CMS étaient accessibles depuis le navigateur.
 - Suppresion du nom technique `pantheonLandingPage` qui n'est plus utilisé au travers de l'application.
 - Mise à jour du `README.md` du projet _Github_.
-- Migration et séparation du contenu du `CHANGELOG.md`
+- Migration et séparation du contenu du `CHANGELOG.md`.
 - Mise à jour des librairies suivantes à leur dernières versions :
 
 | Librairie                        | Version précédente | Nouvelles versions |
