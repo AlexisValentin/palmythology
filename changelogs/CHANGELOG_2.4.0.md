@@ -1,5 +1,11 @@
 # Notes de version 2.4.0 (??/??/2024)
 
+## Les grandes lignes
+
+- Ajout de 2 nouveaux blocs pour les fiches détaillées, qui sont situées au côtés du titre de la page et qui redirigent respectivement vers les pages Panthéons et Sujets.
+- L'espacement entre les nouveaux blocs et le titre se font dynamiquement en fonction de la taille de l'écran de l'utilisateur.
+- Mise à jour de quelques règles d'ajustement, pour faire en sorte que les différents éléments ne se chevauchent jamais.
+
 ## Divers
 
 - Mise à jour des librairies suivantes à leur dernières versions :

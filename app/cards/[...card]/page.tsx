@@ -1,15 +1,23 @@
-import React from 'react'
-import { getCardStory } from '../../../src/helpers/storyblok'
-import PageHeader from '../../../src/components/generics/PageHeader'
-import Summary from '../../../src/components/generics/Summary'
 import Carrousel from '../../../src/components/generics/Carrousel'
+import PageHeader from '../../../src/components/generics/PageHeader'
 import PageSquare, {
   CONTENT_TYPE,
+  PAGE_SQUARE_SIZE_TYPE,
 } from '../../../src/components/generics/PageSquare'
 import SocialNetworks from '../../../src/components/generics/SocialNetworks'
+import Summary from '../../../src/components/generics/Summary'
+import {
+  getPantheonLabelFromValue,
+  getSubjectLabelFromValue,
+} from '../../../src/helpers/dictionary'
+import { getPantheonData } from '../../../src/helpers/pantheons'
+import { getCardStory } from '../../../src/helpers/storyblok'
+import { capitalize } from '../../../src/helpers/string'
+import { getSubjectData } from '../../../src/helpers/subjects'
+import { PantheonValue } from '../../../src/types/cards/pantheons'
+import { SubjectValue } from '../../../src/types/cards/subjects'
 import { CardRelatedType } from '../../../src/types/storyblok/storyblok'
 import { SEO_WORDING } from '../../../src/wording/fr/seo'
-import { capitalize } from '../../../src/helpers/string'
 
 interface CardPagePropsType {
   params: { card: string[] }
@@ -57,9 +65,10 @@ const CardPage = async ({ params }: CardPagePropsType) => {
     facebookUrl,
     threadsUrl,
     relatedCards,
+    subject,
   } = story.data.story.content
 
-  if (!available) return <></>
+  if (!available || !pantheon) return <></>
 
   const hasCustomLinks =
     instagramUrl?.url || facebookUrl?.url || threadsUrl?.url
@@ -69,38 +78,67 @@ const CardPage = async ({ params }: CardPagePropsType) => {
     threads: threadsUrl?.url,
   }
 
+  const pantheonData = getPantheonData(pantheon as PantheonValue)
+  const subjectData = getSubjectData(subject)
+
   return (
-    <>
-      <div className="flex items-center justify-center flex-col">
-        <PageHeader title={name} subtitle={subtitle} />
-        {summary && <Summary content={summary} />}
-        <div className="flex items-center justify-center w-full lg:w-3/4">
-          <Carrousel imageList={images} />
-        </div>
-        {relatedCards && relatedCards.length > 0 && (
-          <div className="flex flex-col mt-16">
-            <div className="flex align-center justify-center">
-              <h3 className="font-semibold">Dans le même sujet</h3>
-            </div>
-            <div className="flex flex-col lg:flex-row mt-4">
-              {relatedCards.map((card: CardRelatedType) => (
-                <PageSquare
-                  key={`${card.name}-${card.subtitle}}`}
-                  title={card.name}
-                  subtitle={card.subtitle}
-                  pantheon={card.pantheon}
-                  icon={card.icon}
-                  contentType={CONTENT_TYPE.CARD}
-                />
-              ))}
-            </div>
-          </div>
+    <div className="flex justify-center items-center flex-col">
+      <div className="flex justify-center items-center gap-x-6 sm:gap-x-10 md:gap-x-16 lg:gap-x-20 xl:gap-x-24">
+        {pantheonData && (
+          <PageSquare
+            title={
+              getPantheonLabelFromValue(pantheon as PantheonValue) ??
+              'Pantheon inconnu'
+            }
+            pantheon={pantheon as PantheonValue}
+            icon={pantheonData.icon}
+            contentType={CONTENT_TYPE.PANTHEON}
+            size={PAGE_SQUARE_SIZE_TYPE.SM}
+            withoutText={true}
+          />
         )}
-        <div className="mt-16">
-          {hasCustomLinks && <SocialNetworks customLinks={socialLinks} />}
-        </div>
+        <PageHeader title={name} subtitle={subtitle} />
+        {subjectData && (
+          <PageSquare
+            title={
+              getSubjectLabelFromValue(subject as SubjectValue) ??
+              'Sujet inconnu'
+            }
+            subject={subject as SubjectValue}
+            icon={subjectData.icon}
+            contentType={CONTENT_TYPE.SUBJECT}
+            size={PAGE_SQUARE_SIZE_TYPE.SM}
+            withoutText={true}
+          />
+        )}
       </div>
-    </>
+      {summary && <Summary content={summary} />}
+      <div className="flex items-center justify-center w-full lg:w-3/4 mt-4">
+        <Carrousel imageList={images} />
+      </div>
+      {relatedCards && relatedCards.length > 0 && (
+        <div className="flex flex-col mt-16">
+          <div className="flex align-center justify-center">
+            <h3 className="fontsemibold">Dans le même sujet</h3>
+          </div>
+          <div className="flex flex-col lg:flex-row mt-4">
+            {relatedCards.map((card: CardRelatedType) => (
+              <PageSquare
+                key={`${card.name}-${card.subtitle}}`}
+                title={card.name}
+                subtitle={card.subtitle}
+                pantheon={card.pantheon}
+                icon={card.icon}
+                contentType={CONTENT_TYPE.CARD}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+      <div className="mt-16">
+        {hasCustomLinks && <SocialNetworks customLinks={socialLinks} />}
+      </div>
+    </div>
   )
 }
 
