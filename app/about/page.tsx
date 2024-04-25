@@ -28,7 +28,7 @@ const AboutPage = async () => {
         />
         <PageSection
           name="Aucune collecte de données"
-          description="Pas de panique ! Vos données ne sont pas collectées et pouvez donc naviguez en toute tranquillité !"
+          description="Pas de panique ! Vos données ne sont pas collectées et pouvez donc naviguer en toute sérénité."
           iconUrl={NoDataIcon}
         />
         <PageSection

@@ -74,7 +74,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
         pantheon ? getPantheonMainColor(pantheon) : BLACK_COLOR
       } rounded-3xl p-6 m-6 ${withoutText && 'py-2 m-4'} bg-${
         pantheon ? getPantheonMainColor(pantheon) : 'slate-500'
-      } text-${pantheon ? getPantheonTextColor(pantheon) : BLACK_COLOR} 
+      } text-${pantheon ? getPantheonTextColor(pantheon) : WHITE_COLOR} 
       lg:bg-transparent
       lg:text-black
       lg:hover:bg-${
