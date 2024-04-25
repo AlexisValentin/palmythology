@@ -73,12 +73,12 @@ const PageSquare: React.FC<PageSquareProps> = ({
       className={`border-4 border-${
         pantheon ? getPantheonMainColor(pantheon) : BLACK_COLOR
       } rounded-3xl p-6 m-6 ${withoutText && 'py-2 m-4'} bg-${
-        pantheon ? getPantheonMainColor(pantheon) : WHITE_COLOR
+        pantheon ? getPantheonMainColor(pantheon) : 'slate-500'
       } text-${pantheon ? getPantheonTextColor(pantheon) : BLACK_COLOR} 
       lg:bg-transparent
       lg:text-black
       lg:hover:bg-${
-        pantheon ? getPantheonMainColor(pantheon) : BLACK_COLOR
+        pantheon ? getPantheonMainColor(pantheon) : 'slate-500'
       } lg:hover:text-${pantheon ? getPantheonTextColor(pantheon) : WHITE_COLOR}`}
     >
       <div className="flex items-center justify-center flex-col">
