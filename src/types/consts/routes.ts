@@ -1,17 +1,17 @@
-import { wording } from '../../wording/fr/main'
-import MagnifyingGlassIcon from '../../assets/icons/magnifying_glass.svg'
-import InformationIcon from '../../assets/icons/information.svg'
-import Q2NIcon from '../../assets/icons/number_two.svg'
-import LaurelIcon from '../../assets/icons/laurel.svg'
 import FoldersIcon from '../../assets/icons/folders.svg'
-import { GradientType, SECTION_COLORS } from '../styles/colors'
+import InformationIcon from '../../assets/icons/information.svg'
+import LaurelIcon from '../../assets/icons/laurel.svg'
+import MagnifyingGlassIcon from '../../assets/icons/magnifying_glass.svg'
+import Q2NIcon from '../../assets/icons/number_two.svg'
 import PalmythologyLogo from '../../assets/images/logo.webp'
+import { wording } from '../../wording/fr/main'
+import { GradientType, SECTION_COLORS } from '../styles/colors'
 
 export const ROOT = '/'
 
 export interface RouteType {
   name: string
-  url: string
+  url?: string
   description: string
   gradient?: GradientType
   iconUrl: string
@@ -22,6 +22,7 @@ export const ROUTE_URLS = {
   SEARCH: `${ROOT}search`,
   ABOUT: `${ROOT}about`,
   Q2N: `${ROOT}q2n`,
+  CHANGELOG: `${ROOT}changelog`,
   CARD: `${ROOT}cards/:pantheon/:card`,
   PANTHEONS: `${ROOT}pantheons`,
   PANTHEON: `${ROOT}pantheons/:pantheon`,

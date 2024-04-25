@@ -6,8 +6,14 @@
 - L'espacement entre les nouveaux blocs et le titre se font dynamiquement en fonction de la taille de l'écran de l'utilisateur.
 - Mise à jour de quelques règles d'ajustement, pour faire en sorte que les différents éléments ne se chevauchent jamais.
 
+## A propos
+
+- La page `A propos` ne contient désormais plus les notes de versions, qui sont maintenant disponible dans une autre page dédiées.
+- La page s'enrichit de nouvelles informations génériques à propos du site web de la Palmythology, telles que la provenance du code, ou encore de l'absence de collecte de données et de publicités.
+
 ## Divers
 
+- Les notes de version du site sont désormais accessibles via le lien en bas de page, en cliquant sur le numéro de version du site (`v.2.4.0`)
 - Mise à jour des librairies suivantes à leur dernières versions :
 
 | Librairie                        | Version précédente | Nouvelle version |
