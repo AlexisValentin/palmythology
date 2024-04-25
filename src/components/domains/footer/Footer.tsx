@@ -1,7 +1,7 @@
 import Link from 'next/link'
+import { ROUTE_URLS } from '../../../types/consts/routes'
 import Copyrights from '../../generics/Copyrights'
 import SocialNetworks from '../../generics/SocialNetworks'
-import { ROUTE_URLS } from '../../../types/consts/routes'
 
 const { version } = require('../../../../package.json')
 
@@ -11,7 +11,7 @@ const Footer = (): JSX.Element => {
       <div className="flex flex-col justify-center text-sm px-6">
         <Copyrights />
         <Link
-          href={ROUTE_URLS.ABOUT}
+          href={ROUTE_URLS.CHANGELOG}
           className="w-min hover:underline hover:text-pink-500 decoration-sky-500 underline-offset-8"
         >
           <span className="mt-1 text-xs italic">v{version}</span>

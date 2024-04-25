@@ -11,12 +11,12 @@ const sitemap = (): MetadataRoute.Sitemap => {
 
   const pantheonsMapping = PANTHEONS.map((url) => ({
     url,
-    priority: 1,
+    priority: 0.8,
   }))
 
   const cardsMapping = CARDS.map((url) => ({
     url,
-    priority: 0.8,
+    priority: 1,
   }))
 
   return [...staticsMapping, ...pantheonsMapping, ...cardsMapping]

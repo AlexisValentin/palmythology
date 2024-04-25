@@ -1,5 +1,5 @@
-import { parseChangelogToHtml } from '../../helpers/markdown'
 import Parser from 'html-react-parser'
+import { parseChangelogToHtml } from '../../helpers/markdown'
 import './Changelog.css'
 
 const Changelog = async () => {

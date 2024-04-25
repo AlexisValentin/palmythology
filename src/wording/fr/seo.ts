@@ -17,6 +17,10 @@ export const SEO_WORDING: Record<string, SeoWordingType> = {
     title: 'Quoi 2 Neuf, planning du mois | Palmythology',
     description: `C'est dans la section "Quoi 2 Neuf" que vous pouvez consulter le planning du mois en cours, ainsi que les fiches prévues qui sont déjà disponible sur le site web de la Palmythology et les réseaux sociaux ! Chaque fiche prévue est inscrite avec son illustration, son nom et son sous-titre tel qu'il paraîtra dans le mois courant.`,
   },
+  CHANGELOG: {
+    title: 'Notes de version | Palmythology',
+    description: `Retrouvez les derniers changements de la dernière version le site web de la Palmtyhology.`,
+  },
   ABOUT: {
     title: 'À propos | Palmythology',
     description:

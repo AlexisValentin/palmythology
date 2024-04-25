@@ -5,7 +5,7 @@ interface SummaryProps {
 }
 
 const Summary: React.FC<SummaryProps> = ({ content }): JSX.Element => (
-  <div className="hidden xl:flex xl:justify-center">
+  <div className="hidden md:flex md:justify-center">
     <div
       className={`flex items-center justify-center rounded-lg drop-shadow-lg ${getSummaryBackgroundColor()} italic p-3 mb-10 w-full lg:w-3/4`}
     >
