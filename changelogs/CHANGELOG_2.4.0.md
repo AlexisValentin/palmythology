@@ -1,5 +1,10 @@
 # Notes de version 2.4.0 (??/??/2024)
 
+# Général
+
+- Les sous-titres en haut de page s'affichent désormais correctement sur une ligne.
+- Les sous-titres en haut de page s'affichent désormais sur petits écrans, avec un réajustement au niveau de la taille de leur police.
+
 ## Page d'accueil
 
 - Mise à jour visuelle des blocs de présentation de la page d'accueil. Ces derniers réagissent désormais à la surbrillance du curseur, en modifiant leur propre opacité.
