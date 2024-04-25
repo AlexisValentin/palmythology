@@ -1,5 +1,9 @@
 # Notes de version 2.4.0 (??/??/2024)
 
+## Page d'accueil
+
+- Mise à jour visuelle des blocs de présentation de la page d'accueil. Ces derniers réagissent désormais à la surbrillance du curseur, en modifiant leur propre opacité.
+
 ## Les grandes lignes
 
 - Ajout de 2 nouveaux blocs pour les fiches détaillées, qui sont situées au côtés du titre de la page et qui redirigent respectivement vers les pages Panthéons et Sujets.

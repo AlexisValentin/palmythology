@@ -20,7 +20,7 @@ const AboutPage = async () => {
         title={wording.sections.about_title}
         subtitle={wording.sections.about_description}
       />
-      <div className="mt-4">
+      <div className="flex flex-col">
         <PageSection
           name="100% français"
           description="Cocorico ! Le site web de la Palmythology est réalisé par un seul et unique développeur français."
@@ -33,7 +33,7 @@ const AboutPage = async () => {
         />
         <PageSection
           name="Garanti sans publicité"
-          description="La Palmythology vous garantie une navigation sans aucune pollution visuelle."
+          description="La Palmythology vous garantit une navigation sans aucune pollution visuelle"
           iconUrl={NoAdsIcon}
         />
       </div>

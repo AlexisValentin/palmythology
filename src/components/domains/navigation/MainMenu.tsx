@@ -1,8 +1,8 @@
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useCallback } from 'react'
 import { ROUTES } from '../../../types/consts/routes'
 import { wording } from '../../../wording/fr/main'
-import { useCallback } from 'react'
 
 const MainMenu = (): JSX.Element => {
   const isHomePage = useCallback((routeName: string) => {
@@ -13,6 +13,8 @@ const MainMenu = (): JSX.Element => {
     <nav className="flex items-center justify-evenly sticky top-0 z-10 drop-shadow-md bg-neutral-100 w-full px-6 sm:px-24 md:40 lg:px-56 xl:px-72 2xl:px-96 min-h-16">
       {ROUTES.map((route) => {
         const { url, name, iconUrl } = route
+
+        if (!url) return <div key={`section-${name}`} />
 
         return (
           <Link
