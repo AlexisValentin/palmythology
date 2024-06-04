@@ -3,6 +3,7 @@
 ## Divers
 
 - Les notes de version du site sont désormais accessibles via le lien en bas de page, en cliquant sur le numéro de version du site (`v.2.4.0`)
+- Mise à jour du fichier `sitemap.xml` afin de faciliter l'exploration des bots de moteurs de recherche.
 - Mise à jour des librairies suivantes à leur dernières versions :
 
 | Librairie                        | Version précédente | Nouvelle version |
