@@ -1,5 +1,9 @@
 # Notes de version 2.5.0 (??/??/2024)
 
+## Les grandes lignes
+
+- Correction d'un bug qui faisait que le meta title pour les noms à mots multiples les séparaient par des tirets au lieu d'espaces.
+
 ## Divers
 
 - Les notes de version du site sont désormais accessibles via le lien en bas de page, en cliquant sur le numéro de version du site (`v.2.4.0`)

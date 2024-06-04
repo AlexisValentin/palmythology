@@ -12,7 +12,7 @@ import {
 } from '../../../src/helpers/dictionary'
 import { getPantheonData } from '../../../src/helpers/pantheons'
 import { getCardStory } from '../../../src/helpers/storyblok'
-import { capitalize } from '../../../src/helpers/string'
+import { capitalize, replaceDashesBySpaces } from '../../../src/helpers/string'
 import { getSubjectData } from '../../../src/helpers/subjects'
 import { PantheonValue } from '../../../src/types/cards/pantheons'
 import { SubjectValue } from '../../../src/types/cards/subjects'
@@ -36,7 +36,7 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
   }
 
   return {
-    title: `${capitalize(title)}, ${
+    title: `${capitalize(replaceDashesBySpaces(title))}, ${
       story.data.story.content?.subtitle
     } | Palmythology`,
     description: story.data.story.content?.summary,
