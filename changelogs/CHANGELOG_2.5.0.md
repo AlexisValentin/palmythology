@@ -1,5 +1,9 @@
 # Notes de version 2.5.0 (??/??/2024)
 
+## Général
+
+- Les sous-titres en haut de page ne sont désormais plus visibles sur petits écran en raison d'un problème de redimmensionnement qui laissait apparaître un scroll horizontal non intentionnel.
+
 ## Les grandes lignes
 
 - Correction d'un bug qui faisait que le meta title pour les noms à mots multiples les séparaient par des tirets au lieu d'espaces.
