@@ -1,3 +1,4 @@
+import React from 'react'
 import Carrousel from '../../../src/components/generics/Carrousel'
 import PageHeader from '../../../src/components/generics/PageHeader'
 import PageSquare, {
