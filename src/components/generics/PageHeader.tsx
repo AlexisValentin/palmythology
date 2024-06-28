@@ -1,13 +1,17 @@
 interface PageHeaderProps {
   title: string
   subtitle?: string
+  upperGap?: boolean
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({
   title,
   subtitle,
+  upperGap = true,
 }): JSX.Element => (
-  <div className="flex flex-col items-center justify-center mt-12 mb-6">
+  <div
+    className={`flex flex-col items-center justify-center ${upperGap ? 'mt-12 mb-6' : 'my-6'}`}
+  >
     <h1 className=" text-2xl font-bold">{title}</h1>
     {subtitle && (
       <div className="hidden md:block">

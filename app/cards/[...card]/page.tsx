@@ -98,7 +98,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
             withoutText={true}
           />
         )}
-        <PageHeader title={name} subtitle={subtitle} />
+        <PageHeader title={name} subtitle={subtitle} upperGap={false} />
         {subjectData && (
           <PageSquare
             title={
