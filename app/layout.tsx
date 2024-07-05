@@ -10,11 +10,13 @@ const HomeLayout = ({ children }: { children: React.ReactNode }) => {
     <StoryblokProvider>
       <html lang="fr">
         <head>
-          <script
-            defer
-            data-domain="palmythology.com"
-            src="https://plausible.io/js/script.js"
-          ></script>
+          {process.env.ENV === 'production' && (
+            <script
+              defer
+              data-domain="palmythology.com"
+              src="https://plausible.io/js/script.js"
+            ></script>
+          )}
         </head>
         <body>
           <MainMenu />
