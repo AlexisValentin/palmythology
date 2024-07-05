@@ -1,4 +1,4 @@
-# Notes de version 2.5.0 (??/??/2024)
+# Notes de version 2.4.1 (05/07/2024)
 
 ## Général
 
