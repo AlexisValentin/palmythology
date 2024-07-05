@@ -1,3 +1,5 @@
+import React from 'react'
+
 import StoryblokProvider from '../src/components/StoryblokProvider'
 import Footer from '../src/components/domains/footer/Footer'
 import MainMenu from '../src/components/domains/navigation/MainMenu'
@@ -7,6 +9,13 @@ const HomeLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <StoryblokProvider>
       <html lang="fr">
+        <head>
+          <script
+            defer
+            data-domain="palmythology.com"
+            src="https://plausible.io/js/script.js"
+          ></script>
+        </head>
         <body>
           <MainMenu />
           <div className="flex flex-col min-h-screen">
