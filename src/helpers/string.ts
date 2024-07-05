@@ -6,6 +6,9 @@ export const stripDiacritics = (stringToStrip: string): string =>
 export const replaceSpacesByDashes = (stringToParse: string): string =>
   stringToParse.replace(/\s+/g, '-')
 
+export const replaceDashesBySpaces = (stringToParse: string): string =>
+  stringToParse.replaceAll('-', ' ')
+
 export const parseStringToSlug = (stringToParse: string): string =>
   replaceSpacesByDashes(stripDiacritics(stringToParse)).toLowerCase()
 
