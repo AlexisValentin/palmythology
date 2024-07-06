@@ -4,9 +4,10 @@ import Button from './Button'
 
 interface ModalProps {
   modalId: MODAL_IDS
+  onClick: () => void
 }
 
-const Modal: React.FC<ModalProps> = ({ modalId }) => {
+const Modal: React.FC<ModalProps> = ({ modalId, onClick }) => {
   const { title, description, button } = MODAL_WORDING[modalId]
   const { label, color } = button
 
@@ -15,7 +16,7 @@ const Modal: React.FC<ModalProps> = ({ modalId }) => {
       <div className="m-8">
         <h2 className="text-2xl font-bold mb-4">{title}</h2>
         <div className="text-sm mb-4">{description}</div>
-        <Button label={label} color={color} />
+        <Button label={label} color={color} onClick={onClick} />
       </div>
     </div>
   )

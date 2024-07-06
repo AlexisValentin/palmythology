@@ -4,7 +4,7 @@ import { COLOR_TAINTS, COLORS } from '../../types/styles/colors'
 type ModalWordingType = {
   title: string
   description: string
-  button: ButtonProps
+  button: Omit<ButtonProps, 'onClick'>
 }
 
 export const MODAL_WORDING: Record<string, ModalWordingType> = {

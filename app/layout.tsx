@@ -3,9 +3,8 @@ import React from 'react'
 import StoryblokProvider from '../src/components/StoryblokProvider'
 import Footer from '../src/components/domains/footer/Footer'
 import MainMenu from '../src/components/domains/navigation/MainMenu'
+import TrackingNotice from '../src/components/domains/tracking/TrackingNotice'
 import '../src/global.css'
-import Modal from '../src/components/generics/Modal'
-import { MODAL_IDS } from '../src/types/consts/modal'
 
 const HomeLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -21,7 +20,7 @@ const HomeLayout = ({ children }: { children: React.ReactNode }) => {
           )}
         </head>
         <body>
-          <Modal modalId={MODAL_IDS.TRACKING} />
+          <TrackingNotice />
           <MainMenu />
           <div className="flex flex-col min-h-screen">
             <div className="px-6 mb-20 sm:px-24 md:px-40 lg:px-56 xl:px-72 2xl:px-96">
