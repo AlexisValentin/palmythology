@@ -3,6 +3,7 @@
 ## Général
 
 - Mise en place de Plausible.io, dans le but de traquer des informations de navigation sur le site web. Uniquement dans un cadre d'anonymat, Plausible ne traque par les informations personnelles des utilisateur mais uniquement leur `user-agent` (quel navigateur unique est utilisé) et les comportements de navigation (quelles sont les pages les plus utilisées...).
+- Nouvelle popup s'affichant afin d'informer l'utilisateur de la nouvelle politique de récolte des données.
 
 ## A propos
 
