@@ -1,5 +1,6 @@
 'use client'
 
+import { isPageServerSide } from '../../../helpers/browser'
 import {
   getFromLocalStorage,
   LOCAL_STORAGE_KEYS,
@@ -24,7 +25,7 @@ const TrackingNotice = () => {
     hideModal()
   }
 
-  if (!shouldDisplayModal) return <></>
+  if (isPageServerSide() || !shouldDisplayModal) return <></>
 
   return <Modal modalId={MODAL_IDS.TRACKING} onClick={onClick} />
 }
