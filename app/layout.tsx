@@ -5,8 +5,13 @@ import Footer from '../src/components/domains/footer/Footer'
 import MainMenu from '../src/components/domains/navigation/MainMenu'
 import TrackingNotice from '../src/components/domains/tracking/TrackingNotice'
 import '../src/global.css'
+import Breadcrumbs from '../src/components/generics/Breadcrumbs'
 
-const HomeLayout = ({ children }: { children: React.ReactNode }) => {
+interface MainLayoutProps {
+  children: React.ReactNode
+}
+
+const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <StoryblokProvider>
       <html lang="fr">
@@ -27,6 +32,7 @@ const HomeLayout = ({ children }: { children: React.ReactNode }) => {
               {children}
             </div>
           </div>
+          <Breadcrumbs />
           <Footer />
         </body>
       </html>
@@ -34,4 +40,4 @@ const HomeLayout = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-export default HomeLayout
+export default MainLayout
