@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: SEO_WORDING.ABOUT.description,
 }
 
-const AboutPage = async () => {
+const AboutPage = () => {
   return (
     <>
       <PageHeader

@@ -5,6 +5,11 @@
 - Mise en place de Plausible.io, dans le but de traquer des informations de navigation sur le site web. Uniquement dans un cadre d'anonymat, Plausible ne traque par les informations personnelles des utilisateur mais uniquement leur `user-agent` (quel navigateur unique est utilisé) et les comportements de navigation (quelles sont les pages les plus utilisées...).
 - Nouvelle popup s'affichant afin d'informer l'utilisateur de la nouvelle politique de récolte des données.
 
+## Les grandes lignes
+
+- Mise en place d'une redirection vers la page du panthéon dans l'adresse web (`/cards/pantheon`) dans le cas où l'url ne contiendrait pas le nom de la fiche.
+- Mise en place d'une page intermédiaire `/cards` explicative sur l'utilisation et la compréhense des fiches "Les grandes lignes".
+
 ## A propos
 
 - Mise à jour des informations concernant la récolte des données de manière anonyme suite à l'intégration de Plausible.

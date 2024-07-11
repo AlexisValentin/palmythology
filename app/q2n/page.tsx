@@ -23,7 +23,7 @@ const Quoi2NeufPage = async () => {
   return (
     <>
       <PageHeader
-        title={`${wording.folders.quoi_2_neuf_title}`}
+        title={`${wording.sections.q2n_title}`}
         subtitle={`${parsedDate}`}
       />
       <Q2NItemList quoi2NeufStories={stories} />

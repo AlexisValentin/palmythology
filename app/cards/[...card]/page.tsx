@@ -1,4 +1,6 @@
 import React from 'react'
+import { redirect } from 'next/navigation'
+
 import Carrousel from '../../../src/components/generics/Carrousel'
 import PageHeader from '../../../src/components/generics/PageHeader'
 import PageSquare, {
@@ -27,6 +29,11 @@ interface CardPagePropsType {
 export const generateMetadata = async ({ params }: CardPagePropsType) => {
   const pantheon = params.card[0]
   const title = params.card[1]
+
+  if (!title && pantheon) {
+    redirect(`/pantheons/${pantheon}`)
+  }
+
   const story = await getCardStory(title, pantheon)
 
   if (!story?.data?.story?.content) {

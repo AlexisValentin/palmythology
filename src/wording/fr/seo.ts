@@ -13,6 +13,11 @@ export const SEO_WORDING: Record<string, SeoWordingType> = {
     title: 'Les grandes lignes | Palmythology',
     description: `C'est ici que vous retrouverez toutes les informations sur la fiche de la Palmythology de vos rêves : que ce soit les divinités grecques, les créatures égyptiennes ou encore les batailles légendaire scandinaves, retrouvez avec détails toutes les informations sur le sujet de votre choix, avec des fiches agrémentées d'illustrations attrayantes et d'explications passionantes.`,
   },
+  CARDS: {
+    title: 'Fiches mythologiques | Palmythology',
+    description:
+      'Des résumés simples accompagnés une direction artistique colorées, la Palmythology vous propose de plonger dans des fiches mythologiques intuitive et pédagogiques pour en apprendre toujours plus sur les différents panthéons dans le monde.',
+  },
   Q2N: {
     title: 'Quoi 2 Neuf, planning du mois | Palmythology',
     description: `C'est dans la section "Quoi 2 Neuf" que vous pouvez consulter le planning du mois en cours, ainsi que les fiches prévues qui sont déjà disponible sur le site web de la Palmythology et les réseaux sociaux ! Chaque fiche prévue est inscrite avec son illustration, son nom et son sous-titre tel qu'il paraîtra dans le mois courant.`,
