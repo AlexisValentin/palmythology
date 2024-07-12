@@ -5,8 +5,8 @@ import React from 'react'
 import {
   generateBreadcrumbLinks,
   getHomeBreadcrumbNode,
-  parseBreadcrumbNodeLabel,
-} from '../../helpers/routes'
+  parseBreadcrumbNode,
+} from '../../helpers/routes/routes'
 import Image from 'next/image'
 
 const Breadcrumbs: React.FC = () => {
@@ -30,16 +30,14 @@ const Breadcrumbs: React.FC = () => {
       {nodes.map((node, idx) => (
         <span key={node}>
           {idx === breadcrumLinks.length - 1 ? (
-            <span className="text-slate-500">{`${parseBreadcrumbNodeLabel(node)}`}</span>
+            <span className="text-slate-500">{`${parseBreadcrumbNode(node)}`}</span>
           ) : (
             <span>
               <a
                 className="hover:underline hover:text-pink-500 decoration-sky-500 underline-offset-4"
                 href={breadcrumLinks[idx]}
               >
-                {node
-                  ? parseBreadcrumbNodeLabel(node)
-                  : getHomeBreadcrumbNode()}
+                {node ? parseBreadcrumbNode(node) : getHomeBreadcrumbNode()}
               </a>
               <BreadcrumbSeparator />
             </span>

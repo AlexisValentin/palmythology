@@ -1,11 +1,11 @@
-import { PantheonValue } from '../types/cards/pantheons'
-import { SubjectValue } from '../types/cards/subjects'
-import { ROUTE_URLS } from '../types/consts/routes'
+import { PantheonValue } from '../../types/cards/pantheons'
+import { SubjectValue } from '../../types/cards/subjects'
+import { BREADCRUMB_NODES, ROUTE_URLS } from './routes.const'
 import {
   getPantheonLabelFromValue,
   getSubjectLabelFromValue,
-} from './dictionary'
-import { capitalize, parseStringToSlug, replaceDashesBySpaces } from './string'
+} from '../dictionary'
+import { capitalize, parseStringToSlug, replaceDashesBySpaces } from '../string'
 
 export const setCardRouteParameters = (cardName: string, pantheon: string) =>
   ROUTE_URLS.CARD.replace(':pantheon', pantheon).replace(
@@ -20,20 +20,22 @@ export const setSubjectRouteParameters = (subject: string) =>
   ROUTE_URLS.SUBJECT.replace(':subject', subject)
 
 export const getHomeBreadcrumbNode = () => 'Accueil'
-export const parseBreadcrumbNodeLabel = (nodeLabel: string) => {
+export const parseBreadcrumbNode = (nodeLabel: string) => {
   switch (nodeLabel) {
-    case 'cards':
-      return 'Les grandes lignes'
-    case 'search':
-      return 'Recherche'
-    case 'q2n':
-      return 'Quoi 2 Neuf'
-    case 'pantheons':
-      return 'Panthéons'
-    case 'subjects':
-      return 'Sujets'
-    case 'about':
-      return 'A propos'
+    case BREADCRUMB_NODES.ABOUT.value:
+      return BREADCRUMB_NODES.ABOUT.label
+    case BREADCRUMB_NODES.CARDS.value:
+      return BREADCRUMB_NODES.CARDS.label
+    case BREADCRUMB_NODES.CHANGELOG.value:
+      return BREADCRUMB_NODES.CHANGELOG.label
+    case BREADCRUMB_NODES.PANTHEONS.value:
+      return BREADCRUMB_NODES.PANTHEONS.label
+    case BREADCRUMB_NODES.Q2N.value:
+      return BREADCRUMB_NODES.Q2N.label
+    case BREADCRUMB_NODES.SEARCH.value:
+      return BREADCRUMB_NODES.SEARCH.label
+    case BREADCRUMB_NODES.SUBJECTS.value:
+      return BREADCRUMB_NODES.SUBJECTS.label
     case PantheonValue.AZTEC:
     case PantheonValue.CELTIC:
     case PantheonValue.CHINESE:

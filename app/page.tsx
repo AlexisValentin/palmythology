@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import PageHeader from '../src/components/generics/PageHeader'
 import PageSection from '../src/components/generics/PageSection'
-import { ROUTES } from '../src/types/consts/routes'
+import { ROUTES } from '../src/helpers/routes/routes.const'
 import { wording } from '../src/wording/fr/main'
 import { SEO_WORDING } from '../src/wording/fr/seo'
 

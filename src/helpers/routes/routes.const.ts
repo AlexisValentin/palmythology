@@ -5,7 +5,7 @@ import MagnifyingGlassIcon from '../../assets/icons/magnifying_glass.svg'
 import Q2NIcon from '../../assets/icons/number_two.svg'
 import PalmythologyLogo from '../../assets/images/logo.webp'
 import { wording } from '../../wording/fr/main'
-import { GradientType, SECTION_COLORS } from '../styles/colors'
+import { GradientType, SECTION_COLORS } from '../../types/styles/colors'
 
 export const ROOT = '/'
 
@@ -89,3 +89,13 @@ export const ROUTES: RouteType[] = [
     iconUrl: InformationIcon,
   },
 ]
+
+export const BREADCRUMB_NODES = {
+  ABOUT: { label: 'A propos', value: 'about' },
+  CARDS: { label: 'Les grandes lignes', value: 'cards' },
+  CHANGELOG: { label: 'Notes de version', value: 'changelog' },
+  PANTHEONS: { label: 'Panthéons', value: 'pantheons' },
+  Q2N: { label: 'Quoi 2 Neuf', value: 'q2n' },
+  SEARCH: { label: 'Recherche', value: 'search' },
+  SUBJECTS: { label: 'Sujets', value: 'sujet' },
+}

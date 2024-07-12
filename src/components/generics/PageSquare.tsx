@@ -8,7 +8,7 @@ import {
   setCardRouteParameters,
   setPantheonRouteParameters,
   setSubjectRouteParameters,
-} from '../../helpers/routes'
+} from '../../helpers/routes/routes'
 import { PantheonValue } from '../../types/cards/pantheons'
 import { SubjectValue } from '../../types/cards/subjects'
 import { StoryblokImageType } from '../../types/storyblok/storyblok'
