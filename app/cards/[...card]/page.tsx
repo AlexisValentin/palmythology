@@ -47,7 +47,7 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
     title: `${capitalize(replaceDashesBySpaces(title))}, ${
       story.data.story.content?.subtitle
     } | Palmythology`,
-    description: story.data.story.content?.summary,
+    description: story.data.story.content?.metaDescription,
     icons: {
       icon: story.data.story.content?.icon?.filename,
       shortcut: story.data.story.content?.icon?.filename,
