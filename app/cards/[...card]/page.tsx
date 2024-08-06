@@ -15,7 +15,11 @@ import {
 } from '../../../src/helpers/dictionary'
 import { getPantheonData } from '../../../src/helpers/pantheons'
 import { getCardStory } from '../../../src/helpers/storyblok'
-import { capitalize, replaceDashesBySpaces } from '../../../src/helpers/string'
+import {
+  capitalize,
+  replaceDashesBySpaces,
+  replaceHyphenByDashes,
+} from '../../../src/helpers/string'
 import { getSubjectData } from '../../../src/helpers/subjects'
 import { PantheonValue } from '../../../src/types/cards/pantheons'
 import { SubjectValue } from '../../../src/types/cards/subjects'
@@ -59,6 +63,7 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
 const CardPage = async ({ params }: CardPagePropsType) => {
   const pantheon = params.card[0]
   const title = params.card[1]
+
   const story = await getCardStory(title, pantheon)
 
   if (!story?.data?.story?.content) return <></>

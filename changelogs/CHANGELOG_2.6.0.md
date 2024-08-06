@@ -4,6 +4,10 @@
 
 - Correction d'un bug qui faisait que le fil d'Ariane affichait la page "Sujets" en anglais au lieu du français.
 
+## Les grandes lignes
+
+- Correction d'un bug qui faisait que les fiches contenant un caractère apostrophe provoquaient une erreur 404 lors de la requête vers le serveur.
+
 ## Divers
 
 - Mise à jour des librairies suivantes à leur dernières versions :

@@ -5,7 +5,7 @@ import {
   STORYBLOK_RESULTS_PER_PAGE,
   STORYBLOK_VERSIONS,
 } from '../types/storyblok/storyblok'
-import { parseStringToSlug } from './string'
+import { parseStringToSlug, replaceHyphenByDashes } from './string'
 import {
   StoryblokCardComponentType,
   StoryblokQ2NComponentType,
@@ -22,7 +22,7 @@ export const getCardSlug = (cardName?: string, pantheon?: string) =>
 export const getCardStory = (title: string, pantheon: string) =>
   axios({
     method: 'get',
-    url: `${getStoryblokBaseUrl()}cards/${pantheon}/${title}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+    url: `${getStoryblokBaseUrl()}cards/${pantheon}/${replaceHyphenByDashes(title)}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
     responseType: 'json',
   })
 
