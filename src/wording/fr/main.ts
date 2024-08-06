@@ -1,12 +1,4 @@
 export const wording = {
-  folders: {
-    qu_est_ce_que_ca_fiche_title: "Qu'est-ce que ça fiche ?",
-    qu_est_ce_que_ca_fiche_description:
-      'Abordez les grands thèmes de la mythologie avec sérénité',
-    quoi_2_neuf_title: 'Quoi 2 Neuf ?',
-    quoi_2_neuf_description:
-      'Retrouvez tout le contenu qui est prévu pour ce mois-ci',
-  },
   filter: {
     details: 'Détails',
     more: "Plus d'infos",
@@ -21,14 +13,13 @@ export const wording = {
     about_title: 'A propos',
     about_description:
       'Retrouvez des informations pratiques sur la Palmythology et son site web',
+    cards_description: 'Comment ça fonctionne ?',
+    cards_title: 'Fiches mythologiques',
     q2n_description:
       'Découvrez le planning de sortie des fiches "Les grandes lignes" pour le mois en cours',
     q2n_title: 'Quoi 2 Neuf ?',
     home_description: `L'encyclopédie mythologique`,
     home_title: 'Palmythology',
-    news_description:
-      'Retrouvez les derniers articles phares sur la Palmythology',
-    news_title: 'Actualités',
     research_title: 'Recherche',
     research_description:
       'Recherchez votre fiche préférée parmi les panthéons que couvre la Palmythology',

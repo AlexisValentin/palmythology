@@ -5,6 +5,7 @@ export enum SubjectLabel {
   PLACE = 'Lieu',
   TRIBE = 'Peuple',
   WRITINGS = 'Écrits',
+  EVENT = 'Événement',
 }
 
 export enum SubjectValue {
@@ -14,6 +15,7 @@ export enum SubjectValue {
   PLACE = 'place',
   TRIBE = 'tribe',
   WRITINGS = 'writings',
+  EVENT = 'event',
 }
 
 export interface SubjectSelectType {
@@ -52,5 +54,10 @@ export const ALL_SUBJECT: SubjectSelectType[] = [
     value: SubjectValue.WRITINGS,
     label: SubjectLabel.WRITINGS,
     icon: 'https://a.storyblok.com/f/187414/512x512/718d15204d/writings.svg',
+  },
+  {
+    value: SubjectValue.EVENT,
+    label: SubjectLabel.EVENT,
+    icon: 'https://a.storyblok.com/f/187414/683x683/d01b0a76e4/event.svg',
   },
 ]

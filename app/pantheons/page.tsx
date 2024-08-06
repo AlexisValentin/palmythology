@@ -1,4 +1,6 @@
+import React from 'react'
 import { Metadata } from 'next'
+
 import PageHeader from '../../src/components/generics/PageHeader'
 import PageSquare, {
   CONTENT_TYPE,

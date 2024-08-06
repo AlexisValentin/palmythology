@@ -69,6 +69,8 @@ export const getSubjectLabelFromValue = (
   switch (subject) {
     case SubjectValue.DIVINITY:
       return SubjectLabel.DIVINITY
+    case SubjectValue.EVENT:
+      return SubjectLabel.EVENT
     case SubjectValue.MONSTER:
       return SubjectLabel.MONSTER
     case SubjectValue.PERSON:

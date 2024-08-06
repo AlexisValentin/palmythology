@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ROUTE_URLS } from '../../../types/consts/routes'
+import { ROUTE_URLS } from '../../../helpers/routes/routes.const'
 import Copyrights from '../../generics/Copyrights'
 import SocialNetworks from '../../generics/SocialNetworks'
 
@@ -12,7 +12,7 @@ const Footer = (): JSX.Element => {
         <Copyrights />
         <Link
           href={ROUTE_URLS.CHANGELOG}
-          className="w-min hover:underline hover:text-pink-500 decoration-sky-500 underline-offset-8"
+          className="w-min hover:underline hover:text-pink-500 decoration-sky-500 underline-offset-4"
         >
           <span className="mt-1 text-xs italic">v{version}</span>
         </Link>
