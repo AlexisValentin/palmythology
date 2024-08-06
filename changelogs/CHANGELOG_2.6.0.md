@@ -1,5 +1,9 @@
 # Notes de version 2.6.0 (??/08/2024)
 
+## Général
+
+- Correction d'un bug qui faisait que le fil d'Ariane affichait la page "Sujets" en anglais au lieu du français.
+
 ## Divers
 
 - Mise à jour des librairies suivantes à leur dernières versions :

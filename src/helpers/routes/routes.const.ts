@@ -97,5 +97,5 @@ export const BREADCRUMB_NODES = {
   PANTHEONS: { label: 'Panthéons', value: 'pantheons' },
   Q2N: { label: 'Quoi 2 Neuf', value: 'q2n' },
   SEARCH: { label: 'Recherche', value: 'search' },
-  SUBJECTS: { label: 'Sujets', value: 'sujet' },
+  SUBJECTS: { label: 'Sujets', value: 'subjects' },
 }
