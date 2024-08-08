@@ -9,6 +9,7 @@ const PageSectionContent: React.FC<PageSectionProps> = ({
   description,
   gradient,
   iconUrl,
+  url,
 }) => {
   const gradientProperty = gradient?.intermediateColor
     ? `via-${gradient?.intermediateColor}`
@@ -35,8 +36,16 @@ const PageSectionContent: React.FC<PageSectionProps> = ({
         } sm:my-12 sm:mr-12`}
       >
         <div className="flex flex-col mt-2 mb-2">
-          <h2 className="font-semibold text-md sm:text-xl">{name}</h2>
-          <div className="font-medium mt-6 hidden md:block">{description}</div>
+          <h2
+            className={`font-semibold text-md ${url ? 'text-xl' : 'hidden'} md:block`}
+          >
+            {name}
+          </h2>
+          <div
+            className={`font-medium mt-6 ${!url ? 'block text-center' : 'hidden'} md:block md:text-left`}
+          >
+            {description}
+          </div>
         </div>
       </div>
     </section>
@@ -60,6 +69,7 @@ const PageSection: React.FC<PageSectionProps> = ({
         description={description}
         gradient={gradient}
         iconUrl={iconUrl}
+        url={url}
       />
     </Link>
   ) : (
