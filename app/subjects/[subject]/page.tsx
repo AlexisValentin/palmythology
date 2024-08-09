@@ -1,9 +1,6 @@
 import React from 'react'
 import PageHeader from '../../../src/components/generics/PageHeader'
-import NotFound404 from '../../../src/components/domains/http/404'
-import {
-  getSubjectLabelFromValue,
-} from '../../../src/helpers/dictionary'
+import { getSubjectLabelFromValue } from '../../../src/helpers/dictionary'
 import { getSubjectStory } from '../../../src/helpers/storyblok'
 import { isObjectEmpty } from '../../../src/helpers/object'
 import { SEO_WORDING } from '../../../src/wording/fr/seo'
@@ -42,8 +39,6 @@ const SubjectPage = async ({ params }: SubjectPagePropsType) => {
   const { relatedCards, summary } = story.data.story.content
 
   const subjectLabel = getSubjectLabelFromValue(params.subject! as SubjectValue)
-
-  if (isObjectEmpty(story)) return <NotFound404 />
 
   return (
     <>

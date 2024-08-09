@@ -4,6 +4,7 @@
 
 - Les blocs de résumé sur les pages "Les grandes lignes", "Panthéons" et "Sujets" sont désormais visibles sur les petits écrans !
 - Les blocs de liens et de présentation sur l'ensemble des pages du site proposent désormais le texte sur les petits écrans !
+- Ajout des pages d'erreur personnalisées sur les contenus dynamiques lorsque les contenus sont introuvables ou que les autorisations ne le permettent pas.
 - Correction d'un bug qui faisait que le fil d'Ariane affichait la page "Sujets" en anglais au lieu du français.
 
 ## Les grandes lignes

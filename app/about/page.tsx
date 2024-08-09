@@ -1,6 +1,6 @@
 import React from 'react'
-
 import { Metadata } from 'next'
+
 import PageHeader from '../../src/components/generics/PageHeader'
 import PageSection from '../../src/components/generics/PageSection'
 import { wording } from '../../src/wording/fr/main'

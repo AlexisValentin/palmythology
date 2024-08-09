@@ -1,5 +1,4 @@
 import PageHeader from '../../../src/components/generics/PageHeader'
-import NotFound404 from '../../../src/components/domains/http/404'
 import { getPantheonLabelFromValue } from '../../../src/helpers/dictionary'
 import { PantheonValue } from '../../../src/types/cards/pantheons'
 import { getPantheonStory } from '../../../src/helpers/storyblok'
@@ -43,8 +42,6 @@ const PantheonPage = async ({ params }: PantheonPagePropsType) => {
   const pantheonLabel = getPantheonLabelFromValue(
     params.pantheon! as PantheonValue,
   )
-
-  if (isObjectEmpty(story)) return <NotFound404 />
 
   return (
     <>
