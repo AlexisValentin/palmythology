@@ -1,4 +1,4 @@
-# Notes de version 2.6.0 (??/08/2024)
+# Notes de version 2.6.0 (18/08/2024)
 
 ## Général
 
@@ -9,6 +9,7 @@
 
 ## Les grandes lignes
 
+- Mise à jour des icônes concernant certains panthéons et sujets, conformément aux changements stipulés dans le dernier "Quoi 2 neuf" de août 2024.
 - Correction d'un bug qui faisait que les fiches contenant un caractère apostrophe provoquaient une erreur 404 lors de la requête vers le serveur.
 
 ## Divers
