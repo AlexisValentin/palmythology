@@ -10,7 +10,11 @@ import useErrorHandler, {
 const Error: React.FC<ErrorProps> = ({ error }) => {
   const { title, subtitle } = useErrorHandler(error)
 
-  return <PageHeader title={title} subtitle={subtitle} />
+  return (
+    <>
+      <PageHeader title={title} subtitle={subtitle} />
+    </>
+  )
 }
 
 export default Error

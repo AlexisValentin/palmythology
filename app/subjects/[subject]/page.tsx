@@ -1,11 +1,22 @@
+/* Libs */
 import React from 'react'
+
+/* Components */
 import PageHeader from '../../../src/components/generics/PageHeader'
+import SubjectCardList from '../../../src/components/domains/cards/SubjectCardList'
+
+/* Hooks */
+import { useSubjectPageSquareLoader } from '../../../src/components/hooks/usePageSquareLoader'
+
+/* Methods */
 import { getSubjectLabelFromValue } from '../../../src/helpers/dictionary'
 import { getSubjectStory } from '../../../src/helpers/storyblok'
-import { isObjectEmpty } from '../../../src/helpers/object'
-import { SEO_WORDING } from '../../../src/wording/fr/seo'
+
+/* Types */
 import { SubjectValue } from '../../../src/types/cards/subjects'
-import SubjectCardList from '../../../src/components/domains/cards/SubjectCardList'
+
+/* Wording */
+import { SEO_WORDING } from '../../../src/wording/fr/seo'
 
 interface SubjectPagePropsType {
   params: { subject: string }
@@ -32,11 +43,8 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 
 const SubjectPage = async ({ params }: SubjectPagePropsType) => {
   const subject = params.subject
-  const story = await getSubjectStory(subject)
 
-  if (!story?.data?.story?.content) return <></>
-
-  const { relatedCards, summary } = story.data.story.content
+  const { relatedCards, summary } = await useSubjectPageSquareLoader(subject)
 
   const subjectLabel = getSubjectLabelFromValue(params.subject! as SubjectValue)
 

@@ -1,11 +1,21 @@
-import PageHeader from '../../../src/components/generics/PageHeader'
-import { getPantheonLabelFromValue } from '../../../src/helpers/dictionary'
-import { PantheonValue } from '../../../src/types/cards/pantheons'
-import { getPantheonStory } from '../../../src/helpers/storyblok'
-import { isObjectEmpty } from '../../../src/helpers/object'
-
+/* Libs */
 import React from 'react'
+
+/* Components */
+import PageHeader from '../../../src/components/generics/PageHeader'
 import PantheonCardList from '../../../src/components/domains/cards/PantheonCardList'
+
+/* Hooks */
+import { usePantheonPageSquareLoader } from '../../../src/components/hooks/usePageSquareLoader'
+
+/* Methods */
+import { getPantheonLabelFromValue } from '../../../src/helpers/dictionary'
+import { getPantheonStory } from '../../../src/helpers/storyblok'
+
+/* Types */
+import { PantheonValue } from '../../../src/types/cards/pantheons'
+
+/* Wording */
 import { SEO_WORDING } from '../../../src/wording/fr/seo'
 
 interface PantheonPagePropsType {
@@ -33,11 +43,8 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
 
 const PantheonPage = async ({ params }: PantheonPagePropsType) => {
   const pantheon = params.pantheon
-  const story = await getPantheonStory(pantheon)
 
-  if (!story?.data?.story?.content) return <></>
-
-  const { relatedCards, summary } = story.data.story.content
+  const { relatedCards, summary } = await usePantheonPageSquareLoader(pantheon)
 
   const pantheonLabel = getPantheonLabelFromValue(
     params.pantheon! as PantheonValue,
