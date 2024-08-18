@@ -46,7 +46,7 @@ export const ALL_PANTHEON: PantheonSelectType[] = [
   {
     value: PantheonValue.CHINESE,
     label: PantheonLabel.CHINESE,
-    icon: 'https://a.storyblok.com/f/187414/150x150/a19a5de071/chinese.svg',
+    icon: 'https://a.storyblok.com/f/187414/512x512/720ca19f05/chinese.svg',
   },
   {
     value: PantheonValue.EGYPTIAN,
@@ -56,12 +56,12 @@ export const ALL_PANTHEON: PantheonSelectType[] = [
   {
     value: PantheonValue.GREEK,
     label: PantheonLabel.GREEK,
-    icon: 'https://a.storyblok.com/f/187414/512x512/e84b55a294/greek.svg',
+    icon: 'https://a.storyblok.com/f/187414/512x512/311ee1ddb7/greek.svg',
   },
   {
     value: PantheonValue.HINDU,
     label: PantheonLabel.HINDU,
-    icon: 'https://a.storyblok.com/f/187414/512x512/00f4254da4/hindu.svg',
+    icon: 'https://a.storyblok.com/f/187414/512x512/c8f59ac7d5/hindu.svg',
   },
   {
     value: PantheonValue.JAPANESE,
@@ -71,7 +71,7 @@ export const ALL_PANTHEON: PantheonSelectType[] = [
   {
     value: PantheonValue.MAYAN,
     label: PantheonLabel.MAYAN,
-    icon: 'https://a.storyblok.com/f/187414/512x512/41bbaee10a/mayan.svg',
+    icon: 'https://a.storyblok.com/f/187414/512x512/9cd53b98cb/mayan.svg',
   },
   {
     value: PantheonValue.MESOPOTAMIAN,
@@ -86,6 +86,6 @@ export const ALL_PANTHEON: PantheonSelectType[] = [
   {
     value: PantheonValue.ROMAN,
     label: PantheonLabel.ROMAN,
-    icon: 'https://a.storyblok.com/f/187414/683x683/c30288bcb8/roman.svg',
+    icon: 'https://a.storyblok.com/f/187414/512x512/1259145095/roman.svg',
   },
 ]

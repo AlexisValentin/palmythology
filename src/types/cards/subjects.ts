@@ -28,17 +28,17 @@ export const ALL_SUBJECT: SubjectSelectType[] = [
   {
     value: SubjectValue.DIVINITY,
     label: SubjectLabel.DIVINITY,
-    icon: 'https://a.storyblok.com/f/187414/681x681/809fcbc497/divinity.svg',
+    icon: 'https://a.storyblok.com/f/187414/683x683/9b6e2ecb6b/divinity.svg',
   },
   {
     value: SubjectValue.PERSON,
     label: SubjectLabel.PERSON,
-    icon: 'https://a.storyblok.com/f/187414/683x683/f2dde966f4/hero.svg',
+    icon: 'https://a.storyblok.com/f/187414/512x512/a664d2c65b/hero.svg',
   },
   {
     value: SubjectValue.TRIBE,
     label: SubjectLabel.TRIBE,
-    icon: 'https://a.storyblok.com/f/187414/512x512/931f446512/tribe.svg',
+    icon: 'https://a.storyblok.com/f/187414/512x512/b2ba0572af/tribe.svg',
   },
   {
     value: SubjectValue.MONSTER,
@@ -48,12 +48,12 @@ export const ALL_SUBJECT: SubjectSelectType[] = [
   {
     value: SubjectValue.PLACE,
     label: SubjectLabel.PLACE,
-    icon: 'https://a.storyblok.com/f/187414/150x150/a12b37425f/place.svg',
+    icon: 'https://a.storyblok.com/f/187414/150x150/5bef40d196/place.svg',
   },
   {
     value: SubjectValue.WRITINGS,
     label: SubjectLabel.WRITINGS,
-    icon: 'https://a.storyblok.com/f/187414/512x512/718d15204d/writings.svg',
+    icon: 'https://a.storyblok.com/f/187414/681x681/8500a52950/writing.svg',
   },
   {
     value: SubjectValue.EVENT,

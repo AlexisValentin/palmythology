@@ -7,7 +7,6 @@ import {
   getHomeBreadcrumbNode,
   parseBreadcrumbNode,
 } from '../../helpers/routes/routes'
-import Image from 'next/image'
 
 const Breadcrumbs: React.FC = () => {
   const nodes = usePathname()

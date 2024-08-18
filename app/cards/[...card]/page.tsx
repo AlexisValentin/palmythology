@@ -30,9 +30,7 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
   const pantheon = params.card[0]
   const title = params.card[1]
 
-  if (!title && pantheon) {
-    redirect(`/pantheons/${pantheon}`)
-  }
+  if (!title && pantheon) redirect(`/pantheons/${pantheon}`)
 
   const story = await getCardStory(title, pantheon)
 
@@ -47,7 +45,7 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
     title: `${capitalize(replaceDashesBySpaces(title))}, ${
       story.data.story.content?.subtitle
     } | Palmythology`,
-    description: story.data.story.content?.summary,
+    description: story.data.story.content?.metaDescription,
     icons: {
       icon: story.data.story.content?.icon?.filename,
       shortcut: story.data.story.content?.icon?.filename,
@@ -59,6 +57,7 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
 const CardPage = async ({ params }: CardPagePropsType) => {
   const pantheon = params.card[0]
   const title = params.card[1]
+
   const story = await getCardStory(title, pantheon)
 
   if (!story?.data?.story?.content) return <></>
