@@ -1,7 +1,8 @@
-# Notes de version 2.7.0 (??/09/2024)
+# Notes de version 2.7.0 (??/11/2024)
 
 ## Divers
 
+- Arrêt temporaire du tracking Plausible.io, empêchant par ailleurs d'afficher la popin d'alerte de tracking utilisateur.
 - Mise à jour des liens du sitemap.
 - Mise à jour des dépendences des librairies à leurs dernières versions :
 
