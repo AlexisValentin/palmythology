@@ -1,5 +1,9 @@
 # Notes de version 2.7.0 (??/11/2024)
 
+## Général
+
+- Ajout d'une section en page d'accueil générant aléatoirement le descriptif d'une fiche "Les grandes lignes", afin de mettre en avant de manière égale l'ensemble des fiches du site Internet.
+
 ## Divers
 
 - Arrêt temporaire du tracking Plausible.io, empêchant par ailleurs d'afficher la popin d'alerte de tracking utilisateur.

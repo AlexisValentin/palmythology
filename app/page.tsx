@@ -4,6 +4,7 @@ import PageSection from '../src/components/generics/PageSection'
 import { ROUTES } from '../src/helpers/routes/routes.const'
 import { wording } from '../src/wording/fr/main'
 import { SEO_WORDING } from '../src/wording/fr/seo'
+import CardRandomizer from '../src/components/domains/cards/CardRandomizer'
 
 export const metadata: Metadata = {
   title: SEO_WORDING.HOME.title,
@@ -39,6 +40,7 @@ const HomePage = (): JSX.Element => {
           )
         })}
       </div>
+      <CardRandomizer />
     </>
   )
 }

@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['a.storyblok.com'],
+  },
   webpack: (config, { webpack }) => {
     config.experiments = { ...config.experiments, topLevelAwait: true }
     config.externals['node:fs'] = 'commonjs node:fs'
