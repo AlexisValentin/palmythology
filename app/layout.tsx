@@ -3,7 +3,6 @@ import React from 'react'
 import StoryblokProvider from '../src/components/StoryblokProvider'
 import Footer from '../src/components/domains/footer/Footer'
 import MainMenu from '../src/components/domains/navigation/MainMenu'
-import TrackingNotice from '../src/components/domains/tracking/TrackingNotice'
 import '../src/global.css'
 import Breadcrumbs from '../src/components/generics/Breadcrumbs'
 
