@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   images: {
-    domains: ['a.storyblok.com'],
+    remotePatterns: [{ protocol: 'https', hostname: 'a.storyblok.com' }],
   },
   webpack: (config, { webpack }) => {
     config.experiments = { ...config.experiments, topLevelAwait: true }

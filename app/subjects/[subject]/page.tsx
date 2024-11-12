@@ -19,11 +19,12 @@ import { SubjectValue } from '../../../src/types/cards/subjects'
 import { SEO_WORDING } from '../../../src/wording/fr/seo'
 
 interface SubjectPagePropsType {
-  params: { subject: string }
+  params: Promise<{ subject: string }>
 }
 
 export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
-  const subject = params.subject
+  const pageParams = await params
+  const subject = pageParams.subject
   const story = await getSubjectStory(subject)
 
   if (!story?.data?.story?.content) {
@@ -42,11 +43,12 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 }
 
 const SubjectPage = async ({ params }: SubjectPagePropsType) => {
-  const subject = params.subject
+  const pageParams = await params
+  const subject = pageParams.subject
 
   const { relatedCards, summary } = await useSubjectPageSquareLoader(subject)
 
-  const subjectLabel = getSubjectLabelFromValue(params.subject! as SubjectValue)
+  const subjectLabel = getSubjectLabelFromValue(subject! as SubjectValue)
 
   return (
     <>
