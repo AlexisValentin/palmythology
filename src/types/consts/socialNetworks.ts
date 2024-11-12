@@ -38,6 +38,6 @@ export const SOCIAL_NETWORKS: SocialNetworkType[] = [
     name: 'Tipeee',
     url: 'https://fr.tipeee.com/palmythology',
     iconUrl: TipeeeIcon,
-    status: SOCIAL_NETWORK_STATUS.ACTIVE,
+    status: SOCIAL_NETWORK_STATUS.INACTIVE,
   },
 ]
