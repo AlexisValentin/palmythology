@@ -1,4 +1,4 @@
-# Notes de version 2.7.0 (??/11/2024)
+# Notes de version 2.7.0 (18/11/2024)
 
 ## Général
 
@@ -14,5 +14,6 @@
 - Suppression définitive des liens vers Facebook, les liens et les posts n'étant plus maintenus sur le réseau social.
 - Suppression définitive du lien en pied de page vers Tipeee, la page n'étant plus maintenue et par conséquent inactive.
 - Arrêt temporaire du tracking Plausible.io, empêchant par ailleurs d'afficher la popin d'alerte de tracking utilisateur.
+- Suppression des archives des précédentes notes de version.
 - Mise à jour des liens du sitemap.
 - Mise à jour des dépendences et des librairies à leurs dernières versions.
