@@ -71,20 +71,19 @@ const CardPage = async ({ params }: CardPagePropsType) => {
     images,
     available,
     instagramUrl,
-    facebookUrl,
     threadsUrl,
+    blueskyUrl,
     relatedCards,
     subject,
   } = story.data.story.content
 
   if (!available || !pantheon) return <></>
 
-  const hasCustomLinks =
-    instagramUrl?.url || facebookUrl?.url || threadsUrl?.url
+  const hasCustomLinks = instagramUrl?.url || threadsUrl?.url || blueskyUrl
   const socialLinks = hasCustomLinks && {
     instagram: instagramUrl?.url,
-    facebook: facebookUrl?.url,
     threads: threadsUrl?.url,
+    bluesky: blueskyUrl?.url,
   }
 
   const pantheonData = getPantheonData(pantheon as PantheonValue)

@@ -1,7 +1,6 @@
-import FacebookIcon from '../../assets/icons/social_networks/facebook.svg'
 import InstagramIcon from '../../assets/icons/social_networks/instagram.svg'
 import ThreadsIcon from '../../assets/icons/social_networks/threads.svg'
-import TipeeeIcon from '../../assets/icons/social_networks/tipeee.svg'
+import BlueskyIcon from '../../assets/icons/social_networks/bluesky.svg'
 
 export enum SOCIAL_NETWORK_STATUS {
   ACTIVE = 'active',
@@ -23,21 +22,15 @@ export const SOCIAL_NETWORKS: SocialNetworkType[] = [
     status: SOCIAL_NETWORK_STATUS.ACTIVE,
   },
   {
-    name: 'Facebook',
-    url: 'https://www.facebook.com/profile.php?id=100089045127860',
-    iconUrl: FacebookIcon,
-    status: SOCIAL_NETWORK_STATUS.INACTIVE,
-  },
-  {
     name: 'Threads',
     url: 'https://threads.net/@palmythology',
     iconUrl: ThreadsIcon,
     status: SOCIAL_NETWORK_STATUS.ACTIVE,
   },
   {
-    name: 'Tipeee',
-    url: 'https://fr.tipeee.com/palmythology',
-    iconUrl: TipeeeIcon,
-    status: SOCIAL_NETWORK_STATUS.INACTIVE,
+    name: 'Bluesky',
+    url: 'https://bsky.app/profile/palmythology.bsky.social',
+    iconUrl: BlueskyIcon,
+    status: SOCIAL_NETWORK_STATUS.ACTIVE,
   },
 ]
