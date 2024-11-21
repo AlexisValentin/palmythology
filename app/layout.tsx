@@ -10,6 +10,14 @@ interface MainLayoutProps {
   children: React.ReactNode
 }
 
+export const metadata = {
+  icons: {
+    icon: 'https://a.storyblok.com/f/187414/600x600/3f339495e1/logo.png',
+    shortcut: 'https://a.storyblok.com/f/187414/600x600/3f339495e1/logo.png',
+    apple: 'https://a.storyblok.com/f/187414/600x600/3f339495e1/logo.png',
+  },
+}
+
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <StoryblokProvider>
