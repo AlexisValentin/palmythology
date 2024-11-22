@@ -24,8 +24,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       <html lang="fr">
         <body>
           <MainMenu />
-          <div className="flex flex-col min-h-screen">
-            <div className="px-6 mb-20 sm:px-24 md:px-40 lg:px-56 xl:px-72 2xl:px-96">
+          <div className="flex flex-col px-6">
+            <div className="flex flex-col items-center min-h-screen mb-20 sm:px-24 md:px-40 lg:px-56 xl:px-72 2xl:px-96">
               {children}
             </div>
           </div>

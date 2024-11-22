@@ -1,3 +1,9 @@
+# Notes de version 2.7.1 (18/11/2024)
+
+## Quoi 2 Neuf
+
+- Correction d'un problème faisant que certains mois ne s'affichaient pas de manière centrée lors de la consultation des archives.
+
 # Notes de version 2.7.0 (18/11/2024)
 
 ## Général
