@@ -119,12 +119,10 @@ const Q2NItemLists = ({
         height={50}
         onClick={() => updateSelectedMonth('before')}
       />
-      <div>
-        <Q2NSingleMonth
-          quoi2NeufStories={quoi2NeufStories}
-          quoi2NeufMonth={selectedMonthValue}
-        />
-      </div>
+      <Q2NSingleMonth
+        quoi2NeufStories={quoi2NeufStories}
+        quoi2NeufMonth={selectedMonthValue}
+      />
       <Image
         className={`h-min cursor-pointer hover:opacity-75 ${selectedMonthValue === currentMonth && 'invisible'}`}
         src={DoubleRightArrowIcon}
@@ -171,14 +169,14 @@ const Q2NSingleMonth = ({
         )
       })}
       {itemCount === 0 && (
-        <>
+        <div className="flex flex-col justify-center items-center flex-wrap">
           <h3 className="text-2xl font-bold mb-4">
             Oops, le planning n'a pas été défini pour ce mois-ci
           </h3>
           <h4 className="text-xl">
             Vous pouvez peut-être retenter votre chance plus tard !
           </h4>
-        </>
+        </div>
       )}
     </div>
   )
