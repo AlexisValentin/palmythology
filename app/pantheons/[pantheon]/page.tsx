@@ -19,11 +19,12 @@ import { PantheonValue } from '../../../src/types/cards/pantheons'
 import { SEO_WORDING } from '../../../src/wording/fr/seo'
 
 interface PantheonPagePropsType {
-  params: { pantheon: string }
+  params: Promise<{ pantheon: string }>
 }
 
 export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
-  const pantheon = params.pantheon
+  const pageParams = await params
+  const pantheon = pageParams.pantheon
   const story = await getPantheonStory(pantheon)
 
   if (!story?.data?.story?.content) {
@@ -42,13 +43,12 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
 }
 
 const PantheonPage = async ({ params }: PantheonPagePropsType) => {
-  const pantheon = params.pantheon
+  const pageParams = await params
+  const pantheon = pageParams.pantheon
 
   const { relatedCards, summary } = await usePantheonPageSquareLoader(pantheon)
 
-  const pantheonLabel = getPantheonLabelFromValue(
-    params.pantheon! as PantheonValue,
-  )
+  const pantheonLabel = getPantheonLabelFromValue(pantheon! as PantheonValue)
 
   return (
     <>

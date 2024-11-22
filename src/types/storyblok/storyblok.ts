@@ -1,3 +1,4 @@
+import { MONTH_VALUE_TYPE } from '../../helpers/dates'
 import { PantheonValue } from '../cards/pantheons'
 import { SubjectValue } from '../cards/subjects'
 import { TextBlockType } from './stories'
@@ -44,6 +45,7 @@ export interface Quoi2NeufStoryType {
   pantheon: PantheonValue
   icon: StoryblokImageType
   available?: boolean
+  month: MONTH_VALUE_TYPE
 }
 
 export type AboutPageType = AboutItemType[]

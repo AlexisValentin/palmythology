@@ -23,12 +23,13 @@ import { CardRelatedType } from '../../../src/types/storyblok/storyblok'
 import { SEO_WORDING } from '../../../src/wording/fr/seo'
 
 interface CardPagePropsType {
-  params: { card: string[] }
+  params: Promise<{ card: string[] }>
 }
 
 export const generateMetadata = async ({ params }: CardPagePropsType) => {
-  const pantheon = params.card[0]
-  const title = params.card[1]
+  const pageParams = await params
+  const pantheon = pageParams.card[0]
+  const title = pageParams.card[1]
 
   if (!title && pantheon) redirect(`/pantheons/${pantheon}`)
 
@@ -55,8 +56,9 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
 }
 
 const CardPage = async ({ params }: CardPagePropsType) => {
-  const pantheon = params.card[0]
-  const title = params.card[1]
+  const pageParams = await params
+  const pantheon = pageParams.card[0]
+  const title = pageParams.card[1]
 
   const story = await getCardStory(title, pantheon)
 
@@ -69,20 +71,19 @@ const CardPage = async ({ params }: CardPagePropsType) => {
     images,
     available,
     instagramUrl,
-    facebookUrl,
     threadsUrl,
+    blueskyUrl,
     relatedCards,
     subject,
   } = story.data.story.content
 
   if (!available || !pantheon) return <></>
 
-  const hasCustomLinks =
-    instagramUrl?.url || facebookUrl?.url || threadsUrl?.url
+  const hasCustomLinks = instagramUrl?.url || threadsUrl?.url || blueskyUrl
   const socialLinks = hasCustomLinks && {
     instagram: instagramUrl?.url,
-    facebook: facebookUrl?.url,
     threads: threadsUrl?.url,
+    bluesky: blueskyUrl?.url,
   }
 
   const pantheonData = getPantheonData(pantheon as PantheonValue)

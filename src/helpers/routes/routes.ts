@@ -73,3 +73,10 @@ export const generateBreadcrumbLinks = (breadcrumbNodes: string[]) => {
 
   return breadcrumLinks
 }
+
+export const getCardPantheonTitleFromUrl = (url: string) => {
+  const splitUrl = url.split('/')
+  const pantheonAndName = splitUrl.slice(splitUrl.length - 2)
+
+  return { pantheon: pantheonAndName[0], title: pantheonAndName[1] }
+}

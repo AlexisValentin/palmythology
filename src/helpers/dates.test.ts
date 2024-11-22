@@ -1,9 +1,9 @@
-import { MONTHS, isMonthCodeRelevant, stringifyMonthCode } from './dates'
+import { MONTHS_LABEL, isMonthCodeRelevant, stringifyMonthCode } from './dates'
 
 describe('helpers/dates', () => {
   describe('isMonthCodeRelevant', () => {
     test('should month code be relevant between `0` and `12`', () => {
-      for (let i = 0; i < MONTHS.length; i++) {
+      for (let i = 0; i < MONTHS_LABEL.length; i++) {
         expect(isMonthCodeRelevant(i)).toEqual(true)
       }
     })
@@ -32,9 +32,9 @@ describe('helpers/dates', () => {
     })
 
     test('should return `???` if provided month code is irrelevant', () => {
-      expect(stringifyMonthCode(-1)).toEqual('???')
-      expect(stringifyMonthCode(12)).toEqual('???')
-      expect(stringifyMonthCode(333)).toEqual('???')
+      expect(stringifyMonthCode(-1)).toEqual(null)
+      expect(stringifyMonthCode(12)).toEqual(null)
+      expect(stringifyMonthCode(333)).toEqual(null)
     })
   })
 })

@@ -13,8 +13,8 @@ interface SocialNetworkProps {
 interface SocialNetworksProps {
   customLinks?: {
     instagram: string
-    facebook: string
     threads: string
+    bluesky: string
   }
 }
 

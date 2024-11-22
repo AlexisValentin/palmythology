@@ -106,7 +106,8 @@ const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
 
 // @ts-ignore
 const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufStoryType => {
-  const { title, subtitle, icon, available, pantheon } = quoi2NeufItem.content
+  const { title, subtitle, icon, available, pantheon, month } =
+    quoi2NeufItem.content
 
   return {
     title,
@@ -114,5 +115,6 @@ const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufStoryType => {
     icon,
     available,
     pantheon,
+    month,
   }
 }
