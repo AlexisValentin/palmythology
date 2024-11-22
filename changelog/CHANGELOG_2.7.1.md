@@ -12,7 +12,7 @@
 - La Palmythology a désormais un compte Bluesky en alternative à Threads ! Les liens vers la page dédiés sont disponible en pied de page du site web, ainsi que dans les futures fiches "Les grandes lignes" à paraître.
 - Changement de l'icône pour les liens vers le réseau social Threads.
 
-# Quoi 2 Neuf
+## Quoi 2 Neuf
 
 - Il est désormais possible de visualiser le planning des 2 derniers mois en plus de celui du mois actuel, dans le but de pouvoir consulter une archive des fiches les plus récemment publiées sur le site web.
 
