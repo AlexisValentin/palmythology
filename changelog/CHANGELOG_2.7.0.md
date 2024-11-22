@@ -12,6 +12,7 @@
 
 ## Divers
 
+- Le logo de la Palmythology apparaît désormais en tant que favicon en dehors des pages "Les grandes lignes".
 - Optimisation et lissage des fichiers `.svg` à travers l'ensemble du site.
 - Suppression définitive des liens vers Facebook, les liens et les posts n'étant plus maintenus sur le réseau social.
 - Suppression définitive du lien en pied de page vers Tipeee, la page n'étant plus maintenue et par conséquent inactive.
