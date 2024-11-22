@@ -1,10 +1,20 @@
-# Notes de version 2.7.1 (18/11/2024)
+# Notes de version 2.7.2 (22/11/2024)
+
+## Les grandes lignes
+
+- Correction d'un problème faisant que le carrousel des fiches ne s'affichaient plus du tout sur le site.
+
+---
+
+# Notes de version 2.7.1 (22/11/2024)
 
 ## Quoi 2 Neuf
 
 - Correction d'un problème faisant que certains mois ne s'affichaient pas de manière centrée lors de la consultation des archives.
 
-# Notes de version 2.7.0 (18/11/2024)
+---
+
+# Notes de version 2.7.0 (22/11/2024)
 
 ## Général
 
