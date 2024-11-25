@@ -79,7 +79,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 
   if (!available || !pantheon) return <></>
 
-  const hasCustomLinks = instagramUrl?.url || threadsUrl?.url || blueskyUrl
+  const hasCustomLinks = instagramUrl?.url || threadsUrl?.url || blueskyUrl?.url
   const socialLinks = hasCustomLinks && {
     instagram: instagramUrl?.url,
     threads: threadsUrl?.url,
@@ -143,9 +143,11 @@ const CardPage = async ({ params }: CardPagePropsType) => {
           </div>
         </div>
       )}
-      <div className="mt-16">
-        {hasCustomLinks && <SocialNetworks customLinks={socialLinks} />}
-      </div>
+      {hasCustomLinks && (
+        <div className="mt-16">
+          <SocialNetworks customLinks={socialLinks} />
+        </div>
+      )}
     </div>
   )
 }

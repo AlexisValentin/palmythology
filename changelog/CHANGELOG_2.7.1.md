@@ -1,8 +1,8 @@
-# Notes de version 2.7.2 (22/11/2024)
+# Notes de version 2.7.2 (25/11/2024)
 
 ## Les grandes lignes
 
-- Correction d'un problème faisant que le carrousel des fiches ne s'affichaient plus du tout sur le site.
+- Correction d'un problème qui faisait que la mention "Disponible sur" apparaissait même si le contenu n'était pas dévoilé sur les réseaux sociaux.
 
 ---
 
@@ -10,7 +10,7 @@
 
 ## Quoi 2 Neuf
 
-- Correction d'un problème faisant que certains mois ne s'affichaient pas de manière centrée lors de la consultation des archives.
+- Correction d'un problème qui faisait que certains mois ne s'affichaient pas de manière centrée lors de la consultation des archives.
 
 ---
 
