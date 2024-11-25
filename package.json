@@ -1,6 +1,6 @@
 {
   "name": "palmythology",
-  "version": "2.7.1",
+  "version": "2.7.3",
   "private": true,
   "dependencies": {
     "@storyblok/react": "^4.0.0",

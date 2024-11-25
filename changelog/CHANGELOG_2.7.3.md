@@ -1,4 +1,4 @@
-# Notes de version 2.7.2 (25/11/2024)
+# Notes de version 2.7.3 (25/11/2024)
 
 ## Quoi 2 Neuf
 
@@ -8,6 +8,14 @@
 
 - Correction d'un problème visuel qui faisait que la page était dédoublée avec un second pied de page plus bas.
 - Correction d'un problème qui faisait que la mention "Disponible sur" apparaissait même si le contenu n'était pas dévoilé sur les réseaux sociaux.
+
+---
+
+# Notes de version 2.7.2 (22/11/2024)
+
+## Les grandes lignes
+
+- Correction d'un problème faisant que le carrousel des fiches ne s'affichaient plus du tout sur le site.
 
 ---
 
