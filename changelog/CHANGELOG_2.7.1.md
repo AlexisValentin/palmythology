@@ -1,7 +1,12 @@
 # Notes de version 2.7.2 (25/11/2024)
 
+## Quoi 2 Neuf
+
+- Correction d'un problème qui faisait que les contenus "Les grandes lignes" affichées étaient limitées au nombre de 10 (un maximum de 20 désormais).
+
 ## Les grandes lignes
 
+- Correction d'un problème visuel qui faisait que la page était dédoublée avec un second pied de page plus bas.
 - Correction d'un problème qui faisait que la mention "Disponible sur" apparaissait même si le contenu n'était pas dévoilé sur les réseaux sociaux.
 
 ---

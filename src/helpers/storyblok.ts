@@ -2,6 +2,7 @@ import axios from 'axios'
 import { CardDetails, ResearchCriterias } from '../types/cards/card'
 import {
   Quoi2NeufStoryType,
+  STORYBLOK_MAX_ITEMS_PER_REQUEST,
   STORYBLOK_RESULTS_PER_PAGE,
   STORYBLOK_VERSIONS,
 } from '../types/storyblok/storyblok'
@@ -43,7 +44,7 @@ export const getSubjectStory = (subject: string) =>
 const fetchStoriesByStartingString = (startingString: string) =>
   axios({
     method: 'get',
-    url: `${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_RESULTS_PER_PAGE}`,
+    url: `${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_MAX_ITEMS_PER_REQUEST}`,
     responseType: 'json',
   })
 

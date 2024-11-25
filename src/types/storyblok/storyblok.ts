@@ -4,6 +4,7 @@ import { SubjectValue } from '../cards/subjects'
 import { TextBlockType } from './stories'
 
 export const STORYBLOK_RESULTS_PER_PAGE = 12
+export const STORYBLOK_MAX_ITEMS_PER_REQUEST = 20
 
 export enum STORYBLOK_VERSIONS {
   DRAFT = 'draft',
