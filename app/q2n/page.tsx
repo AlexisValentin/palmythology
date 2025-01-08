@@ -12,8 +12,6 @@ export const metadata: Metadata = {
 const Quoi2NeufPage = async () => {
   const stories = await fetchQuoi2NeufStories()
 
-  console.log('STORIES -> ', stories)
-
   return <Q2NCardList stories={stories} />
 }
 

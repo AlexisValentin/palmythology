@@ -35,8 +35,7 @@ const Q2NCardList: React.FC<{ stories: any }> = ({ stories }) => {
 
   if (!stringifiedMonth) return <></>
 
-  const year = date.getFullYear()
-  const parsedDate = `${selectedMonthLabel ?? stringifiedMonth} ${year}`
+  const parsedDate = `${selectedMonthLabel ?? stringifiedMonth}`
 
   return (
     <>
@@ -72,11 +71,11 @@ const Q2NItemLists = ({
 
   const lastMonth =
     monthArrayIndex - 1 < 0
-      ? MONTHS_VALUE[monthArrayIndex + 12]
+      ? MONTHS_VALUE[monthArrayIndex + 11]
       : MONTHS_VALUE[monthArrayIndex - 1]
   const antepenultimateMonth =
     monthArrayIndex - 2 < 0
-      ? MONTHS_VALUE[monthArrayIndex + 12]
+      ? MONTHS_VALUE[monthArrayIndex + 10]
       : MONTHS_VALUE[monthArrayIndex - 2]
 
   const updateSelectedMonth = useCallback(

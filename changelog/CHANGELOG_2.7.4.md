@@ -1,3 +1,12 @@
+# Notes de version 2.7.4 (08/01/2025)
+
+## Quoi 2 Neuf
+
+- Correction d'un problème qui faisait que les contenus "Les grandes lignes" n'affichaient pas les 2 derniers mois disponibles.
+- Suppression de la mention de l'année dans le sous-titre de la page.
+
+---
+
 # Notes de version 2.7.3 (25/11/2024)
 
 ## Quoi 2 Neuf
