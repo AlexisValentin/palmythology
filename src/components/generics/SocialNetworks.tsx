@@ -22,7 +22,7 @@ const SocialNetwork: React.FC<SocialNetworkProps> = ({
   name,
   url,
   iconUrl,
-}): JSX.Element => (
+}) => (
   <>
     {url && (
       <a href={url} target="_blank" rel="noreferrer">
@@ -40,9 +40,7 @@ const SocialNetwork: React.FC<SocialNetworkProps> = ({
   </>
 )
 
-const SocialNetworks: React.FC<SocialNetworksProps> = ({
-  customLinks,
-}): JSX.Element => {
+const SocialNetworks: React.FC<SocialNetworksProps> = ({ customLinks }) => {
   if (customLinks) {
     return (
       <>

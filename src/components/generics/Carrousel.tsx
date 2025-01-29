@@ -16,7 +16,7 @@ interface StoryblokSingleAssetType {
   alt: string
 }
 
-const Carrousel: React.FC<CarrouselProps> = ({ imageList }): JSX.Element => {
+const Carrousel: React.FC<CarrouselProps> = ({ imageList }) => {
   return (
     <Swiper
       className="shadow-2xl"

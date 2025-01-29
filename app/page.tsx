@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: SEO_WORDING.HOME.description,
 }
 
-const HomePage = (): JSX.Element => {
+const HomePage = () => {
   return (
     <>
       <PageHeader

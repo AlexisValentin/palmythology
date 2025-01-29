@@ -1,6 +1,6 @@
 import { wording } from '../../wording/fr/main'
 
-const Copyrights = (): JSX.Element => {
+const Copyrights = () => {
   return <div>{wording.copyrights}</div>
 }
 

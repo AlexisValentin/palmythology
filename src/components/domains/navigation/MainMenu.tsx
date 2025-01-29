@@ -4,7 +4,7 @@ import { useCallback } from 'react'
 import { ROUTES } from '../../../helpers/routes/routes.const'
 import { wording } from '../../../wording/fr/main'
 
-const MainMenu = (): JSX.Element => {
+const MainMenu = () => {
   const isHomePage = useCallback((routeName: string) => {
     return wording.sections.home_title === routeName
   }, [])

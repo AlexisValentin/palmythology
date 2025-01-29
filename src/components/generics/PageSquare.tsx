@@ -51,7 +51,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
   contentType,
   size = PAGE_SQUARE_SIZE_TYPE.MD,
   withoutText = false,
-}): JSX.Element => {
+}) => {
   const buildLink = useCallback(() => {
     switch (contentType) {
       case CONTENT_TYPE.CARD:
@@ -106,7 +106,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
 
 const PageSquareBlock: React.FC<
   Pick<PageSquareProps, 'title' | 'subtitle' | 'icon' | 'size' | 'withoutText'>
-> = ({ title, subtitle, icon, size, withoutText }): JSX.Element => (
+> = ({ title, subtitle, icon, size, withoutText }) => (
   <div className={`flex item-center justify-center flex-col ${size}`}>
     <div className="flex items-center justify-center flex-col mt-4">
       <img
