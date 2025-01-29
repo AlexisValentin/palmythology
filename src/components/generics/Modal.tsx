@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { MODAL_IDS } from '../../types/consts/modal'
 import { MODAL_WORDING } from '../../wording/fr/modal'
 import Button from './Button'
@@ -5,9 +6,13 @@ import Button from './Button'
 interface ModalProps {
   modalId: MODAL_IDS
   onClick: () => void
+  options?: {
+    additionalUrl: string
+    additionalLabel: string
+  }
 }
 
-const Modal: React.FC<ModalProps> = ({ modalId, onClick }) => {
+const Modal: React.FC<ModalProps> = ({ modalId, onClick, options }) => {
   const { title, description, button } = MODAL_WORDING[modalId]
   const { label, color } = button
 
@@ -19,6 +24,15 @@ const Modal: React.FC<ModalProps> = ({ modalId, onClick }) => {
           <h2 className="text-2xl font-bold mb-4">{title}</h2>
           <div className="text-sm mb-4">{description}</div>
           <Button label={label} color={color} onClick={onClick} />
+          {options?.additionalUrl && options?.additionalLabel && (
+            <Link
+              className="ml-4 text-sm md:text-base md:ml-8 underline hover:text-pink-500 hover:decoration-sky-500 underline-offset-8"
+              href={options?.additionalUrl}
+              target="_blank"
+            >
+              {options?.additionalLabel}
+            </Link>
+          )}
         </div>
       </div>
     </>
