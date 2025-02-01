@@ -15,7 +15,7 @@ interface FilterSelectProps {
 
 export type ReactSelectValue = FilterSelectProps | null
 
-const Filter = (): JSX.Element => {
+const Filter = () => {
   const [pantheonSearchCriteria, setPantheonSearchCriteria] = useState('')
   const [subjectSearchCriteria, setSubjectSearchCriteria] = useState('')
 

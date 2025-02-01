@@ -12,10 +12,7 @@ import { STORYBLOK_RESULTS_PER_PAGE } from '../../../types/storyblok/storyblok'
 import { isStringEmpty } from '../../../helpers/string'
 import PageSquare, { CONTENT_TYPE } from '../../generics/PageSquare'
 
-const SearchResults: React.FC<ResearchCriterias> = ({
-  pantheon,
-  subject,
-}): JSX.Element => {
+const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
   const [searchCriterias, setSearchCriterias] = useState<ResearchCriterias>({
     pantheon: '',
     subject: '',

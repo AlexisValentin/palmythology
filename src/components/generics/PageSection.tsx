@@ -58,7 +58,7 @@ const PageSection: React.FC<PageSectionProps> = ({
   description,
   gradient,
   iconUrl,
-}): JSX.Element =>
+}) =>
   url ? (
     <Link
       href={url}

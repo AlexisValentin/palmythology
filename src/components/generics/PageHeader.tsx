@@ -10,7 +10,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   subtitle,
   upperGap = true,
   fullDisplay: forceDisplay = false,
-}): JSX.Element => (
+}) => (
   <div
     className={`flex flex-col items-center justify-center ${upperGap ? 'mt-12 mb-6' : 'my-6'}`}
   >

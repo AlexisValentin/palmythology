@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: SEO_WORDING.SUBJECTS.description,
 }
 
-const SubjectsPage = (): JSX.Element => {
+const SubjectsPage = () => {
   return (
     <>
       <PageHeader

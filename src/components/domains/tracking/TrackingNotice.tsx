@@ -27,7 +27,18 @@ const TrackingNotice = () => {
 
   if (isPageServerSide() || !shouldDisplayModal) return <></>
 
-  return <Modal modalId={MODAL_IDS.TRACKING} onClick={onClick} />
+  const plausibleUrl = 'https://plausible.io/data-policy'
+
+  return (
+    <Modal
+      modalId={MODAL_IDS.TRACKING}
+      onClick={onClick}
+      options={{
+        additionalUrl: plausibleUrl,
+        additionalLabel: 'Pour en savoir plus',
+      }}
+    />
+  )
 }
 
 export default TrackingNotice

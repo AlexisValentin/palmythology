@@ -17,7 +17,7 @@ const TextBlock: React.FC<TextBlockProps> = ({
   content,
   iconSize,
   leftSiding,
-}): JSX.Element => {
+}) => {
   const getIconContainerWidthStyle = (iconWidth: IconSize) => {
     switch (iconWidth) {
       case IconSize.SMALL:

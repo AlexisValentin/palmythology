@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: SEO_WORDING.PANTHEONS.description,
 }
 
-const PantheonsPage = (): JSX.Element => {
+const PantheonsPage = () => {
   return (
     <>
       <PageHeader

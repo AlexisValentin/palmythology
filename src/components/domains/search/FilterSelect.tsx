@@ -17,7 +17,7 @@ const FilterSelect: React.FC<FilterSelectProps> = ({
   defaultValue,
   onChange,
   options,
-}): JSX.Element => (
+}) => (
   <label className="block">
     <span className="block text-sm font-medium text-slate-700">
       {selectLabel}
