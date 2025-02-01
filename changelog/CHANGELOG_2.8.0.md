@@ -1,4 +1,4 @@
-# Notes de version 2.8.0 (??/01/2025)
+# Notes de version 2.8.0 (01/02/2025)
 
 ## Divers
 
