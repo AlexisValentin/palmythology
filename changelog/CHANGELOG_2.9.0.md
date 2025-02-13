@@ -2,4 +2,5 @@
 
 ## Divers
 
-- Mise à jour des dépendences vers leurs versions de patch.
+- Mise en place d'un modèle fichier d'environnement.
+- Mise à jour des dépendances vers leurs versions de patch.
