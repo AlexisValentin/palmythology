@@ -31,7 +31,6 @@ export interface CardItemType {
   subtitle: string
   pantheon: PantheonValue
   subject: SubjectValue
-  summary?: string
   images: StoryblokImageType[]
   available: boolean
   isFolder: boolean
