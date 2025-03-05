@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useState } from 'react'
-import { filterCards } from '../../../modules/searchEngine'
+import { filterCards, getPlaceholderCards } from '../../../modules/searchEngine'
 import {
   ResearchCriterias,
   TranslatedCardDetails,
@@ -36,7 +36,12 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
   }, [pantheon, subject])
 
   useEffect(() => {
-    if (!areFiltersUnfilled()) {
+    if (areFiltersUnfilled()) {
+      getPlaceholderCards().then((cards) => {
+        const { results } = cards
+        setSearchResults(results)
+      })
+    } else {
       filterCards(currentPage, searchCriterias)
         .then((cards) => {
           const { results, total } = cards
@@ -49,7 +54,12 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
   }, [searchCriterias, currentPage, areFiltersUnfilled])
 
   return (
-    <>
+    <div className="mt-12">
+      {areFiltersUnfilled() && (
+        <h2 className="flex justify-center text-xl font-bold mb-8">
+          Les fiches récentes
+        </h2>
+      )}
       <div className="flex items-center justify-center flex-wrap">
         {searchResults.map((card: TranslatedCardDetails) => {
           const { name, subtitle, pantheon, icon } = card
@@ -75,7 +85,7 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
           nbPages={Math.ceil(totalResult / STORYBLOK_RESULTS_PER_PAGE)}
         />
       )}
-    </>
+    </div>
   )
 }
 

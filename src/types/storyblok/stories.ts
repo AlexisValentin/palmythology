@@ -1,3 +1,4 @@
+import { MONTH_VALUE_TYPE } from '../../helpers/dates'
 import { PantheonValue } from '../cards/pantheons'
 import { SubjectValue } from '../cards/subjects'
 import { StoryblokImageType } from './storyblok'
@@ -24,6 +25,7 @@ export interface StoryblokQ2NComponentType {
     available: boolean
     isFolder: boolean
     pantheon: PantheonValue
+    month: MONTH_VALUE_TYPE
   }
 }
 

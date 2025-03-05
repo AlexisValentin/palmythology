@@ -48,6 +48,15 @@ const fetchStoriesByStartingString = (startingString: string) =>
     responseType: 'json',
   })
 
+const fetchMostRecentCardStories = () =>
+  axios({
+    method: 'get',
+    url: `${getStoryblokBaseUrl()}?token=${getStoryblokToken()}&version=${
+      STORYBLOK_VERSIONS.PUBLISHED
+    }&starts_with=card&sort_by=published_at:desc&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=1`,
+    responseType: 'json',
+  })
+
 const fetchCardStoriesFromFilters = (
   startingString: string,
   searchCriterias: ResearchCriterias,
@@ -82,6 +91,16 @@ export const fetchCardStories = async (
     },
   )
 
+export const fetchPlaceholderCards = async () =>
+  await fetchMostRecentCardStories().then((stories) => {
+    return {
+      results: stories.data.stories.map(
+        (story: StoryblokCardComponentType) =>
+          story.content.component === 'card' && parseCardData(story),
+      ),
+    }
+  })
+
 export const fetchQuoi2NeufStories = async () =>
   await fetchStoriesByStartingString('quoi2neuf').then((stories) =>
     stories.data.stories.map(
@@ -105,8 +124,9 @@ const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
   }
 }
 
-// @ts-ignore
-const parseQuoi2NeufData = (quoi2NeufItem): Quoi2NeufStoryType => {
+const parseQuoi2NeufData = (
+  quoi2NeufItem: StoryblokQ2NComponentType,
+): Quoi2NeufStoryType => {
   const { title, subtitle, icon, available, pantheon, month } =
     quoi2NeufItem.content
 

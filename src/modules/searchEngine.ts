@@ -2,7 +2,7 @@ import {
   getPantheonLabelFromValue,
   getSubjectLabelFromValue,
 } from '../helpers/dictionary'
-import { fetchCardStories } from '../helpers/storyblok'
+import { fetchCardStories, fetchPlaceholderCards } from '../helpers/storyblok'
 import { CardDetails, ResearchCriterias } from '../types/cards/card'
 
 export const filterCards = (
@@ -32,6 +32,22 @@ export const filterCards = (
         .filter((card: CardDetails) => card !== undefined),
     }
   })
+
+export const getPlaceholderCards = () => {
+  return fetchPlaceholderCards().then((stories) => {
+    return {
+      results: stories.results.map((card: CardDetails) => {
+        const { pantheon, subject } = card
+
+        return {
+          ...card,
+          pantheon: getPantheonLabelFromValue(pantheon),
+          subject: getSubjectLabelFromValue(subject),
+        }
+      }),
+    }
+  })
+}
 
 export const isACardFound = (
   asked?: ResearchCriterias,

@@ -8,7 +8,6 @@ import PageSquare, {
   PAGE_SQUARE_SIZE_TYPE,
 } from '../../../src/components/generics/PageSquare'
 import SocialNetworks from '../../../src/components/generics/SocialNetworks'
-import Summary from '../../../src/components/generics/Summary'
 import {
   getPantheonLabelFromValue,
   getSubjectLabelFromValue,
@@ -21,6 +20,7 @@ import { PantheonValue } from '../../../src/types/cards/pantheons'
 import { SubjectValue } from '../../../src/types/cards/subjects'
 import { CardRelatedType } from '../../../src/types/storyblok/storyblok'
 import { SEO_WORDING } from '../../../src/wording/fr/seo'
+import Transcription from '../../../src/components/generics/Transcription'
 
 interface CardPagePropsType {
   params: Promise<{ card: string[] }>
@@ -67,7 +67,6 @@ const CardPage = async ({ params }: CardPagePropsType) => {
   const {
     name,
     subtitle,
-    summary,
     images,
     available,
     instagramUrl,
@@ -75,6 +74,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
     blueskyUrl,
     relatedCards,
     subject,
+    transcription,
   } = story.data.story.content
 
   if (!available || !pantheon) return <></>
@@ -120,14 +120,14 @@ const CardPage = async ({ params }: CardPagePropsType) => {
           />
         )}
       </div>
-      {summary && <Summary content={summary} />}
       <div className="flex items-center justify-center w-full lg:w-3/4 mt-4">
         <Carrousel imageList={images} />
       </div>
+      {transcription && <Transcription transcription={transcription} />}
       {relatedCards && relatedCards.length > 0 && (
         <div className="flex flex-col mt-16">
           <div className="flex align-center justify-center">
-            <h3 className="fontsemibold">Dans le même sujet</h3>
+            <h3 className="text-xl font-bold">Dans le même sujet</h3>
           </div>
           <div className="flex flex-col lg:flex-row mt-4">
             {relatedCards.map((card: CardRelatedType) => (
