@@ -6,7 +6,7 @@ import {
   LOCAL_STORAGE_KEYS,
   setInLocalStorage,
 } from '../../../helpers/storage'
-import { MODAL_IDS } from '../../../types/consts/modal'
+import { MODAL_IDS } from '../../../types/constants/modal'
 import Modal from '../../generics/Modal'
 import useModal from '../../hooks/useModal'
 

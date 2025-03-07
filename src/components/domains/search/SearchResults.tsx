@@ -36,21 +36,23 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
   }, [pantheon, subject])
 
   useEffect(() => {
-    if (areFiltersUnfilled()) {
-      getPlaceholderCards().then((cards) => {
+    const updateResultData = async () => {
+      if (areFiltersUnfilled()) {
+        const cards = await getPlaceholderCards()
+
         const { results } = cards
         setSearchResults(results)
-      })
-    } else {
-      filterCards(currentPage, searchCriterias)
-        .then((cards) => {
-          const { results, total } = cards
-          setSearchResults(results)
+      } else {
+        const cards = await filterCards(currentPage, searchCriterias)
 
-          return total
-        })
-        .then((total) => setTotalResult(total))
+        const { results, total } = cards
+        setSearchResults(results)
+
+        setTotalResult(total)
+      }
     }
+
+    updateResultData()
   }, [searchCriterias, currentPage, areFiltersUnfilled])
 
   return (

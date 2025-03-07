@@ -1,3 +1,5 @@
+'use server'
+
 import axios from 'axios'
 import { CardDetails, ResearchCriterias } from '../types/cards/card'
 import {
@@ -11,44 +13,42 @@ import {
   StoryblokCardComponentType,
   StoryblokQ2NComponentType,
 } from '../types/storyblok/stories'
+import { getStoryblokBaseUrl, getStoryblokToken } from './env'
 
-export const getStoryblokToken = () => process.env.STORYBLOK_TOKEN
-export const getStoryblokBaseUrl = () => process.env.STORYBLOK_BASE_URL
-
-export const getCardSlug = (cardName?: string, pantheon?: string) =>
+export const getCardSlug = async (cardName?: string, pantheon?: string) =>
   !cardName || !pantheon
     ? ''
     : `cards/${parseStringToSlug(pantheon)}/${parseStringToSlug(cardName)}`
 
-export const getCardStory = (title: string, pantheon: string) =>
+export const getCardStory = async (title: string, pantheon: string) =>
   axios({
     method: 'get',
     url: `${getStoryblokBaseUrl()}cards/${pantheon}/${replaceHyphenByDashes(title)}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
     responseType: 'json',
   })
 
-export const getPantheonStory = (pantheon: string) =>
+export const getPantheonStory = async (pantheon: string) =>
   axios({
     method: 'get',
     url: `${getStoryblokBaseUrl()}pantheons/${pantheon}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
     responseType: 'json',
   })
 
-export const getSubjectStory = (subject: string) =>
+export const getSubjectStory = async (subject: string) =>
   axios({
     method: 'get',
     url: `${getStoryblokBaseUrl()}subjects/${subject}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
     responseType: 'json',
   })
 
-const fetchStoriesByStartingString = (startingString: string) =>
+const fetchStoriesByStartingString = async (startingString: string) =>
   axios({
     method: 'get',
     url: `${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_MAX_ITEMS_PER_REQUEST}`,
     responseType: 'json',
   })
 
-const fetchMostRecentCardStories = () =>
+const fetchMostRecentCardStories = async () =>
   axios({
     method: 'get',
     url: `${getStoryblokBaseUrl()}?token=${getStoryblokToken()}&version=${
@@ -57,7 +57,7 @@ const fetchMostRecentCardStories = () =>
     responseType: 'json',
   })
 
-const fetchCardStoriesFromFilters = (
+const fetchCardStoriesFromFilters = async (
   startingString: string,
   searchCriterias: ResearchCriterias,
   currentPage: number,
@@ -78,36 +78,42 @@ const fetchCardStoriesFromFilters = (
 export const fetchCardStories = async (
   searchCriterias: ResearchCriterias,
   currentPage: number,
-) =>
-  await fetchCardStoriesFromFilters('card', searchCriterias, currentPage).then(
-    (stories) => {
-      return {
-        total: stories.headers.total,
-        results: stories.data.stories.map(
-          (story: StoryblokCardComponentType) =>
-            story.content.component === 'card' && parseCardData(story),
-        ),
-      }
-    },
+) => {
+  const cardStories = await fetchCardStoriesFromFilters(
+    'card',
+    searchCriterias,
+    currentPage,
   )
 
-export const fetchPlaceholderCards = async () =>
-  await fetchMostRecentCardStories().then((stories) => {
-    return {
-      results: stories.data.stories.map(
-        (story: StoryblokCardComponentType) =>
-          story.content.component === 'card' && parseCardData(story),
-      ),
-    }
-  })
-
-export const fetchQuoi2NeufStories = async () =>
-  await fetchStoriesByStartingString('quoi2neuf').then((stories) =>
-    stories.data.stories.map(
-      (story: StoryblokQ2NComponentType) =>
-        story.content.component === 'quoi2Neuf' && parseQuoi2NeufData(story),
+  return {
+    total: cardStories.headers.total,
+    results: cardStories.data.stories.map(
+      (cardStory: StoryblokCardComponentType) =>
+        cardStory.content.component === 'card' && parseCardData(cardStory),
     ),
+  }
+}
+
+export const fetchPlaceholderCards = async () => {
+  const cardStories = await fetchMostRecentCardStories()
+
+  return {
+    results: cardStories.data.stories.map(
+      (cardStory: StoryblokCardComponentType) =>
+        cardStory.content.component === 'card' && parseCardData(cardStory),
+    ),
+  }
+}
+
+export const fetchQuoi2NeufStories = async () => {
+  const cardStories = await fetchStoriesByStartingString('quoi2neuf')
+
+  return cardStories.data.stories.map(
+    (cardStory: StoryblokQ2NComponentType) =>
+      cardStory.content.component === 'quoi2Neuf' &&
+      parseQuoi2NeufData(cardStory),
   )
+}
 
 const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
   const { name, subtitle, icon, pantheon, subject, available, isFolder } =

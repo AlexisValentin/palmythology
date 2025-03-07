@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { RouteType } from '../../helpers/routes/routes.const'
+import { RouteType } from '../../helpers/routes/routes.constants'
 
 type PageSectionProps = RouteType
 

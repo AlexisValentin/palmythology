@@ -23,21 +23,21 @@ describe('helpers/storyblok', () => {
         expect(parseStringToSlug).toHaveBeenNthCalledWith(2, 'zeus')
       })
 
-      test('should provide card slug', () =>
-        expect(getCardSlug('zeus', 'grec')).toEqual('cards/grec/zeus'))
+      test('should provide card slug', async () =>
+        expect(await getCardSlug('zeus', 'grec')).toEqual('cards/grec/zeus'))
     })
 
     describe('should return an empty string', () => {
-      test('when name parameter is not provided', () => {
-        expect(getCardSlug(undefined, 'grec')).toEqual('')
+      test('when name parameter is not provided', async () => {
+        expect(await getCardSlug(undefined, 'grec')).toEqual('')
       })
 
-      test('when pantheon parameter is not provided', () => {
-        expect(getCardSlug('zeus', undefined)).toEqual('')
+      test('when pantheon parameter is not provided', async () => {
+        expect(await getCardSlug('zeus', undefined)).toEqual('')
       })
 
-      test('when no parameters are provided', () => {
-        expect(getCardSlug(undefined, undefined)).toEqual('')
+      test('when no parameters are provided', async () => {
+        expect(await getCardSlug(undefined, undefined)).toEqual('')
       })
     })
   })

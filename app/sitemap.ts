@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { URLS } from '../src/types/consts/url'
+import { URLS } from '../src/types/constants/url'
 
 const sitemap = (): MetadataRoute.Sitemap => {
   const { STATIC, PANTHEONS, CARDS } = URLS

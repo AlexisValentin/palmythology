@@ -1,6 +1,6 @@
 import { PantheonLabel, PantheonValue } from '../../types/cards/pantheons'
 import { generateBreadcrumbLinks, parseBreadcrumbNode } from './routes'
-import { BREADCRUMB_NODES } from './routes.const'
+import { BREADCRUMB_NODES } from './routes.constants'
 
 import * as dictionnary from '../dictionary'
 import { MockInstance } from 'vitest'

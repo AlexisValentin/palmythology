@@ -3,7 +3,7 @@
 import { useCallback, useState } from 'react'
 import { ALL_PANTHEON } from '../../../types/cards/pantheons'
 import { ALL_SUBJECT } from '../../../types/cards/subjects'
-import { BASE_INPUT_NAMES } from '../../../types/consts/form'
+import { BASE_INPUT_NAMES } from '../../../types/constants/form'
 import { wording } from '../../../wording/fr/main'
 import SearchResults from './SearchResults'
 import FilterSelect from './FilterSelect'
