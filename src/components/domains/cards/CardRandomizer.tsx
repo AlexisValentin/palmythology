@@ -1,4 +1,4 @@
-import { URLS } from '../../../types/consts/url'
+import { URLS } from '../../../types/constants/url'
 import { getCardPantheonTitleFromUrl } from '../../../helpers/routes/routes'
 import { getCardStory } from '../../../helpers/storyblok'
 import { shuffleNumber } from '../../../helpers/number'

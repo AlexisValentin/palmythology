@@ -5,48 +5,49 @@ import {
 import { fetchCardStories, fetchPlaceholderCards } from '../helpers/storyblok'
 import { CardDetails, ResearchCriterias } from '../types/cards/card'
 
-export const filterCards = (
+export const filterCards = async (
   currentPage: number,
   searchCriterias?: ResearchCriterias,
-) =>
-  fetchCardStories(
+) => {
+  const cardStories = await fetchCardStories(
     searchCriterias ?? { pantheon: '', subject: '' },
     currentPage,
-  ).then((stories) => {
-    return {
-      total: stories.total,
-      results: stories.results
-        .map((card: CardDetails) => {
-          if (isACardFound(searchCriterias, card)) {
-            const { pantheon, subject } = card
+  )
 
-            return {
-              ...card,
-              pantheon: getPantheonLabelFromValue(pantheon),
-              subject: getSubjectLabelFromValue(subject),
-            }
+  return {
+    total: cardStories.total,
+    results: cardStories.results
+      .map((card: CardDetails) => {
+        if (isACardFound(searchCriterias, card)) {
+          const { pantheon, subject } = card
+
+          return {
+            ...card,
+            pantheon: getPantheonLabelFromValue(pantheon),
+            subject: getSubjectLabelFromValue(subject),
           }
-
-          return undefined
-        })
-        .filter((card: CardDetails) => card !== undefined),
-    }
-  })
-
-export const getPlaceholderCards = () => {
-  return fetchPlaceholderCards().then((stories) => {
-    return {
-      results: stories.results.map((card: CardDetails) => {
-        const { pantheon, subject } = card
-
-        return {
-          ...card,
-          pantheon: getPantheonLabelFromValue(pantheon),
-          subject: getSubjectLabelFromValue(subject),
         }
-      }),
-    }
-  })
+
+        return undefined
+      })
+      .filter((card: CardDetails) => card !== undefined),
+  }
+}
+
+export const getPlaceholderCards = async () => {
+  const stories = await fetchPlaceholderCards()
+
+  return {
+    results: stories.results.map((card: CardDetails) => {
+      const { pantheon, subject } = card
+
+      return {
+        ...card,
+        pantheon: getPantheonLabelFromValue(pantheon),
+        subject: getSubjectLabelFromValue(subject),
+      }
+    }),
+  }
 }
 
 export const isACardFound = (

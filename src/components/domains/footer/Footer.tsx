@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ROUTE_URLS } from '../../../helpers/routes/routes.const'
+import { ROUTE_URLS } from '../../../helpers/routes/routes.constants'
 import Copyrights from '../../generics/Copyrights'
 import SocialNetworks from '../../generics/SocialNetworks'
 

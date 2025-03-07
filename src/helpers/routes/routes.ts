@@ -1,6 +1,6 @@
 import { PantheonValue } from '../../types/cards/pantheons'
 import { SubjectValue } from '../../types/cards/subjects'
-import { BREADCRUMB_NODES, ROUTE_URLS } from './routes.const'
+import { BREADCRUMB_NODES, ROUTE_URLS } from './routes.constants'
 import {
   getPantheonLabelFromValue,
   getSubjectLabelFromValue,
