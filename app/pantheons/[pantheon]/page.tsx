@@ -9,8 +9,8 @@ import PantheonCardList from '../../../src/components/domains/cards/PantheonCard
 import { usePantheonPageSquareLoader } from '../../../src/components/hooks/usePageSquareLoader'
 
 /* Methods */
-import { getPantheonLabelFromValue } from '../../../src/helpers/dictionary'
-import { getPantheonStory } from '../../../src/helpers/storyblok'
+import { getPantheonLabelFromValue } from '../../../src/utils/dictionary'
+import { getPantheonStory } from '../../../src/utils/storyblok'
 
 /* Types */
 import { PantheonValue } from '../../../src/types/cards/pantheons'

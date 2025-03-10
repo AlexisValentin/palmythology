@@ -8,7 +8,7 @@ import { SubjectLabel, SubjectValue } from '../../types/cards/subjects'
 
 vi.mock('./string')
 
-describe('helpers/route', () => {
+describe('utils/route', () => {
   describe('parseBreadcrumbNode', () => {
     afterEach(() => {
       vi.clearAllMocks()

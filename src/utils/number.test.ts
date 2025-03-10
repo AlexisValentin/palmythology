@@ -1,6 +1,6 @@
 import { isEven, isOdd } from './number'
 
-describe('helpers/number', () => {
+describe('utils/number', () => {
   describe('isEven', () => {
     test('should return `true` for even numbers', () => {
       for (let i = 0; i <= 10; i = i + 2) {

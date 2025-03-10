@@ -1,7 +1,7 @@
 import { URLS } from '../../../types/constants/url'
-import { getCardPantheonTitleFromUrl } from '../../../helpers/routes/routes'
-import { getCardStory } from '../../../helpers/storyblok'
-import { shuffleNumber } from '../../../helpers/number'
+import { getCardPantheonTitleFromUrl } from '../../../utils/routes/routes'
+import { getCardStory } from '../../../utils/storyblok'
+import { shuffleNumber } from '../../../utils/number'
 import Image from 'next/image'
 import Link from 'next/link'
 

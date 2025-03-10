@@ -11,16 +11,16 @@ import SocialNetworks from '../../../src/components/generics/SocialNetworks'
 import {
   getPantheonLabelFromValue,
   getSubjectLabelFromValue,
-} from '../../../src/helpers/dictionary'
-import { getPantheonData } from '../../../src/helpers/pantheons'
-import { getCardStory } from '../../../src/helpers/storyblok'
-import { capitalize, replaceDashesBySpaces } from '../../../src/helpers/string'
-import { getSubjectData } from '../../../src/helpers/subjects'
+} from '../../../src/utils/dictionary'
+import { getPantheonData } from '../../../src/utils/pantheons'
+import { getCardStory } from '../../../src/utils/storyblok'
+import { capitalize, replaceDashesBySpaces } from '../../../src/utils/string'
+import { getSubjectData } from '../../../src/utils/subjects'
 import { PantheonValue } from '../../../src/types/cards/pantheons'
 import { SubjectValue } from '../../../src/types/cards/subjects'
-import { CardRelatedType } from '../../../src/types/storyblok/storyblok'
 import { SEO_WORDING } from '../../../src/wording/fr/seo'
 import Transcription from '../../../src/components/generics/Transcription'
+import { CardRelatedType } from '../../../src/types/cms/cms'
 
 interface CardPagePropsType {
   params: Promise<{ card: string[] }>

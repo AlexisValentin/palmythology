@@ -12,14 +12,14 @@ import {
   MONTH_VALUE_TYPE,
   MONTHS_VALUE,
   stringifyMonthCode,
-} from '../../../helpers/dates'
-import { Quoi2NeufStoryType } from '../../../types/storyblok/storyblok'
+} from '../../../utils/dates'
+import { Quoi2NeufStoryType } from '../../../types/cms/cms'
 import PageSquare, { CONTENT_TYPE } from '../../generics/PageSquare'
 import DoubleRightArrowIcon from '../../../assets/icons/double_arrow_right.svg'
 import Image from 'next/image'
 import PageHeader from '../../generics/PageHeader'
 import { wording } from '../../../wording/fr/main'
-import { getMonthLabelFromValue } from '../../../helpers/dictionary'
+import { getMonthLabelFromValue } from '../../../utils/dictionary'
 
 const Q2NCardList: React.FC<{ stories: any }> = ({ stories }) => {
   const [selectedMonthLabel, setSelectedMonthLabel] =

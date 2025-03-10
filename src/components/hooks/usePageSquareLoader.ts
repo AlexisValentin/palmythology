@@ -2,7 +2,7 @@
 import { PantheonValue } from '../../types/cards/pantheons'
 
 /* Methods */
-import { getPantheonStory, getSubjectStory } from '../../helpers/storyblok'
+import { getPantheonStory, getSubjectStory } from '../../utils/storyblok'
 
 /* Types */
 import { SubjectValue } from '../../types/cards/subjects'

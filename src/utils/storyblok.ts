@@ -7,12 +7,12 @@ import {
   STORYBLOK_MAX_ITEMS_PER_REQUEST,
   STORYBLOK_RESULTS_PER_PAGE,
   STORYBLOK_VERSIONS,
-} from '../types/storyblok/storyblok'
+} from '../types/cms/cms'
 import { parseStringToSlug, replaceHyphenByDashes } from './string'
 import {
   StoryblokCardComponentType,
   StoryblokQ2NComponentType,
-} from '../types/storyblok/stories'
+} from '../types/cms/stories'
 import { getStoryblokBaseUrl, getStoryblokToken } from './env'
 
 export const getCardSlug = async (cardName?: string, pantheon?: string) =>

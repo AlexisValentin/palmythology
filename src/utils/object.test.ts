@@ -1,6 +1,6 @@
 import { isObjectEmpty } from './object'
 
-describe('helpers/object', () => {
+describe('utils/object', () => {
   describe('isObjectEmpty', () => {
     test('should return `true` if provided object is empty', () => {
       expect(isObjectEmpty({})).toEqual(true)

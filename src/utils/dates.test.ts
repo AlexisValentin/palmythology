@@ -1,6 +1,6 @@
 import { MONTHS_LABEL, isMonthCodeRelevant, stringifyMonthCode } from './dates'
 
-describe('helpers/dates', () => {
+describe('utils/dates', () => {
   describe('isMonthCodeRelevant', () => {
     test('should month code be relevant between `0` and `12`', () => {
       for (let i = 0; i < MONTHS_LABEL.length; i++) {

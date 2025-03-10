@@ -6,10 +6,10 @@ import {
   ResearchCriterias,
   TranslatedCardDetails,
 } from '../../../types/cards/card'
-import { getPantheonValueFromLabel } from '../../../helpers/dictionary'
+import { getPantheonValueFromLabel } from '../../../utils/dictionary'
 import Pagination from '../../generics/Pagination'
-import { STORYBLOK_RESULTS_PER_PAGE } from '../../../types/storyblok/storyblok'
-import { isStringEmpty } from '../../../helpers/string'
+import { STORYBLOK_RESULTS_PER_PAGE } from '../../../types/cms/cms'
+import { isStringEmpty } from '../../../utils/string'
 import PageSquare, { CONTENT_TYPE } from '../../generics/PageSquare'
 
 const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {

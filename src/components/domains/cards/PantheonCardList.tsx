@@ -1,4 +1,4 @@
-import { CardRelatedType } from '../../../types/storyblok/storyblok'
+import { CardRelatedType } from '../../../types/cms/cms'
 import PageSquare, { CONTENT_TYPE } from '../../generics/PageSquare'
 import Summary from '../../generics/Summary'
 
