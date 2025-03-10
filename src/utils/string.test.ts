@@ -6,7 +6,7 @@ import {
   stripDiacritics,
 } from './string'
 
-describe('helpers/string', () => {
+describe('utils/string', () => {
   describe('isStringEmpty', () => {
     test('should return `true` if string is empty', () => {
       expect(isStringEmpty('')).toEqual(true)

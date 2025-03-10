@@ -6,7 +6,7 @@ import {
   getSubjectLabelFromValue,
 } from './dictionary'
 
-describe('helpers/dictionary', () => {
+describe('utils/dictionary', () => {
   describe('getPantheonLabelFromValue', () => {
     test('should return the related pantheon label when pantheon value is provided', () => {
       expect(getPantheonLabelFromValue(PantheonValue.AZTEC)).toEqual(

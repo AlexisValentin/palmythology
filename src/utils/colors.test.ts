@@ -7,7 +7,7 @@ import {
   hasSpecialTextColor,
 } from './colors'
 
-describe('helpers/colors', () => {
+describe('utils/colors', () => {
   describe('getPantheonStyle', () => {
     test('should return correct color properties for each of the 10 pantheons', () => {
       expect(getPantheonStyle(PantheonValue.AZTEC)).toEqual({

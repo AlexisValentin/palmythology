@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useCallback } from 'react'
-import { ROUTES } from '../../../helpers/routes/routes.constants'
+import { ROUTES } from '../../../utils/routes/routes.constants'
 import { wording } from '../../../wording/fr/main'
 
 const MainMenu = () => {

@@ -1,8 +1,8 @@
 import {
   getPantheonLabelFromValue,
   getSubjectLabelFromValue,
-} from '../helpers/dictionary'
-import { fetchCardStories, fetchPlaceholderCards } from '../helpers/storyblok'
+} from '../utils/dictionary'
+import { fetchCardStories, fetchPlaceholderCards } from '../utils/storyblok'
 import { CardDetails, ResearchCriterias } from '../types/cards/card'
 
 export const filterCards = async (

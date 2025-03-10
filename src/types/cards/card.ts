@@ -1,4 +1,4 @@
-import { StoryblokImageType } from '../storyblok/storyblok'
+import { StoryblokImageType } from '../cms/cms'
 import {
   AztecNames,
   CelticNames,

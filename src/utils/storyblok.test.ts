@@ -3,7 +3,7 @@ import { parseStringToSlug } from './string'
 
 vi.mock('./string')
 
-describe('helpers/storyblok', () => {
+describe('utils/storyblok', () => {
   afterEach(() => {
     vi.clearAllMocks()
   })

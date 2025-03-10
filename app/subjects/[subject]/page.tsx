@@ -9,8 +9,8 @@ import SubjectCardList from '../../../src/components/domains/cards/SubjectCardLi
 import { useSubjectPageSquareLoader } from '../../../src/components/hooks/usePageSquareLoader'
 
 /* Methods */
-import { getSubjectLabelFromValue } from '../../../src/helpers/dictionary'
-import { getSubjectStory } from '../../../src/helpers/storyblok'
+import { getSubjectLabelFromValue } from '../../../src/utils/dictionary'
+import { getSubjectStory } from '../../../src/utils/storyblok'
 
 /* Types */
 import { SubjectValue } from '../../../src/types/cards/subjects'

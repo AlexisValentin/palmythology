@@ -1,11 +1,11 @@
 'use client'
 
-import { isPageServerSide } from '../../../helpers/browser'
+import { isPageServerSide } from '../../../utils/browser'
 import {
   getFromLocalStorage,
   LOCAL_STORAGE_KEYS,
   setInLocalStorage,
-} from '../../../helpers/storage'
+} from '../../../utils/storage'
 import { MODAL_IDS } from '../../../types/constants/modal'
 import Modal from '../../generics/Modal'
 import useModal from '../../hooks/useModal'
