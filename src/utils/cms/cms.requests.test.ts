@@ -1,9 +1,9 @@
-import { getCardSlug } from './storyblok'
-import { parseStringToSlug } from './string'
+import { parseStringToSlug } from '../string'
+import { getCardSlug } from './cms.requests'
 
-vi.mock('./string')
+vi.mock('../string')
 
-describe('utils/storyblok', () => {
+describe('utils/cms.requests', () => {
   afterEach(() => {
     vi.clearAllMocks()
   })
@@ -15,8 +15,8 @@ describe('utils/storyblok', () => {
         vi.mocked(parseStringToSlug).mockReturnValueOnce('zeus')
       })
 
-      test('should call `parseStringToSlug` twice', () => {
-        getCardSlug('zeus', 'grec')
+      test('should call `parseStringToSlug` twice', async () => {
+        await getCardSlug('zeus', 'grec')
 
         expect(parseStringToSlug).toHaveBeenCalledTimes(2)
         expect(parseStringToSlug).toHaveBeenNthCalledWith(1, 'grec')

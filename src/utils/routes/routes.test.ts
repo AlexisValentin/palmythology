@@ -1,10 +1,10 @@
-import { PantheonLabel, PantheonValue } from '../../types/cards/pantheons'
+import { PantheonLabel, PantheonValue } from '../cards/pantheons.constants'
 import { generateBreadcrumbLinks, parseBreadcrumbNode } from './routes'
 import { BREADCRUMB_NODES } from './routes.constants'
-
-import * as dictionnary from '../dictionary'
+import * as subjectUtils from '../cards/subjects'
+import * as pantheonUtils from '../cards/pantheons'
 import { MockInstance } from 'vitest'
-import { SubjectLabel, SubjectValue } from '../../types/cards/subjects'
+import { SubjectLabel, SubjectValue } from '../cards/subjects.constants'
 
 vi.mock('./string')
 
@@ -66,7 +66,7 @@ describe('utils/route', () => {
 
       beforeEach(() => {
         getPantheonLabelFromValueSpy = vi.spyOn(
-          dictionnary,
+          pantheonUtils,
           'getPantheonLabelFromValue',
         )
       })
@@ -180,7 +180,7 @@ describe('utils/route', () => {
 
       beforeEach(() => {
         getSubjectLabelFromValueSpy = vi.spyOn(
-          dictionnary,
+          subjectUtils,
           'getSubjectLabelFromValue',
         )
       })

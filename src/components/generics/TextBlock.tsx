@@ -1,5 +1,5 @@
+import { TextBlockType } from '../../utils/cms/cms.constants'
 import { isEven } from '../../utils/number'
-import { TextBlockType } from '../../types/cms/stories'
 
 export enum IconSize {
   SMALL = 'small',

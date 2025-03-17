@@ -1,4 +1,4 @@
-import { PantheonValue } from '../types/cards/pantheons'
+import { PantheonValue } from '../cards/pantheons.constants'
 import {
   getPantheonMainColor,
   getPantheonStyle,

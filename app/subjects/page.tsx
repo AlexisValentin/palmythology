@@ -6,7 +6,7 @@ import PageSquare, {
 } from '../../src/components/generics/PageSquare'
 import { wording } from '../../src/wording/fr/main'
 import { SEO_WORDING } from '../../src/wording/fr/seo'
-import { ALL_SUBJECT } from '../../src/types/cards/subjects'
+import { ALL_SUBJECT } from '../../src/utils/cards/subjects.constants'
 
 export const metadata: Metadata = {
   title: SEO_WORDING.SUBJECTS.title,

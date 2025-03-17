@@ -1,12 +1,12 @@
-import { PantheonValue } from '../types/cards/pantheons'
+import { PantheonValue } from '../cards/pantheons.constants'
 import {
   BACKGROUND,
-  COLORS,
   COLOR_TAINTS,
+  COLORS,
   MYTHOLOGY_COLORS,
   PantheonStyleType,
   TEXT_COLORS,
-} from '../types/styles/colors'
+} from './colors.constants'
 
 export const getPantheonStyle = (
   pantheon: PantheonValue,
@@ -80,13 +80,11 @@ export const getSummaryBackgroundColor = () =>
   `${BACKGROUND}-${COLORS.NEUTRAL}-${COLOR_TAINTS.SUPER_LIGHT}`
 
 export const getPantheonMainColor = (pantheon: PantheonValue) =>
-  // @ts-ignore
-  MYTHOLOGY_COLORS[pantheon.toUpperCase()]
+  MYTHOLOGY_COLORS[pantheon.toUpperCase() as keyof typeof MYTHOLOGY_COLORS]
 
 export const getPantheonTextColor = (pantheon: PantheonValue) =>
   hasSpecialTextColor(pantheon)
-    ? // @ts-ignore
-      TEXT_COLORS[pantheon.toUpperCase()]
+    ? TEXT_COLORS[pantheon.toUpperCase() as keyof typeof TEXT_COLORS]
     : TEXT_COLORS.GENERIC
 
 export const hasSpecialTextColor = (pantheon: PantheonValue) =>

@@ -1,3 +1,7 @@
+const SECOND_IN_MS = 1000
+
+export const HALF_SECOND_IN_MS = SECOND_IN_MS / 2
+
 export enum MONTH_LABEL_TYPE {
   JANUARY = 'Janvier',
   FEBRUARY = 'Février',
@@ -57,8 +61,3 @@ export const MONTHS_VALUE = [
   MONTH_VALUE_TYPE.NOVEMBER,
   MONTH_VALUE_TYPE.DECEMBER,
 ]
-
-export const isMonthCodeRelevant = (monthCode: number) =>
-  monthCode >= 0 && monthCode < 12
-export const stringifyMonthCode = (monthCode: number) =>
-  isMonthCodeRelevant(monthCode) ? MONTHS_LABEL[monthCode] : null

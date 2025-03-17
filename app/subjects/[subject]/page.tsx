@@ -9,11 +9,11 @@ import SubjectCardList from '../../../src/components/domains/cards/SubjectCardLi
 import { useSubjectPageSquareLoader } from '../../../src/components/hooks/usePageSquareLoader'
 
 /* Methods */
-import { getSubjectLabelFromValue } from '../../../src/utils/dictionary'
-import { getSubjectStory } from '../../../src/utils/storyblok'
+import { getSubjectStory } from '../../../src/utils/cms/cms.requests'
+import { getSubjectLabelFromValue } from '../../../src/utils/cards/subjects'
 
 /* Types */
-import { SubjectValue } from '../../../src/types/cards/subjects'
+import { SubjectValue } from '../../../src/utils/cards/subjects.constants'
 
 /* Wording */
 import { SEO_WORDING } from '../../../src/wording/fr/seo'

@@ -1,11 +1,11 @@
 /* Components */
-import { PantheonValue } from '../../types/cards/pantheons'
+import { PantheonValue } from '../../utils/cards/pantheons.constants'
 
 /* Methods */
-import { getPantheonStory, getSubjectStory } from '../../utils/storyblok'
+import { getPantheonStory, getSubjectStory } from '../../utils/cms/cms.requests'
 
 /* Types */
-import { SubjectValue } from '../../types/cards/subjects'
+import { SubjectValue } from '../../utils/cards/subjects.constants'
 
 export const usePantheonPageSquareLoader = async (
   pantheon: PantheonValue | string,

@@ -1,15 +1,18 @@
 import Link from 'next/link'
 import { useCallback } from 'react'
-import { getPantheonMainColor, getPantheonTextColor } from '../../utils/colors'
 import {
   setCardRouteParameters,
   setPantheonRouteParameters,
   setSubjectRouteParameters,
 } from '../../utils/routes/routes'
-import { PantheonValue } from '../../types/cards/pantheons'
-import { SubjectValue } from '../../types/cards/subjects'
-import { StoryblokImageType } from '../../types/cms/cms'
-import { BLACK_COLOR, WHITE_COLOR } from '../../types/styles/colors'
+import { StoryblokImageType } from '../../utils/cms/cms.constants'
+import { BLACK_COLOR, WHITE_COLOR } from '../../utils/styles/colors.constants'
+import { PantheonValue } from '../../utils/cards/pantheons.constants'
+import { SubjectValue } from '../../utils/cards/subjects.constants'
+import {
+  getPantheonMainColor,
+  getPantheonTextColor,
+} from '../../utils/styles/colors'
 
 export enum CONTENT_TYPE {
   CARD = 'card',

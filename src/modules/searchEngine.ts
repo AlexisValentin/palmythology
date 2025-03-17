@@ -1,9 +1,10 @@
 import {
-  getPantheonLabelFromValue,
-  getSubjectLabelFromValue,
-} from '../utils/dictionary'
-import { fetchCardStories, fetchPlaceholderCards } from '../utils/storyblok'
-import { CardDetails, ResearchCriterias } from '../types/cards/card'
+  fetchCardStories,
+  fetchPlaceholderCards,
+} from '../utils/cms/cms.requests'
+import { CardDetails, ResearchCriterias } from '../utils/cards/card.constants'
+import { getPantheonLabelFromValue } from '../utils/cards/pantheons'
+import { getSubjectLabelFromValue } from '../utils/cards/subjects'
 
 export const filterCards = async (
   currentPage: number,

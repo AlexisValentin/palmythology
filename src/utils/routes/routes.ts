@@ -1,11 +1,9 @@
-import { PantheonValue } from '../../types/cards/pantheons'
-import { SubjectValue } from '../../types/cards/subjects'
 import { BREADCRUMB_NODES, ROUTE_URLS } from './routes.constants'
-import {
-  getPantheonLabelFromValue,
-  getSubjectLabelFromValue,
-} from '../dictionary'
 import { capitalize, parseStringToSlug, replaceDashesBySpaces } from '../string'
+import { PantheonValue } from '../cards/pantheons.constants'
+import { getPantheonLabelFromValue } from '../cards/pantheons'
+import { SubjectValue } from '../cards/subjects.constants'
+import { getSubjectLabelFromValue } from '../cards/subjects'
 
 export const setCardRouteParameters = (cardName: string, pantheon: string) =>
   ROUTE_URLS.CARD.replace(':pantheon', pantheon).replace(

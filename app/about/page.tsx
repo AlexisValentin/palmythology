@@ -8,6 +8,7 @@ import { SEO_WORDING } from '../../src/wording/fr/seo'
 
 import FrenchHeartIcon from '../../src/assets/icons/french_heart.svg'
 import NoAdsIcon from '../../src/assets/icons/no_ads.svg'
+import AnonymousIcon from '../../src/assets/icons/anonymous.svg'
 
 export const metadata: Metadata = {
   title: SEO_WORDING.ABOUT.title,
@@ -31,6 +32,11 @@ const AboutPage = () => {
           name="Garanti sans publicité"
           description="La Palmythology vous garantit une navigation sans aucune pollution visuelle."
           iconUrl={NoAdsIcon}
+        />
+        <PageSection
+          name="Données anonymisées"
+          description="Le site récolte des statistiques de navigation sans pour autant impacter vos données personnelles."
+          iconUrl={AnonymousIcon}
         />
       </div>
     </>

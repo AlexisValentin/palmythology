@@ -1,7 +1,6 @@
-import { MONTH_VALUE_TYPE } from '../../utils/dates'
-import { PantheonValue } from '../cards/pantheons'
-import { SubjectValue } from '../cards/subjects'
-import { TextBlockType } from './stories'
+import { PantheonValue } from '../cards/pantheons.constants'
+import { SubjectValue } from '../cards/subjects.constants'
+import { MONTH_VALUE_TYPE } from '../dates/dates.constants'
 
 export const STORYBLOK_RESULTS_PER_PAGE = 12
 export const STORYBLOK_MAX_ITEMS_PER_REQUEST = 20
@@ -51,4 +50,40 @@ export interface Quoi2NeufStoryType {
 export type AboutPageType = AboutItemType[]
 export interface AboutItemType {
   aboutItem: TextBlockType[]
+}
+
+export interface StoryblokCardComponentType {
+  content: {
+    component: string
+    name: string
+    subtitle: string
+    icon: StoryblokImageType
+    pantheon: PantheonValue
+    subject: SubjectValue
+    available: boolean
+    isFolder: boolean
+  }
+}
+
+export interface StoryblokQ2NComponentType {
+  content: {
+    component: string
+    title: string
+    subtitle: PantheonValue
+    icon: { alt: string; filename: string }
+    available: boolean
+    isFolder: boolean
+    pantheon: PantheonValue
+    month: MONTH_VALUE_TYPE
+  }
+}
+
+export interface TextBlockType {
+  text: string
+  illustration: {
+    alt: string
+    filename: string
+  }
+  component: string
+  _uid: string
 }

@@ -1,6 +1,6 @@
-import InstagramIcon from '../../assets/icons/social_networks/instagram.svg'
-import ThreadsIcon from '../../assets/icons/social_networks/threads.svg'
-import BlueskyIcon from '../../assets/icons/social_networks/bluesky.svg'
+import InstagramIcon from '../assets/icons/social_networks/instagram.svg'
+import ThreadsIcon from '../assets/icons/social_networks/threads.svg'
+import BlueskyIcon from '../assets/icons/social_networks/bluesky.svg'
 
 export enum SOCIAL_NETWORK_STATUS {
   ACTIVE = 'active',

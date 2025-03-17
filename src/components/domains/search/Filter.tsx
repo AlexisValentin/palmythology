@@ -1,12 +1,12 @@
 'use client'
 
 import { useCallback, useState } from 'react'
-import { ALL_PANTHEON } from '../../../types/cards/pantheons'
-import { ALL_SUBJECT } from '../../../types/cards/subjects'
-import { BASE_INPUT_NAMES } from '../../../types/constants/form'
+import { BASE_INPUT_NAMES } from '../../../utils/form.constants'
 import { wording } from '../../../wording/fr/main'
 import SearchResults from './SearchResults'
 import FilterSelect from './FilterSelect'
+import { ALL_PANTHEON } from '../../../utils/cards/pantheons.constants'
+import { ALL_SUBJECT } from '../../../utils/cards/subjects.constants'
 
 interface FilterSelectProps {
   value: string
