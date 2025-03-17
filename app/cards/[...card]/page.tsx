@@ -8,19 +8,17 @@ import PageSquare, {
   PAGE_SQUARE_SIZE_TYPE,
 } from '../../../src/components/generics/PageSquare'
 import SocialNetworks from '../../../src/components/generics/SocialNetworks'
-import {
-  getPantheonLabelFromValue,
-  getSubjectLabelFromValue,
-} from '../../../src/utils/dictionary'
 import { getPantheonData } from '../../../src/utils/pantheons'
-import { getCardStory } from '../../../src/utils/storyblok'
+import { getCardStory } from '../../../src/utils/cms/cms.requests'
 import { capitalize, replaceDashesBySpaces } from '../../../src/utils/string'
 import { getSubjectData } from '../../../src/utils/subjects'
-import { PantheonValue } from '../../../src/types/cards/pantheons'
-import { SubjectValue } from '../../../src/types/cards/subjects'
+import { PantheonValue } from '../../../src/utils/cards/pantheons.constants'
+import { SubjectValue } from '../../../src/utils/cards/subjects.constants'
 import { SEO_WORDING } from '../../../src/wording/fr/seo'
 import Transcription from '../../../src/components/generics/Transcription'
-import { CardRelatedType } from '../../../src/types/cms/cms'
+import { CardRelatedType } from '../../../src/utils/cms/cms.constants'
+import { getPantheonLabelFromValue } from '../../../src/utils/cards/pantheons'
+import { getSubjectLabelFromValue } from '../../../src/utils/cards/subjects'
 
 interface CardPagePropsType {
   params: Promise<{ card: string[] }>

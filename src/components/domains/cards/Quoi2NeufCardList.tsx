@@ -7,19 +7,21 @@ import {
   useEffect,
   useState,
 } from 'react'
-import {
-  MONTH_LABEL_TYPE,
-  MONTH_VALUE_TYPE,
-  MONTHS_VALUE,
-  stringifyMonthCode,
-} from '../../../utils/dates'
-import { Quoi2NeufStoryType } from '../../../types/cms/cms'
+import { Quoi2NeufStoryType } from '../../../utils/cms/cms.constants'
 import PageSquare, { CONTENT_TYPE } from '../../generics/PageSquare'
 import DoubleRightArrowIcon from '../../../assets/icons/double_arrow_right.svg'
 import Image from 'next/image'
 import PageHeader from '../../generics/PageHeader'
 import { wording } from '../../../wording/fr/main'
-import { getMonthLabelFromValue } from '../../../utils/dictionary'
+import {
+  MONTH_LABEL_TYPE,
+  MONTH_VALUE_TYPE,
+  MONTHS_VALUE,
+} from '../../../utils/dates/dates.constants'
+import {
+  getMonthLabelFromValue,
+  stringifyMonthCode,
+} from '../../../utils/dates/dates'
 
 const Q2NCardList: React.FC<{ stories: any }> = ({ stories }) => {
   const [selectedMonthLabel, setSelectedMonthLabel] =

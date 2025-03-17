@@ -1,4 +1,5 @@
-import { MONTHS_LABEL, isMonthCodeRelevant, stringifyMonthCode } from './dates'
+import { isMonthCodeRelevant, stringifyMonthCode } from './dates'
+import { MONTHS_LABEL } from './dates.constants'
 
 describe('utils/dates', () => {
   describe('isMonthCodeRelevant', () => {

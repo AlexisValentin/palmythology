@@ -1,6 +1,6 @@
 import Select from 'react-select'
-import { PantheonSelectType } from '../../../types/cards/pantheons'
-import { SubjectSelectType } from '../../../types/cards/subjects'
+import { PantheonSelectType } from '../../../utils/cards/pantheons.constants'
+import { SubjectSelectType } from '../../../utils/cards/subjects.constants'
 import { ReactSelectValue } from './Filter'
 
 interface FilterSelectProps {

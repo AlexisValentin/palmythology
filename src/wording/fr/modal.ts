@@ -1,5 +1,5 @@
 import { ButtonProps } from '../../components/generics/Button'
-import { COLOR_TAINTS, COLORS } from '../../types/styles/colors'
+import { COLOR_TAINTS, COLORS } from '../../utils/styles/colors.constants'
 
 type ModalWordingType = {
   title: string

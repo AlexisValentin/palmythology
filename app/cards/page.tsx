@@ -28,7 +28,7 @@ const CardHubPage = () => {
         />
         <PageSection
           name="Un univers coloré !"
-          description="Chaque panthéon est associé à un code couleur spécifique et à une icône dédiée en haut à gauche de la page de couverture. La Palmythology découpe ses fiches en plusieurs sujets, eux aussi reconnaissables graĉe une icône dédiée en bas à droite de la page de couverture."
+          description="Chaque panthéon est associé à un code couleur spécifique et à une icône dédiée en haut à gauche de la page de couverture. La Palmythology découpe ses fiches en plusieurs sujets, eux aussi reconnaissables grâce une icône dédiée en bas à droite de la page de couverture."
           iconUrl={ColorsIcon}
         />
       </div>

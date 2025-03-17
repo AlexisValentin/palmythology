@@ -1,19 +1,17 @@
 'use server'
 
 import axios from 'axios'
-import { CardDetails, ResearchCriterias } from '../types/cards/card'
 import {
   Quoi2NeufStoryType,
   STORYBLOK_MAX_ITEMS_PER_REQUEST,
   STORYBLOK_RESULTS_PER_PAGE,
   STORYBLOK_VERSIONS,
-} from '../types/cms/cms'
-import { parseStringToSlug, replaceHyphenByDashes } from './string'
-import {
   StoryblokCardComponentType,
   StoryblokQ2NComponentType,
-} from '../types/cms/stories'
-import { getStoryblokBaseUrl, getStoryblokToken } from './env'
+} from './cms.constants'
+import { parseStringToSlug, replaceHyphenByDashes } from '../string'
+import { getStoryblokBaseUrl, getStoryblokToken } from './cms'
+import { CardDetails, ResearchCriterias } from '../cards/card.constants'
 
 export const getCardSlug = async (cardName?: string, pantheon?: string) =>
   !cardName || !pantheon

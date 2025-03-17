@@ -9,11 +9,11 @@ import PantheonCardList from '../../../src/components/domains/cards/PantheonCard
 import { usePantheonPageSquareLoader } from '../../../src/components/hooks/usePageSquareLoader'
 
 /* Methods */
-import { getPantheonLabelFromValue } from '../../../src/utils/dictionary'
-import { getPantheonStory } from '../../../src/utils/storyblok'
+import { getPantheonStory } from '../../../src/utils/cms/cms.requests'
+import { getPantheonLabelFromValue } from '../../../src/utils/cards/pantheons'
 
 /* Types */
-import { PantheonValue } from '../../../src/types/cards/pantheons'
+import { PantheonValue } from '../../../src/utils/cards/pantheons.constants'
 
 /* Wording */
 import { SEO_WORDING } from '../../../src/wording/fr/seo'

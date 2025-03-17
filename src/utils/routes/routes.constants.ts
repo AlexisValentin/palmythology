@@ -5,7 +5,7 @@ import MagnifyingGlassIcon from '../../assets/icons/magnifying_glass.svg'
 import Q2NIcon from '../../assets/icons/number_two.svg'
 import PalmythologyLogo from '../../assets/images/logo.webp'
 import { wording } from '../../wording/fr/main'
-import { GradientType, SECTION_COLORS } from '../../types/styles/colors'
+import { GradientType, SECTION_COLORS } from '../styles/colors.constants'
 
 export const ROOT = '/'
 

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { MODAL_IDS } from '../../types/constants/modal'
+import { MODAL_IDS } from '../../utils/modal.constants'
 import { MODAL_WORDING } from '../../wording/fr/modal'
 import Button from './Button'
 
