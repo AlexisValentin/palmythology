@@ -4,3 +4,6 @@ build/
 coverage/
 .next/
 .env
+.vercel/
+.husky/
+public/
