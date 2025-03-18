@@ -6,7 +6,6 @@ import {
   LOCAL_STORAGE_KEYS,
   setInLocalStorage,
 } from '../../../utils/storage'
-import { MODAL_IDS } from '../../../utils/modal.constants'
 import Modal from '../../generics/Modal'
 import useModal from '../../hooks/useModal'
 
@@ -31,7 +30,6 @@ const TrackingNotice = () => {
 
   return (
     <Modal
-      modalId={MODAL_IDS.TRACKING}
       onClick={onClick}
       options={{
         additionalUrl: plausibleUrl,

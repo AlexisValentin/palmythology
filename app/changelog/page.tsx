@@ -1,18 +1,15 @@
 import { Metadata } from 'next'
 import Changelog from '../../src/components/generics/Changelog'
-import { SEO_WORDING } from '../../src/wording/fr/seo'
 
 export const metadata: Metadata = {
-  title: SEO_WORDING.CHANGELOG.title,
-  description: SEO_WORDING.CHANGELOG.description,
+  title: 'Notes de version | Palmythology',
+  description: `Retrouvez les derniers changements de la dernière version le site web de la Palmtyhology.`,
 }
 
-const AboutPage = async () => {
-  return (
-    <div className="mt-16">
-      <Changelog />
-    </div>
-  )
-}
+const AboutPage = async () => (
+  <div className="mt-16">
+    <Changelog />
+  </div>
+)
 
 export default AboutPage

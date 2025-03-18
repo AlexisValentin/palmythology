@@ -1,8 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { RouteType } from '../../utils/routes/routes.constants'
+import { NextImageType } from '../../utils/image.constants'
 
-type PageSectionProps = RouteType
+type PageSectionProps = {
+  name: string
+  description: string
+  icon: NextImageType
+  url?: string
+}
 
 const PageSectionContent: React.FC<PageSectionProps> = ({
   name,

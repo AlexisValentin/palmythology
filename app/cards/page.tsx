@@ -1,25 +1,23 @@
 import React from 'react'
 import PageHeader from '../../src/components/generics/PageHeader'
-import { wording } from '../../src/wording/fr/main'
 import PageSection from '../../src/components/generics/PageSection'
-
 import ColorsIcon from '../../src/assets/icons/colors.svg'
 import KnowledgeIcon from '../../src/assets/icons/knowledge.svg'
 import { Metadata } from 'next'
-import { SEO_WORDING } from '../../src/wording/fr/seo'
 import { NextImageType } from '../../src/utils/image.constants'
 
 export const metadata: Metadata = {
-  title: SEO_WORDING.CARDS.title,
-  description: SEO_WORDING.CARDS.description,
+  title: 'Fiches mythologiques | Palmythology',
+  description:
+    'Des résumés simples accompagnés une direction artistique colorées, la Palmythology vous propose de plonger dans des fiches mythologiques intuitive et pédagogiques pour en apprendre toujours plus sur les différents panthéons dans le monde.',
 }
 
 const CardHubPage = () => {
   return (
     <>
       <PageHeader
-        title={wording.sections.cards_title}
-        subtitle={wording.sections.cards_description}
+        title="Les grandes lignes"
+        subtitle="Comment ça fonctionne ?"
       />
       <div className="flex flex-col">
         <PageSection

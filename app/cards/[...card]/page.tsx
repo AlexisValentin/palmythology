@@ -1,6 +1,5 @@
 import React from 'react'
 import { redirect } from 'next/navigation'
-
 import Carrousel from '../../../src/components/generics/Carrousel'
 import PageHeader from '../../../src/components/generics/PageHeader'
 import PageSquare, {
@@ -14,7 +13,6 @@ import { capitalize, replaceDashesBySpaces } from '../../../src/utils/string'
 import { getSubjectData } from '../../../src/utils/subjects'
 import { PantheonValue } from '../../../src/utils/cards/pantheons.constants'
 import { SubjectValue } from '../../../src/utils/cards/subjects.constants'
-import { SEO_WORDING } from '../../../src/wording/fr/seo'
 import Transcription from '../../../src/components/generics/Transcription'
 import { CardRelatedType } from '../../../src/utils/cms/cms.constants'
 import { getPantheonLabelFromValue } from '../../../src/utils/cards/pantheons'
@@ -35,8 +33,8 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
 
   if (!story?.data?.story?.content) {
     return {
-      title: SEO_WORDING.CARD.title,
-      description: SEO_WORDING.CARD.description,
+      title: 'Les grandes lignes | Palmythology',
+      description: `C'est ici que vous retrouverez toutes les informations sur la fiche de la Palmythology de vos rêves : que ce soit les divinités grecques, les créatures égyptiennes ou encore les batailles légendaire scandinaves, retrouvez avec détails toutes les informations sur le sujet de votre choix, avec des fiches agrémentées d'illustrations attrayantes et d'explications passionantes.`,
     }
   }
 

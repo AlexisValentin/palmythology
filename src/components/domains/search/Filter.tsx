@@ -2,7 +2,6 @@
 
 import { useCallback, useState } from 'react'
 import { BASE_INPUT_NAMES } from '../../../utils/form.constants'
-import { wording } from '../../../wording/fr/main'
 import SearchResults from './SearchResults'
 import FilterSelect from './FilterSelect'
 import { ALL_PANTHEON } from '../../../utils/cards/pantheons.constants'
@@ -38,7 +37,7 @@ const Filter = () => {
         <div className="m-2 w-40">
           <FilterSelect
             key="pantheon_select"
-            selectLabel={wording.filter.pantheon}
+            selectLabel="Panthéon"
             selectName={selectNames.pantheon}
             onChange={onPantheonSelectChange}
             options={ALL_PANTHEON}
@@ -47,7 +46,7 @@ const Filter = () => {
         <div className="m-2 w-40">
           <FilterSelect
             key="subject_select"
-            selectLabel={wording.filter.subject}
+            selectLabel="Sujet"
             selectName={selectNames.subject}
             onChange={onSubjectSelectChange}
             options={ALL_SUBJECT}

@@ -2,12 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useCallback } from 'react'
 import { ROUTES } from '../../../utils/routes/routes.constants'
-import { wording } from '../../../wording/fr/main'
 
 const MainMenu = () => {
-  const isHomePage = useCallback((routeName: string) => {
-    return wording.sections.home_title === routeName
-  }, [])
+  const isHomePage = useCallback(
+    (routeName: string) => routeName === 'Palmythology',
+    [],
+  )
 
   return (
     <nav className="flex items-center justify-evenly sticky top-0 z-10 drop-shadow-md bg-neutral-100 w-full px-6 sm:px-24 md:40 lg:px-56 xl:px-72 2xl:px-96 min-h-16">
