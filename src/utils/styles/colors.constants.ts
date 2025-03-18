@@ -1,5 +1,4 @@
 export const BACKGROUND = 'bg'
-export const GRADIENT = 'gradient'
 export const TEXT = 'text'
 
 export const COLORS = {
@@ -102,12 +101,6 @@ export const SECTION_COLORS = {
 export type PantheonStyleType = {
   backgroundColor: string
   textColor: string
-}
-
-export type GradientType = {
-  startingColor: string
-  intermediateColor?: string
-  endingColor: string
 }
 
 export const BLACK_COLOR = `${COLORS.NEUTRAL}-${COLOR_TAINTS.EXTRA_DARK}`

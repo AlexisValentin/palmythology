@@ -15,6 +15,7 @@ import {
 } from '../../utils/styles/colors'
 
 export enum CONTENT_TYPE {
+  ROUTE = 'route',
   CARD = 'card',
   PANTHEON = 'pantheon',
   SUBJECT = 'subject',
@@ -39,6 +40,7 @@ interface PageSquareProps {
     | PAGE_SQUARE_SIZE_TYPE.MD
     | PAGE_SQUARE_SIZE_TYPE.XL
   withoutText?: boolean
+  url?: string
 }
 
 const PageSquare: React.FC<PageSquareProps> = ({
@@ -51,9 +53,12 @@ const PageSquare: React.FC<PageSquareProps> = ({
   contentType,
   size = PAGE_SQUARE_SIZE_TYPE.MD,
   withoutText = false,
+  url,
 }) => {
   const buildLink = useCallback(() => {
     switch (contentType) {
+      case CONTENT_TYPE.ROUTE:
+        return url
       case CONTENT_TYPE.CARD:
         return setCardRouteParameters(title, pantheon!)
       case CONTENT_TYPE.PANTHEON:
@@ -63,7 +68,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
       default:
         return null
     }
-  }, [contentType, title, pantheon, subject])
+  }, [contentType, title, pantheon, subject, url])
 
   if (available === undefined || !buildLink()) return <></>
 

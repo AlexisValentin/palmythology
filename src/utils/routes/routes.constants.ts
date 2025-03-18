@@ -5,16 +5,16 @@ import MagnifyingGlassIcon from '../../assets/icons/magnifying_glass.svg'
 import Q2NIcon from '../../assets/icons/number_two.svg'
 import PalmythologyLogo from '../../assets/images/logo.webp'
 import { wording } from '../../wording/fr/main'
-import { GradientType, SECTION_COLORS } from '../styles/colors.constants'
+import { NextImageType } from '../image.constants'
 
 export const ROOT = '/'
 
 export interface RouteType {
   name: string
+  subtitle?: string
   url?: string
   description: string
-  gradient?: GradientType
-  iconUrl: string
+  icon: NextImageType
 }
 
 export const ROUTE_URLS = {
@@ -35,58 +35,42 @@ export const ROUTES: RouteType[] = [
     name: wording.sections.home_title,
     url: ROUTE_URLS.HOME,
     description: wording.sections.home_description,
-    iconUrl: PalmythologyLogo,
+    icon: PalmythologyLogo as unknown as NextImageType,
   },
   {
     name: wording.sections.q2n_title,
+    subtitle: 'Le planning',
     url: ROUTE_URLS.Q2N,
     description: wording.sections.q2n_description,
-    gradient: {
-      startingColor: SECTION_COLORS.Q2N[0],
-      endingColor: SECTION_COLORS.Q2N[1],
-    },
-    iconUrl: Q2NIcon,
+    icon: Q2NIcon as unknown as NextImageType,
   },
   {
     name: wording.sections.pantheon_title,
+    subtitle: '11 civilisations',
     url: ROUTE_URLS.PANTHEONS,
     description: wording.sections.pantheon_description,
-    gradient: {
-      startingColor: SECTION_COLORS.PANTHEONS[0],
-      endingColor: SECTION_COLORS.PANTHEONS[1],
-    },
-    iconUrl: LaurelIcon,
+    icon: LaurelIcon as unknown as NextImageType,
   },
   {
     name: wording.sections.subject_title,
+    subtitle: '7 thématiques',
     url: ROUTE_URLS.SUBJECTS,
     description: wording.sections.subject_description,
-    gradient: {
-      startingColor: SECTION_COLORS.SUBJECTS[0],
-      endingColor: SECTION_COLORS.SUBJECTS[1],
-      intermediateColor: SECTION_COLORS.SUBJECTS[2],
-    },
-    iconUrl: FoldersIcon,
+    icon: FoldersIcon as unknown as NextImageType,
   },
   {
     name: wording.sections.research_title,
     url: ROUTE_URLS.SEARCH,
+    subtitle: 'Trouver votre fiche',
     description: wording.sections.research_description,
-    gradient: {
-      startingColor: SECTION_COLORS.RESEARCH[0],
-      endingColor: SECTION_COLORS.RESEARCH[1],
-    },
-    iconUrl: MagnifyingGlassIcon,
+    icon: MagnifyingGlassIcon as unknown as NextImageType,
   },
   {
     name: wording.sections.about_title,
     url: ROUTE_URLS.ABOUT,
+    subtitle: 'La Palmythology et vous',
     description: wording.sections.about_description,
-    gradient: {
-      startingColor: SECTION_COLORS.ABOUT[0],
-      endingColor: SECTION_COLORS.ABOUT[1],
-    },
-    iconUrl: InformationIcon,
+    icon: InformationIcon as unknown as NextImageType,
   },
 ]
 
