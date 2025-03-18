@@ -9,6 +9,7 @@ import { SEO_WORDING } from '../../src/wording/fr/seo'
 import FrenchHeartIcon from '../../src/assets/icons/french_heart.svg'
 import NoAdsIcon from '../../src/assets/icons/no_ads.svg'
 import AnonymousIcon from '../../src/assets/icons/anonymous.svg'
+import { NextImageType } from '../../src/utils/image.constants'
 
 export const metadata: Metadata = {
   title: SEO_WORDING.ABOUT.title,
@@ -26,17 +27,17 @@ const AboutPage = () => {
         <PageSection
           name="100% français"
           description="Cocorico ! Le site web de la Palmythology est réalisé par un seul et unique développeur français."
-          iconUrl={FrenchHeartIcon}
+          icon={FrenchHeartIcon as unknown as NextImageType}
         />
         <PageSection
           name="Garanti sans publicité"
           description="La Palmythology vous garantit une navigation sans aucune pollution visuelle."
-          iconUrl={NoAdsIcon}
+          icon={NoAdsIcon as unknown as NextImageType}
         />
         <PageSection
           name="Données anonymisées"
           description="Le site récolte des statistiques de navigation sans pour autant impacter vos données personnelles."
-          iconUrl={AnonymousIcon}
+          icon={AnonymousIcon as unknown as NextImageType}
         />
       </div>
     </>

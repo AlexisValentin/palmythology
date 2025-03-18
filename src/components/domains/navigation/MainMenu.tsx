@@ -12,7 +12,7 @@ const MainMenu = () => {
   return (
     <nav className="flex items-center justify-evenly sticky top-0 z-10 drop-shadow-md bg-neutral-100 w-full px-6 sm:px-24 md:40 lg:px-56 xl:px-72 2xl:px-96 min-h-16">
       {ROUTES.map((route) => {
-        const { url, name, iconUrl } = route
+        const { url, name, icon } = route
 
         if (!url) return <div key={`section-${name}`} />
 
@@ -26,7 +26,7 @@ const MainMenu = () => {
               {isHomePage(name) ? (
                 <Image
                   className="rounded-full shadow-xl"
-                  src={iconUrl}
+                  src={icon}
                   alt="Logo de la Palmythology"
                   width={40}
                   height={40}
@@ -35,7 +35,7 @@ const MainMenu = () => {
                 <>
                   <div className="hidden md:block">{name}</div>
                   <div className="md:hidden block">
-                    <Image src={iconUrl} alt={name} width={40} height={40} />
+                    <Image src={icon} alt={name} width={40} height={40} />
                   </div>
                 </>
               )}
