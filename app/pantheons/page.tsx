@@ -1,26 +1,20 @@
-/* Libs */
 import React from 'react'
 import { Metadata } from 'next'
-
-/* Components */
 import PageHeader from '../../src/components/generics/PageHeader'
 import PantheonsList from '../../src/components/domains/cards/PantheonList'
 
-/* Wording */
-import { wording } from '../../src/wording/fr/main'
-import { SEO_WORDING } from '../../src/wording/fr/seo'
-
 export const metadata: Metadata = {
-  title: SEO_WORDING.PANTHEONS.title,
-  description: SEO_WORDING.PANTHEONS.description,
+  title: 'Liste des panthéons | Palmythology',
+  description:
+    'Sélectionnez un panthéon mythologique parmi 11 différents : grec, égyptien, scandinave, celtique, japonais, chinois, maya, aztèque, hindou, romain.',
 }
 
 const PantheonsPage = () => {
   return (
     <>
       <PageHeader
-        title={wording.sections.pantheon_title}
-        subtitle={wording.sections.pantheon_description}
+        title="Panthéons"
+        subtitle="Consultez tous les détails de chaque panthéon mythologique"
       />
       <PantheonsList />
     </>

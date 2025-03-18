@@ -12,7 +12,6 @@ import PageSquare, { CONTENT_TYPE } from '../../generics/PageSquare'
 import DoubleRightArrowIcon from '../../../assets/icons/double_arrow_right.svg'
 import Image from 'next/image'
 import PageHeader from '../../generics/PageHeader'
-import { wording } from '../../../wording/fr/main'
 import {
   MONTH_LABEL_TYPE,
   MONTH_VALUE_TYPE,
@@ -42,7 +41,7 @@ const Q2NCardList: React.FC<{ stories: any }> = ({ stories }) => {
   return (
     <>
       <PageHeader
-        title={`${wording.sections.q2n_title}`}
+        title="Quoi 2 Neuf ?"
         subtitle={`${parsedDate}`}
         fullDisplay
       />

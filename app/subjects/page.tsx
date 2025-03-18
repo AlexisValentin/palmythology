@@ -4,21 +4,20 @@ import PageHeader from '../../src/components/generics/PageHeader'
 import PageSquare, {
   CONTENT_TYPE,
 } from '../../src/components/generics/PageSquare'
-import { wording } from '../../src/wording/fr/main'
-import { SEO_WORDING } from '../../src/wording/fr/seo'
 import { ALL_SUBJECT } from '../../src/utils/cards/subjects.constants'
 
 export const metadata: Metadata = {
-  title: SEO_WORDING.SUBJECTS.title,
-  description: SEO_WORDING.SUBJECTS.description,
+  title: 'Liste des sujets | Palmythology',
+  description:
+    'Découvrez les fiches les plus populaires classées par thèmatiques : personnages, divinités, monstres, peuples, écrits et lieux.',
 }
 
 const SubjectsPage = () => {
   return (
     <>
       <PageHeader
-        title={wording.sections.subject_title}
-        subtitle={wording.sections.subject_description}
+        title="Sujets"
+        subtitle="Découvrez les fiches les plus populaires classées par thème"
       />
       <div className="flex flex-col items-center justify-center flex-wrap md:flex-row mt-4">
         {ALL_SUBJECT.map((subject, idx) => (

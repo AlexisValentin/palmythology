@@ -1,22 +1,10 @@
-/* Libs */
 import React from 'react'
-
-/* Components */
 import PageHeader from '../../../src/components/generics/PageHeader'
 import PantheonCardList from '../../../src/components/domains/cards/PantheonCardList'
-
-/* Hooks */
 import { usePantheonPageSquareLoader } from '../../../src/components/hooks/usePageSquareLoader'
-
-/* Methods */
 import { getPantheonStory } from '../../../src/utils/cms/cms.requests'
 import { getPantheonLabelFromValue } from '../../../src/utils/cards/pantheons'
-
-/* Types */
 import { PantheonValue } from '../../../src/utils/cards/pantheons.constants'
-
-/* Wording */
-import { SEO_WORDING } from '../../../src/wording/fr/seo'
 
 interface PantheonPagePropsType {
   params: Promise<{ pantheon: string }>
@@ -30,7 +18,8 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
   if (!story?.data?.story?.content) {
     return {
       title: pantheon,
-      description: SEO_WORDING.PANTHEON.description,
+      description:
+        "Retrouvez la fiche qu'il vous faut à travers la page dédiée aux panthéons spécifiques présentés par la Palmythology",
     }
   }
 
