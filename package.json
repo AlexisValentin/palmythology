@@ -5,10 +5,8 @@
   "dependencies": {
     "@storyblok/react": "^4.4.2",
     "axios": "^1.8.2",
-    "cross-env": "^7.0.3",
     "html-react-parser": "^5.2.2",
     "next": "^15.2.4",
-    "node-sass": "^9.0.0",
     "prettier": "^3.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
