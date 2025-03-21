@@ -3,16 +3,9 @@
 import { useCallback, useState } from 'react'
 import { BASE_INPUT_NAMES } from '../../../utils/form.constants'
 import SearchResults from './SearchResults'
-import FilterSelect from './FilterSelect'
+import SelectFilter from './SelectFilter'
 import { ALL_PANTHEON } from '../../../utils/cards/pantheons.constants'
 import { ALL_SUBJECT } from '../../../utils/cards/subjects.constants'
-
-interface FilterSelectProps {
-  value: string
-  label: string
-}
-
-export type ReactSelectValue = FilterSelectProps | null
 
 const Filter = () => {
   const [pantheonSearchCriteria, setPantheonSearchCriteria] = useState('')
@@ -23,19 +16,19 @@ const Filter = () => {
     subject: BASE_INPUT_NAMES.SUBJECT,
   }
 
-  const onPantheonSelectChange = useCallback((selected?: ReactSelectValue) => {
-    setPantheonSearchCriteria(selected?.value ?? '')
+  const onPantheonSelectChange = useCallback((selected: string) => {
+    setPantheonSearchCriteria(selected)
   }, [])
 
-  const onSubjectSelectChange = useCallback((selected?: ReactSelectValue) => {
-    setSubjectSearchCriteria(selected?.value ?? '')
+  const onSubjectSelectChange = useCallback((selected: string) => {
+    setSubjectSearchCriteria(selected)
   }, [])
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <div className="flex items-center justify-center">
-        <div className="m-2 w-40">
-          <FilterSelect
+    <div className="flex flex-col items-center justify-center mt-12">
+      <form className="flex items-center justify-center">
+        <div className="mr-6 w-40">
+          <SelectFilter
             key="pantheon_select"
             selectLabel="Panthéon"
             selectName={selectNames.pantheon}
@@ -43,8 +36,8 @@ const Filter = () => {
             options={ALL_PANTHEON}
           />
         </div>
-        <div className="m-2 w-40">
-          <FilterSelect
+        <div className="ml-6 w-40">
+          <SelectFilter
             key="subject_select"
             selectLabel="Sujet"
             selectName={selectNames.subject}
@@ -52,7 +45,7 @@ const Filter = () => {
             options={ALL_SUBJECT}
           />
         </div>
-      </div>
+      </form>
       <SearchResults
         pantheon={pantheonSearchCriteria}
         subject={subjectSearchCriteria}
