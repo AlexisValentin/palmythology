@@ -1,6 +1,6 @@
 import React from 'react'
 import { redirect } from 'next/navigation'
-import Carrousel from '../../../src/components/generics/Carrousel'
+import Carousel from '../../../src/components/generics/Carousel'
 import PageHeader from '../../../src/components/generics/PageHeader'
 import PageSquare, {
   CONTENT_TYPE,
@@ -117,7 +117,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
         )}
       </div>
       <div className="flex items-center justify-center w-full lg:w-3/4 mt-4">
-        <Carrousel imageList={images} />
+        <Carousel imageList={images} />
       </div>
       {transcription && <Transcription transcription={transcription} />}
       {relatedCards && relatedCards.length > 0 && (
