@@ -59,7 +59,7 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
     <div className="mt-12">
       {areFiltersUnfilled() && (
         <h2 className="flex justify-center text-xl font-bold mb-8">
-          Les fiches récentes
+          Les dernières fiches mises à jour
         </h2>
       )}
       <div className="flex items-center justify-center flex-wrap">

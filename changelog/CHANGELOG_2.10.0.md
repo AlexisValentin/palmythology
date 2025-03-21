@@ -1,5 +1,9 @@
 # Notes de version 2.10.0 (??/03/2025)
 
+## Recherche
+
+- Remplacement des filtres de recherche par des éléments HTML natifs, plutôt que de passer par une librairie tierce.
+
 ## Divers
 
 - Mise en place d'un modèle fichier d'environnement.
