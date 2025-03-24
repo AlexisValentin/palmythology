@@ -1,6 +1,6 @@
 {
   "name": "palmythology",
-  "version": "2.9.0",
+  "version": "2.9.1",
   "private": true,
   "dependencies": {
     "@storyblok/react": "^4.4.0",
@@ -10,7 +10,7 @@
     "html-react-parser": "^5.2.2",
     "lodash": "^4.17.21",
     "lodash.uniq": "^4.5.0",
-    "next": "^15.1.7",
+    "next": "^15.2.4",
     "node-sass": "^9.0.0",
     "prettier": "^3.5.1",
     "react": "^19.0.0",
