@@ -6,7 +6,7 @@ import {
   generateBreadcrumbLinks,
   getHomeBreadcrumbNode,
   parseBreadcrumbNode,
-} from '../../helpers/routes/routes'
+} from '../../utils/routes/routes'
 
 const Breadcrumbs: React.FC = () => {
   const nodes = usePathname()

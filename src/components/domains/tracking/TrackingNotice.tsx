@@ -1,12 +1,11 @@
 'use client'
 
-import { isPageServerSide } from '../../../helpers/browser'
+import { isPageServerSide } from '../../../utils/browser'
 import {
   getFromLocalStorage,
   LOCAL_STORAGE_KEYS,
   setInLocalStorage,
-} from '../../../helpers/storage'
-import { MODAL_IDS } from '../../../types/consts/modal'
+} from '../../../utils/storage'
 import Modal from '../../generics/Modal'
 import useModal from '../../hooks/useModal'
 
@@ -31,7 +30,6 @@ const TrackingNotice = () => {
 
   return (
     <Modal
-      modalId={MODAL_IDS.TRACKING}
       onClick={onClick}
       options={{
         additionalUrl: plausibleUrl,
