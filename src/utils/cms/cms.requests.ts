@@ -117,15 +117,7 @@ const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
   const { name, subtitle, icon, pantheon, subject, available, isFolder } =
     card.content
 
-  return {
-    name,
-    subtitle,
-    icon,
-    pantheon,
-    subject,
-    available,
-    isFolder,
-  }
+  return { name, subtitle, icon, pantheon, subject, available, isFolder }
 }
 
 const parseQuoi2NeufData = (
@@ -134,12 +126,5 @@ const parseQuoi2NeufData = (
   const { title, subtitle, icon, available, pantheon, month } =
     quoi2NeufItem.content
 
-  return {
-    title,
-    subtitle,
-    icon,
-    available,
-    pantheon,
-    month,
-  }
+  return { title, subtitle, icon, available, pantheon, month }
 }
