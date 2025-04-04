@@ -20,3 +20,4 @@
 - Mise à jour des dépendances vers leurs versions mineures.
 - Mise à jour des dépendances vers leurs versions majeures.
 - Modifications techniques et réorganisation architecturale.
+- Ajout de tests dédiés aux composants du site.
