@@ -3,6 +3,11 @@
 ## Panthéons
 
 - Correction d'un bug faisant qu'une erreur se déclenchait lorsque l'utilisateur cliquait sur le lien d'un panthéon dans le fil d'ariane.
+- Être sur la page d'un panthéon dédié affiche désormais les 12 dernières fiches parues plutôt qu'une liste maintenue manuellement via le CMS.
+
+## Sujets
+
+- Être sur la page d'un sujet dédié affiche désormais les 12 dernières fiches parues plutôt qu'une liste maintenue manuellement via le CMS.
 
 ## Recherche
 

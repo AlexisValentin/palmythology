@@ -1,16 +1,14 @@
 import { CardRelatedType } from '../../../utils/cms/cms.constants'
 import PageSquare, { CONTENT_TYPE } from '../../generics/PageSquare'
-import Summary from '../../generics/Summary'
 
-const SubjectCardList = ({
-  summary,
-  relatedCards,
-}: {
-  summary: string
+interface PantheonCardListProps {
   relatedCards: CardRelatedType[]
+}
+
+const PantheonCardList: React.FC<PantheonCardListProps> = ({
+  relatedCards,
 }) => (
   <>
-    {summary && <Summary content={summary} />}
     {relatedCards && relatedCards.length > 0 && (
       <div className="flex flex-col mt-2 xl:mt-0">
         <div className="flex flex-col justify-center lg:flex-wrap lg:flex-row mt-4">
@@ -30,4 +28,4 @@ const SubjectCardList = ({
   </>
 )
 
-export default SubjectCardList
+export default PantheonCardList

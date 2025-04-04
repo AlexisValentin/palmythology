@@ -1,8 +1,10 @@
 import React from 'react'
 import PageHeader from '../../../src/components/generics/PageHeader'
-import SubjectCardList from '../../../src/components/domains/cards/SubjectCardList'
-import { useSubjectPageSquareLoader } from '../../../src/components/hooks/usePageSquareLoader'
-import { getSubjectStory } from '../../../src/utils/cms/cms.requests'
+import SubjectCardList from '../../../src/components/domains/cards/LPCardList'
+import {
+  fetchCardStories,
+  getSubjectStory,
+} from '../../../src/utils/cms/cms.requests'
 import { getSubjectLabelFromValue } from '../../../src/utils/cards/subjects'
 import { SubjectValue } from '../../../src/utils/cards/subjects.constants'
 
@@ -35,14 +37,14 @@ const SubjectPage = async ({ params }: SubjectPagePropsType) => {
   const pageParams = await params
   const subject = pageParams.subject
 
-  const { relatedCards, summary } = await useSubjectPageSquareLoader(subject)
+  const { results } = await fetchCardStories({ pantheon: '', subject }, 1)
 
   const subjectLabel = getSubjectLabelFromValue(subject! as SubjectValue)
 
   return (
     <>
       <PageHeader title={`${subjectLabel}`} />
-      <SubjectCardList summary={summary} relatedCards={relatedCards} />
+      <SubjectCardList relatedCards={results} />
     </>
   )
 }

@@ -1,8 +1,10 @@
 import React from 'react'
 import PageHeader from '../../../src/components/generics/PageHeader'
-import PantheonCardList from '../../../src/components/domains/cards/PantheonCardList'
-import { usePantheonPageSquareLoader } from '../../../src/components/hooks/usePageSquareLoader'
-import { getPantheonStory } from '../../../src/utils/cms/cms.requests'
+import PantheonCardList from '../../../src/components/domains/cards/LPCardList'
+import {
+  fetchCardStories,
+  getPantheonStory,
+} from '../../../src/utils/cms/cms.requests'
 import { getPantheonLabelFromValue } from '../../../src/utils/cards/pantheons'
 import { PantheonValue } from '../../../src/utils/cards/pantheons.constants'
 
@@ -35,14 +37,14 @@ const PantheonPage = async ({ params }: PantheonPagePropsType) => {
   const pageParams = await params
   const pantheon = pageParams.pantheon
 
-  const { relatedCards, summary } = await usePantheonPageSquareLoader(pantheon)
+  const { results } = await fetchCardStories({ pantheon, subject: '' }, 1)
 
-  const pantheonLabel = getPantheonLabelFromValue(pantheon! as PantheonValue)
+  const pantheonLabel = getPantheonLabelFromValue(pantheon as PantheonValue)
 
   return (
     <>
       <PageHeader title={`Panthéon ${pantheonLabel?.toLowerCase()}`} />
-      <PantheonCardList summary={summary} relatedCards={relatedCards} />
+      <PantheonCardList relatedCards={results} />
     </>
   )
 }
