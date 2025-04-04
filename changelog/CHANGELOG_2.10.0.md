@@ -1,4 +1,8 @@
-# Notes de version 2.10.0 (??/03/2025)
+# Notes de version 2.10.0 (??/04/2025)
+
+## Panthéons
+
+- Correction d'un bug faisant qu'une erreur se déclenchait lorsque l'utilisateur cliquait sur le lien d'un panthéon dans le fil d'ariane.
 
 ## Recherche
 

@@ -27,8 +27,6 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
   const pantheon = pageParams.card[0]
   const title = pageParams.card[1]
 
-  if (!title && pantheon) redirect(`/pantheons/${pantheon}`)
-
   const story = await getCardStory(title, pantheon)
 
   if (!story?.data?.story?.content) {
@@ -55,6 +53,8 @@ const CardPage = async ({ params }: CardPagePropsType) => {
   const pageParams = await params
   const pantheon = pageParams.card[0]
   const title = pageParams.card[1]
+
+  if (!title && pantheon) redirect(`/pantheons/${pantheon}`)
 
   const story = await getCardStory(title, pantheon)
 
