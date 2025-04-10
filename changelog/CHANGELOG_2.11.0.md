@@ -3,3 +3,4 @@
 ## Divers
 
 - Mise à jour des dépendances vers leurs versions de patch.
+- Mise à jour des dépendances vers leurs versions mineures.
