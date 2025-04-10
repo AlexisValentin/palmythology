@@ -12,6 +12,7 @@
 ## Recherche
 
 - Remplacement des filtres de recherche par des éléments HTML natifs, plutôt que de passer par une librairie tierce.
+- Correction d'un bug qui faisait que la précédente pagination peristait après avoir rétablit les filtres de recherche par défaut.
 
 ## Divers
 

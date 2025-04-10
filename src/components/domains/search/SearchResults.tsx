@@ -41,6 +41,8 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
         const cards = await getPlaceholderCards()
 
         const { results } = cards
+
+        setTotalResult(0)
         setSearchResults(results)
       } else {
         const cards = await filterCards(currentPage, searchCriterias)
