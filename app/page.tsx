@@ -1,42 +1,36 @@
 import { Metadata } from 'next'
 import PageHeader from '../src/components/generics/PageHeader'
-import PageSection from '../src/components/generics/PageSection'
-import { ROUTES } from '../src/helpers/routes/routes.const'
-import { wording } from '../src/wording/fr/main'
-import { SEO_WORDING } from '../src/wording/fr/seo'
+import { ROUTES } from '../src/utils/routes/routes.constants'
 import CardRandomizer from '../src/components/domains/cards/CardRandomizer'
+import PageSquare, { CONTENT_TYPE } from '../src/components/generics/PageSquare'
 
 export const metadata: Metadata = {
-  title: SEO_WORDING.HOME.title,
-  description: SEO_WORDING.HOME.description,
+  title: "Palmythology, l'encyclopédie mythologique",
+  description:
+    "Découvrez les mythologies du monde en plongeant dans l'histoire et la culture divine à travers des fiches simple, intuitives et pédagogiques.",
 }
 
 const HomePage = () => {
   return (
     <>
-      <PageHeader
-        title={wording.sections.home_title}
-        subtitle={wording.sections.home_description}
-      />
-      <div className="flex flex-row justify-center flex-wrap mx-8 sm:block sm:mx-0 md:mt-16">
+      <PageHeader title="Palmythology" subtitle="L'encyclopédie mythologique" />
+      <div className="flex flex-row justify-center flex-wrap mx-8 sm:mx-0 md:mt-16">
         {ROUTES.map((route) => {
-          const { name, url, description, gradient, iconUrl } = route
-          const { home_title } = wording.sections
+          const { name, subtitle, url, icon } = route
 
-          if (name === home_title) {
+          if (name === 'Palmythology') {
             return <div key={`section-${name}`} />
           }
 
           return (
-            <div className="md:mb-8" key={`section-${name}`}>
-              <PageSection
-                name={name}
-                url={url}
-                description={description}
-                gradient={gradient}
-                iconUrl={iconUrl}
-              />
-            </div>
+            <PageSquare
+              title={name}
+              subtitle={subtitle}
+              url={url}
+              icon={icon.src}
+              contentType={CONTENT_TYPE.ROUTE}
+              key={`section-${name}`}
+            />
           )
         })}
       </div>

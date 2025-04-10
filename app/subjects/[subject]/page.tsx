@@ -1,22 +1,12 @@
-/* Libs */
 import React from 'react'
-
-/* Components */
 import PageHeader from '../../../src/components/generics/PageHeader'
-import SubjectCardList from '../../../src/components/domains/cards/SubjectCardList'
-
-/* Hooks */
-import { useSubjectPageSquareLoader } from '../../../src/components/hooks/usePageSquareLoader'
-
-/* Methods */
-import { getSubjectLabelFromValue } from '../../../src/helpers/dictionary'
-import { getSubjectStory } from '../../../src/helpers/storyblok'
-
-/* Types */
-import { SubjectValue } from '../../../src/types/cards/subjects'
-
-/* Wording */
-import { SEO_WORDING } from '../../../src/wording/fr/seo'
+import SubjectCardList from '../../../src/components/domains/cards/LPCardList'
+import {
+  fetchCardStories,
+  getSubjectStory,
+} from '../../../src/utils/cms/cms.requests'
+import { getSubjectLabelFromValue } from '../../../src/utils/cards/subjects'
+import { SubjectValue } from '../../../src/utils/cards/subjects.constants'
 
 interface SubjectPagePropsType {
   params: Promise<{ subject: string }>
@@ -30,7 +20,8 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
   if (!story?.data?.story?.content) {
     return {
       title: subject,
-      description: SEO_WORDING.PANTHEON.description,
+      description:
+        "Retrouvez la fiche qu'il vous faut à travers la page dédiée aux thématiques dédiées présentées par la Palmythology.",
     }
   }
 
@@ -46,14 +37,14 @@ const SubjectPage = async ({ params }: SubjectPagePropsType) => {
   const pageParams = await params
   const subject = pageParams.subject
 
-  const { relatedCards, summary } = await useSubjectPageSquareLoader(subject)
+  const { results } = await fetchCardStories({ pantheon: '', subject }, 1)
 
   const subjectLabel = getSubjectLabelFromValue(subject! as SubjectValue)
 
   return (
     <>
       <PageHeader title={`${subjectLabel}`} />
-      <SubjectCardList summary={summary} relatedCards={relatedCards} />
+      <SubjectCardList relatedCards={results} />
     </>
   )
 }

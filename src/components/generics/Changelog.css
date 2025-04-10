@@ -1,12 +1,12 @@
 .changelog {
   h1 {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 900;
     margin-bottom: 16px;
   }
 
   h2 {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 12px;
   }
@@ -36,7 +36,7 @@
   th,
   td {
     padding: 4px 8px;
-    font-size: 14px;
+    font-size: 1rem;
     border-right: 1px solid grey;
   }
 

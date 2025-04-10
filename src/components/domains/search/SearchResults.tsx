@@ -5,12 +5,12 @@ import { filterCards, getPlaceholderCards } from '../../../modules/searchEngine'
 import {
   ResearchCriterias,
   TranslatedCardDetails,
-} from '../../../types/cards/card'
-import { getPantheonValueFromLabel } from '../../../helpers/dictionary'
+} from '../../../utils/cards/card.constants'
 import Pagination from '../../generics/Pagination'
-import { STORYBLOK_RESULTS_PER_PAGE } from '../../../types/storyblok/storyblok'
-import { isStringEmpty } from '../../../helpers/string'
+import { STORYBLOK_RESULTS_PER_PAGE } from '../../../utils/cms/cms.constants'
+import { isStringEmpty } from '../../../utils/string'
 import PageSquare, { CONTENT_TYPE } from '../../generics/PageSquare'
+import { getPantheonValueFromLabel } from '../../../utils/cards/pantheons'
 
 const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
   const [searchCriterias, setSearchCriterias] = useState<ResearchCriterias>({
@@ -36,28 +36,32 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
   }, [pantheon, subject])
 
   useEffect(() => {
-    if (areFiltersUnfilled()) {
-      getPlaceholderCards().then((cards) => {
-        const { results } = cards
-        setSearchResults(results)
-      })
-    } else {
-      filterCards(currentPage, searchCriterias)
-        .then((cards) => {
-          const { results, total } = cards
-          setSearchResults(results)
+    const updateResultData = async () => {
+      if (areFiltersUnfilled()) {
+        const cards = await getPlaceholderCards()
 
-          return total
-        })
-        .then((total) => setTotalResult(total))
+        const { results } = cards
+
+        setTotalResult(0)
+        setSearchResults(results)
+      } else {
+        const cards = await filterCards(currentPage, searchCriterias)
+
+        const { results, total } = cards
+        setSearchResults(results)
+
+        setTotalResult(total)
+      }
     }
+
+    updateResultData()
   }, [searchCriterias, currentPage, areFiltersUnfilled])
 
   return (
     <div className="mt-12">
       {areFiltersUnfilled() && (
         <h2 className="flex justify-center text-xl font-bold mb-8">
-          Les fiches récentes
+          Les dernières fiches mises à jour
         </h2>
       )}
       <div className="flex items-center justify-center flex-wrap">

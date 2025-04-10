@@ -15,7 +15,7 @@ app
   .then(() => {
     createServer((req, res) => {
       const parsedUrl = parse(req.url, true)
-      const { pathname, query } = parsedUrl
+      const { pathname } = parsedUrl
       handle(req, res, parsedUrl)
       console.log('pathname', pathname)
     }).listen(port, (err) => {

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import {
   SOCIAL_NETWORKS,
   SOCIAL_NETWORK_STATUS,
-} from '../../types/consts/socialNetworks'
+} from '../../utils/socials.constants'
 
 interface SocialNetworkProps {
   name: string

@@ -1,26 +1,22 @@
 import React from 'react'
 import { redirect } from 'next/navigation'
-
-import Carrousel from '../../../src/components/generics/Carrousel'
+import Carousel from '../../../src/components/generics/Carousel'
 import PageHeader from '../../../src/components/generics/PageHeader'
 import PageSquare, {
   CONTENT_TYPE,
   PAGE_SQUARE_SIZE_TYPE,
 } from '../../../src/components/generics/PageSquare'
 import SocialNetworks from '../../../src/components/generics/SocialNetworks'
-import {
-  getPantheonLabelFromValue,
-  getSubjectLabelFromValue,
-} from '../../../src/helpers/dictionary'
-import { getPantheonData } from '../../../src/helpers/pantheons'
-import { getCardStory } from '../../../src/helpers/storyblok'
-import { capitalize, replaceDashesBySpaces } from '../../../src/helpers/string'
-import { getSubjectData } from '../../../src/helpers/subjects'
-import { PantheonValue } from '../../../src/types/cards/pantheons'
-import { SubjectValue } from '../../../src/types/cards/subjects'
-import { CardRelatedType } from '../../../src/types/storyblok/storyblok'
-import { SEO_WORDING } from '../../../src/wording/fr/seo'
-import Transcription from '../../../src/components/generics/Transcription'
+import { getPantheonData } from '../../../src/utils/pantheons'
+import { getCardStory } from '../../../src/utils/cms/cms.requests'
+import { capitalize, replaceDashesBySpaces } from '../../../src/utils/string'
+import { getSubjectData } from '../../../src/utils/subjects'
+import { PantheonValue } from '../../../src/utils/cards/pantheons.constants'
+import { SubjectValue } from '../../../src/utils/cards/subjects.constants'
+import Transcription from '../../../src/components/domains/cards/Transcription'
+import { CardRelatedType } from '../../../src/utils/cms/cms.constants'
+import { getPantheonLabelFromValue } from '../../../src/utils/cards/pantheons'
+import { getSubjectLabelFromValue } from '../../../src/utils/cards/subjects'
 
 interface CardPagePropsType {
   params: Promise<{ card: string[] }>
@@ -31,14 +27,12 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
   const pantheon = pageParams.card[0]
   const title = pageParams.card[1]
 
-  if (!title && pantheon) redirect(`/pantheons/${pantheon}`)
-
   const story = await getCardStory(title, pantheon)
 
   if (!story?.data?.story?.content) {
     return {
-      title: SEO_WORDING.CARD.title,
-      description: SEO_WORDING.CARD.description,
+      title: 'Les grandes lignes | Palmythology',
+      description: `C'est ici que vous retrouverez toutes les informations sur la fiche de la Palmythology de vos rêves : que ce soit les divinités grecques, les créatures égyptiennes ou encore les batailles légendaire scandinaves, retrouvez avec détails toutes les informations sur le sujet de votre choix, avec des fiches agrémentées d'illustrations attrayantes et d'explications passionantes.`,
     }
   }
 
@@ -59,6 +53,8 @@ const CardPage = async ({ params }: CardPagePropsType) => {
   const pageParams = await params
   const pantheon = pageParams.card[0]
   const title = pageParams.card[1]
+
+  if (!title && pantheon) redirect(`/pantheons/${pantheon}`)
 
   const story = await getCardStory(title, pantheon)
 
@@ -121,7 +117,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
         )}
       </div>
       <div className="flex items-center justify-center w-full lg:w-3/4 mt-4">
-        <Carrousel imageList={images} />
+        <Carousel imageList={images} />
       </div>
       {transcription && <Transcription transcription={transcription} />}
       {relatedCards && relatedCards.length > 0 && (
