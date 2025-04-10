@@ -1,4 +1,4 @@
-# Notes de version 2.10.0 (??/04/2025)
+# Notes de version 2.10.0 (10/04/2025)
 
 ## Panthéons
 
