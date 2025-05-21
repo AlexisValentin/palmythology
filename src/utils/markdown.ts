@@ -12,5 +12,6 @@ export const parseChangelogToHtml = async () =>
     .use(remarkParse)
     .use(remarkGfm)
     .use(remarkRehype)
+    // @ts-ignore
     .use(rehypeStringify)
     .process(await read(`changelog/CHANGELOG_${version}.md`))
