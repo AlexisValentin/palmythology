@@ -1,6 +1,6 @@
 'use client'
 
-import { isPageServerSide } from '../../../utils/browser'
+import { useEffect, useState } from 'react'
 import {
   getFromLocalStorage,
   LOCAL_STORAGE_KEYS,
@@ -10,11 +10,14 @@ import Modal from '../../generics/Modal'
 import useModal from '../../hooks/useModal'
 
 const TrackingNotice = () => {
+  const [isMounted, setIsMounted] = useState(false)
   const { shouldDisplayModal, hideModal } = useModal(
-    !Boolean(
-      getFromLocalStorage(LOCAL_STORAGE_KEYS.MODAL_TRACKING_LAST_DISPLAY),
-    ),
+    !getFromLocalStorage(LOCAL_STORAGE_KEYS.MODAL_TRACKING_LAST_DISPLAY),
   )
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   const onClick = () => {
     setInLocalStorage(
@@ -24,7 +27,7 @@ const TrackingNotice = () => {
     hideModal()
   }
 
-  if (isPageServerSide() || !shouldDisplayModal) return <></>
+  if (!isMounted || !shouldDisplayModal) return <></>
 
   const plausibleUrl = 'https://plausible.io/data-policy'
 
