@@ -7,7 +7,24 @@ import PageSquare, { CONTENT_TYPE } from '../src/components/generics/PageSquare'
 export const metadata: Metadata = {
   title: "Palmythology, l'encyclopédie mythologique",
   description:
-    "Découvrez les mythologies du monde en plongeant dans l'histoire et la culture divine à travers des fiches simple, intuitives et pédagogiques.",
+    "Explorez les mythologies du monde avec des fiches simples et intuitives avec la Palmythology. Découvrez les divinités, légendes et panthéons qui ont façonnés l'histoire et les croyances.",
+  openGraph: {
+    title: "Palmythology, l'encyclopédie mythologique",
+    description:
+      "Explorez les mythologies du monde avec des fiches simples et intuitives avec la Palmythology. Découvrez les divinités, légendes et panthéons qui ont façonnés l'histoire et les croyances.",
+    url: 'https://palmythology.com/',
+    siteName: 'Palmythology',
+    images: [
+      {
+        url: 'https://palmythology.com/icon/favicon.ico',
+        width: 600,
+        height: 600,
+        alt: 'Logo officiel de la Palmythology',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
 }
 
 const HomePage = () => {

@@ -8,9 +8,25 @@ import AnonymousIcon from '../../src/assets/icons/anonymous.svg'
 import { NextImageType } from '../../src/utils/image.constants'
 
 export const metadata: Metadata = {
-  title: 'Recherche de contenu | Palmythology',
+  title: 'A propos du site | Palmythology',
   description:
-    "Découvrez les mythologies du monde en plongeant dans l'histoire et la culture divine à travers des fiches simple, intuitives et pédagogiques.",
+    "La Palmythology vous propose une expérience sans publicité et sans pollution visuelle. Bien que récoltées, vos données de navigation restent anonymisée dans le but d'améliorer la qualité de l'expérience utilisateur.",
+  openGraph: {
+    title: 'A propos du site | Palmythology',
+    description: `La Palmythology vous propose une expérience sans publicité et sans pollution visuelle. Bien que récoltées, vos données de navigation restent anonymisée dans le but d'améliorer la qualité de l'expérience utilisateur.`,
+    url: 'https://palmythology.com/about',
+    siteName: 'Palmythology',
+    images: [
+      {
+        url: 'https://palmythology.com/icon/favicon.ico',
+        width: 600,
+        height: 600,
+        alt: 'Logo officiel de la Palmythology',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
 }
 
 const AboutPage = () => {

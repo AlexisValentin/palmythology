@@ -19,9 +19,24 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 
   if (!story?.data?.story?.content) {
     return {
-      title: subject,
+      title: `Sujets ${subject} | Palmythology`,
       description:
-        "Retrouvez la fiche qu'il vous faut à travers la page dédiée aux thématiques dédiées présentées par la Palmythology.",
+        "Retrouvez la fiche mythologique qu'il vous faut, quelque soit le panthéon, à travers la page dédiée aux thématiques et sujets présentées par la Palmythology.",
+      openGraph: {
+        title: `Sujets ${subject} | Palmythology`,
+        description: `Retrouvez la fiche mythologique qu'il vous faut, quelque soit le panthéon, à travers la page dédiée aux thématiques et sujets présentées par la Palmythology.`,
+        siteName: 'Palmythology',
+        images: [
+          {
+            url: 'https://palmythology.com/icon/favicon.ico',
+            width: 600,
+            height: 600,
+            alt: 'Logo officiel de la Palmythology',
+          },
+        ],
+        locale: 'fr_FR',
+        type: 'website',
+      },
     }
   }
 
@@ -30,6 +45,23 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
       subject as SubjectValue,
     )?.toLowerCase()} | Palmythology`,
     description: story.data.story.content?.summary,
+    openGraph: {
+      title: `Sujet ${getSubjectLabelFromValue(
+        subject as SubjectValue,
+      )?.toLowerCase()} | Palmythology`,
+      description: story.data.story.content?.summary,
+      siteName: 'Palmythology',
+      images: [
+        {
+          url: 'https://palmythology.com/icon/favicon.ico',
+          width: 600,
+          height: 600,
+          alt: 'Logo officiel de la Palmythology',
+        },
+      ],
+      locale: 'fr_FR',
+      type: 'website',
+    },
   }
 }
 

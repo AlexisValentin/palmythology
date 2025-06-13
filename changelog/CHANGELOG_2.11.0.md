@@ -1,5 +1,9 @@
 # Notes de version 2.11.0 (??/05/2025)
 
+## Général
+
+- Mise à jour et optimisation des métadonnées du site.
+
 ## Divers
 
 - La page des notes de versions n'est désormais plus disponible sur le site, mais les notes de versions sont toujours renseignées dans le markdown.

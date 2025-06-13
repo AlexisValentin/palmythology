@@ -1,4 +1,3 @@
-import React from 'react'
 import { Metadata } from 'next'
 import PageHeader from '../../src/components/generics/PageHeader'
 import PageSquare, {
@@ -9,7 +8,23 @@ import { ALL_SUBJECT } from '../../src/utils/cards/subjects.constants'
 export const metadata: Metadata = {
   title: 'Liste des sujets | Palmythology',
   description:
-    'Découvrez les fiches les plus populaires classées par thèmatiques : personnages, divinités, monstres, peuples, écrits et lieux.',
+    'Découvrez les fiches mythologiques les plus populaires, tout panthéons confondus, classées par thèmatiques : personnages, divinités, monstres, peuples, écrits et lieux.',
+  openGraph: {
+    title: 'Liste des sujets | Palmythology',
+    description: `Découvrez les fiches mythologiques les plus populaires, tout panthéons confondus, classées par thèmatiques : personnages, divinités, monstres, peuples, écrits et lieux.`,
+    url: 'https://palmythology.com/subjects',
+    siteName: 'Palmythology',
+    images: [
+      {
+        url: 'https://palmythology.com/icon/favicon.ico',
+        width: 600,
+        height: 600,
+        alt: 'Logo officiel de la Palmythology',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
 }
 
 const SubjectsPage = () => {

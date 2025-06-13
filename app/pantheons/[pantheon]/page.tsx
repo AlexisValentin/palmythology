@@ -21,7 +21,22 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
     return {
       title: pantheon,
       description:
-        "Retrouvez la fiche qu'il vous faut à travers la page dédiée aux panthéons spécifiques présentés par la Palmythology",
+        "Retrouvez la fiche mythologique qu'il vous faut à travers la page dédiée aux panthéons spécifiques présentés par la Palmythology.",
+      openGraph: {
+        title: `Panthéon ${pantheon} | Palmythology`,
+        description: `Retrouvez la fiche mythologique qu'il vous faut à travers la page dédiée aux panthéons spécifiques présentés par la Palmythology.`,
+        siteName: 'Palmythology',
+        images: [
+          {
+            url: 'https://palmythology.com/icon/favicon.ico',
+            width: 600,
+            height: 600,
+            alt: 'Logo officiel de la Palmythology',
+          },
+        ],
+        locale: 'fr_FR',
+        type: 'website',
+      },
     }
   }
 
@@ -30,6 +45,23 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
       pantheon as PantheonValue,
     )} | Palmythology`,
     description: story.data.story.content?.summary,
+    openGraph: {
+      title: `Panthéon ${getPantheonLabelFromValue(
+        pantheon as PantheonValue,
+      )} | Palmythology`,
+      description: story.data.story.content?.summary,
+      siteName: 'Palmythology',
+      images: [
+        {
+          url: 'https://palmythology.com/icon/favicon.ico',
+          width: 600,
+          height: 600,
+          alt: 'Logo officiel de la Palmythology',
+        },
+      ],
+      locale: 'fr_FR',
+      type: 'website',
+    },
   }
 }
 

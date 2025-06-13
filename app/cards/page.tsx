@@ -9,7 +9,23 @@ import { NextImageType } from '../../src/utils/image.constants'
 export const metadata: Metadata = {
   title: 'Fiches mythologiques | Palmythology',
   description:
-    'Des résumés simples accompagnés une direction artistique colorées, la Palmythology vous propose de plonger dans des fiches mythologiques intuitive et pédagogiques pour en apprendre toujours plus sur les différents panthéons dans le monde.',
+    'Avec des résumés simples accompagnés une direction artistique colorées, la Palmythology vous propose de plonger dans des fiches mythologiques intuitive et pédagogiques pour en apprendre toujours plus sur les différents panthéons et mythologies du monde.',
+  openGraph: {
+    title: 'Fiches mythologiques | Palmythology',
+    description: `Avec des résumés simples accompagnés une direction artistique colorées, la Palmythology vous propose de plonger dans des fiches mythologiques intuitive et pédagogiques pour en apprendre toujours plus sur les différents panthéons et mythologies du monde.`,
+    url: 'https://palmythology.com/cards',
+    siteName: 'Palmythology',
+    images: [
+      {
+        url: 'https://palmythology.com/icon/favicon.ico',
+        width: 600,
+        height: 600,
+        alt: 'Logo officiel de la Palmythology',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
 }
 
 const CardHubPage = () => {

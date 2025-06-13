@@ -1,11 +1,26 @@
-import React from 'react'
 import { Metadata } from 'next'
 import Q2NCardList from '../../src/components/domains/cards/Quoi2NeufCardList'
 import { fetchQuoi2NeufStories } from '../../src/utils/cms/cms.requests'
 
 export const metadata: Metadata = {
-  title: 'Quoi 2 Neuf, planning du mois | Palmythology',
-  description: `C'est dans la section "Quoi 2 Neuf" que vous pouvez consulter le planning du mois en cours, ainsi que les fiches prévues qui sont déjà disponible sur le site web de la Palmythology et les réseaux sociaux ! Chaque fiche prévue est inscrite avec son illustration, son nom et son sous-titre tel qu'il paraîtra dans le mois courant.`,
+  title: 'Quoi 2 Neuf, planning de sortie des fiches | Palmythology',
+  description: `Découvrez le planning mensuel de la Palmythology et anticipez les futures fiches. Chaque mois, plongez dans l'univers des mythologies à travers des fiches détaillées et pedagogiques.`,
+  openGraph: {
+    title: 'Quoi 2 Neuf, planning de sortie des fiches | Palmythology',
+    description: `Découvrez le planning mensuel de la Palmythology et anticipez les futures fiches. Chaque mois, plongez dans l'univers des mythologies à travers des fiches détaillées et pedagogiques.`,
+    url: 'https://palmythology.com/q2n',
+    siteName: 'Palmythology',
+    images: [
+      {
+        url: 'https://palmythology.com/icon/favicon.ico',
+        width: 600,
+        height: 600,
+        alt: 'Logo officiel de la Palmythology',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
 }
 
 const Quoi2NeufPage = async () => {
