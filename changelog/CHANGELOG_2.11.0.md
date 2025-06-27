@@ -3,6 +3,7 @@
 ## Général
 
 - Mise à jour et optimisation des métadonnées du site.
+- Ajout d'un bouton de refus dans la popup de consentement aux données de navigation.
 
 ## Divers
 

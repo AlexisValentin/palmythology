@@ -15,7 +15,7 @@ const Modal: React.FC<ModalProps> = ({ onClick, options }) => {
     <>
       <div className="fixed top-0 left-0 bg-slate-300 opacity-75 w-full h-full z-40" />
       <div className="fixed bg-white border-t-2 border-slate-300 bottom-0 w-full md:border-0 md:w-auto md:bottom-auto md:top-1/2 md:left-1/2 z-50 md:-translate-x-1/2 md:-translate-y-1/2 shadow-2xl rounded-lg opacity-100">
-        <div className="m-8">
+        <div className="m-8 mt-10">
           <h2 className="text-2xl font-bold mb-4">
             La Palmythology utilise vos données de navigation
           </h2>
@@ -32,20 +32,31 @@ const Modal: React.FC<ModalProps> = ({ onClick, options }) => {
             Palmythology s'engage à traiter vos données avec le plus grand soin,
             sans aucune atteinte à votre vie privée.
           </div>
-          <Button
-            label="Accepter et continuer"
-            color={`${COLORS.GREEN}-${COLOR_TAINTS.DARK}`}
-            onClick={onClick}
-          />
-          {options?.additionalUrl && options?.additionalLabel && (
-            <Link
-              className="ml-4 text-sm md:text-base md:ml-8 underline hover:text-pink-500 hover:decoration-sky-500 underline-offset-8"
-              href={options?.additionalUrl}
-              target="_blank"
-            >
-              {options?.additionalLabel}
-            </Link>
-          )}
+          <div className="flex items-center">
+            <div className="mr-4">
+              <Button
+                label="Accepter"
+                color={`${COLORS.GREEN}-${COLOR_TAINTS.DARK}`}
+                onClick={onClick}
+              />
+            </div>
+            <div className="mr-4">
+              <Button
+                label="Refuser"
+                color={`${COLORS.RED}-${COLOR_TAINTS.DARK}`}
+                onClick={onClick}
+              />
+            </div>
+            {options?.additionalUrl && options?.additionalLabel && (
+              <Link
+                className="text-sm md:text-base underline hover:text-pink-500 hover:decoration-sky-500 underline-offset-8"
+                href={options?.additionalUrl}
+                target="_blank"
+              >
+                {options?.additionalLabel}
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </>
