@@ -6,12 +6,14 @@ import PageSquare, {
 import { ALL_SUBJECT } from '../../src/utils/cards/subjects.constants'
 
 export const metadata: Metadata = {
-  title: 'Liste des sujets | Palmythology',
+  title: 'Les Grandes Lignes - liste des sujets | Palmythology',
   description:
-    'Découvrez les fiches mythologiques les plus populaires, tout panthéons confondus, classées par thèmatiques : personnages, divinités, monstres, peuples, écrits et lieux.',
+    'Sélectionnez un sujet parmi 7 : divinité, personnage, peuple, créature, lieu, écrits et événement.',
+  alternates: { canonical: 'https://palmythology.com/subjects' },
   openGraph: {
-    title: 'Liste des sujets | Palmythology',
-    description: `Découvrez les fiches mythologiques les plus populaires, tout panthéons confondus, classées par thèmatiques : personnages, divinités, monstres, peuples, écrits et lieux.`,
+    title: 'Les Grandes Lignes - liste des sujets | Palmythology',
+    description:
+      'Sélectionnez un sujet parmi 7 : divinité, personnage, peuple, créature, lieu, écrits et événement.',
     url: 'https://palmythology.com/subjects',
     siteName: 'Palmythology',
     images: [

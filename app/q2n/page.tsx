@@ -4,10 +4,11 @@ import { fetchQuoi2NeufStories } from '../../src/utils/cms/cms.requests'
 
 export const metadata: Metadata = {
   title: 'Quoi 2 Neuf, planning de sortie des fiches | Palmythology',
-  description: `Découvrez le planning mensuel de la Palmythology et anticipez les futures fiches. Chaque mois, plongez dans l'univers des mythologies à travers des fiches détaillées et pedagogiques.`,
+  description: `Découvrez le planning mensuel de la Palmythology. Chaque mois, plongez dans l'univers des mythologies à travers des fiches détaillées et pedagogiques.`,
+  alternates: { canonical: 'https://palmythology.com/q2n' },
   openGraph: {
     title: 'Quoi 2 Neuf, planning de sortie des fiches | Palmythology',
-    description: `Découvrez le planning mensuel de la Palmythology et anticipez les futures fiches. Chaque mois, plongez dans l'univers des mythologies à travers des fiches détaillées et pedagogiques.`,
+    description: `Découvrez le planning mensuel de la Palmythology. Chaque mois, plongez dans l'univers des mythologies à travers des fiches détaillées et pedagogiques.`,
     url: 'https://palmythology.com/q2n',
     siteName: 'Palmythology',
     images: [

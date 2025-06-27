@@ -17,39 +17,20 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
   const subject = pageParams.subject
   const story = await getSubjectStory(subject)
 
-  if (!story?.data?.story?.content) {
-    return {
-      title: `Sujets ${subject} | Palmythology`,
-      description:
-        "Retrouvez la fiche mythologique qu'il vous faut, quelque soit le panthéon, à travers la page dédiée aux thématiques et sujets présentées par la Palmythology.",
-      openGraph: {
-        title: `Sujets ${subject} | Palmythology`,
-        description: `Retrouvez la fiche mythologique qu'il vous faut, quelque soit le panthéon, à travers la page dédiée aux thématiques et sujets présentées par la Palmythology.`,
-        siteName: 'Palmythology',
-        images: [
-          {
-            url: 'https://palmythology.com/icon/favicon.ico',
-            width: 600,
-            height: 600,
-            alt: 'Logo officiel de la Palmythology',
-          },
-        ],
-        locale: 'fr_FR',
-        type: 'website',
-      },
-    }
-  }
-
   return {
     title: `Sujet ${getSubjectLabelFromValue(
       subject as SubjectValue,
-    )?.toLowerCase()} | Palmythology`,
-    description: story.data.story.content?.summary,
+    )?.toLowerCase()} - Les Grandes Lignes | Palmythology`,
+    description: story.data.story.content?.metaDescription,
+    alternates: {
+      canonical: `https://palmythology.com/cards/${subject}`,
+    },
     openGraph: {
       title: `Sujet ${getSubjectLabelFromValue(
         subject as SubjectValue,
-      )?.toLowerCase()} | Palmythology`,
-      description: story.data.story.content?.summary,
+      )?.toLowerCase()} Les Grandes Lignes | Palmythology`,
+      description: story.data.story.content?.metaDescription,
+      url: `https://palmythology.com/cards/${subject}`,
       siteName: 'Palmythology',
       images: [
         {

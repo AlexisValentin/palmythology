@@ -4,11 +4,12 @@ import Filter from '../../src/components/domains/search/Filter'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Recherche de contenu | Palmythology',
-  description: `La Palmythology propose un moteur de recherche spécial pour trouver la fiche qu'il vous faut. Peaufiner votre recherche avec les 11 différents panthéons disponibles (Aztèque, Celtique, Chinois, Égyptien, Grec, Hindou, Japonais, Maya, Mésopotamien, Scandinave, Romain) et les 7 différents sujets (Créature, Divinité; Personnage, Lieu, Peuple, Écrits, Événements).`,
+  title: 'Les Grandes Lignes - Recherche de contenu | Palmythology',
+  description: `La Palmythology propose un moteur de recherche pour trouver la fiche qu'il vous faut, parmi 11 différents panthéons et 7 différents sujets.`,
+  alternates: { canonical: 'https://palmythology.com/search' },
   openGraph: {
-    title: 'Recherche de contenu | Palmythology',
-    description: `La Palmythology propose un moteur de recherche spécial pour trouver la fiche qu'il vous faut. Peaufiner votre recherche avec les 11 différents panthéons disponibles (Aztèque, Celtique, Chinois, Égyptien, Grec, Hindou, Japonais, Maya, Mésopotamien, Scandinave, Romain) et les 6 différents sujets (Créature, Divinité; Personnage, Lieu, Peuple, Écrits, Événements).`,
+    title: 'Les Grandes Lignes - Recherche de contenu | Palmythology',
+    description: `La Palmythology propose un moteur de recherche pour trouver la fiche qu'il vous faut, parmi 11 différents panthéons et 7 différents sujets.`,
     url: 'https://palmythology.com/search',
     siteName: 'Palmythology',
     images: [

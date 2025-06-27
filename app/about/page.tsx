@@ -1,4 +1,3 @@
-import React from 'react'
 import { Metadata } from 'next'
 import PageHeader from '../../src/components/generics/PageHeader'
 import PageSection from '../../src/components/generics/PageSection'
@@ -8,12 +7,14 @@ import AnonymousIcon from '../../src/assets/icons/anonymous.svg'
 import { NextImageType } from '../../src/utils/image.constants'
 
 export const metadata: Metadata = {
-  title: 'A propos du site | Palmythology',
+  title: 'A propos du site internet | Palmythology',
   description:
-    "La Palmythology vous propose une expérience sans publicité et sans pollution visuelle. Bien que récoltées, vos données de navigation restent anonymisée dans le but d'améliorer la qualité de l'expérience utilisateur.",
+    'Made in France, La Palmythology vous propose une expérience sans publicité et sans pollution visuelle, avec des données de navigation anonymisées.',
+  alternates: { canonical: 'https://palmythology.com/about' },
   openGraph: {
-    title: 'A propos du site | Palmythology',
-    description: `La Palmythology vous propose une expérience sans publicité et sans pollution visuelle. Bien que récoltées, vos données de navigation restent anonymisée dans le but d'améliorer la qualité de l'expérience utilisateur.`,
+    title: 'A propos du site internet | Palmythology',
+    description:
+      'Made in France, La Palmythology vous propose une expérience sans publicité et sans pollution visuelle, avec des données de navigation anonymisées.',
     url: 'https://palmythology.com/about',
     siteName: 'Palmythology',
     images: [
