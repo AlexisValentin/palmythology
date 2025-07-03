@@ -1,4 +1,4 @@
-# Notes de version 2.11.0 (??/05/2025)
+# Notes de version 2.11.0 (03/07/2025)
 
 ## Général
 
