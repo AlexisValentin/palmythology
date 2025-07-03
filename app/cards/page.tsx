@@ -7,9 +7,27 @@ import { Metadata } from 'next'
 import { NextImageType } from '../../src/utils/image.constants'
 
 export const metadata: Metadata = {
-  title: 'Fiches mythologiques | Palmythology',
+  title: 'Les Grandes Lignes - fiches mythologiques | Palmythology',
   description:
-    'Des résumés simples accompagnés une direction artistique colorées, la Palmythology vous propose de plonger dans des fiches mythologiques intuitive et pédagogiques pour en apprendre toujours plus sur les différents panthéons dans le monde.',
+    'Les Grandes Lignes sont le nom des fiches mythologiques de la Palmythology. Inuitives et pédagogiques, elles vous de plongent dans les mythes du monde.',
+  alternates: { canonical: 'https://palmythology.com/cards' },
+  openGraph: {
+    title: 'Les Grandes Lignes - fiches mythologiques',
+    description:
+      'Les Grandes Lignes sont le nom des fiches mythologiques de la Palmythology. Inuitives et pédagogiques, elles vous de plongent dans les mythes du monde.',
+    url: 'https://palmythology.com/cards',
+    siteName: 'Palmythology',
+    images: [
+      {
+        url: 'https://palmythology.com/icon/favicon.ico',
+        width: 600,
+        height: 600,
+        alt: 'Logo officiel de la Palmythology',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
 }
 
 const CardHubPage = () => {

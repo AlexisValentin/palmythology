@@ -29,22 +29,36 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
 
   const story = await getCardStory(title, pantheon)
 
-  if (!story?.data?.story?.content) {
-    return {
-      title: 'Les grandes lignes | Palmythology',
-      description: `C'est ici que vous retrouverez toutes les informations sur la fiche de la Palmythology de vos rêves : que ce soit les divinités grecques, les créatures égyptiennes ou encore les batailles légendaire scandinaves, retrouvez avec détails toutes les informations sur le sujet de votre choix, avec des fiches agrémentées d'illustrations attrayantes et d'explications passionantes.`,
-    }
-  }
-
   return {
     title: `${capitalize(replaceDashesBySpaces(title))}, ${
       story.data.story.content?.subtitle
-    } | Palmythology`,
+    } - Les Grandes Lignes | Palmythology`,
     description: story.data.story.content?.metaDescription,
     icons: {
       icon: story.data.story.content?.icon?.filename,
       shortcut: story.data.story.content?.icon?.filename,
       apple: story.data.story.content?.icon?.filename,
+    },
+    alternates: {
+      canonical: `https://palmythology.com/cards/${pantheon}/${title}`,
+    },
+    openGraph: {
+      title: `${capitalize(replaceDashesBySpaces(title))}, ${
+        story.data.story.content?.subtitle
+      } - Les Grandes Lignes | Palmythology`,
+      description: story.data.story.content?.metaDescription,
+      url: `https://palmythology.com/cards/${pantheon}/${title}`,
+      siteName: 'Palmythology',
+      images: [
+        {
+          url: story.data.story.content?.icon?.filename,
+          width: 600,
+          height: 600,
+          alt: `Logo de ${capitalize(replaceDashesBySpaces(title))} sur la Palmythology`,
+        },
+      ],
+      locale: 'fr_FR',
+      type: 'website',
     },
   }
 }

@@ -17,19 +17,32 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
   const subject = pageParams.subject
   const story = await getSubjectStory(subject)
 
-  if (!story?.data?.story?.content) {
-    return {
-      title: subject,
-      description:
-        "Retrouvez la fiche qu'il vous faut à travers la page dédiée aux thématiques dédiées présentées par la Palmythology.",
-    }
-  }
-
   return {
     title: `Sujet ${getSubjectLabelFromValue(
       subject as SubjectValue,
-    )?.toLowerCase()} | Palmythology`,
-    description: story.data.story.content?.summary,
+    )?.toLowerCase()} - Les Grandes Lignes | Palmythology`,
+    description: story.data.story.content?.metaDescription,
+    alternates: {
+      canonical: `https://palmythology.com/cards/${subject}`,
+    },
+    openGraph: {
+      title: `Sujet ${getSubjectLabelFromValue(
+        subject as SubjectValue,
+      )?.toLowerCase()} Les Grandes Lignes | Palmythology`,
+      description: story.data.story.content?.metaDescription,
+      url: `https://palmythology.com/cards/${subject}`,
+      siteName: 'Palmythology',
+      images: [
+        {
+          url: 'https://palmythology.com/icon/favicon.ico',
+          width: 600,
+          height: 600,
+          alt: 'Logo officiel de la Palmythology',
+        },
+      ],
+      locale: 'fr_FR',
+      type: 'website',
+    },
   }
 }
 

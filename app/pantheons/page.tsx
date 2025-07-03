@@ -4,9 +4,27 @@ import PageHeader from '../../src/components/generics/PageHeader'
 import PantheonsList from '../../src/components/domains/cards/PantheonList'
 
 export const metadata: Metadata = {
-  title: 'Liste des panthéons | Palmythology',
+  title: 'Les Grandes Lignes - liste des panthéons | Palmythology',
   description:
-    'Sélectionnez un panthéon mythologique parmi 11 différents : grec, égyptien, scandinave, celtique, japonais, chinois, maya, aztèque, hindou, romain.',
+    'Sélectionnez un panthéon parmi 11 : grec, égyptien, scandinave, celtique, japonais, chinois, maya, mésopotamien, aztèque, hindou, romain.',
+  alternates: { canonical: 'https://palmythology.com/pantheons' },
+  openGraph: {
+    title: 'Les Grandes Lignes - liste des panthéons | Palmythology',
+    description:
+      'Sélectionnez un panthéon parmi 11 : grec, égyptien, scandinave, celtique, japonais, chinois, maya, mésopotamien, aztèque, hindou, romain.',
+    url: 'https://palmythology.com/pantheons',
+    siteName: 'Palmythology',
+    images: [
+      {
+        url: 'https://palmythology.com/icon/favicon.ico',
+        width: 600,
+        height: 600,
+        alt: 'Logo officiel de la Palmythology',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
 }
 
 const PantheonsPage = () => {

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Metadata } from 'next'
 import PageHeader from '../../src/components/generics/PageHeader'
 import PageSection from '../../src/components/generics/PageSection'
@@ -8,9 +7,27 @@ import AnonymousIcon from '../../src/assets/icons/anonymous.svg'
 import { NextImageType } from '../../src/utils/image.constants'
 
 export const metadata: Metadata = {
-  title: 'Recherche de contenu | Palmythology',
+  title: 'A propos du site internet | Palmythology',
   description:
-    "Découvrez les mythologies du monde en plongeant dans l'histoire et la culture divine à travers des fiches simple, intuitives et pédagogiques.",
+    'Made in France, La Palmythology vous propose une expérience sans publicité et sans pollution visuelle, avec des données de navigation anonymisées.',
+  alternates: { canonical: 'https://palmythology.com/about' },
+  openGraph: {
+    title: 'A propos du site internet | Palmythology',
+    description:
+      'Made in France, La Palmythology vous propose une expérience sans publicité et sans pollution visuelle, avec des données de navigation anonymisées.',
+    url: 'https://palmythology.com/about',
+    siteName: 'Palmythology',
+    images: [
+      {
+        url: 'https://palmythology.com/icon/favicon.ico',
+        width: 600,
+        height: 600,
+        alt: 'Logo officiel de la Palmythology',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
 }
 
 const AboutPage = () => {

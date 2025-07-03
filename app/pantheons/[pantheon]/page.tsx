@@ -17,19 +17,32 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
   const pantheon = pageParams.pantheon
   const story = await getPantheonStory(pantheon)
 
-  if (!story?.data?.story?.content) {
-    return {
-      title: pantheon,
-      description:
-        "Retrouvez la fiche qu'il vous faut à travers la page dédiée aux panthéons spécifiques présentés par la Palmythology",
-    }
-  }
-
   return {
     title: `Panthéon ${getPantheonLabelFromValue(
       pantheon as PantheonValue,
-    )} | Palmythology`,
-    description: story.data.story.content?.summary,
+    )} - Les Grandes Lignes | Palmythology`,
+    description: story.data.story.content?.metaDescription,
+    alternates: {
+      canonical: `https://palmythology.com/cards/${pantheon}`,
+    },
+    openGraph: {
+      title: `Panthéon ${getPantheonLabelFromValue(
+        pantheon as PantheonValue,
+      )} - Les Grandes Lignes | Palmythology`,
+      description: story.data.story.content?.metaDescription,
+      siteName: 'Palmythology',
+      url: `https://palmythology.com/cards/${pantheon}`,
+      images: [
+        {
+          url: 'https://palmythology.com/icon/favicon.ico',
+          width: 600,
+          height: 600,
+          alt: 'Logo officiel de la Palmythology',
+        },
+      ],
+      locale: 'fr_FR',
+      type: 'website',
+    },
   }
 }
 
