@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   title: 'A propos du site internet | Palmythology',
   description:
     'Made in France, La Palmythology vous propose une expérience sans publicité et sans pollution visuelle, avec des données de navigation anonymisées.',
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: { canonical: 'https://palmythology.com/about' },
   openGraph: {
     title: 'A propos du site internet | Palmythology',

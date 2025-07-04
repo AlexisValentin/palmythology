@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   title: 'Les Grandes Lignes - liste des sujets | Palmythology',
   description:
     'Sélectionnez un sujet parmi 7 : divinité, personnage, peuple, créature, lieu, écrits et événement.',
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: { canonical: 'https://palmythology.com/subjects' },
   openGraph: {
     title: 'Les Grandes Lignes - liste des sujets | Palmythology',

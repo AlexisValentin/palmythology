@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   title: "Palmythology, l'encyclopédie mythologique",
   description:
     "Explorez les mythologies du monde avec des fiches simples et intuitives avec la Palmythology. Découvrez les panthéons qui ont façonnés l'histoire.",
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://palmythology.com/',
   },

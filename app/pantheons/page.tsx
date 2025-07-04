@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   title: 'Les Grandes Lignes - liste des panthéons | Palmythology',
   description:
     'Sélectionnez un panthéon parmi 11 : grec, égyptien, scandinave, celtique, japonais, chinois, maya, mésopotamien, aztèque, hindou, romain.',
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: { canonical: 'https://palmythology.com/pantheons' },
   openGraph: {
     title: 'Les Grandes Lignes - liste des panthéons | Palmythology',

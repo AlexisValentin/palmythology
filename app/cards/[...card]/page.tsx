@@ -39,6 +39,10 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
       shortcut: story.data.story.content?.icon?.filename,
       apple: story.data.story.content?.icon?.filename,
     },
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
       canonical: `https://palmythology.com/cards/${pantheon}/${title}`,
     },
