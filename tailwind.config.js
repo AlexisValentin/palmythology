@@ -1,5 +1,3 @@
-const colors = require('tailwindcss/colors')
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -9,31 +7,4 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
     './public/index.html',
   ],
-  safelist: [
-    {
-      pattern:
-        /(bg|from|text|to|border|via)-(amber|blue|cyan|emerald|green|indigo|lime|neutral|orange|pink|red|sky|slate|violet|yellow)-(100|300|400|500|600|700|800|900)/,
-      variants: ['lg:hover'],
-    },
-  ],
-  theme: {
-    extend: {
-      colors: {
-        amber: colors.amber,
-        black: colors.black,
-        blue: colors.blue,
-        cyan: colors.cyan,
-        emerald: colors.emerald,
-        indigo: colors.indigo,
-        lime: colors.lime,
-        neutral: colors.neutral,
-        orange: colors.orange,
-        pink: colors.pink,
-        red: colors.red,
-        sky: colors.sky,
-        slate: colors.slate,
-        violet: colors.violet,
-      },
-    },
-  },
 }
