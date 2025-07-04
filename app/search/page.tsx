@@ -6,6 +6,10 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Les Grandes Lignes - Recherche de contenu | Palmythology',
   description: `La Palmythology propose un moteur de recherche pour trouver la fiche qu'il vous faut, parmi 11 différents panthéons et 7 différents sujets.`,
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: { canonical: 'https://palmythology.com/search' },
   openGraph: {
     title: 'Les Grandes Lignes - Recherche de contenu | Palmythology',

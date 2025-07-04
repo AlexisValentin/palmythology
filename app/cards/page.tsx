@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   title: 'Les Grandes Lignes - fiches mythologiques | Palmythology',
   description:
     'Les Grandes Lignes sont le nom des fiches mythologiques de la Palmythology. Inuitives et pédagogiques, elles vous de plongent dans les mythes du monde.',
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: { canonical: 'https://palmythology.com/cards' },
   openGraph: {
     title: 'Les Grandes Lignes - fiches mythologiques',

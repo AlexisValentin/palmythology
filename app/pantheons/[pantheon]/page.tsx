@@ -22,6 +22,10 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
       pantheon as PantheonValue,
     )} - Les Grandes Lignes | Palmythology`,
     description: story.data.story.content?.metaDescription,
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
       canonical: `https://palmythology.com/cards/${pantheon}`,
     },
