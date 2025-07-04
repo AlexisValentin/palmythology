@@ -23,6 +23,15 @@ const nextConfig = {
     STORYBLOK_TOKEN: process.env.STORYBLOK_TOKEN,
     STORYBLOK_BASE_URL: process.env.STORYBLOK_BASE_URL,
   },
+  redirects: () => {
+    return [
+      {
+        source: '/cards/egyptian/hator',
+        destination: '/cards/egyptian/hathor',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig
