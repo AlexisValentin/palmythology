@@ -1,6 +1,6 @@
 {
   "name": "palmythology",
-  "version": "2.11.0",
+  "version": "2.11.2",
   "private": true,
   "packageManager": "pnpm@10.11.0",
   "scripts": {
