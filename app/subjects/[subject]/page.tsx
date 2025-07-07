@@ -27,14 +27,14 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
       follow: true,
     },
     alternates: {
-      canonical: `https://palmythology.com/cards/${subject}`,
+      canonical: `https://palmythology.com/subjects/${subject}`,
     },
     openGraph: {
       title: `Sujet ${getSubjectLabelFromValue(
         subject as SubjectValue,
       )?.toLowerCase()} Les Grandes Lignes | Palmythology`,
       description: story.data.story.content?.metaDescription,
-      url: `https://palmythology.com/cards/${subject}`,
+      url: `https://palmythology.com/subjects/${subject}`,
       siteName: 'Palmythology',
       images: [
         {

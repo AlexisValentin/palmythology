@@ -27,7 +27,7 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
       follow: true,
     },
     alternates: {
-      canonical: `https://palmythology.com/cards/${pantheon}`,
+      canonical: `https://palmythology.com/pantheons/${pantheon}`,
     },
     openGraph: {
       title: `Panthéon ${getPantheonLabelFromValue(
@@ -35,7 +35,7 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
       )} - Les Grandes Lignes | Palmythology`,
       description: story.data.story.content?.metaDescription,
       siteName: 'Palmythology',
-      url: `https://palmythology.com/cards/${pantheon}`,
+      url: `https://palmythology.com/pantheons/${pantheon}`,
       images: [
         {
           url: 'https://palmythology.com/icon/favicon.ico',
