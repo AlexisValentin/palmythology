@@ -39,7 +39,7 @@ const AboutPage = () => {
     <>
       <PageHeader
         title="A propos"
-        subtitle="Retrouvez des informations pratiques sur la Palmythology et son site web"
+        subtitle="Retrouvez des informations pratiques sur la Palmythology"
       />
       <div className="flex flex-col">
         <PageSection

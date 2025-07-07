@@ -34,7 +34,7 @@ const SearchPage: React.FC = () => {
     <>
       <PageHeader
         title="Recherche"
-        subtitle="Recherchez votre fiche préférée parmi les panthéons que couvre la Palmythology"
+        subtitle="Recherchez votre fiche préférée de la Palmythology"
       />
       <Filter />
     </>
