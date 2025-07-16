@@ -1,0 +1,17 @@
+p > a {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem; 
+
+  &:hover {
+    color: #f461b1;
+    text-decoration-color: #00a6f4;
+  }
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
