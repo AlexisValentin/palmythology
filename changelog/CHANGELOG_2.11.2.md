@@ -1,5 +1,5 @@
-# Notes de version 2.12.2 (07/07/2025)
+# Notes de version 3.0.0 (??/??/2025)
 
 ## Divers
 
-- Améliorations des bonnes pratiques à des fins SEO.
+- Migration vers la dernière version (v4) de TailwindCSS.
