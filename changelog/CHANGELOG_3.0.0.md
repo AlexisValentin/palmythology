@@ -6,7 +6,8 @@
 
 ## Les grandes lignes
 
-- Ajout d'un résumé pour la fiche "Les grandes lignes" en haut de page s'il est configuré.
+- Ajout d'un résumé pour les fiches "Les grandes lignes" en haut de page s'il est configuré.
+- Ajout de liens internes dans le résumé des fiches "Les grandes lignes" si configurés.
 
 ## Divers
 

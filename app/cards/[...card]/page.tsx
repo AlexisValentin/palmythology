@@ -83,6 +83,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
     name,
     subtitle,
     summary,
+    mdSummary,
     images,
     available,
     instagramUrl,
@@ -92,6 +93,8 @@ const CardPage = async ({ params }: CardPagePropsType) => {
     subject,
     transcription,
   } = story.data.story.content
+
+  console.log("### SUMMARY ---> ", mdSummary)
 
   if (!available || !pantheon) return <></>
 
@@ -104,6 +107,8 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 
   const pantheonData = getPantheonData(pantheon as PantheonValue)
   const subjectData = getSubjectData(subject)
+
+  console.log("### MD SUMMARY ---> ", mdSummary)
 
   return (
     <div className="flex justify-center items-center flex-col">
@@ -136,7 +141,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
           />
         )}
       </div>
-      {summary && <Summary content={summary} />}
+      {mdSummary && <Summary content={mdSummary} />}
       <div className="flex items-center justify-center w-full lg:w-3/4 mt-4">
         <Carousel imageList={images} />
       </div>
