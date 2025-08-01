@@ -17,3 +17,4 @@
 ## Divers
 
 - Migration vers la dernière version (v4) de TailwindCSS.
+- Changement de formatteur de code (migration de Biome vers Prettier).
