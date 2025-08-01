@@ -4,6 +4,10 @@
 
 - Réduction des marges latérales sur toutes les tailles d'écran.
 
+## Quoi 2 Neuf
+
+- La section Quoi 2 Neuf ne concerne désormais que les future fiche à paraître et non plus les fiches des mois précédents.
+
 ## Les grandes lignes
 
 - Ajout d'un résumé pour les fiches "Les grandes lignes" en haut de page s'il est configuré.
