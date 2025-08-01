@@ -3,6 +3,7 @@
 ## Général
 
 - Réduction des marges latérales sur toutes les tailles d'écran.
+- Suppression des suggestions aléatoires de fiches "Les Grandes Lignes" sur la page d'accueil.
 
 ## Quoi 2 Neuf
 
