@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import PageHeader from '../src/components/generics/PageHeader'
 import { ROUTES } from '../src/utils/routes/routes.constants'
-import CardRandomizer from '../src/components/domains/cards/CardRandomizer'
 import PageSquare, { CONTENT_TYPE } from '../src/components/generics/PageSquare'
 
 export const metadata: Metadata = {
@@ -58,7 +57,6 @@ const HomePage = () => {
           )
         })}
       </div>
-      <CardRandomizer />
     </>
   )
 }
