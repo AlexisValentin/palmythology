@@ -94,8 +94,6 @@ const CardPage = async ({ params }: CardPagePropsType) => {
     transcription,
   } = story.data.story.content
 
-  console.log("### SUMMARY ---> ", mdSummary)
-
   if (!available || !pantheon) return <></>
 
   const hasCustomLinks = instagramUrl?.url || threadsUrl?.url || blueskyUrl?.url
@@ -107,8 +105,6 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 
   const pantheonData = getPantheonData(pantheon as PantheonValue)
   const subjectData = getSubjectData(subject)
-
-  console.log("### MD SUMMARY ---> ", mdSummary)
 
   return (
     <div className="flex justify-center items-center flex-col">
