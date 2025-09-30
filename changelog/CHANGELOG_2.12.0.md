@@ -1,4 +1,4 @@
-# Notes de version 3.0.0 (??/??/2025)
+# Notes de version 2.12.0 (30/09/2025)
 
 ## Général
 
@@ -16,5 +16,4 @@
 
 ## Divers
 
-- Migration vers la dernière version (v4) de TailwindCSS.
 - Changement de formatteur de code (migration de Biome vers Prettier).
