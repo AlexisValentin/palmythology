@@ -17,6 +17,7 @@ import Transcription from '../../../src/components/domains/cards/Transcription'
 import { CardRelatedType } from '../../../src/utils/cms/cms.constants'
 import { getPantheonLabelFromValue } from '../../../src/utils/cards/pantheons'
 import { getSubjectLabelFromValue } from '../../../src/utils/cards/subjects'
+import Summary from '../../../src/components/generics/Summary'
 
 interface CardPagePropsType {
   params: Promise<{ card: string[] }>
@@ -81,6 +82,8 @@ const CardPage = async ({ params }: CardPagePropsType) => {
   const {
     name,
     subtitle,
+    summary,
+    mdSummary,
     images,
     available,
     instagramUrl,
@@ -134,6 +137,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
           />
         )}
       </div>
+      {mdSummary && <Summary content={mdSummary} />}
       <div className="flex items-center justify-center w-full lg:w-3/4 mt-4">
         <Carousel imageList={images} />
       </div>
