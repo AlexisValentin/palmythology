@@ -1,30 +1,30 @@
-import Faq from '../../generics/Faq'
+import Faq from "../../generics/Faq";
 
 interface TranscriptionDetailContent {
-  transcriptionDetailTitle: string
-  transcriptionDetailContent: string
+  transcriptionDetailTitle: string;
+  transcriptionDetailContent: string;
 }
 
 interface TranscriptionContent {
-  transcriptionTitle: string
-  transcriptionContent: TranscriptionDetailContent[]
+  transcriptionTitle: string;
+  transcriptionContent: TranscriptionDetailContent[];
 }
 
 interface TranscriptionProps {
-  transcription: TranscriptionContent[]
+  transcription: TranscriptionContent[];
 }
 
 const Transcription: React.FC<TranscriptionProps> = ({ transcription }) => (
-  <div className="mt-16 w-full lg:w-3/4">
+  <>
     {transcription.map((faq) => {
-      const { transcriptionTitle, transcriptionContent } = faq
+      const { transcriptionTitle, transcriptionContent } = faq;
 
       // workaround to avoid typescripting issue and in order to comply to `Faq` component
       // should be fixed as soon as possible by creating a `Faq` block in the backend
       const parsedTranscriptionContent = transcriptionContent.map((item) => ({
         title: item.transcriptionDetailTitle,
         description: item.transcriptionDetailContent,
-      }))
+      }));
 
       return (
         <div className="mb-8" key={transcriptionTitle}>
@@ -33,9 +33,9 @@ const Transcription: React.FC<TranscriptionProps> = ({ transcription }) => (
             faqItems={parsedTranscriptionContent}
           />
         </div>
-      )
+      );
     })}
-  </div>
-)
+  </>
+);
 
-export default Transcription
+export default Transcription;
