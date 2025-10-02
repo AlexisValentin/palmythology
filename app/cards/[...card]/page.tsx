@@ -82,7 +82,6 @@ const CardPage = async ({ params }: CardPagePropsType) => {
   const {
     name,
     subtitle,
-    summary,
     mdSummary,
     images,
     available,
