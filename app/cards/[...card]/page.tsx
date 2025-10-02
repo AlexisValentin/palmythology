@@ -21,6 +21,7 @@ import Summary from "../../../src/components/generics/Summary";
 import Quotation, {
   QuotationProps,
 } from "../../../src/components/generics/Quotation";
+import Faq, { FaqProps } from "../../../src/components/generics/Faq";
 
 interface CardPagePropsType {
   params: Promise<{ card: string[] }>;
@@ -97,6 +98,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
     subject,
     transcription,
     quotations,
+    faq,
   } = story.data.story.content;
 
   if (!available || !pantheon) return <></>;
@@ -148,13 +150,29 @@ const CardPage = async ({ params }: CardPagePropsType) => {
         <Carousel imageList={images} />
       </div>
       {transcription && (
-        <div className="mt-16 w-full lg:w-3/4">
-          <Transcription transcription={transcription} />
-        </div>
-      )}
-      {quotations && (
         <>
-          <h4 className="text-xl font-bold mt-2">Citations</h4>
+          <h4 className="text-xl font-bold mt-16">L'essentiel</h4>
+          <div className="w-full lg:w-3/4 mt-8">
+            <Transcription transcriptionContent={transcription} />
+          </div>
+        </>
+      )}
+      {faq?.length > 0 && (
+        <>
+          <h4 className="text-xl font-bold mt-8">Questions fréquentes</h4>
+          {faq.map(({ question, answer }: FaqProps) => (
+            <div
+              key={question}
+              className="flex flex-col justify-center items-center mt-8 w-full lg:w-3/4"
+            >
+              <Faq question={question} answer={answer} />
+            </div>
+          ))}
+        </>
+      )}
+      {quotations?.length > 0 && (
+        <>
+          <h4 className="text-xl font-bold mt-12">Citations</h4>
           {quotations.map(({ quote, author, origin }: QuotationProps) => (
             <div
               key={`${author}-${origin ?? "unknown"}`}

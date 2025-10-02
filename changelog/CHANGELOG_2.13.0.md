@@ -6,4 +6,5 @@
 
 ## Les grandes lignes
 
+- Ajout d'une section "Questions fréquentes" lorsque la fiche en question est configurée pour en afficher.
 - Ajout d'une section "Citations" lorsque la fiche en question est configurée pour en afficher.
