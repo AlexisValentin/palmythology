@@ -22,6 +22,10 @@ import Quotation, {
   QuotationProps,
 } from "../../../src/components/generics/Quotation";
 import Faq, { FaqProps } from "../../../src/components/generics/Faq";
+import SummaryIcon from '../../../src/assets/icons/open_book.svg'
+import QnAIcon from '../../../src/assets/icons/question_marks.svg'
+import QuotationIcon from '../../../src/assets/icons/quotation_marks.svg'
+import Image from "next/image";
 
 interface CardPagePropsType {
   params: Promise<{ card: string[] }>;
@@ -151,37 +155,46 @@ const CardPage = async ({ params }: CardPagePropsType) => {
       </div>
       {transcription && (
         <>
-          <h4 className="text-xl font-bold mt-16">L'essentiel</h4>
+          <div className="flex flex-row justify-center items-center mt-16">
+            <Image className="mr-2" src={SummaryIcon} alt="Icône de résumé" width={24} height={24} />
+            <h4 className="text-xl font-bold">L'essentiel</h4>
+          </div>
           <div className="w-full lg:w-3/4 mt-8">
             <Transcription transcriptionContent={transcription} />
           </div>
         </>
       )}
       {faq?.length > 0 && (
-        <>
-          <h4 className="text-xl font-bold mt-8">Questions fréquentes</h4>
+        <div className="flex flex-col items-center w-full border-t-2 mt-6 lg:w-3/4">
+          <div className="flex flex-row justify-center items-center mt-6">
+            <Image className="mr-2" src={QnAIcon} alt="Icône de foire aux questions" width={32} height={32} />
+            <h4 className="text-xl font-bold">Questions fréquentes</h4>
+          </div>
           {faq.map(({ question, answer }: FaqProps) => (
             <div
               key={question}
-              className="flex flex-col justify-center items-center mt-8 w-full lg:w-3/4"
+              className="flex flex-col justify-center items-center mt-8 w-full"
             >
               <Faq question={question} answer={answer} />
             </div>
           ))}
-        </>
+        </div>
       )}
       {quotations?.length > 0 && (
-        <>
-          <h4 className="text-xl font-bold mt-12">Citations</h4>
+        <div className="flex flex-col items-center w-full border-t-2 mt-6 lg:w-3/4">
+          <div className="flex flex-row justify-center items-center mt-6">
+            <Image className="mr-2" src={QuotationIcon} alt="Icône de citation" width={24} height={24} />
+            <h4 className="text-xl font-bold">Citations</h4>
+          </div>
           {quotations.map(({ quote, author, origin }: QuotationProps) => (
             <div
               key={`${author}-${origin ?? "unknown"}`}
-              className="flex flex-col justify-center items-center mt-8 w-full lg:w-3/4"
+              className="flex flex-col mt-8 w-full"
             >
               <Quotation quote={quote} author={author} origin={origin} />
             </div>
           ))}
-        </>
+        </div>
       )}
       {relatedCards && relatedCards.length > 0 && (
         <div className="flex flex-col mt-16">
