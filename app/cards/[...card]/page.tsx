@@ -153,7 +153,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
       <div className="flex items-center justify-center w-full lg:w-3/4 mt-4">
         <Carousel imageList={images} />
       </div>
-      {transcription && (
+      {transcription?.length > 0 && (
         <>
           <div className="flex flex-row justify-center items-center mt-16">
             <Image className="mr-2" src={SummaryIcon} alt="Icône de résumé" width={24} height={24} />
@@ -181,7 +181,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
         </div>
       )}
       {quotations?.length > 0 && (
-        <div className="flex flex-col items-center w-full border-t-2 mt-6 lg:w-3/4">
+        <div className="flex flex-col items-center w-full border-t-2 mt-10 lg:w-3/4">
           <div className="flex flex-row justify-center items-center mt-6">
             <Image className="mr-2" src={QuotationIcon} alt="Icône de citation" width={24} height={24} />
             <h4 className="text-xl font-bold">Citations</h4>
@@ -189,7 +189,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
           {quotations.map(({ quote, author, origin }: QuotationProps) => (
             <div
               key={`${author}-${origin ?? "unknown"}`}
-              className="flex flex-col mt-8 w-full"
+              className="flex flex-col mt-6 w-full"
             >
               <Quotation quote={quote} author={author} origin={origin} />
             </div>
@@ -197,8 +197,8 @@ const CardPage = async ({ params }: CardPagePropsType) => {
         </div>
       )}
       {relatedCards && relatedCards.length > 0 && (
-        <div className="flex flex-col mt-16">
-          <div className="flex align-center justify-center">
+        <div className="flex flex-col mt-10 border-t-2">
+          <div className="flex align-center justify-center mt-8">
             <h3 className="text-xl font-bold">Dans le même sujet</h3>
           </div>
           <div className="flex flex-col lg:flex-row mt-4">

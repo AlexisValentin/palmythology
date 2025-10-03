@@ -84,7 +84,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
       lg:text-black
       lg:hover:bg-${
         pantheon ? getPantheonMainColor(pantheon) : 'slate-500'
-      } lg:hover:text-${pantheon ? getPantheonTextColor(pantheon) : WHITE_COLOR}`}
+      } lg:hover:text-${pantheon ? getPantheonTextColor(pantheon) : WHITE_COLOR} transition-colors`}
     >
       <div className="flex items-center justify-center flex-col">
         <PageSquareBlock
