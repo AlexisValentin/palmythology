@@ -2,4 +2,4 @@ npx --no -- commitlint --edit ${1}
 
 pnpm link
 pnpm build
-npm test
+pnpm test

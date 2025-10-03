@@ -1,35 +1,22 @@
 export interface FaqProps {
-  faqTitle: string
-  faqItems: FaqItemProps[]
+  question: string;
+  answer: string;
 }
 
-export interface FaqItemProps {
-  title: string
-  description: string
-}
+const Faq: React.FC<FaqProps> = ({ question, answer }) => (
+  <div itemScope className="rounded-lg drop-shadow-lg bg-neutral-200" itemProp="mainEntity" itemType="https://schema.org/Question">
+    <h5 className="rounded-t-lg bg-black text-white font-bold text-lg mb-2 px-3 py-2" itemProp="name">
+      {question}
+    </h5>
+    <div
+      className="p-2 pt-0"
+      itemScope
+      itemProp="acceptedAnswer"
+      itemType="https://schema.org/Answer"
+    >
+      <p itemProp="text">{answer}</p>
+    </div>
+  </div>
+);
 
-const Faq: React.FC<FaqProps> = ({ faqTitle, faqItems }) => (
-  <>
-    <h3 className="text-2xl font-bold mb-4">{faqTitle}</h3>
-    {faqItems.map((faqItems) => {
-      return (
-        <FaqItem
-          title={faqItems.title}
-          description={faqItems.description}
-          key={faqItems.title}
-        />
-      )
-    })}
-  </>
-)
-
-const FaqItem: React.FC<FaqItemProps> = ({ title, description }) => (
-  <details className="mb-4" open>
-    <summary className="text-xl font-semibold mb-2 hover:bg-slate-100 cursor-pointer pl-2">
-      {title}
-    </summary>
-    {description}
-  </details>
-)
-
-export default Faq
+export default Faq;
