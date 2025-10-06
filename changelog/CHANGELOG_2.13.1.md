@@ -6,4 +6,5 @@
 
 ## Les grandes lignes
 
-- Correction visuelle qui faisait que les conteneurs des FAQ ne prenait pas toute la largeur de l'espace attitré. 
+- Ajout d'un séparateur visuel au-dessus de la section de transcription.
+- Correction visuelle qui faisait que les conteneurs des FAQ ne prenait pas toute la largeur de l'espace attitré.

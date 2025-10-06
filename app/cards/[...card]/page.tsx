@@ -154,15 +154,15 @@ const CardPage = async ({ params }: CardPagePropsType) => {
         <Carousel imageList={images} />
       </div>
       {transcription?.length > 0 && (
-        <>
-          <div className="flex flex-row justify-center items-center mt-16">
+        <div className="border-t-2 mt-8 w-full lg:w-3/4">
+          <div className="flex flex-row justify-center items-center mt-8">
             <Image className="mr-2" src={SummaryIcon} alt="Icône de résumé" width={24} height={24} />
             <h4 className="text-xl font-bold">L'essentiel</h4>
           </div>
           <div className="w-full lg:w-3/4 mt-8">
             <Transcription transcriptionContent={transcription} />
           </div>
-        </>
+        </div>
       )}
       {faq?.length > 0 && (
         <div className="flex flex-col items-center w-full border-t-2 mt-6 lg:w-3/4">
