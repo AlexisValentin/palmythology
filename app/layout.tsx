@@ -12,9 +12,9 @@ interface MainLayoutProps {
 
 export const metadata = {
   icons: {
-    icon: 'https://a.storyblok.com/f/187414/600x600/3f339495e1/logo.png',
-    shortcut: 'https://a.storyblok.com/f/187414/600x600/3f339495e1/logo.png',
-    apple: 'https://a.storyblok.com/f/187414/600x600/3f339495e1/logo.png',
+    icon: 'https://a.storyblok.com/f/187414/2048x2048/c834d0c07d/logo.png',
+    shortcut: 'https://a.storyblok.com/f/187414/2048x2048/c834d0c07d/logo.png',
+    apple: 'https://a.storyblok.com/f/187414/2048x2048/c834d0c07d/logo.png',
   },
 }
 
