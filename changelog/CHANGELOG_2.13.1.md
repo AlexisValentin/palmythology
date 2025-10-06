@@ -3,3 +3,7 @@
 ## Général
 
 - Changement du favicon par défaut du site en accord avec le nouveau logo.
+
+## Les grandes lignes
+
+- Correction visuelle qui faisait que les conteneurs des FAQ ne prenait pas toute la largeur de l'espace attitré. 

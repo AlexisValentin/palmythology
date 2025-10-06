@@ -4,7 +4,7 @@ export interface FaqProps {
 }
 
 const Faq: React.FC<FaqProps> = ({ question, answer }) => (
-  <div itemScope className="rounded-lg drop-shadow-lg bg-neutral-200" itemProp="mainEntity" itemType="https://schema.org/Question">
+  <div itemScope className="w-full rounded-lg drop-shadow-lg bg-neutral-200" itemProp="mainEntity" itemType="https://schema.org/Question">
     <h5 className="rounded-t-lg bg-black text-white font-bold text-lg mb-2 px-3 py-2" itemProp="name">
       {question}
     </h5>
