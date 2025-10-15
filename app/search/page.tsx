@@ -10,7 +10,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  alternates: { canonical: 'https://palmythology.com/search' },
+  alternates: {
+    canonical: 'https://palmythology.com/search',
+    languages: {
+      'fr': 'https://palmythology.com/search',
+    },
+  },
   openGraph: {
     title: 'Les Grandes Lignes - Recherche de contenu | Palmythology',
     description: `La Palmythology propose un moteur de recherche pour trouver la fiche qu'il vous faut, parmi 11 différents panthéons et 7 différents sujets.`,
@@ -26,6 +31,12 @@ export const metadata: Metadata = {
     ],
     locale: 'fr_FR',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Les Grandes Lignes - Recherche de contenu | Palmythology',
+    description: `La Palmythology propose un moteur de recherche pour trouver la fiche qu'il vous faut, parmi 11 différents panthéons et 7 différents sujets.`,
+    images: ['https://palmythology.com/icon/favicon.ico'],
   },
 }
 

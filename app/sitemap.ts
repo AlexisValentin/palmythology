@@ -6,16 +6,22 @@ const sitemap = (): MetadataRoute.Sitemap => {
 
   const staticsMapping = STATIC.map((url) => ({
     url,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
     priority: 0.5,
   }))
 
   const pantheonsMapping = PANTHEONS.map((url) => ({
     url,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
     priority: 0.8,
   }))
 
   const cardsMapping = CARDS.map((url) => ({
     url,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
     priority: 1,
   }))
 

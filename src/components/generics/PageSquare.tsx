@@ -13,6 +13,7 @@ import {
   getPantheonMainColor,
   getPantheonTextColor,
 } from '../../utils/styles/colors'
+import Image from 'next/image'
 
 export enum CONTENT_TYPE {
   ROUTE = 'route',
@@ -36,9 +37,9 @@ interface PageSquareProps {
   available?: boolean
   contentType: CONTENT_TYPE
   size?:
-    | PAGE_SQUARE_SIZE_TYPE.SM
-    | PAGE_SQUARE_SIZE_TYPE.MD
-    | PAGE_SQUARE_SIZE_TYPE.XL
+  | PAGE_SQUARE_SIZE_TYPE.SM
+  | PAGE_SQUARE_SIZE_TYPE.MD
+  | PAGE_SQUARE_SIZE_TYPE.XL
   withoutText?: boolean
   url?: string
 }
@@ -75,16 +76,13 @@ const PageSquare: React.FC<PageSquareProps> = ({
   return available ? (
     <Link
       href={buildLink()!}
-      className={`border-4 border-${
-        pantheon ? getPantheonMainColor(pantheon) : BLACK_COLOR
-      } rounded-3xl p-6 m-6 ${withoutText && 'py-2 m-4'} bg-${
-        pantheon ? getPantheonMainColor(pantheon) : 'slate-500'
-      } text-${pantheon ? getPantheonTextColor(pantheon) : WHITE_COLOR} 
+      className={`border-4 border-${pantheon ? getPantheonMainColor(pantheon) : BLACK_COLOR
+        } rounded-3xl p-6 m-6 ${withoutText && 'py-2 m-4'} bg-${pantheon ? getPantheonMainColor(pantheon) : 'slate-500'
+        } text-${pantheon ? getPantheonTextColor(pantheon) : WHITE_COLOR} 
       lg:bg-transparent
       lg:text-black
-      lg:hover:bg-${
-        pantheon ? getPantheonMainColor(pantheon) : 'slate-500'
-      } lg:hover:text-${pantheon ? getPantheonTextColor(pantheon) : WHITE_COLOR} transition-colors`}
+      lg:hover:bg-${pantheon ? getPantheonMainColor(pantheon) : 'slate-500'
+        } lg:hover:text-${pantheon ? getPantheonTextColor(pantheon) : WHITE_COLOR} transition-colors`}
     >
       <div className="flex items-center justify-center flex-col">
         <PageSquareBlock
@@ -114,7 +112,7 @@ const PageSquareBlock: React.FC<
 > = ({ title, subtitle, icon, size, withoutText }) => (
   <div className={`flex item-center justify-center flex-col ${size}`}>
     <div className="flex items-center justify-center flex-col mt-4">
-      <img
+      <Image
         className={`w-24 pb-4`}
         src={typeof icon === 'string' ? icon : icon?.filename}
         alt={typeof icon === 'string' ? `Icône ${title}` : icon?.alt}

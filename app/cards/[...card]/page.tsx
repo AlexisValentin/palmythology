@@ -39,9 +39,8 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
   const story = await getCardStory(title, pantheon);
 
   return {
-    title: `${capitalize(replaceDashesBySpaces(title))}, ${
-      story.data.story.content?.subtitle
-    } - Les Grandes Lignes | Palmythology`,
+    title: `${capitalize(replaceDashesBySpaces(title))}, ${story.data.story.content?.subtitle
+      } - Les Grandes Lignes | Palmythology`,
     description: story.data.story.content?.metaDescription,
     icons: {
       icon: story.data.story.content?.icon?.filename,
@@ -54,11 +53,13 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
     },
     alternates: {
       canonical: `https://palmythology.com/cards/${pantheon}/${title}`,
+      languages: {
+        'fr': `https://palmythology.com/cards/${pantheon}/${title}`,
+      },
     },
     openGraph: {
-      title: `${capitalize(replaceDashesBySpaces(title))}, ${
-        story.data.story.content?.subtitle
-      } - Les Grandes Lignes | Palmythology`,
+      title: `${capitalize(replaceDashesBySpaces(title))}, ${story.data.story.content?.subtitle
+        } - Les Grandes Lignes | Palmythology`,
       description: story.data.story.content?.metaDescription,
       url: `https://palmythology.com/cards/${pantheon}/${title}`,
       siteName: "Palmythology",
@@ -73,7 +74,14 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
         },
       ],
       locale: "fr_FR",
-      type: "website",
+      type: "article",
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${capitalize(replaceDashesBySpaces(title))}, ${story.data.story.content?.subtitle
+        } - Les Grandes Lignes | Palmythology`,
+      description: story.data.story.content?.metaDescription,
+      images: [story.data.story.content?.icon?.filename],
     },
   };
 };
@@ -118,8 +126,38 @@ const CardPage = async ({ params }: CardPagePropsType) => {
   const pantheonData = getPantheonData(pantheon as PantheonValue);
   const subjectData = getSubjectData(subject);
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: name,
+    description: subtitle,
+    image: images?.map((img: any) => img.filename) || [],
+    author: {
+      '@type': 'Organization',
+      name: 'Palmythology',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Palmythology',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://palmythology.com/icon/favicon.ico',
+      },
+    },
+    inLanguage: 'fr-FR',
+    about: {
+      '@type': 'Thing',
+      name: getPantheonLabelFromValue(pantheon as PantheonValue),
+    },
+  }
+
   return (
-    <div className="flex justify-center items-center flex-col">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <div className="flex justify-center items-center flex-col">
       <div className="flex justify-center items-center gap-x-6 sm:gap-x-10 md:gap-x-16 lg:gap-x-20 xl:gap-x-24">
         {pantheonData && (
           <PageSquare
@@ -188,7 +226,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
           </div>
           {quotations.map(({ quote, author, origin }: QuotationProps) => (
             <div
-              key={`${author}-${origin ?? "unknown"}`}
+              key={`${author}-${author}-${origin ?? "unknown"}`}
               className="flex flex-col mt-6 w-full"
             >
               <Quotation quote={quote} author={author} origin={origin} />
@@ -220,7 +258,8 @@ const CardPage = async ({ params }: CardPagePropsType) => {
           <SocialNetworks customLinks={socialLinks} />
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 };
 

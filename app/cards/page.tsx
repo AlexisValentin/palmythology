@@ -9,16 +9,21 @@ import { NextImageType } from '../../src/utils/image.constants'
 export const metadata: Metadata = {
   title: 'Les Grandes Lignes - fiches mythologiques | Palmythology',
   description:
-    'Les Grandes Lignes sont le nom des fiches mythologiques de la Palmythology. Inuitives et pédagogiques, elles vous de plongent dans les mythes du monde.',
+    'Les Grandes Lignes sont le nom des fiches mythologiques de la Palmythology. Intuitives et pédagogiques, elles vous plongent dans les mythes du monde.',
   robots: {
     index: true,
     follow: true,
   },
-  alternates: { canonical: 'https://palmythology.com/cards' },
+  alternates: {
+    canonical: 'https://palmythology.com/cards',
+    languages: {
+      'fr': 'https://palmythology.com/cards',
+    },
+  },
   openGraph: {
     title: 'Les Grandes Lignes - fiches mythologiques',
     description:
-      'Les Grandes Lignes sont le nom des fiches mythologiques de la Palmythology. Inuitives et pédagogiques, elles vous de plongent dans les mythes du monde.',
+      'Les Grandes Lignes sont le nom des fiches mythologiques de la Palmythology. Intuitives et pédagogiques, elles vous plongent dans les mythes du monde.',
     url: 'https://palmythology.com/cards',
     siteName: 'Palmythology',
     images: [
@@ -31,6 +36,13 @@ export const metadata: Metadata = {
     ],
     locale: 'fr_FR',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Les Grandes Lignes - fiches mythologiques | Palmythology',
+    description:
+      'Les Grandes Lignes sont le nom des fiches mythologiques de la Palmythology. Intuitives et pédagogiques, elles vous plongent dans les mythes du monde.',
+    images: ['https://palmythology.com/icon/favicon.ico'],
   },
 }
 
@@ -49,7 +61,7 @@ const CardHubPage = () => {
         />
         <PageSection
           name="Un univers coloré !"
-          description="Chaque panthéon est associé à un code couleur spécifique et à une icône dédiée en haut à gauche de la page de couverture. La Palmythology découpe ses fiches en plusieurs sujets, eux aussi reconnaissables grâce une icône dédiée en bas à droite de la page de couverture."
+          description="Chaque panthéon est associé à un code couleur spécifique et à une icône dédiée en haut à gauche de la page de couverture. La Palmythology découpe ses fiches en plusieurs sujets, eux aussi reconnaissables grâce à une icône dédiée en bas à droite de la page de couverture."
           icon={ColorsIcon as unknown as NextImageType}
         />
       </div>

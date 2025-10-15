@@ -28,11 +28,14 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
     },
     alternates: {
       canonical: `https://palmythology.com/subjects/${subject}`,
+      languages: {
+        'fr': `https://palmythology.com/subjects/${subject}`,
+      },
     },
     openGraph: {
       title: `Sujet ${getSubjectLabelFromValue(
         subject as SubjectValue,
-      )?.toLowerCase()} Les Grandes Lignes | Palmythology`,
+      )?.toLowerCase()} - Les Grandes Lignes | Palmythology`,
       description: story.data.story.content?.metaDescription,
       url: `https://palmythology.com/subjects/${subject}`,
       siteName: 'Palmythology',
@@ -46,6 +49,14 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
       ],
       locale: 'fr_FR',
       type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `Sujet ${getSubjectLabelFromValue(
+        subject as SubjectValue,
+      )?.toLowerCase()} - Les Grandes Lignes | Palmythology`,
+      description: story.data.story.content?.metaDescription,
+      images: ['https://palmythology.com/icon/favicon.ico'],
     },
   }
 }

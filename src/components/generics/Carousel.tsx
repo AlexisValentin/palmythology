@@ -2,10 +2,10 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
-
 import 'swiper/scss'
 import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
+import Image from 'next/image'
 
 type CarouselProps = {
   imageList: StoryblokSingleAssetType[]
@@ -25,12 +25,22 @@ const Carousel: React.FC<CarouselProps> = ({ imageList }) => (
     navigation
     pagination
   >
-    {imageList.map((image: StoryblokSingleAssetType) => {
+    {imageList.map((image: StoryblokSingleAssetType, idx) => {
       const { filename, alt } = image
+      const isPriority = idx === 0
+      const loadingStrategy = isPriority ? 'eager' : 'lazy'
 
       return (
         <SwiperSlide key={alt}>
-          <img src={filename} alt={alt} />
+          <Image
+            src={filename}
+            alt={alt}
+            width={1000}
+            height={1000}
+            loading={loadingStrategy}
+            priority={isPriority}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 1000px"
+          />
         </SwiperSlide>
       )
     })}

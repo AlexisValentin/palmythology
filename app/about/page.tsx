@@ -14,7 +14,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  alternates: { canonical: 'https://palmythology.com/about' },
+  alternates: {
+    canonical: 'https://palmythology.com/about',
+    languages: {
+      'fr': 'https://palmythology.com/about',
+    },
+  },
   openGraph: {
     title: 'A propos du site internet | Palmythology',
     description:
@@ -31,6 +36,13 @@ export const metadata: Metadata = {
     ],
     locale: 'fr_FR',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'A propos du site internet | Palmythology',
+    description:
+      'Made in France, La Palmythology vous propose une expérience sans publicité et sans pollution visuelle, avec des données de navigation anonymisées.',
+    images: ['https://palmythology.com/icon/favicon.ico'],
   },
 }
 

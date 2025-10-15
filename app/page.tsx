@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://palmythology.com/',
+    languages: {
+      'fr': 'https://palmythology.com/',
+    },
   },
   openGraph: {
     title: "Palmythology, l'encyclopédie mythologique",
@@ -30,6 +33,13 @@ export const metadata: Metadata = {
     ],
     locale: 'fr_FR',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Palmythology, l'encyclopédie mythologique",
+    description:
+      "Explorez les mythologies du monde avec des fiches simples et intuitives avec la Palmythology. Découvrez les panthéons qui ont façonnés l'histoire.",
+    images: ['https://palmythology.com/icon/favicon.ico'],
   },
 }
 

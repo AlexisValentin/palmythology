@@ -17,9 +17,9 @@ const PageHeader: React.FC<PageHeaderProps> = ({
     <h1 className=" text-2xl font-bold">{title}</h1>
     {subtitle && (
       <div className={`${forceDisplay ? 'block' : 'hidden'} md:block`}>
-        <h2 className="italic text-xs text-nowrap sm:block md:text-sm lg:text-base pt-2">
+        <p className="italic text-xs text-nowrap sm:block md:text-sm lg:text-base pt-2">
           {subtitle}
-        </h2>
+        </p>
       </div>
     )}
   </div>

@@ -11,7 +11,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  alternates: { canonical: 'https://palmythology.com/pantheons' },
+  alternates: {
+    canonical: 'https://palmythology.com/pantheons',
+    languages: {
+      'fr': 'https://palmythology.com/pantheons',
+    },
+  },
   openGraph: {
     title: 'Les Grandes Lignes - liste des panthéons | Palmythology',
     description:
@@ -28,6 +33,13 @@ export const metadata: Metadata = {
     ],
     locale: 'fr_FR',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Les Grandes Lignes - liste des panthéons | Palmythology',
+    description:
+      'Sélectionnez un panthéon parmi 11 : grec, égyptien, scandinave, celtique, japonais, chinois, maya, mésopotamien, aztèque, hindou, romain.',
+    images: ['https://palmythology.com/icon/favicon.ico'],
   },
 }
 

@@ -19,6 +19,29 @@ export const metadata = {
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Palmythology',
+    url: 'https://palmythology.com',
+    logo: 'https://palmythology.com/icon/favicon.ico',
+    description: "L'encyclopédie mythologique française proposant des fiches intuitives sur 11 panthéons différents",
+    sameAs: [
+      'https://www.instagram.com/palmythology',
+      'https://www.threads.net/@palmythology',
+      'https://bsky.app/profile/palmythology.com',
+    ],
+  }
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Palmythology',
+    url: 'https://palmythology.com',
+    description: "Explorez les mythologies du monde avec des fiches simples et intuitives",
+    inLanguage: 'fr-FR',
+  }
+
   return (
     <StoryblokProvider>
       <html lang="fr">
@@ -28,8 +51,16 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               defer
               data-domain="palmythology.com"
               src="https://plausible.io/js/script.js"
-            ></script>
+            />
           )}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          />
         </head>
         <body>
           <TrackingNotice />

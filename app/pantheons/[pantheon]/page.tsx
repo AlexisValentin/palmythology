@@ -28,6 +28,9 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
     },
     alternates: {
       canonical: `https://palmythology.com/pantheons/${pantheon}`,
+      languages: {
+        'fr': `https://palmythology.com/pantheons/${pantheon}`,
+      },
     },
     openGraph: {
       title: `Panthéon ${getPantheonLabelFromValue(
@@ -46,6 +49,14 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
       ],
       locale: 'fr_FR',
       type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `Panthéon ${getPantheonLabelFromValue(
+        pantheon as PantheonValue,
+      )} - Les Grandes Lignes | Palmythology`,
+      description: story.data.story.content?.metaDescription,
+      images: ['https://palmythology.com/icon/favicon.ico'],
     },
   }
 }
