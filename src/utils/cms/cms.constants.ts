@@ -4,6 +4,7 @@ import { MONTH_VALUE_TYPE } from '../dates/dates.constants'
 
 export const STORYBLOK_RESULTS_PER_PAGE = 12
 export const STORYBLOK_MAX_ITEMS_PER_REQUEST = 20
+export const STORYBLOK_SITEMAP_MAX_ITEMS = 100
 
 export enum STORYBLOK_VERSIONS {
   DRAFT = 'draft',
@@ -86,4 +87,18 @@ export interface TextBlockType {
   }
   component: string
   _uid: string
+}
+
+export interface AvailableCardForSitemap {
+  slug: string
+  published_at: string
+}
+
+export interface StoryblokStoryResponse {
+  full_slug: string
+  published_at: string
+  content: {
+    available: boolean
+    component: string
+  }
 }

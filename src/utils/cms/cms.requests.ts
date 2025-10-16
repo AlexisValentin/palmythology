@@ -5,9 +5,12 @@ import {
   Quoi2NeufStoryType,
   STORYBLOK_MAX_ITEMS_PER_REQUEST,
   STORYBLOK_RESULTS_PER_PAGE,
+  STORYBLOK_SITEMAP_MAX_ITEMS,
   STORYBLOK_VERSIONS,
   StoryblokCardComponentType,
   StoryblokQ2NComponentType,
+  AvailableCardForSitemap,
+  StoryblokStoryResponse,
 } from './cms.constants'
 import { parseStringToSlug, replaceHyphenByDashes } from '../string'
 import { getStoryblokBaseUrl, getStoryblokToken } from './cms'
@@ -127,4 +130,42 @@ const parseQuoi2NeufData = (
     quoi2NeufItem.content
 
   return { title, subtitle, icon, available, pantheon, month }
+}
+
+export const fetchAllAvailableCards = async (): Promise<AvailableCardForSitemap[]> => {
+  try {
+    let allCards: AvailableCardForSitemap[] = []
+    let currentPage = 1
+    let hasMorePages = true
+
+    while (hasMorePages) {
+      const response = await axios({
+        method: 'get',
+        url: `${getStoryblokBaseUrl()}?starts_with=cards&token=${getStoryblokToken()}&version=${
+          STORYBLOK_VERSIONS.PUBLISHED
+        }&per_page=${STORYBLOK_SITEMAP_MAX_ITEMS}&page=${currentPage}&filter_query[component][in]=card`,
+        responseType: 'json',
+      })
+
+      const stories: StoryblokStoryResponse[] = response.data.stories || []
+      const total = Number.parseInt(response.headers.total || '0', 10)
+
+      const availableCards = stories
+        .filter((story) => story.content.available === true)
+        .map((story) => ({
+          slug: story.full_slug,
+          published_at: story.published_at,
+        }))
+
+      allCards = [...allCards, ...availableCards]
+      const totalFetched = currentPage * STORYBLOK_SITEMAP_MAX_ITEMS
+      hasMorePages = totalFetched < total
+      currentPage++
+    }
+
+    return allCards
+  } catch (error) {
+    console.error('Error fetching available cards for sitemap:', error)
+    return []
+  }
 }
