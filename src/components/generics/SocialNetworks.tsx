@@ -3,6 +3,7 @@ import {
   SOCIAL_NETWORKS,
   SOCIAL_NETWORK_STATUS,
 } from '../../utils/socials.constants'
+import Link from 'next/link'
 
 interface SocialNetworkProps {
   name: string
@@ -25,8 +26,8 @@ const SocialNetwork: React.FC<SocialNetworkProps> = ({
 }) => (
   <>
     {url && (
-      <a href={url} target="_blank" rel="noreferrer">
-        <div className="flex items-center justify-center m-2 hover:opacity-50">
+      <Link href={url} target="_blank" rel="noreferrer">
+        <div className="flex items-center justify-center m-1 hover:scale-110 transition-transform duration-200">
           <Image
             className="w-10"
             src={iconUrl}
@@ -35,7 +36,7 @@ const SocialNetwork: React.FC<SocialNetworkProps> = ({
             height={24}
           />
         </div>
-      </a>
+      </Link>
     )}
   </>
 )

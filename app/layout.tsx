@@ -4,6 +4,7 @@ import Footer from '../src/components/domains/footer/Footer'
 import MainMenu from '../src/components/domains/navigation/MainMenu'
 import Breadcrumbs from '../src/components/generics/Breadcrumbs'
 import TrackingNotice from '../src/components/domains/tracking/TrackingNotice'
+import SocialsIncentivePopin from '../src/components/domains/social/SocialsIncentivePopin'
 import '../src/global.css'
 
 interface MainLayoutProps {
@@ -64,6 +65,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         </head>
         <body>
           <TrackingNotice />
+          <SocialsIncentivePopin />
           <MainMenu />
           <div className="flex flex-col min-h-screen">
             <div className="px-6 mb-20 sm:px-12 md:px-24 lg:px-40 xl:px-56 2xl:px-72">
