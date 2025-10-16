@@ -197,7 +197,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
             <Image className="mr-2" src={SummaryIcon} alt="Icône de résumé" width={24} height={24} />
             <h4 className="text-xl font-bold">L'essentiel</h4>
           </div>
-          <div className="w-full lg:w-3/4 mt-8">
+          <div className="w-full mt-8">
             <Transcription transcriptionContent={transcription} />
           </div>
         </div>
@@ -226,7 +226,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
           </div>
           {quotations.map(({ quote, author, origin }: QuotationProps) => (
             <div
-              key={`${author}-${author}-${origin ?? "unknown"}`}
+              key={`${author}-${quote.split(' ')}`}
               className="flex flex-col mt-6 w-full"
             >
               <Quotation quote={quote} author={author} origin={origin} />
