@@ -25,6 +25,7 @@ export enum CONTENT_TYPE {
 export enum PAGE_SQUARE_SIZE_TYPE {
 	SM = "w-6 md:w-8",
 	MD = "w-36 md:w-48",
+	COMPACT = "w-28 md:w-36 xl:w-40",
 	XL = "w-52 md:w-72",
 }
 
@@ -39,6 +40,7 @@ interface PageSquareProps {
 	size?:
 		| PAGE_SQUARE_SIZE_TYPE.SM
 		| PAGE_SQUARE_SIZE_TYPE.MD
+		| PAGE_SQUARE_SIZE_TYPE.COMPACT
 		| PAGE_SQUARE_SIZE_TYPE.XL;
 	withoutText?: boolean;
 	url?: string;

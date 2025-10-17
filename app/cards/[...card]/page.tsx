@@ -1,31 +1,30 @@
-import React from "react";
+import Image from "next/image";
 import { redirect } from "next/navigation";
+import SummaryIcon from "../../../src/assets/icons/open_book.svg";
+import QnAIcon from "../../../src/assets/icons/question_marks.svg";
+import QuotationIcon from "../../../src/assets/icons/quotation_marks.svg";
+import Transcription from "../../../src/components/domains/cards/Transcription";
 import Carousel from "../../../src/components/generics/Carousel";
+import Faq, { type FaqProps } from "../../../src/components/generics/Faq";
 import PageHeader from "../../../src/components/generics/PageHeader";
 import PageSquare, {
 	CONTENT_TYPE,
 	PAGE_SQUARE_SIZE_TYPE,
 } from "../../../src/components/generics/PageSquare";
+import Quotation, {
+	type QuotationProps,
+} from "../../../src/components/generics/Quotation";
 import SocialNetworks from "../../../src/components/generics/SocialNetworks";
-import { getPantheonData } from "../../../src/utils/pantheons";
+import Summary from "../../../src/components/generics/Summary";
+import { getPantheonLabelFromValue } from "../../../src/utils/cards/pantheons";
+import type { PantheonValue } from "../../../src/utils/cards/pantheons.constants";
+import { getSubjectLabelFromValue } from "../../../src/utils/cards/subjects";
+import type { SubjectValue } from "../../../src/utils/cards/subjects.constants";
+import type { CardRelatedType } from "../../../src/utils/cms/cms.constants";
 import { getCardStory } from "../../../src/utils/cms/cms.requests";
+import { getPantheonData } from "../../../src/utils/pantheons";
 import { capitalize, replaceDashesBySpaces } from "../../../src/utils/string";
 import { getSubjectData } from "../../../src/utils/subjects";
-import { PantheonValue } from "../../../src/utils/cards/pantheons.constants";
-import { SubjectValue } from "../../../src/utils/cards/subjects.constants";
-import Transcription from "../../../src/components/domains/cards/Transcription";
-import { CardRelatedType } from "../../../src/utils/cms/cms.constants";
-import { getPantheonLabelFromValue } from "../../../src/utils/cards/pantheons";
-import { getSubjectLabelFromValue } from "../../../src/utils/cards/subjects";
-import Summary from "../../../src/components/generics/Summary";
-import Quotation, {
-	QuotationProps,
-} from "../../../src/components/generics/Quotation";
-import Faq, { FaqProps } from "../../../src/components/generics/Faq";
-import SummaryIcon from "../../../src/assets/icons/open_book.svg";
-import QnAIcon from "../../../src/assets/icons/question_marks.svg";
-import QuotationIcon from "../../../src/assets/icons/quotation_marks.svg";
-import Image from "next/image";
 
 interface CardPagePropsType {
 	params: Promise<{ card: string[] }>;
@@ -116,7 +115,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 		faq,
 	} = story.data.story.content;
 
-	if (!available || !pantheon) return <></>;
+	if (!available || !pantheon) return null;
 
 	const hasCustomLinks =
 		instagramUrl?.url || threadsUrl?.url || blueskyUrl?.url;
@@ -256,21 +255,24 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 					</div>
 				)}
 				{relatedCards && relatedCards.length > 0 && (
-					<div className="flex flex-col mt-10 border-t-2">
+					<div className="flex flex-col items-center w-full border-t-2 mt-10 lg:w-3/4">
 						<div className="flex align-center justify-center mt-8">
 							<h3 className="text-xl font-bold">Dans le même sujet</h3>
 						</div>
-						<div className="flex flex-col lg:flex-row mt-4">
-							{relatedCards.map((card: CardRelatedType) => (
-								<PageSquare
-									key={`${card.name}-${card.subtitle}}`}
-									title={card.name}
-									subtitle={card.subtitle}
-									pantheon={card.pantheon}
-									icon={card.icon}
-									contentType={CONTENT_TYPE.CARD}
-								/>
-							))}
+						<div className="flex flex-wrap justify-center mt-4">
+							{relatedCards.map(
+								({ name, subtitle, pantheon, icon }: CardRelatedType) => (
+									<PageSquare
+										key={`${name}-${subtitle}}`}
+										title={name}
+										subtitle={subtitle}
+										pantheon={pantheon}
+										icon={icon}
+										contentType={CONTENT_TYPE.CARD}
+										size={PAGE_SQUARE_SIZE_TYPE.COMPACT}
+									/>
+								),
+							)}
 						</div>
 					</div>
 				)}

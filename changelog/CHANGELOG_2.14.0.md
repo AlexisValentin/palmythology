@@ -9,4 +9,5 @@
 
 # Les Grandes Lignes
 
+- Augmentation de la limite maximum de cartes du même sujet, passant de 3 à 5.
 - Correction d'une propriété CSS qui faisait que la transcription ne prenait pas l'intégralité de sa largeur.
