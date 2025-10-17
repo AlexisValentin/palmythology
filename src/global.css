@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	p > a {
+		text-decoration: underline;
+		text-underline-offset: 0.3rem;
+
+		@media screen and (max-width: 64rem) {
+			color: #f461b1;
+			text-decoration-color: #00a6f4;
+		}
+
+		&:hover {
+			color: #f461b1;
+			text-decoration-color: #00a6f4;
+		}
+	}
+
+	p {
+		margin-bottom: 1rem;
+	}
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+
 @font-face {
 	font-family: "Bahnschrift";
 	src: url("assets/fonts/Bahnschrift.ttf");

@@ -1,3 +1,5 @@
+import Markdown from "react-markdown";
+
 export interface QuotationProps {
 	quote: string;
 	author: string;
@@ -10,7 +12,9 @@ const Quotation: React.FC<QuotationProps> = ({ quote, author, origin }) => {
 			className="rounded-lg drop-shadow-lg bg-neutral-200"
 			cite="source-url"
 		>
-			<p className="italic p-2 mb-0">"{quote}"</p>
+			<div className="italic p-2 mb-0">
+				<Markdown>{`"${quote}"`}</Markdown>
+			</div>
 			<footer className="rounded-b-lg bg-black text-white px-3 py-1">
 				<cite className="text-sm not-italic">
 					<span className="font-bold">{author}</span>

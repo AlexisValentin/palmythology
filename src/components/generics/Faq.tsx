@@ -1,7 +1,9 @@
+import Markdown from "react-markdown";
+
 export interface FaqProps {
-	question: string;
-	answer: string;
-}
+		question: string;
+		answer: string;
+	}
 
 const Faq: React.FC<FaqProps> = ({ question, answer }) => {
 	const faqSchema = {
@@ -25,7 +27,7 @@ const Faq: React.FC<FaqProps> = ({ question, answer }) => {
 					{question}
 				</h5>
 				<div className="p-2 pt-0">
-					<p>{answer}</p>
+					<Markdown>{answer}</Markdown>
 				</div>
 			</div>
 		</>

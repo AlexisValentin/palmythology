@@ -1,6 +1,9 @@
+import Markdown from "react-markdown";
+
 interface TranscriptionDetailContent {
 	transcriptionDetailTitle: string;
-	transcriptionDetailContent: string;
+	transcriptionDetailContent?: string;
+	content?: string;
 }
 
 interface TranscriptionContent {
@@ -23,7 +26,7 @@ const Transcription: React.FC<TranscriptionProps> = ({
 			// should be fixed as soon as possible by creating a `Faq` block in the backend
 			const parsedTranscriptionContent = transcriptionContent.map((item) => ({
 				title: item.transcriptionDetailTitle,
-				description: item.transcriptionDetailContent,
+				description: item.content || "",
 			}));
 
 			return (
@@ -72,7 +75,7 @@ const TranscriptionItem: React.FC<TranscriptionItemProps> = ({
 		<summary className="text-xl font-semibold mb-2 hover:bg-slate-100 cursor-pointer pl-2">
 			{title}
 		</summary>
-		{description}
+		<Markdown>{description}</Markdown>
 	</details>
 );
 

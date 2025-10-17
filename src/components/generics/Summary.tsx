@@ -1,6 +1,5 @@
 import Markdown from "react-markdown";
 import { getSummaryBackgroundColor } from "../../utils/styles/colors";
-import "../../styles/markdown.css";
 
 interface SummaryProps {
 	content: string;

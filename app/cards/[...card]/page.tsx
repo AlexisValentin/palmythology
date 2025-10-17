@@ -5,15 +5,13 @@ import QnAIcon from "../../../src/assets/icons/question_marks.svg";
 import QuotationIcon from "../../../src/assets/icons/quotation_marks.svg";
 import Transcription from "../../../src/components/domains/cards/Transcription";
 import Carousel from "../../../src/components/generics/Carousel";
-import Faq, { type FaqProps } from "../../../src/components/generics/Faq";
+import Faq from "../../../src/components/generics/Faq";
 import PageHeader from "../../../src/components/generics/PageHeader";
 import PageSquare, {
 	CONTENT_TYPE,
 	PAGE_SQUARE_SIZE_TYPE,
 } from "../../../src/components/generics/PageSquare";
-import Quotation, {
-	type QuotationProps,
-} from "../../../src/components/generics/Quotation";
+import Quotation from "../../../src/components/generics/Quotation";
 import SocialNetworks from "../../../src/components/generics/SocialNetworks";
 import Summary from "../../../src/components/generics/Summary";
 import { getPantheonLabelFromValue } from "../../../src/utils/cards/pantheons";
@@ -97,7 +95,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 
 	const story = await getCardStory(title, pantheon);
 
-	if (!story?.data?.story?.content) return <></>;
+	if (!story?.data?.story?.content) return null;
 
 	const {
 		name,
@@ -222,14 +220,22 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 							/>
 							<h4 className="text-xl font-bold">Questions fréquentes</h4>
 						</div>
-						{faq.map(({ question, answer }: FaqProps) => (
-							<div
-								key={question}
-								className="flex flex-col justify-center items-center mt-8 w-full"
-							>
-								<Faq question={question} answer={answer} />
-							</div>
-						))}
+						{faq.map(
+							({
+								question,
+								response,
+							}: {
+								question: string;
+								response: string;
+							}) => (
+								<div
+									key={question}
+									className="flex flex-col justify-center items-center mt-8 w-full"
+								>
+									<Faq question={question} answer={response} />
+								</div>
+							),
+						)}
 					</div>
 				)}
 				{quotations?.length > 0 && (
@@ -244,14 +250,30 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 							/>
 							<h4 className="text-xl font-bold">Citations</h4>
 						</div>
-						{quotations.map(({ quote, author, origin }: QuotationProps) => (
-							<div
-								key={`${author}-${quote.split(" ")}`}
-								className="flex flex-col mt-6 w-full"
-							>
-								<Quotation quote={quote} author={author} origin={origin} />
-							</div>
-						))}
+						{quotations.map(
+							({
+								author,
+								quotation,
+								origin,
+							}: {
+								author: string;
+								quotation: string;
+								origin?: string;
+							}) => {								
+								return (
+									<div
+										key={`${author}-${quotation.split(" ")}`}
+										className="flex flex-col mt-6 w-full"
+									>
+										<Quotation
+											quote={quotation}
+											author={author}
+											origin={origin}
+										/>
+									</div>
+								);
+							},
+						)}
 					</div>
 				)}
 				{relatedCards && relatedCards.length > 0 && (
