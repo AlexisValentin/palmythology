@@ -1,50 +1,50 @@
-'use client'
+"use client";
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination } from 'swiper/modules'
-import 'swiper/scss'
-import 'swiper/scss/navigation'
-import 'swiper/scss/pagination'
-import Image from 'next/image'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/scss";
+import "swiper/scss/navigation";
+import "swiper/scss/pagination";
+import Image from "next/image";
 
 type CarouselProps = {
-  imageList: StoryblokSingleAssetType[]
-}
+	imageList: StoryblokSingleAssetType[];
+};
 
 interface StoryblokSingleAssetType {
-  filename: string
-  alt: string
+	filename: string;
+	alt: string;
 }
 
 const Carousel: React.FC<CarouselProps> = ({ imageList }) => (
-  <Swiper
-    className="shadow-2xl"
-    modules={[Navigation, Pagination]}
-    spaceBetween={50}
-    slidesPerView={1}
-    navigation
-    pagination
-  >
-    {imageList.map((image: StoryblokSingleAssetType, idx) => {
-      const { filename, alt } = image
-      const isPriority = idx === 0
-      const loadingStrategy = isPriority ? 'eager' : 'lazy'
+	<Swiper
+		className="shadow-2xl"
+		modules={[Navigation, Pagination]}
+		spaceBetween={50}
+		slidesPerView={1}
+		navigation
+		pagination
+	>
+		{imageList.map((image: StoryblokSingleAssetType, idx) => {
+			const { filename, alt } = image;
+			const isPriority = idx === 0;
+			const loadingStrategy = isPriority ? "eager" : "lazy";
 
-      return (
-        <SwiperSlide key={alt}>
-          <Image
-            src={filename}
-            alt={alt}
-            width={1000}
-            height={1000}
-            loading={loadingStrategy}
-            priority={isPriority}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 1000px"
-          />
-        </SwiperSlide>
-      )
-    })}
-  </Swiper>
-)
+			return (
+				<SwiperSlide key={alt}>
+					<Image
+						src={filename}
+						alt={alt}
+						width={1000}
+						height={1000}
+						loading={loadingStrategy}
+						priority={isPriority}
+						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 1000px"
+					/>
+				</SwiperSlide>
+			);
+		})}
+	</Swiper>
+);
 
-export default Carousel
+export default Carousel;

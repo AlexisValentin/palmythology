@@ -5,6 +5,7 @@
 - Ajout d'une nouvelle popin d'incitation aux réseaux sociaux, qui suit la navigation de l'utilisateur et permet de sauvegarder son état sur 7 jours.
 - Ajustements SEO pour coller aux standards et recommandations.
 - Le sitemap est désormais généré automatiquement au build, plutôt que mis à jour manuellement.
+- Mise à jour de Biome JS afin de formatter les fichiers du projet.
 
 # Les Grandes Lignes
 
