@@ -1,82 +1,83 @@
-import Image from 'next/image'
+import Image from "next/image";
 import {
-  SOCIAL_NETWORKS,
-  SOCIAL_NETWORK_STATUS,
-} from '../../utils/socials.constants'
+	SOCIAL_NETWORKS,
+	SOCIAL_NETWORK_STATUS,
+} from "../../utils/socials.constants";
+import Link from "next/link";
 
 interface SocialNetworkProps {
-  name: string
-  url?: string
-  iconUrl: string
+	name: string;
+	url?: string;
+	iconUrl: string;
 }
 
 interface SocialNetworksProps {
-  customLinks?: {
-    instagram: string
-    threads: string
-    bluesky: string
-  }
+	customLinks?: {
+		instagram: string;
+		threads: string;
+		bluesky: string;
+	};
 }
 
 const SocialNetwork: React.FC<SocialNetworkProps> = ({
-  name,
-  url,
-  iconUrl,
+	name,
+	url,
+	iconUrl,
 }) => (
-  <>
-    {url && (
-      <a href={url} target="_blank" rel="noreferrer">
-        <div className="flex items-center justify-center m-2 hover:opacity-50">
-          <Image
-            className="w-10"
-            src={iconUrl}
-            alt={`Logo du réseau social ${name}`}
-            width={24}
-            height={24}
-          />
-        </div>
-      </a>
-    )}
-  </>
-)
+	<>
+		{url && (
+			<Link href={url} target="_blank" rel="noreferrer">
+				<div className="flex items-center justify-center m-1 hover:scale-110 transition-transform duration-200">
+					<Image
+						className="w-10"
+						src={iconUrl}
+						alt={`Logo du réseau social ${name}`}
+						width={24}
+						height={24}
+					/>
+				</div>
+			</Link>
+		)}
+	</>
+);
 
 const SocialNetworks: React.FC<SocialNetworksProps> = ({ customLinks }) => {
-  if (customLinks) {
-    return (
-      <>
-        <div className="flex align-center justify-center">
-          <h3 className="font-semibold">Disponible sur</h3>
-        </div>
-        <div className="flex flex-row align-center justify-center">
-          {Object.values(customLinks).map((socialLink, idx) => (
-            <SocialNetwork
-              key={`${SOCIAL_NETWORKS[idx].name}-${idx}`}
-              name={SOCIAL_NETWORKS[idx].name}
-              url={socialLink}
-              iconUrl={SOCIAL_NETWORKS[idx].iconUrl}
-            />
-          ))}
-        </div>
-      </>
-    )
-  }
+	if (customLinks) {
+		return (
+			<>
+				<div className="flex align-center justify-center">
+					<h3 className="font-semibold">Disponible sur</h3>
+				</div>
+				<div className="flex flex-row align-center justify-center">
+					{Object.values(customLinks).map((socialLink, idx) => (
+						<SocialNetwork
+							key={`${SOCIAL_NETWORKS[idx].name}-${idx}`}
+							name={SOCIAL_NETWORKS[idx].name}
+							url={socialLink}
+							iconUrl={SOCIAL_NETWORKS[idx].iconUrl}
+						/>
+					))}
+				</div>
+			</>
+		);
+	}
 
-  return (
-    <>
-      {SOCIAL_NETWORKS.map(({ name, url, iconUrl, status }, idx) => {
-        if (status === SOCIAL_NETWORK_STATUS.INACTIVE) return null
+	return (
+		<>
+			{SOCIAL_NETWORKS.map(({ name, url, iconUrl, status }, idx) => {
+				if (status === SOCIAL_NETWORK_STATUS.INACTIVE) return null;
 
-        return (
-          <SocialNetwork
-            key={`${name}-${idx}`}
-            name={name}
-            url={url}
-            iconUrl={iconUrl}
-          />
-        )
-      })}
-    </>
-  )
-}
+				return (
+					<SocialNetwork
+						key={`${name}-${idx}`}
+						name={name}
+						url={url}
+						iconUrl={iconUrl}
+					/>
+				);
+			})}
+		</>
+	);
+};
 
-export default SocialNetworks
+export default SocialNetworks;

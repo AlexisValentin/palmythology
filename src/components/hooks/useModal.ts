@@ -1,15 +1,15 @@
-'use client'
+"use client";
 
-import { useCallback, useState } from 'react'
+import { useCallback, useState } from "react";
 
 const useModal = (shouldBeDisplayed: boolean) => {
-  const [shouldDisplayModal, setShouldDisplayModal] =
-    useState(shouldBeDisplayed)
+	const [shouldDisplayModal, setShouldDisplayModal] =
+		useState(shouldBeDisplayed);
 
-  const displayModal = useCallback(() => setShouldDisplayModal(true), [])
-  const hideModal = useCallback(() => setShouldDisplayModal(false), [])
+	const displayModal = useCallback(() => setShouldDisplayModal(true), []);
+	const hideModal = useCallback(() => setShouldDisplayModal(false), []);
 
-  return { shouldDisplayModal, displayModal, hideModal }
-}
+	return { shouldDisplayModal, displayModal, hideModal };
+};
 
-export default useModal
+export default useModal;
