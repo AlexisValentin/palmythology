@@ -19,7 +19,7 @@ import type { PantheonValue } from "../../../src/utils/cards/pantheons.constants
 import { getSubjectLabelFromValue } from "../../../src/utils/cards/subjects";
 import type { SubjectValue } from "../../../src/utils/cards/subjects.constants";
 import type { CardRelatedType } from "../../../src/utils/cms/cms.constants";
-import { getCardStory } from "../../../src/utils/cms/cms.requests";
+import { fetchSpecificCard } from "../../../src/utils/cms/cms.requests";
 import { getPantheonData } from "../../../src/utils/pantheons";
 import { capitalize, replaceDashesBySpaces } from "../../../src/utils/string";
 import { getSubjectData } from "../../../src/utils/subjects";
@@ -33,17 +33,18 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
 	const pantheon = pageParams.card[0];
 	const title = pageParams.card[1];
 
-	const story = await getCardStory(title, pantheon);
+	const story = await fetchSpecificCard(title, pantheon);
+	const { content } = story.story;
 
 	return {
 		title: `${capitalize(replaceDashesBySpaces(title))}, ${
-			story.data.story.content?.subtitle
+			content?.subtitle
 		} - Les Grandes Lignes | Palmythology`,
-		description: story.data.story.content?.metaDescription,
+		description: content?.metaDescription,
 		icons: {
-			icon: story.data.story.content?.icon?.filename,
-			shortcut: story.data.story.content?.icon?.filename,
-			apple: story.data.story.content?.icon?.filename,
+			icon: content?.icon?.filename,
+			shortcut: content?.icon?.filename,
+			apple: content?.icon?.filename,
 		},
 		robots: {
 			index: true,
@@ -57,14 +58,14 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
 		},
 		openGraph: {
 			title: `${capitalize(replaceDashesBySpaces(title))}, ${
-				story.data.story.content?.subtitle
+				content?.subtitle
 			} - Les Grandes Lignes | Palmythology`,
-			description: story.data.story.content?.metaDescription,
+			description: content?.metaDescription,
 			url: `https://palmythology.com/cards/${pantheon}/${title}`,
 			siteName: "Palmythology",
 			images: [
 				{
-					url: story.data.story.content?.icon?.filename,
+					url: content?.icon?.filename,
 					width: 600,
 					height: 600,
 					alt: `Logo de ${capitalize(
@@ -78,10 +79,10 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
 		twitter: {
 			card: "summary_large_image",
 			title: `${capitalize(replaceDashesBySpaces(title))}, ${
-				story.data.story.content?.subtitle
+				content?.subtitle
 			} - Les Grandes Lignes | Palmythology`,
-			description: story.data.story.content?.metaDescription,
-			images: [story.data.story.content?.icon?.filename],
+			description: content?.metaDescription,
+			images: [content?.icon?.filename],
 		},
 	};
 };
@@ -93,9 +94,13 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 
 	if (!title && pantheon) redirect(`/pantheons/${pantheon}`);
 
-	const story = await getCardStory(title, pantheon);
+	const story = await fetchSpecificCard(title, pantheon);
 
-	if (!story?.data?.story?.content) return null;
+	if (!story) return null;
+
+	const { content } = story.story;
+
+	if (!content) return null;
 
 	const {
 		name,
@@ -111,7 +116,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 		transcription,
 		quotations,
 		faq,
-	} = story.data.story.content;
+	} = content;
 
 	if (!available || !pantheon) return null;
 
@@ -259,7 +264,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 								author: string;
 								quotation: string;
 								origin?: string;
-							}) => {								
+							}) => {
 								return (
 									<div
 										key={`${author}-${quotation.split(" ")}`}

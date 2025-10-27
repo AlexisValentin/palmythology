@@ -1,6 +1,5 @@
-import { PantheonValue } from "../cards/pantheons.constants";
-import { SubjectValue } from "../cards/subjects.constants";
-import { MONTH_VALUE_TYPE } from "../dates/dates.constants";
+import type { PantheonValue } from "../cards/pantheons.constants";
+import type { SubjectValue } from "../cards/subjects.constants";
 
 export const STORYBLOK_RESULTS_PER_PAGE = 12;
 export const STORYBLOK_MAX_ITEMS_PER_REQUEST = 20;
@@ -45,7 +44,6 @@ export interface Quoi2NeufStoryType {
 	pantheon: PantheonValue;
 	icon: StoryblokImageType;
 	available?: boolean;
-	month: MONTH_VALUE_TYPE;
 }
 
 export type AboutPageType = AboutItemType[];
@@ -75,7 +73,6 @@ export interface StoryblokQ2NComponentType {
 		available: boolean;
 		isFolder: boolean;
 		pantheon: PantheonValue;
-		month: MONTH_VALUE_TYPE;
 	};
 }
 

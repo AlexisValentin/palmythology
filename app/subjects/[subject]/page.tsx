@@ -1,12 +1,11 @@
-import React from "react";
-import PageHeader from "../../../src/components/generics/PageHeader";
 import SubjectCardList from "../../../src/components/domains/cards/LPCardList";
-import {
-	fetchCardStories,
-	getSubjectStory,
-} from "../../../src/utils/cms/cms.requests";
+import PageHeader from "../../../src/components/generics/PageHeader";
 import { getSubjectLabelFromValue } from "../../../src/utils/cards/subjects";
-import { SubjectValue } from "../../../src/utils/cards/subjects.constants";
+import type { SubjectValue } from "../../../src/utils/cards/subjects.constants";
+import {
+	fetchCardsFromCriterias,
+	fetchSpecificSubject,
+} from "../../../src/utils/cms/cms.requests";
 
 interface SubjectPagePropsType {
 	params: Promise<{ subject: string }>;
@@ -15,7 +14,7 @@ interface SubjectPagePropsType {
 export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 	const pageParams = await params;
 	const subject = pageParams.subject;
-	const story = await getSubjectStory(subject);
+	const story = await fetchSpecificSubject(subject);
 
 	return {
 		title: `Sujet ${getSubjectLabelFromValue(
@@ -65,7 +64,10 @@ const SubjectPage = async ({ params }: SubjectPagePropsType) => {
 	const pageParams = await params;
 	const subject = pageParams.subject;
 
-	const { results } = await fetchCardStories({ pantheon: "", subject }, 1);
+	const { results } = await fetchCardsFromCriterias(
+		{ pantheon: "", subject },
+		1,
+	);
 
 	const subjectLabel = getSubjectLabelFromValue(subject! as SubjectValue);
 
