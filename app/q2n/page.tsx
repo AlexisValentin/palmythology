@@ -1,6 +1,6 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Q2NCardList from "../../src/components/domains/cards/Quoi2NeufCardList";
-import { fetchQuoi2NeufStories } from "../../src/utils/cms/cms.requests";
+import { fetchQ2NContent } from "../../src/utils/cms/cms.requests";
 
 export const metadata: Metadata = {
 	title: "Quoi 2 Neuf, planning de sortie des fiches | Palmythology",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 const Quoi2NeufPage = async () => {
-	const stories = await fetchQuoi2NeufStories();
+	const stories = await fetchQ2NContent();
 
 	return <Q2NCardList stories={stories} />;
 };

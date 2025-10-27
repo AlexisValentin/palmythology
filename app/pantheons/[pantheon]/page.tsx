@@ -1,12 +1,11 @@
-import React from "react";
-import PageHeader from "../../../src/components/generics/PageHeader";
 import PantheonCardList from "../../../src/components/domains/cards/LPCardList";
-import {
-	fetchCardStories,
-	getPantheonStory,
-} from "../../../src/utils/cms/cms.requests";
+import PageHeader from "../../../src/components/generics/PageHeader";
 import { getPantheonLabelFromValue } from "../../../src/utils/cards/pantheons";
-import { PantheonValue } from "../../../src/utils/cards/pantheons.constants";
+import type { PantheonValue } from "../../../src/utils/cards/pantheons.constants";
+import {
+	fetchCardsFromCriterias,
+	fetchSpecificPantheon,
+} from "../../../src/utils/cms/cms.requests";
 
 interface PantheonPagePropsType {
 	params: Promise<{ pantheon: string }>;
@@ -15,7 +14,7 @@ interface PantheonPagePropsType {
 export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
 	const pageParams = await params;
 	const pantheon = pageParams.pantheon;
-	const story = await getPantheonStory(pantheon);
+	const story = await fetchSpecificPantheon(pantheon);
 
 	return {
 		title: `Panthéon ${getPantheonLabelFromValue(
@@ -65,7 +64,10 @@ const PantheonPage = async ({ params }: PantheonPagePropsType) => {
 	const pageParams = await params;
 	const pantheon = pageParams.pantheon;
 
-	const { results } = await fetchCardStories({ pantheon, subject: "" }, 1);
+	const { results } = await fetchCardsFromCriterias(
+		{ pantheon, subject: "" },
+		1,
+	);
 
 	const pantheonLabel = getPantheonLabelFromValue(pantheon as PantheonValue);
 
