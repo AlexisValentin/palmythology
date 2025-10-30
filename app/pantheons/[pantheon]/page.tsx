@@ -7,6 +7,11 @@ import {
 	fetchSpecificPantheon,
 } from "../../../src/utils/cms/cms.requests";
 
+export const dynamicParams = true;
+export const generateStaticParams = async () => [];
+// Revalidate constant should be statically analyzed, so no calculation or export can be used
+export const revalidate = 604800;
+
 interface PantheonPagePropsType {
 	params: Promise<{ pantheon: string }>;
 }

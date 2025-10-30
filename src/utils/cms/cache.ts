@@ -2,19 +2,19 @@
 
 import { revalidateTag } from "next/cache";
 import {
-	DAY_IN_MS,
-	HALF_DAY_IN_MS,
-	HOUR_IN_MS,
-	SEVEN_DAYS_IN_MS,
+	DAY_IN_S,
+	HALF_DAY_IN_S,
+	HOUR_IN_S,
+	SEVEN_DAYS_IN_S,
 } from "../dates/dates.constants";
 
 export const getCacheTags = async () => ({
-	CARDS: { TAG: "cms-cards", DURATION: DAY_IN_MS },
-	PANTHEONS: { TAG: "cms-pantheons", DURATION: SEVEN_DAYS_IN_MS },
-	SUBJECTS: { TAG: "cms-subjects", DURATION: SEVEN_DAYS_IN_MS },
-	SEARCH: { TAG: "cms-search", DURATION: HOUR_IN_MS },
-	Q2N: { TAG: "cms-q2n", DURATION: HALF_DAY_IN_MS },
-	ALL: { TAG: "cms", DURATION: DAY_IN_MS },
+	CARDS: { TAG: "cms-cards", DURATION: DAY_IN_S },
+	PANTHEONS: { TAG: "cms-pantheons", DURATION: SEVEN_DAYS_IN_S },
+	SUBJECTS: { TAG: "cms-subjects", DURATION: SEVEN_DAYS_IN_S },
+	SEARCH: { TAG: "cms-search", DURATION: HOUR_IN_S },
+	Q2N: { TAG: "cms-q2n", DURATION: HALF_DAY_IN_S },
+	ALL: { TAG: "cms", DURATION: DAY_IN_S },
 });
 
 export const revalidateCMSCache = async () => {

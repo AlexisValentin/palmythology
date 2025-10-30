@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import PageHeader from "../../src/components/generics/PageHeader";
 import PageSquare, {
 	CONTENT_TYPE,
