@@ -20,3 +20,6 @@
 
 - Suppression de la dépendence `axios`, au profit de l'API native `fetch`.
 - Redirection de l'ancienne page `/changelog` vers `/about`.
+- Préparation de migration des images vers Cloudinary.
+  - Storyblok continuera de stocker des images, tels que les svg de chaque fiches.
+  - Cloudinary sera chargé de stocker tout le reste au niveau des images.
