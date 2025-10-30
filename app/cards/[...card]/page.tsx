@@ -24,6 +24,11 @@ import { getPantheonData } from "../../../src/utils/pantheons";
 import { capitalize, replaceDashesBySpaces } from "../../../src/utils/string";
 import { getSubjectData } from "../../../src/utils/subjects";
 
+export const dynamicParams = true;
+export const generateStaticParams = async () => [];
+// Revalidate constant should be statically analyzed, so no calculation or export can be used
+export const revalidate = 86400;
+
 interface CardPagePropsType {
 	params: Promise<{ card: string[] }>;
 }
