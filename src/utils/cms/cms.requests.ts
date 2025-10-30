@@ -1,6 +1,5 @@
 "use server";
 
-import axios from "axios";
 import { unstable_cache } from "next/cache";
 import type { CardDetails, ResearchCriterias } from "../cards/card.constants";
 import { parseStringToSlug, replaceHyphenByDashes } from "../string";
@@ -19,23 +18,29 @@ import {
 } from "./cms.constants";
 
 const fetchCardsFromString = async (startingString: string) => {
-	const response = await axios({
-		method: "get",
-		url: `${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_MAX_ITEMS_PER_REQUEST}`,
-		responseType: "json",
-	});
-	return response.data;
+	const response = await fetch(
+		`${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_MAX_ITEMS_PER_REQUEST}`,
+	);
+
+	if (!response.ok) {
+		throw new Error(`HTTP error! status: ${response.status}`);
+	}
+
+	return response.json();
 };
 
 const fetchLatestCards = async () => {
-	const response = await axios({
-		method: "get",
-		url: `${getStoryblokBaseUrl()}?token=${getStoryblokToken()}&version=${
+	const response = await fetch(
+		`${getStoryblokBaseUrl()}?token=${getStoryblokToken()}&version=${
 			STORYBLOK_VERSIONS.PUBLISHED
 		}&starts_with=card&sort_by=published_at:desc&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=1`,
-		responseType: "json",
-	});
-	return response.data;
+	);
+
+	if (!response.ok) {
+		throw new Error(`HTTP error! status: ${response.status}`);
+	}
+
+	return response.json();
 };
 
 const fetchFilteredCards = async (
@@ -45,19 +50,23 @@ const fetchFilteredCards = async (
 ) => {
 	const { pantheon, subject } = searchCriterias;
 
-	const response = await axios({
-		method: "get",
-		url: `${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${
+	const response = await fetch(
+		`${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${
 			STORYBLOK_VERSIONS.PUBLISHED
 		}&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=${currentPage}&${
 			pantheon && `filter_query[pantheon][in]=${pantheon}`
 		}&${subject && `filter_query[subject][in]=${subject}`}`,
-		responseType: "json",
-	});
+	);
+
+	if (!response.ok) {
+		throw new Error(`HTTP error! status: ${response.status}`);
+	}
+
+	const data = await response.json();
 
 	return {
-		total: response.headers.total,
-		stories: response.data.stories,
+		total: Number(response.headers.get("total")),
+		stories: data.stories,
 	};
 };
 
@@ -70,13 +79,15 @@ export const fetchSpecificCard = async (title: string, pantheon: string) => {
 	const cacheTags = await getCacheTags();
 
 	const requestSpecificCard = async (title: string, pantheon: string) => {
-		const response = await axios({
-			method: "get",
-			url: `${getStoryblokBaseUrl()}cards/${pantheon}/${replaceHyphenByDashes(title)}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
-			responseType: "json",
-		});
+		const response = await fetch(
+			`${getStoryblokBaseUrl()}cards/${pantheon}/${replaceHyphenByDashes(title)}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+		);
 
-		return response.data;
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		return response.json();
 	};
 
 	return unstable_cache(
@@ -93,13 +104,15 @@ export const fetchSpecificPantheon = async (pantheon: string) => {
 	const cacheTags = await getCacheTags();
 
 	const requestSpecificPantheon = async (pantheon: string) => {
-		const response = await axios({
-			method: "get",
-			url: `${getStoryblokBaseUrl()}pantheons/${pantheon}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
-			responseType: "json",
-		});
+		const response = await fetch(
+			`${getStoryblokBaseUrl()}pantheons/${pantheon}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+		);
 
-		return response.data;
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		return response.json();
 	};
 
 	return unstable_cache(
@@ -116,13 +129,15 @@ export const fetchSpecificSubject = async (subject: string) => {
 	const cacheTags = await getCacheTags();
 
 	const requestSpecificSubject = async (subject: string) => {
-		const response = await axios({
-			method: "get",
-			url: `${getStoryblokBaseUrl()}subjects/${subject}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
-			responseType: "json",
-		});
+		const response = await fetch(
+			`${getStoryblokBaseUrl()}subjects/${subject}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+		);
 
-		return response.data;
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		return response.json();
 	};
 
 	return unstable_cache(
@@ -236,16 +251,19 @@ export const fetchAvailableCards = async (): Promise<
 			let hasMorePages = true;
 
 			while (hasMorePages) {
-				const response = await axios({
-					method: "get",
-					url: `${getStoryblokBaseUrl()}?starts_with=cards&token=${getStoryblokToken()}&version=${
+				const response = await fetch(
+					`${getStoryblokBaseUrl()}?starts_with=cards&token=${getStoryblokToken()}&version=${
 						STORYBLOK_VERSIONS.PUBLISHED
 					}&per_page=${STORYBLOK_SITEMAP_MAX_ITEMS}&page=${currentPage}&filter_query[component][in]=card`,
-					responseType: "json",
-				});
+				);
 
-				const stories: StoryblokStoryResponse[] = response.data.stories || [];
-				const total = Number.parseInt(response.headers.total || "0", 10);
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+
+				const data = await response.json();
+				const stories: StoryblokStoryResponse[] = data.stories || [];
+				const total = Number.parseInt(response.headers.get("total") || "0", 10);
 
 				const availableCards = stories
 					.filter((story) => story.content.available === true)

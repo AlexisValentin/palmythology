@@ -2,7 +2,7 @@
 	"name": "palmythology",
 	"version": "2.15.0",
 	"private": true,
-	"packageManager": "pnpm@10.17.1",
+	"packageManager": "pnpm@10.20.0",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -26,7 +26,6 @@
 	},
 	"dependencies": {
 		"@storyblok/react": "^4.7.0",
-		"axios": "^1.9.0",
 		"next": "^16.0.0",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",

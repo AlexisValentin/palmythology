@@ -11,3 +11,7 @@
   - Les éléments "Quoi 2 Neuf" sont cachés pendant 12 heures.
   - Les urls à destination du sitemap sont cachées pendant 24 heures
 - Un système de revalidation de cache est disponible, permettant de vider les données cachées par le serveur afin de les stocker à nouveau.
+
+# Divers
+
+- Suppression de la dépendence `axios`, au profit de l'API native `fetch`.

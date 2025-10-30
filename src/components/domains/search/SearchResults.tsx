@@ -5,15 +5,15 @@ import {
 	filterCards,
 	getPlaceholderCards,
 } from "../../../modules/searchEngine";
-import {
+import type {
 	ResearchCriterias,
 	TranslatedCardDetails,
 } from "../../../utils/cards/card.constants";
-import Pagination from "../../generics/Pagination";
+import { getPantheonValueFromLabel } from "../../../utils/cards/pantheons";
 import { STORYBLOK_RESULTS_PER_PAGE } from "../../../utils/cms/cms.constants";
 import { isStringEmpty } from "../../../utils/string";
 import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
-import { getPantheonValueFromLabel } from "../../../utils/cards/pantheons";
+import Pagination from "../../generics/Pagination";
 
 const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
 	const [searchCriterias, setSearchCriterias] = useState<ResearchCriterias>({
@@ -49,10 +49,9 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
 				setSearchResults(results);
 			} else {
 				const cards = await filterCards(currentPage, searchCriterias);
-
 				const { results, total } = cards;
-				setSearchResults(results);
 
+				setSearchResults(results);
 				setTotalResult(total);
 			}
 		};

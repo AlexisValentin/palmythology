@@ -50,8 +50,8 @@ export const revalidateSubjectsCache = async () => {
 	};
 };
 
-export async function revalidateQ2NCache() {
+export const revalidateQ2NCache = async () => {
 	revalidateTag((await getCacheTags()).Q2N.TAG, "max");
 
 	return { success: true, message: "Q2N data cache has been revalidated!" };
-}
+};
