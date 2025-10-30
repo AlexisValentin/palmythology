@@ -7,7 +7,7 @@ import {
 	revalidateSubjectsCache,
 } from "../../../src/utils/cms/cache";
 
-async function handleRevalidation(request: NextRequest) {
+const revalidateCache = async (request: NextRequest) => {
 	try {
 		const searchParams = request.nextUrl.searchParams;
 		const secret = searchParams.get("secret");
@@ -48,14 +48,10 @@ async function handleRevalidation(request: NextRequest) {
 			{ status: 500 },
 		);
 	}
-}
+};
 
 // Direct browser access
-export async function GET(request: NextRequest) {
-	return handleRevalidation(request);
-}
+export const GET = async (request: NextRequest) => revalidateCache(request);
 
 // Webhook access
-export async function POST(request: NextRequest) {
-	return handleRevalidation(request);
-}
+export const POST = async (request: NextRequest) => revalidateCache(request);
