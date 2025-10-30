@@ -15,3 +15,4 @@
 # Divers
 
 - Suppression de la dépendence `axios`, au profit de l'API native `fetch`.
+- Redirection de l'ancienne page `/changelog` vers `/about`.

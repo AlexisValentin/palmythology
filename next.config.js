@@ -15,6 +15,11 @@ const nextConfig = {
 				destination: "/cards/egyptian/hathor",
 				permanent: true,
 			},
+			{
+				source: "/changelog",
+				destination: "/about",
+				permanent: true,
+			},
 		];
 	},
 };
