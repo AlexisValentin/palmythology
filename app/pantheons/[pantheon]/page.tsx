@@ -23,10 +23,13 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
 
 	const pantheonLabel = getPantheonLabelFromValue(pantheon as PantheonValue);
 	const optimizedTitle = `${pantheonLabel} | Panthéon mythologique - Palmythology`;
+	const description =
+		story.data.story.content?.metaDescription ||
+		`Explorez le panthéon ${pantheonLabel} avec des fiches détaillées sur les divinités, héros et créatures. Ressources pédagogiques sur Palmythology.`;
 
 	return {
 		title: optimizedTitle,
-		description: story.data.story.content?.metaDescription,
+		description,
 		robots: {
 			index: true,
 			follow: true,

@@ -23,10 +23,13 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 
 	const subjectLabel = getSubjectLabelFromValue(subject as SubjectValue);
 	const optimizedTitle = `${subjectLabel} | Mythologie - Palmythology`;
+	const description =
+		story.data.story.content?.metaDescription ||
+		`Découvrez tous les ${subjectLabel} de la mythologie mondiale. Fiches illustrées, comparaisons et ressources pédagogiques sur Palmythology.`;
 
 	return {
 		title: optimizedTitle,
-		description: story.data.story.content?.metaDescription,
+		description,
 		robots: {
 			index: true,
 			follow: true,

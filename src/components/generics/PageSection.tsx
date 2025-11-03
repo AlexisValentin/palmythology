@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NextImageType } from "../../utils/image.constants";
+import type { NextImageType } from "../../utils/image.constants";
 
 type PageSectionProps = {
 	name: string;
@@ -26,13 +26,13 @@ const PageSectionContent: React.FC<PageSectionProps> = ({
 			/>
 			<div className="flex items-center grow sm:my-12 sm:mr-12">
 				<div className="flex flex-col mt-2 mb-2">
-					<h2
+					<h3
 						className={`font-semibold text-md ${url ? "text-xl" : "hidden"} md:block`}
 					>
 						{name}
-					</h2>
+					</h3>
 					<div
-						className={`font-medium mt-6 ${!url ? "block text-center" : "hidden"} md:block md:text-left`}
+						className={`font-medium mt-6 ${url ? "hidden" : "block text-center"} md:block md:text-left`}
 					>
 						{description}
 					</div>

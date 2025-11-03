@@ -6,10 +6,17 @@ import TrackingNotice from "../src/components/domains/tracking/TrackingNotice";
 import Breadcrumbs from "../src/components/generics/Breadcrumbs";
 import StoryblokProvider from "../src/components/StoryblokProvider";
 import "../src/global.css";
+import type { Viewport } from "next";
 
 interface MainLayoutProps {
 	children: React.ReactNode;
 }
+
+export const viewport: Viewport = {
+	width: "device-width",
+	initialScale: 1,
+	maximumScale: 5,
+};
 
 export const metadata = {
 	icons: {
@@ -81,6 +88,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 		<StoryblokProvider>
 			<html lang="fr">
 				<head>
+					<link rel="preconnect" href="https://a.storyblok.com" />
+					<link rel="dns-prefetch" href="https://a.storyblok.com" />
+					<link rel="preconnect" href="https://plausible.io" />
 					{process.env.ENV === "production" && (
 						<script
 							defer
