@@ -23,8 +23,10 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
 
 	const pantheonLabel = getPantheonLabelFromValue(pantheon as PantheonValue);
 	const optimizedTitle = `${pantheonLabel} | Panthéon mythologique - Palmythology`;
+	const { metaDescription } = story.story.content;
+
 	const description =
-		story.data.story.content?.metaDescription ||
+		metaDescription ||
 		`Explorez le panthéon ${pantheonLabel} avec des fiches détaillées sur les divinités, héros et créatures. Ressources pédagogiques sur Palmythology.`;
 
 	return {
@@ -42,7 +44,7 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
 		},
 		openGraph: {
 			title: optimizedTitle,
-			description: story.data.story.content?.metaDescription,
+			description,
 			siteName: "Palmythology",
 			url: `https://palmythology.com/pantheons/${pantheon}`,
 			images: [
@@ -60,7 +62,7 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
 		twitter: {
 			card: "summary_large_image",
 			title: optimizedTitle,
-			description: story.data.story.content?.metaDescription,
+			description,
 			images: [
 				{
 					url: "https://palmythology.com/icon/favicon.ico",
