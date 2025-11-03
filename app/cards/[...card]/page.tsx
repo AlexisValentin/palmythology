@@ -49,10 +49,13 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
 	const cardName = capitalize(replaceDashesBySpaces(title));
 	const optimizedTitle = `${cardName} | ${pantheonLabel} | ${content?.subtitle} - Palmythology`;
 	const imageAlt = `Logo de ${cardName} sur la Palmythology`;
+	const description =
+		content?.metaDescription ||
+		`Découvrez ${cardName}, figure majeure de la mythologie ${pantheonLabel}. Fiches détaillées, illustrations et ressources sur Palmythology.`;
 
 	return {
 		title: optimizedTitle,
-		description: content?.metaDescription,
+		description,
 		icons: {
 			icon: content?.icon?.filename,
 			shortcut: content?.icon?.filename,
@@ -268,7 +271,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 								width={24}
 								height={24}
 							/>
-							<h4 className="text-xl font-bold">L'essentiel</h4>
+							<h3 className="text-xl font-bold">L'essentiel</h3>
 						</div>
 						<div className="w-full mt-8">
 							<Transcription transcriptionContent={transcription} />
@@ -285,7 +288,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 								width={32}
 								height={32}
 							/>
-							<h4 className="text-xl font-bold">Questions fréquentes</h4>
+							<h3 className="text-xl font-bold">Questions fréquentes</h3>
 						</div>
 						{faq.map(
 							({
@@ -315,7 +318,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 								width={24}
 								height={24}
 							/>
-							<h4 className="text-xl font-bold">Citations</h4>
+							<h3 className="text-xl font-bold">Citations</h3>
 						</div>
 						{quotations.map(
 							({

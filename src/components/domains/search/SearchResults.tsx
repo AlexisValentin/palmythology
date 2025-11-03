@@ -62,9 +62,9 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
 	return (
 		<div className="mt-12">
 			{areFiltersUnfilled() && (
-				<h2 className="flex justify-center text-xl font-bold mb-8">
+				<h3 className="flex justify-center text-xl font-bold mb-8">
 					Les dernières fiches mises à jour
-				</h2>
+				</h3>
 			)}
 			<div className="flex items-center justify-center flex-wrap">
 				{searchResults.map((card: TranslatedCardDetails) => {

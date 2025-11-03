@@ -1,18 +1,17 @@
 import Markdown from "react-markdown";
 
-interface TranscriptionDetailContent {
+interface TranscriptionDetailType {
 	transcriptionDetailTitle: string;
-	transcriptionDetailContent?: string;
 	content?: string;
 }
 
-interface TranscriptionContent {
+interface TranscriptionType {
 	transcriptionTitle: string;
-	transcriptionContent: TranscriptionDetailContent[];
+	transcriptionContent: TranscriptionDetailType[];
 }
 
 interface TranscriptionProps {
-	transcriptionContent: TranscriptionContent[];
+	transcriptionContent: TranscriptionType[];
 }
 
 const Transcription: React.FC<TranscriptionProps> = ({
@@ -21,9 +20,6 @@ const Transcription: React.FC<TranscriptionProps> = ({
 	<>
 		{transcriptionContent.map((content) => {
 			const { transcriptionTitle, transcriptionContent } = content;
-
-			// workaround to avoid typescripting issue and in order to comply to `Faq` component
-			// should be fixed as soon as possible by creating a `Faq` block in the backend
 			const parsedTranscriptionContent = transcriptionContent.map((item) => ({
 				title: item.transcriptionDetailTitle,
 				description: item.content || "",

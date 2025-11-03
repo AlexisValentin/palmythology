@@ -1,15 +1,15 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
 	getFromLocalStorage,
 	LOCAL_STORAGE_KEYS,
 	setInLocalStorage,
 } from "../../../utils/storage";
-import useModal from "../../hooks/useModal";
-import Button from "../../generics/Button";
 import { COLOR_TAINTS, COLORS } from "../../../utils/styles/colors.constants";
-import Link from "next/link";
+import Button from "../../generics/Button";
+import useModal from "../../hooks/useModal";
 
 const TrackingNotice = () => {
 	const [isMounted, setIsMounted] = useState(false);
@@ -38,9 +38,9 @@ const TrackingNotice = () => {
 			<div className="fixed top-0 left-0 bg-slate-300 opacity-75 w-full h-full z-40" />
 			<div className="fixed bg-white border-t-2 border-slate-300 bottom-0 w-full md:border-0 md:w-auto md:bottom-auto md:top-1/2 md:left-1/2 z-50 md:-translate-x-1/2 md:-translate-y-1/2 shadow-2xl rounded-lg opacity-100">
 				<div className="m-8 mt-10">
-					<h2 className="text-2xl font-bold mb-4">
+					<h3 className="text-2xl font-bold mb-4">
 						La Palmythology utilise vos données de navigation
-					</h2>
+					</h3>
 					<div className="text-sm mb-4">
 						Dans le but d'optimiser et améliorer l'expérience utilisateur, le
 						site web utilise une solution de collecte de données respectueuse de
