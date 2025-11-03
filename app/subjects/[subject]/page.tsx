@@ -23,8 +23,10 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 
 	const subjectLabel = getSubjectLabelFromValue(subject as SubjectValue);
 	const optimizedTitle = `${subjectLabel} | Mythologie - Palmythology`;
+	const { metaDescription } = story.story.content;
+
 	const description =
-		story.data.story.content?.metaDescription ||
+		metaDescription ||
 		`Découvrez tous les ${subjectLabel} de la mythologie mondiale. Fiches illustrées, comparaisons et ressources pédagogiques sur Palmythology.`;
 
 	return {
@@ -42,7 +44,7 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 		},
 		openGraph: {
 			title: optimizedTitle,
-			description: story.data.story.content?.metaDescription,
+			description,
 			url: `https://palmythology.com/subjects/${subject}`,
 			siteName: "Palmythology",
 			images: [
@@ -60,7 +62,7 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 		twitter: {
 			card: "summary_large_image",
 			title: optimizedTitle,
-			description: story.data.story.content?.metaDescription,
+			description,
 			images: [
 				{
 					url: "https://palmythology.com/icon/favicon.ico",
