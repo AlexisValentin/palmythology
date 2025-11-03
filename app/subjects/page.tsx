@@ -52,8 +52,45 @@ export const metadata: Metadata = {
 };
 
 const SubjectsPage = () => {
+	const webPageSchema = {
+		"@context": "https://schema.org",
+		"@type": "CollectionPage",
+		name: "Sujets mythologiques | Classification - Palmythology",
+		description:
+			"Sélectionnez un sujet parmi 7 : divinité, personnage, peuple, créature, lieu, écrits et événement.",
+		url: "https://palmythology.com/subjects",
+		inLanguage: "fr-FR",
+		mainEntity: {
+			"@id": "https://palmythology.com/subjects#itemlist",
+		},
+	};
+
+	const itemListSchema = {
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		"@id": "https://palmythology.com/subjects#itemlist",
+		name: "Classification des sujets mythologiques",
+		description: "Découvrez les 7 types de sujets couverts par Palmythology",
+		numberOfItems: 7,
+		itemListElement: ALL_SUBJECT.map((subject, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			name: subject.label,
+			url: `https://palmythology.com/subjects/${subject.value}`,
+			image: subject.icon,
+		})),
+	};
+
 	return (
 		<>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+			/>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+			/>
 			<PageHeader
 				title="Sujets"
 				subtitle="Découvrez les fiches les plus populaires classées par thème"

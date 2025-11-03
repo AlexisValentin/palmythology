@@ -1,10 +1,10 @@
-import React from "react";
-import StoryblokProvider from "../src/components/StoryblokProvider";
+import type React from "react";
 import Footer from "../src/components/domains/footer/Footer";
 import MainMenu from "../src/components/domains/navigation/MainMenu";
-import Breadcrumbs from "../src/components/generics/Breadcrumbs";
-import TrackingNotice from "../src/components/domains/tracking/TrackingNotice";
 import SocialsIncentivePopin from "../src/components/domains/social/SocialsIncentivePopin";
+import TrackingNotice from "../src/components/domains/tracking/TrackingNotice";
+import Breadcrumbs from "../src/components/generics/Breadcrumbs";
+import StoryblokProvider from "../src/components/StoryblokProvider";
 import "../src/global.css";
 
 interface MainLayoutProps {
@@ -23,11 +23,43 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 	const organizationSchema = {
 		"@context": "https://schema.org",
 		"@type": "Organization",
+		"@id": "https://palmythology.com/#organization",
 		name: "Palmythology",
 		url: "https://palmythology.com",
-		logo: "https://palmythology.com/icon/favicon.ico",
+		logo: {
+			"@type": "ImageObject",
+			"@id": "https://palmythology.com/#logo",
+			url: "https://palmythology.com/icon/favicon.ico",
+			contentUrl: "https://palmythology.com/icon/favicon.ico",
+			width: "2048",
+			height: "2048",
+			caption: "Logo Palmythology",
+		},
 		description:
 			"L'encyclopédie mythologique française proposant des fiches intuitives sur 11 panthéons différents",
+		knowsAbout: [
+			"Mythologie",
+			"Mythologie grecque",
+			"Mythologie égyptienne",
+			"Mythologie nordique",
+			"Mythologie celtique",
+			"Mythologie japonaise",
+			"Mythologie chinoise",
+			"Mythologie maya",
+			"Mythologie mésopotamienne",
+			"Mythologie aztèque",
+			"Mythologie hindoue",
+			"Mythologie romaine",
+		],
+		areaServed: {
+			"@type": "Country",
+			name: "France",
+		},
+		availableLanguage: {
+			"@type": "Language",
+			name: "French",
+			alternateName: "fr",
+		},
 		sameAs: [
 			"https://www.instagram.com/palmythology",
 			"https://www.threads.net/@palmythology",

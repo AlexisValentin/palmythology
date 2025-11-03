@@ -188,12 +188,42 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 		},
 	};
 
+	const faqPageSchema =
+		faq && faq.length > 0
+			? {
+					"@context": "https://schema.org",
+					"@type": "FAQPage",
+					mainEntity: faq.map(
+						({
+							question,
+							response,
+						}: {
+							question: string;
+							response: string;
+						}) => ({
+							"@type": "Question",
+							name: question,
+							acceptedAnswer: {
+								"@type": "Answer",
+								text: response,
+							},
+						}),
+					),
+				}
+			: null;
+
 	return (
 		<>
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
 			/>
+			{faqPageSchema && (
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
+				/>
+			)}
 			<div className="flex justify-center items-center flex-col">
 				<div className="flex justify-center items-center gap-x-6 sm:gap-x-10 md:gap-x-16 lg:gap-x-20 xl:gap-x-24">
 					{pantheonData && (

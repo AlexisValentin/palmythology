@@ -46,14 +46,30 @@ export const metadata: Metadata = {
 	},
 };
 
-const SearchPage: React.FC = () => (
-	<>
-		<PageHeader
-			title="Recherche"
-			subtitle="Recherchez votre fiche préférée de la Palmythology"
-		/>
-		<Filter />
-	</>
-);
+const SearchPage: React.FC = () => {
+	const webPageSchema = {
+		"@context": "https://schema.org",
+		"@type": "SearchResultsPage",
+		name: "Recherche | Mythologies du monde - Palmythology",
+		description:
+			"La Palmythology propose un moteur de recherche pour trouver la fiche qu'il vous faut, parmi 11 différents panthéons et 7 différents sujets.",
+		url: "https://palmythology.com/search",
+		inLanguage: "fr-FR",
+	};
+
+	return (
+		<>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+			/>
+			<PageHeader
+				title="Recherche"
+				subtitle="Recherchez votre fiche préférée de la Palmythology"
+			/>
+			<Filter />
+		</>
+	);
+};
 
 export default SearchPage;

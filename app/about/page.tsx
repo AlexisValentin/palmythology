@@ -53,8 +53,22 @@ export const metadata: Metadata = {
 };
 
 const AboutPage = () => {
+	const webPageSchema = {
+		"@context": "https://schema.org",
+		"@type": "AboutPage",
+		name: "À propos | Palmythology",
+		description:
+			"Made in France, La Palmythology vous propose une expérience sans publicité et sans pollution visuelle, avec des données de navigation anonymisées.",
+		url: "https://palmythology.com/about",
+		inLanguage: "fr-FR",
+	};
+
 	return (
 		<>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+			/>
 			<PageHeader
 				title="A propos"
 				subtitle="Retrouvez des informations pratiques sur la Palmythology"
