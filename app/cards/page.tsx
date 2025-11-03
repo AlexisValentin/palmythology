@@ -1,10 +1,9 @@
-import React from "react";
-import PageHeader from "../../src/components/generics/PageHeader";
-import PageSection from "../../src/components/generics/PageSection";
+import type { Metadata } from "next";
 import ColorsIcon from "../../src/assets/icons/colors.svg";
 import KnowledgeIcon from "../../src/assets/icons/knowledge.svg";
-import { Metadata } from "next";
-import { NextImageType } from "../../src/utils/image.constants";
+import PageHeader from "../../src/components/generics/PageHeader";
+import PageSection from "../../src/components/generics/PageSection";
+import type { NextImageType } from "../../src/utils/image.constants";
 
 export const metadata: Metadata = {
 	title: "Les Grandes Lignes - fiches mythologiques | Palmythology",
@@ -32,6 +31,7 @@ export const metadata: Metadata = {
 				width: 600,
 				height: 600,
 				alt: "Logo officiel de la Palmythology",
+				type: "image/x-icon",
 			},
 		],
 		locale: "fr_FR",
@@ -42,13 +42,32 @@ export const metadata: Metadata = {
 		title: "Les Grandes Lignes - fiches mythologiques | Palmythology",
 		description:
 			"Les Grandes Lignes sont le nom des fiches mythologiques de la Palmythology. Intuitives et pédagogiques, elles vous plongent dans les mythes du monde.",
-		images: ["https://palmythology.com/icon/favicon.ico"],
+		images: [
+			{
+				url: "https://palmythology.com/icon/favicon.ico",
+				alt: "Logo officiel de la Palmythology",
+			},
+		],
 	},
 };
 
 const CardHubPage = () => {
+	const webPageSchema = {
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		name: "Les Grandes Lignes - fiches mythologiques | Palmythology",
+		description:
+			"Les Grandes Lignes sont le nom des fiches mythologiques de la Palmythology. Intuitives et pédagogiques, elles vous plongent dans les mythes du monde.",
+		url: "https://palmythology.com/cards",
+		inLanguage: "fr-FR",
+	};
+
 	return (
 		<>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+			/>
 			<PageHeader
 				title="Les grandes lignes"
 				subtitle="Comment ça fonctionne ?"
