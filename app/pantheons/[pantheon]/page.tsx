@@ -21,10 +21,11 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
 	const pantheon = pageParams.pantheon;
 	const story = await fetchSpecificPantheon(pantheon);
 
+	const pantheonLabel = getPantheonLabelFromValue(pantheon as PantheonValue);
+	const optimizedTitle = `${pantheonLabel} | Panthéon mythologique - Palmythology`;
+
 	return {
-		title: `Panthéon ${getPantheonLabelFromValue(
-			pantheon as PantheonValue,
-		)} - Les Grandes Lignes | Palmythology`,
+		title: optimizedTitle,
 		description: story.data.story.content?.metaDescription,
 		robots: {
 			index: true,
@@ -37,9 +38,7 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
 			},
 		},
 		openGraph: {
-			title: `Panthéon ${getPantheonLabelFromValue(
-				pantheon as PantheonValue,
-			)} - Les Grandes Lignes | Palmythology`,
+			title: optimizedTitle,
 			description: story.data.story.content?.metaDescription,
 			siteName: "Palmythology",
 			url: `https://palmythology.com/pantheons/${pantheon}`,
@@ -49,6 +48,7 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
 					width: 600,
 					height: 600,
 					alt: "Logo officiel de la Palmythology",
+					type: "image/x-icon",
 				},
 			],
 			locale: "fr_FR",
@@ -56,11 +56,14 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
 		},
 		twitter: {
 			card: "summary_large_image",
-			title: `Panthéon ${getPantheonLabelFromValue(
-				pantheon as PantheonValue,
-			)} - Les Grandes Lignes | Palmythology`,
+			title: optimizedTitle,
 			description: story.data.story.content?.metaDescription,
-			images: ["https://palmythology.com/icon/favicon.ico"],
+			images: [
+				{
+					url: "https://palmythology.com/icon/favicon.ico",
+					alt: "Logo officiel de la Palmythology",
+				},
+			],
 		},
 	};
 };

@@ -1,13 +1,13 @@
-import { Metadata } from "next";
-import PageHeader from "../../src/components/generics/PageHeader";
-import PageSection from "../../src/components/generics/PageSection";
+import type { Metadata } from "next";
+import AnonymousIcon from "../../src/assets/icons/anonymous.svg";
 import FrenchHeartIcon from "../../src/assets/icons/french_heart.svg";
 import NoAdsIcon from "../../src/assets/icons/no_ads.svg";
-import AnonymousIcon from "../../src/assets/icons/anonymous.svg";
-import { NextImageType } from "../../src/utils/image.constants";
+import PageHeader from "../../src/components/generics/PageHeader";
+import PageSection from "../../src/components/generics/PageSection";
+import type { NextImageType } from "../../src/utils/image.constants";
 
 export const metadata: Metadata = {
-	title: "A propos du site internet | Palmythology",
+	title: "À propos | Palmythology",
 	description:
 		"Made in France, La Palmythology vous propose une expérience sans publicité et sans pollution visuelle, avec des données de navigation anonymisées.",
 	robots: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 		},
 	},
 	openGraph: {
-		title: "A propos du site internet | Palmythology",
+		title: "À propos | Palmythology",
 		description:
 			"Made in France, La Palmythology vous propose une expérience sans publicité et sans pollution visuelle, avec des données de navigation anonymisées.",
 		url: "https://palmythology.com/about",
@@ -32,6 +32,7 @@ export const metadata: Metadata = {
 				width: 600,
 				height: 600,
 				alt: "Logo officiel de la Palmythology",
+				type: "image/x-icon",
 			},
 		],
 		locale: "fr_FR",
@@ -39,10 +40,15 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "A propos du site internet | Palmythology",
+		title: "À propos | Palmythology",
 		description:
 			"Made in France, La Palmythology vous propose une expérience sans publicité et sans pollution visuelle, avec des données de navigation anonymisées.",
-		images: ["https://palmythology.com/icon/favicon.ico"],
+		images: [
+			{
+				url: "https://palmythology.com/icon/favicon.ico",
+				alt: "Logo officiel de la Palmythology",
+			},
+		],
 	},
 };
 
