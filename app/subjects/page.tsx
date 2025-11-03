@@ -6,7 +6,7 @@ import PageSquare, {
 import { ALL_SUBJECT } from "../../src/utils/cards/subjects.constants";
 
 export const metadata: Metadata = {
-	title: "Les Grandes Lignes - liste des sujets | Palmythology",
+	title: "Sujets mythologiques | Classification - Palmythology",
 	description:
 		"Sélectionnez un sujet parmi 7 : divinité, personnage, peuple, créature, lieu, écrits et événement.",
 	robots: {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 		},
 	},
 	openGraph: {
-		title: "Les Grandes Lignes - liste des sujets | Palmythology",
+		title: "Sujets mythologiques | Classification - Palmythology",
 		description:
 			"Sélectionnez un sujet parmi 7 : divinité, personnage, peuple, créature, lieu, écrits et événement.",
 		url: "https://palmythology.com/subjects",
@@ -31,6 +31,7 @@ export const metadata: Metadata = {
 				width: 600,
 				height: 600,
 				alt: "Logo officiel de la Palmythology",
+				type: "image/x-icon",
 			},
 		],
 		locale: "fr_FR",
@@ -38,10 +39,15 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Les Grandes Lignes - liste des sujets | Palmythology",
+		title: "Sujets mythologiques | Classification - Palmythology",
 		description:
 			"Sélectionnez un sujet parmi 7 : divinité, personnage, peuple, créature, lieu, écrits et événement.",
-		images: ["https://palmythology.com/icon/favicon.ico"],
+		images: [
+			{
+				url: "https://palmythology.com/icon/favicon.ico",
+				alt: "Logo officiel de la Palmythology",
+			},
+		],
 	},
 };
 
@@ -53,11 +59,11 @@ const SubjectsPage = () => {
 				subtitle="Découvrez les fiches les plus populaires classées par thème"
 			/>
 			<div className="flex flex-col items-center justify-center flex-wrap md:flex-row mt-4">
-				{ALL_SUBJECT.map((subject, idx) => (
+				{ALL_SUBJECT.map((subject) => (
 					<PageSquare
 						title={subject.label}
 						subject={subject.value}
-						key={idx}
+						key={`${subject.value}-${subject.label}`}
 						icon={{
 							alt: `Icône du sujet ${subject.label}`,
 							filename: subject.icon,

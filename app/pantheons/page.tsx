@@ -1,10 +1,9 @@
-import React from "react";
-import { Metadata } from "next";
-import PageHeader from "../../src/components/generics/PageHeader";
+import type { Metadata } from "next";
 import PantheonsList from "../../src/components/domains/cards/PantheonList";
+import PageHeader from "../../src/components/generics/PageHeader";
 
 export const metadata: Metadata = {
-	title: "Les Grandes Lignes - liste des panthéons | Palmythology",
+	title: "Panthéons | Mythologies du monde - Palmythology",
 	description:
 		"Sélectionnez un panthéon parmi 11 : grec, égyptien, scandinave, celtique, japonais, chinois, maya, mésopotamien, aztèque, hindou, romain.",
 	robots: {
@@ -18,7 +17,7 @@ export const metadata: Metadata = {
 		},
 	},
 	openGraph: {
-		title: "Les Grandes Lignes - liste des panthéons | Palmythology",
+		title: "Panthéons | Mythologies du monde - Palmythology",
 		description:
 			"Sélectionnez un panthéon parmi 11 : grec, égyptien, scandinave, celtique, japonais, chinois, maya, mésopotamien, aztèque, hindou, romain.",
 		url: "https://palmythology.com/pantheons",
@@ -29,6 +28,7 @@ export const metadata: Metadata = {
 				width: 600,
 				height: 600,
 				alt: "Logo officiel de la Palmythology",
+				type: "image/x-icon",
 			},
 		],
 		locale: "fr_FR",
@@ -36,10 +36,15 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Les Grandes Lignes - liste des panthéons | Palmythology",
+		title: "Panthéons | Mythologies du monde - Palmythology",
 		description:
 			"Sélectionnez un panthéon parmi 11 : grec, égyptien, scandinave, celtique, japonais, chinois, maya, mésopotamien, aztèque, hindou, romain.",
-		images: ["https://palmythology.com/icon/favicon.ico"],
+		images: [
+			{
+				url: "https://palmythology.com/icon/favicon.ico",
+				alt: "Logo officiel de la Palmythology",
+			},
+		],
 	},
 };
 

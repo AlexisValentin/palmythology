@@ -15,6 +15,7 @@
   - Les pages requêtant des contenus dynamiques via CMS sont désormais ISR à la demande.
   - Le premier utilisateur requêtant la page activera le cache de la page et les suivants requêterons alors le cache mis en place par le 1er appel.
   - L'effet s'applique jusqu'à ce que le cache soit amené à expiration et qu'un nouvel utilisateur requête à nouveau la page.
+- Mise à jour de divers balises et comportements SEO, à des fins de référencement organique.
 
 # Divers
 
