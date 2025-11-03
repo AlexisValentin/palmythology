@@ -1,19 +1,19 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useCallback } from "react";
+import type { PantheonValue } from "../../utils/cards/pantheons.constants";
+import type { SubjectValue } from "../../utils/cards/subjects.constants";
+import type { StoryblokImageType } from "../../utils/cms/cms.constants";
 import {
 	setCardRouteParameters,
 	setPantheonRouteParameters,
 	setSubjectRouteParameters,
 } from "../../utils/routes/routes";
-import { StoryblokImageType } from "../../utils/cms/cms.constants";
-import { BLACK_COLOR, WHITE_COLOR } from "../../utils/styles/colors.constants";
-import { PantheonValue } from "../../utils/cards/pantheons.constants";
-import { SubjectValue } from "../../utils/cards/subjects.constants";
 import {
 	getPantheonMainColor,
 	getPantheonTextColor,
 } from "../../utils/styles/colors";
-import Image from "next/image";
+import { BLACK_COLOR, WHITE_COLOR } from "../../utils/styles/colors.constants";
 
 export enum CONTENT_TYPE {
 	ROUTE = "route",
@@ -73,7 +73,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
 		}
 	}, [contentType, title, pantheon, subject, url]);
 
-	if (available === undefined || !buildLink()) return <></>;
+	if (available === undefined || !buildLink()) return null;
 
 	return available ? (
 		<Link
@@ -124,8 +124,8 @@ const PageSquareBlock: React.FC<
 				width={100}
 				height={100}
 			/>
-			{!withoutText && <h2 className="font-bold truncate px-2">{title}</h2>}
-			{!withoutText && <h3 className="italic truncate px-2">{subtitle}</h3>}
+			{!withoutText && <h3 className="font-bold truncate px-2">{title}</h3>}
+			{!withoutText && <h4 className="italic truncate px-2">{subtitle}</h4>}
 		</div>
 	</div>
 );

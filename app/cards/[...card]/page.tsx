@@ -19,10 +19,19 @@ import type { PantheonValue } from "../../../src/utils/cards/pantheons.constants
 import { getSubjectLabelFromValue } from "../../../src/utils/cards/subjects";
 import type { SubjectValue } from "../../../src/utils/cards/subjects.constants";
 import type { CardRelatedType } from "../../../src/utils/cms/cms.constants";
-import { getCardStory } from "../../../src/utils/cms/cms.requests";
+import { fetchSpecificCard } from "../../../src/utils/cms/cms.requests";
 import { getPantheonData } from "../../../src/utils/pantheons";
-import { capitalize, replaceDashesBySpaces } from "../../../src/utils/string";
+import {
+	calculateWordCount,
+	capitalize,
+	replaceDashesBySpaces,
+} from "../../../src/utils/string";
 import { getSubjectData } from "../../../src/utils/subjects";
+
+export const dynamicParams = true;
+export const generateStaticParams = async () => [];
+// Revalidate constant should be statically analyzed, so no calculation or export can be used
+export const revalidate = 86400;
 
 interface CardPagePropsType {
 	params: Promise<{ card: string[] }>;
@@ -33,17 +42,24 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
 	const pantheon = pageParams.card[0];
 	const title = pageParams.card[1];
 
-	const story = await getCardStory(title, pantheon);
+	const story = await fetchSpecificCard(title, pantheon);
+	const { content, published_at, updated_at } = story.story;
+
+	const pantheonLabel = getPantheonLabelFromValue(pantheon as PantheonValue);
+	const cardName = capitalize(replaceDashesBySpaces(title));
+	const optimizedTitle = `${cardName} | ${pantheonLabel} | ${content?.subtitle} - Palmythology`;
+	const imageAlt = `Logo de ${cardName} sur la Palmythology`;
+	const description =
+		content?.metaDescription ||
+		`Découvrez ${cardName}, figure majeure de la mythologie ${pantheonLabel}. Fiches détaillées, illustrations et ressources sur Palmythology.`;
 
 	return {
-		title: `${capitalize(replaceDashesBySpaces(title))}, ${
-			story.data.story.content?.subtitle
-		} - Les Grandes Lignes | Palmythology`,
-		description: story.data.story.content?.metaDescription,
+		title: optimizedTitle,
+		description,
 		icons: {
-			icon: story.data.story.content?.icon?.filename,
-			shortcut: story.data.story.content?.icon?.filename,
-			apple: story.data.story.content?.icon?.filename,
+			icon: content?.icon?.filename,
+			shortcut: content?.icon?.filename,
+			apple: content?.icon?.filename,
 		},
 		robots: {
 			index: true,
@@ -56,32 +72,40 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
 			},
 		},
 		openGraph: {
-			title: `${capitalize(replaceDashesBySpaces(title))}, ${
-				story.data.story.content?.subtitle
-			} - Les Grandes Lignes | Palmythology`,
-			description: story.data.story.content?.metaDescription,
+			title: optimizedTitle,
+			description: content?.metaDescription,
 			url: `https://palmythology.com/cards/${pantheon}/${title}`,
 			siteName: "Palmythology",
 			images: [
 				{
-					url: story.data.story.content?.icon?.filename,
+					url: content?.icon?.filename,
 					width: 600,
 					height: 600,
-					alt: `Logo de ${capitalize(
-						replaceDashesBySpaces(title),
-					)} sur la Palmythology`,
+					alt: imageAlt,
+					type: "image/png",
 				},
 			],
 			locale: "fr_FR",
 			type: "article",
+			publishedTime: published_at,
+			modifiedTime: updated_at,
+			section: pantheonLabel,
+			tags: [
+				cardName,
+				pantheonLabel,
+				getSubjectLabelFromValue(content?.subject as SubjectValue),
+			].filter(Boolean),
 		},
 		twitter: {
 			card: "summary_large_image",
-			title: `${capitalize(replaceDashesBySpaces(title))}, ${
-				story.data.story.content?.subtitle
-			} - Les Grandes Lignes | Palmythology`,
-			description: story.data.story.content?.metaDescription,
-			images: [story.data.story.content?.icon?.filename],
+			title: optimizedTitle,
+			description: content?.metaDescription,
+			images: [
+				{
+					url: content?.icon?.filename,
+					alt: imageAlt,
+				},
+			],
 		},
 	};
 };
@@ -93,9 +117,13 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 
 	if (!title && pantheon) redirect(`/pantheons/${pantheon}`);
 
-	const story = await getCardStory(title, pantheon);
+	const story = await fetchSpecificCard(title, pantheon);
 
-	if (!story?.data?.story?.content) return null;
+	if (!story) return null;
+
+	const { content, published_at, updated_at } = story.story;
+
+	if (!content) return null;
 
 	const {
 		name,
@@ -111,7 +139,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 		transcription,
 		quotations,
 		faq,
-	} = story.data.story.content;
+	} = content;
 
 	if (!available || !pantheon) return null;
 
@@ -132,6 +160,18 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 		headline: name,
 		description: subtitle,
 		image: images?.map((img: any) => img.filename) || [],
+		datePublished: published_at,
+		dateModified: updated_at,
+		wordCount: calculateWordCount(mdSummary, transcription),
+		keywords: [
+			name,
+			getPantheonLabelFromValue(pantheon as PantheonValue),
+			getSubjectLabelFromValue(subject as SubjectValue),
+		].filter(Boolean),
+		mainEntityOfPage: {
+			"@type": "WebPage",
+			"@id": `https://palmythology.com/cards/${pantheon}/${title}`,
+		},
 		author: {
 			"@type": "Organization",
 			name: "Palmythology",
@@ -151,12 +191,42 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 		},
 	};
 
+	const faqPageSchema =
+		faq && faq.length > 0
+			? {
+					"@context": "https://schema.org",
+					"@type": "FAQPage",
+					mainEntity: faq.map(
+						({
+							question,
+							response,
+						}: {
+							question: string;
+							response: string;
+						}) => ({
+							"@type": "Question",
+							name: question,
+							acceptedAnswer: {
+								"@type": "Answer",
+								text: response,
+							},
+						}),
+					),
+				}
+			: null;
+
 	return (
 		<>
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
 			/>
+			{faqPageSchema && (
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
+				/>
+			)}
 			<div className="flex justify-center items-center flex-col">
 				<div className="flex justify-center items-center gap-x-6 sm:gap-x-10 md:gap-x-16 lg:gap-x-20 xl:gap-x-24">
 					{pantheonData && (
@@ -201,7 +271,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 								width={24}
 								height={24}
 							/>
-							<h4 className="text-xl font-bold">L'essentiel</h4>
+							<h3 className="text-xl font-bold">L'essentiel</h3>
 						</div>
 						<div className="w-full mt-8">
 							<Transcription transcriptionContent={transcription} />
@@ -218,7 +288,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 								width={32}
 								height={32}
 							/>
-							<h4 className="text-xl font-bold">Questions fréquentes</h4>
+							<h3 className="text-xl font-bold">Questions fréquentes</h3>
 						</div>
 						{faq.map(
 							({
@@ -248,7 +318,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 								width={24}
 								height={24}
 							/>
-							<h4 className="text-xl font-bold">Citations</h4>
+							<h3 className="text-xl font-bold">Citations</h3>
 						</div>
 						{quotations.map(
 							({
@@ -259,7 +329,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 								author: string;
 								quotation: string;
 								origin?: string;
-							}) => {								
+							}) => {
 								return (
 									<div
 										key={`${author}-${quotation.split(" ")}`}

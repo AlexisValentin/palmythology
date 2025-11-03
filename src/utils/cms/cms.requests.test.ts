@@ -1,5 +1,5 @@
 import { parseStringToSlug } from "../string";
-import { getCardSlug } from "./cms.requests";
+import { generateCardSlug } from "./cms.requests";
 
 vi.mock("../string");
 
@@ -16,7 +16,7 @@ describe("utils/cms.requests", () => {
 			});
 
 			test("should call `parseStringToSlug` twice", async () => {
-				await getCardSlug("zeus", "grec");
+				await generateCardSlug("zeus", "grec");
 
 				expect(parseStringToSlug).toHaveBeenCalledTimes(2);
 				expect(parseStringToSlug).toHaveBeenNthCalledWith(1, "grec");
@@ -24,20 +24,22 @@ describe("utils/cms.requests", () => {
 			});
 
 			test("should provide card slug", async () =>
-				expect(await getCardSlug("zeus", "grec")).toEqual("cards/grec/zeus"));
+				expect(await generateCardSlug("zeus", "grec")).toEqual(
+					"cards/grec/zeus",
+				));
 		});
 
 		describe("should return an empty string", () => {
 			test("when name parameter is not provided", async () => {
-				expect(await getCardSlug(undefined, "grec")).toEqual("");
+				expect(await generateCardSlug(undefined, "grec")).toEqual("");
 			});
 
 			test("when pantheon parameter is not provided", async () => {
-				expect(await getCardSlug("zeus", undefined)).toEqual("");
+				expect(await generateCardSlug("zeus", undefined)).toEqual("");
 			});
 
 			test("when no parameters are provided", async () => {
-				expect(await getCardSlug(undefined, undefined)).toEqual("");
+				expect(await generateCardSlug(undefined, undefined)).toEqual("");
 			});
 		});
 	});

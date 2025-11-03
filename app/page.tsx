@@ -1,9 +1,9 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import PageHeader from "../src/components/generics/PageHeader";
-import { ROUTES } from "../src/utils/routes/routes.constants";
 import PageSquare, {
 	CONTENT_TYPE,
 } from "../src/components/generics/PageSquare";
+import { ROUTES } from "../src/utils/routes/routes.constants";
 
 export const metadata: Metadata = {
 	title: "Palmythology, l'encyclopédie mythologique",
@@ -31,6 +31,7 @@ export const metadata: Metadata = {
 				width: 600,
 				height: 600,
 				alt: "Logo officiel de la Palmythology",
+				type: "image/x-icon",
 			},
 		],
 		locale: "fr_FR",
@@ -41,7 +42,12 @@ export const metadata: Metadata = {
 		title: "Palmythology, l'encyclopédie mythologique",
 		description:
 			"Explorez les mythologies du monde avec des fiches simples et intuitives avec la Palmythology. Découvrez les panthéons qui ont façonnés l'histoire.",
-		images: ["https://palmythology.com/icon/favicon.ico"],
+		images: [
+			{
+				url: "https://palmythology.com/icon/favicon.ico",
+				alt: "Logo officiel de la Palmythology",
+			},
+		],
 	},
 };
 

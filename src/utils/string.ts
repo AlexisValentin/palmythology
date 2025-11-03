@@ -1,3 +1,5 @@
+import type { TranscriptionItemProps } from "../components/domains/cards/Transcription";
+
 export const isStringEmpty = (value?: string): boolean => value === "";
 
 export const stripDiacritics = (stringToStrip: string): string =>
@@ -19,3 +21,28 @@ export const capitalize = (str: string): string =>
 	str
 		.toLowerCase()
 		.replace(/(?:^|\s|["'([{])+\S/g, (match) => match.toUpperCase());
+
+export const calculateWordCount = (
+	mdSummary?: string,
+	transcription?: TranscriptionItemProps[],
+): number => {
+	let totalWords = 0;
+
+	if (mdSummary) {
+		const cleanText = mdSummary.replaceAll(/[#*`_~[\]]/g, "").trim();
+		totalWords += cleanText.split(/\s+/).filter((w) => w.length > 0).length;
+	}
+
+	if (transcription && Array.isArray(transcription)) {
+		transcription.forEach((section: TranscriptionItemProps) => {
+			if (section.description) {
+				const cleanText = section.description
+					.replaceAll(/[#*`_~[\]]/g, "")
+					.trim();
+				totalWords += cleanText.split(/\s+/).filter((w) => w.length > 0).length;
+			}
+		});
+	}
+
+	return totalWords;
+};

@@ -1,11 +1,11 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { fetchAvailableCards } from "../src/utils/cms/cms.requests";
 import { URLS } from "../src/utils/url.constants";
-import { fetchAllAvailableCards } from "../src/utils/cms/cms.requests";
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
 	const { STATIC, PANTHEONS, SUBJECTS } = URLS;
 
-	const availableCards = await fetchAllAvailableCards();
+	const availableCards = await fetchAvailableCards();
 
 	const staticsMapping = STATIC.map((url) => ({
 		url,
