@@ -24,4 +24,6 @@
 - Préparation de migration des images vers Cloudinary.
   - Storyblok continuera de stocker des images, tels que les svg de chaque fiches.
   - Cloudinary sera chargé de stocker tout le reste au niveau des images.
-- Mise à jours de certaines dépendences vers leurs versions de patch.
+- Mise à jour de certaines dépendences vers leurs versions de patch.
+- Mise à jour de certaines dépendences vers leurs versions mineures.
+- Mise à jour de certaines dépendences vers leurs versions majeures (excepté TailwindCSS).
