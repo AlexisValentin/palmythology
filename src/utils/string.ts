@@ -3,12 +3,10 @@ import type { TranscriptionItemProps } from "../components/domains/cards/Transcr
 export const isStringEmpty = (value?: string): boolean => value === "";
 
 export const stripDiacritics = (stringToStrip: string): string =>
-	stringToStrip?.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	stringToStrip?.normalize("NFD").replaceAll(/[\u0300-\u036f]/g, "");
 
-export const replaceHyphenByDashes = (stringToParse: string): string => {
-	console.trace("TITLE ---> ", stringToParse);
-	return stringToParse.replaceAll("'", "-");
-};
+export const replaceHyphenByDashes = (stringToParse: string): string =>
+	stringToParse.replaceAll("'", "-");
 
 export const replaceSpacesByDashes = (stringToParse: string): string =>
 	stringToParse.replaceAll(/\s+/g, "-");
