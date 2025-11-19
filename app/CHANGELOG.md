@@ -1,4 +1,4 @@
-# Notes de version 2.15.1 (12/11/2025)
+# Notes de version 2.15.1 (19/11/2025)
 
 # Général
 
@@ -18,5 +18,6 @@
 
 # Divers
 
+- Désactivation de la popin de consentement Plausible à des fins de test.
 - Installation des web analytics de Vercel à des fins de test.
 - Installation des speed insights de Vercel à des fins de test.

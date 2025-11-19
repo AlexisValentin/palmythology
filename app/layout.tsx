@@ -2,7 +2,6 @@ import type React from "react";
 import Footer from "../src/components/domains/footer/Footer";
 import MainMenu from "../src/components/domains/navigation/MainMenu";
 import SocialsIncentivePopin from "../src/components/domains/social/SocialsIncentivePopin";
-import TrackingNotice from "../src/components/domains/tracking/TrackingNotice";
 import Breadcrumbs from "../src/components/generics/Breadcrumbs";
 import StoryblokProvider from "../src/components/StoryblokProvider";
 import "../src/global.css";
@@ -112,7 +111,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 					/>
 				</head>
 				<body>
-					<TrackingNotice />
 					<SocialsIncentivePopin />
 					<MainMenu />
 					<div className="flex flex-col min-h-screen">
