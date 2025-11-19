@@ -19,3 +19,4 @@
 # Divers
 
 - Installation des web analytics de Vercel à des fins de test.
+- Installation des speed insights de Vercel à des fins de test.
