@@ -14,4 +14,8 @@
   5. Les citations le suivent.
   6. Les fiches en dans le même sujet les suivent.
   7. Les liens vers les réseaux sociaux clôture la page.
-- Ajout de nouvelles icônes illustrants les titres des différentes sections.  
+- Ajout de nouvelles icônes illustrants les titres des différentes sections.
+
+# Divers
+
+- Installation des web analytics de Vercel à des fins de test.
