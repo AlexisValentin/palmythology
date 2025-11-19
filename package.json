@@ -1,8 +1,8 @@
 {
 	"name": "palmythology",
-	"version": "2.15.0",
+	"version": "2.15.1",
 	"private": true,
-	"packageManager": "pnpm@10.20.0",
+	"packageManager": "pnpm@10.22.0",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -26,6 +26,8 @@
 	},
 	"dependencies": {
 		"@storyblok/react": "^5.4.18",
+		"@vercel/analytics": "^1.5.0",
+		"@vercel/speed-insights": "^1.2.0",
 		"next": "^16.0.1",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",

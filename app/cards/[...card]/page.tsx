@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import MagnifyingGlassIcon from "../../../src/assets/icons/magnifying_glass.svg";
 import SummaryIcon from "../../../src/assets/icons/open_book.svg";
 import QnAIcon from "../../../src/assets/icons/question_marks.svg";
 import QuotationIcon from "../../../src/assets/icons/quotation_marks.svg";
+import ReuseArrows from "../../../src/assets/icons/reuse_arrows.svg";
 import Transcription from "../../../src/components/domains/cards/Transcription";
 import Carousel from "../../../src/components/generics/Carousel";
 import Faq from "../../../src/components/generics/Faq";
@@ -257,7 +259,6 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 						/>
 					)}
 				</div>
-				{mdSummary && <Summary content={mdSummary} />}
 				<div className="flex items-center justify-center w-full lg:w-3/4 mt-4">
 					<Carousel imageList={images} />
 				</div>
@@ -271,10 +272,27 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 								width={24}
 								height={24}
 							/>
-							<h3 className="text-xl font-bold">L'essentiel</h3>
+							<h3 className="text-xl font-bold">Les Grandes Lignes</h3>
 						</div>
 						<div className="w-full mt-8">
 							<Transcription transcriptionContent={transcription} />
+						</div>
+					</div>
+				)}
+				{mdSummary && (
+					<div className="border-t-2 mt-6 w-full lg:w-3/4">
+						<div className="flex flex-row justify-center items-center mt-8">
+							<Image
+								className="mr-2"
+								src={MagnifyingGlassIcon}
+								alt="Icône de résumé"
+								width={24}
+								height={24}
+							/>
+							<h3 className="text-xl font-bold">Entre les Lignes</h3>
+						</div>
+						<div className="w-full mt-8">
+							<Summary content={mdSummary} />
 						</div>
 					</div>
 				)}
@@ -348,7 +366,14 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 				)}
 				{relatedCards && relatedCards.length > 0 && (
 					<div className="flex flex-col items-center w-full border-t-2 mt-10 lg:w-3/4">
-						<div className="flex align-center justify-center mt-8">
+						<div className="flex items-center justify-center mt-8">
+							<Image
+								className="mr-2"
+								src={ReuseArrows}
+								alt="Icône de foire aux questions"
+								width={32}
+								height={32}
+							/>
 							<h3 className="text-xl font-bold">Dans le même sujet</h3>
 						</div>
 						<div className="flex flex-wrap justify-center mt-4">

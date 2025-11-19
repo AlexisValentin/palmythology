@@ -21,6 +21,12 @@ const nextConfig = {
 				permanent: true,
 			},
 			{
+				source:
+					"/cards/:pantheon(greek|egyptian|roman|norse|celtic|japanese|chinese|mayan|mesopotamian|aztec|hindu)",
+				destination: "/pantheons/:pantheon",
+				permanent: true,
+			},
+			{
 				source: "/:path*",
 				has: [{ type: "host", value: "www.palmythology.com" }],
 				destination: "https://palmythology.com/:path*",
