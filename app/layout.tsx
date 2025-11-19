@@ -6,6 +6,7 @@ import TrackingNotice from "../src/components/domains/tracking/TrackingNotice";
 import Breadcrumbs from "../src/components/generics/Breadcrumbs";
 import StoryblokProvider from "../src/components/StoryblokProvider";
 import "../src/global.css";
+import { Analytics } from "@vercel/analytics/next";
 import type { Viewport } from "next";
 
 interface MainLayoutProps {
@@ -116,6 +117,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 					<div className="flex flex-col min-h-screen">
 						<div className="px-6 mb-20 sm:px-12 md:px-24 lg:px-40 xl:px-56 2xl:px-72">
 							{children}
+							{process.env.ENV === "production" && <Analytics />}
 						</div>
 					</div>
 					<Breadcrumbs />
