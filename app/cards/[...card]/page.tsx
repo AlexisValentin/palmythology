@@ -1,26 +1,16 @@
-import Image from "next/image";
 import { redirect } from "next/navigation";
-import MagnifyingGlassIcon from "../../../src/assets/icons/magnifying_glass.svg";
-import SummaryIcon from "../../../src/assets/icons/open_book.svg";
-import QnAIcon from "../../../src/assets/icons/question_marks.svg";
-import QuotationIcon from "../../../src/assets/icons/quotation_marks.svg";
-import ReuseArrows from "../../../src/assets/icons/reuse_arrows.svg";
-import Transcription from "../../../src/components/domains/cards/Transcription";
+import type { FC } from "react";
 import Carousel from "../../../src/components/generics/Carousel";
-import Faq from "../../../src/components/generics/Faq";
 import PageHeader from "../../../src/components/generics/PageHeader";
 import PageSquare, {
 	CONTENT_TYPE,
 	PAGE_SQUARE_SIZE_TYPE,
 } from "../../../src/components/generics/PageSquare";
-import Quotation from "../../../src/components/generics/Quotation";
 import SocialNetworks from "../../../src/components/generics/SocialNetworks";
-import Summary from "../../../src/components/generics/Summary";
 import { getPantheonLabelFromValue } from "../../../src/utils/cards/pantheons";
 import type { PantheonValue } from "../../../src/utils/cards/pantheons.constants";
 import { getSubjectLabelFromValue } from "../../../src/utils/cards/subjects";
 import type { SubjectValue } from "../../../src/utils/cards/subjects.constants";
-import type { CardRelatedType } from "../../../src/utils/cms/cms.constants";
 import { fetchSpecificCard } from "../../../src/utils/cms/cms.requests";
 import { getPantheonData } from "../../../src/utils/pantheons";
 import {
@@ -29,6 +19,12 @@ import {
 	replaceDashesBySpaces,
 } from "../../../src/utils/string";
 import { getSubjectData } from "../../../src/utils/subjects";
+import {
+	CardPageFaqSection,
+	CardPageQuotationsSection,
+	CardPageRelatedCardsSection,
+	CardPageSummarySection,
+} from "./CardPageSections";
 
 export const dynamicParams = true;
 export const generateStaticParams = async () => [];
@@ -112,7 +108,7 @@ export const generateMetadata = async ({ params }: CardPagePropsType) => {
 	};
 };
 
-const CardPage = async ({ params }: CardPagePropsType) => {
+const CardPage: FC<CardPagePropsType> = async ({ params }) => {
 	const pageParams = await params;
 	const pantheon = pageParams.card[0];
 	const title = pageParams.card[1];
@@ -138,7 +134,6 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 		blueskyUrl,
 		relatedCards,
 		subject,
-		transcription,
 		quotations,
 		faq,
 	} = content;
@@ -164,7 +159,7 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 		image: images?.map((img: any) => img.filename) || [],
 		datePublished: published_at,
 		dateModified: updated_at,
-		wordCount: calculateWordCount(mdSummary, transcription),
+		wordCount: calculateWordCount(mdSummary),
 		keywords: [
 			name,
 			getPantheonLabelFromValue(pantheon as PantheonValue),
@@ -193,42 +188,12 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 		},
 	};
 
-	const faqPageSchema =
-		faq && faq.length > 0
-			? {
-					"@context": "https://schema.org",
-					"@type": "FAQPage",
-					mainEntity: faq.map(
-						({
-							question,
-							response,
-						}: {
-							question: string;
-							response: string;
-						}) => ({
-							"@type": "Question",
-							name: question,
-							acceptedAnswer: {
-								"@type": "Answer",
-								text: response,
-							},
-						}),
-					),
-				}
-			: null;
-
 	return (
 		<>
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
 			/>
-			{faqPageSchema && (
-				<script
-					type="application/ld+json"
-					dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
-				/>
-			)}
 			<div className="flex justify-center items-center flex-col">
 				<div className="flex justify-center items-center gap-x-6 sm:gap-x-10 md:gap-x-16 lg:gap-x-20 xl:gap-x-24">
 					{pantheonData && (
@@ -259,140 +224,18 @@ const CardPage = async ({ params }: CardPagePropsType) => {
 						/>
 					)}
 				</div>
+				<div className="hidden md:block w-full lg:w-3/4">
+					<CardPageSummarySection summary={mdSummary} />
+				</div>
 				<div className="flex items-center justify-center w-full lg:w-3/4 mt-4">
 					<Carousel imageList={images} />
 				</div>
-				{transcription?.length > 0 && (
-					<div className="border-t-2 mt-8 w-full lg:w-3/4">
-						<div className="flex flex-row justify-center items-center mt-8">
-							<Image
-								className="mr-2"
-								src={SummaryIcon}
-								alt="Icône de résumé"
-								width={24}
-								height={24}
-							/>
-							<h3 className="text-xl font-bold">Les Grandes Lignes</h3>
-						</div>
-						<div className="w-full mt-8">
-							<Transcription transcriptionContent={transcription} />
-						</div>
-					</div>
-				)}
-				{mdSummary && (
-					<div className="border-t-2 mt-6 w-full lg:w-3/4">
-						<div className="flex flex-row justify-center items-center mt-8">
-							<Image
-								className="mr-2"
-								src={MagnifyingGlassIcon}
-								alt="Icône de résumé"
-								width={24}
-								height={24}
-							/>
-							<h3 className="text-xl font-bold">Entre les Lignes</h3>
-						</div>
-						<div className="w-full mt-8">
-							<Summary content={mdSummary} />
-						</div>
-					</div>
-				)}
-				{faq?.length > 0 && (
-					<div className="flex flex-col items-center w-full border-t-2 mt-6 lg:w-3/4">
-						<div className="flex flex-row justify-center items-center mt-6">
-							<Image
-								className="mr-2"
-								src={QnAIcon}
-								alt="Icône de foire aux questions"
-								width={32}
-								height={32}
-							/>
-							<h3 className="text-xl font-bold">Questions fréquentes</h3>
-						</div>
-						{faq.map(
-							({
-								question,
-								response,
-							}: {
-								question: string;
-								response: string;
-							}) => (
-								<div
-									key={question}
-									className="flex flex-col justify-center items-center mt-8 w-full"
-								>
-									<Faq question={question} answer={response} />
-								</div>
-							),
-						)}
-					</div>
-				)}
-				{quotations?.length > 0 && (
-					<div className="flex flex-col items-center w-full border-t-2 mt-10 lg:w-3/4">
-						<div className="flex flex-row justify-center items-center mt-6">
-							<Image
-								className="mr-2"
-								src={QuotationIcon}
-								alt="Icône de citation"
-								width={24}
-								height={24}
-							/>
-							<h3 className="text-xl font-bold">Citations</h3>
-						</div>
-						{quotations.map(
-							({
-								author,
-								quotation,
-								origin,
-							}: {
-								author: string;
-								quotation: string;
-								origin?: string;
-							}) => {
-								return (
-									<div
-										key={`${author}-${quotation.split(" ")}`}
-										className="flex flex-col mt-6 w-full"
-									>
-										<Quotation
-											quote={quotation}
-											author={author}
-											origin={origin}
-										/>
-									</div>
-								);
-							},
-						)}
-					</div>
-				)}
-				{relatedCards && relatedCards.length > 0 && (
-					<div className="flex flex-col items-center w-full border-t-2 mt-10 lg:w-3/4">
-						<div className="flex items-center justify-center mt-8">
-							<Image
-								className="mr-2"
-								src={ReuseArrows}
-								alt="Icône de foire aux questions"
-								width={32}
-								height={32}
-							/>
-							<h3 className="text-xl font-bold">Dans le même sujet</h3>
-						</div>
-						<div className="flex flex-wrap justify-center mt-4">
-							{relatedCards.map(
-								({ name, subtitle, pantheon, icon }: CardRelatedType) => (
-									<PageSquare
-										key={`${name}-${subtitle}}`}
-										title={name}
-										subtitle={subtitle}
-										pantheon={pantheon}
-										icon={icon}
-										contentType={CONTENT_TYPE.CARD}
-										size={PAGE_SQUARE_SIZE_TYPE.COMPACT}
-									/>
-								),
-							)}
-						</div>
-					</div>
-				)}
+				<div className="block md:hidden border-t-2 mt-8 w-full lg:w-3/4">
+					<CardPageSummarySection summary={mdSummary} />
+				</div>
+				<CardPageFaqSection faq={faq} />
+				<CardPageQuotationsSection quotations={quotations} />
+				<CardPageRelatedCardsSection relatedCards={relatedCards} />
 				{hasCustomLinks && (
 					<div className="mt-16">
 						<SocialNetworks customLinks={socialLinks} />

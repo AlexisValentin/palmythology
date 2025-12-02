@@ -2,17 +2,17 @@ import Markdown from "react-markdown";
 
 export interface FaqProps {
 	question: string;
-	answer: string;
+	response: string;
 }
 
-const Faq: React.FC<FaqProps> = ({ question, answer }) => {
+export const Faq: React.FC<FaqProps> = ({ question, response }) => {
 	const faqSchema = {
 		"@context": "https://schema.org",
 		"@type": "Question",
 		name: question,
 		acceptedAnswer: {
 			"@type": "Answer",
-			text: answer,
+			text: response,
 		},
 	};
 
@@ -40,12 +40,10 @@ const Faq: React.FC<FaqProps> = ({ question, answer }) => {
 					className="p-2 pt-0"
 				>
 					<div itemProp="text">
-						<Markdown>{answer}</Markdown>
+						<Markdown>{response}</Markdown>
 					</div>
 				</div>
 			</div>
 		</>
 	);
 };
-
-export default Faq;
