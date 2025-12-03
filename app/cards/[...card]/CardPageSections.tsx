@@ -12,7 +12,7 @@ import PageSquare, {
 } from "../../../src/components/generics/PageSquare";
 import type { QuotationProps } from "../../../src/components/generics/Quotation";
 import Quotation from "../../../src/components/generics/Quotation";
-import Summary from "../../../src/components/generics/Summary";
+import { Summary } from "../../../src/components/generics/Summary";
 import type { CardRelatedType } from "../../../src/utils/cms/cms.constants";
 
 interface CardPageSummarySectionProps {

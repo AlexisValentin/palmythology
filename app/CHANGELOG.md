@@ -8,3 +8,6 @@
   - La position de la section du résumé à été revue
     - Elle apparaît en première position sur desktop (et sans titre)
     - Elle apparaît en seconde position sur mobile (et avec titre)
+- Le résumé est désormais condensé et peut être déplié pour en dévoiler la totalité
+  - Une fléche permet à l'utilisateur d'intéragir avec l'état du résumé
+  - Fermer le résumé permet de scroller en haut de la section du résumé
