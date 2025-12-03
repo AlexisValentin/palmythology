@@ -8,6 +8,7 @@ import "../src/global.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Viewport } from "next";
+import { UpPageButton } from "../src/components/generics/UpPageButton";
 
 interface MainLayoutProps {
 	children: React.ReactNode;
@@ -124,6 +125,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 							)}
 						</div>
 					</div>
+					<UpPageButton />
 					<Breadcrumbs />
 					<Footer />
 				</body>

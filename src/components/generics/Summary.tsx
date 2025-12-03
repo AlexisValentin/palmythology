@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import type { FC } from "react";
 import { useRef, useState } from "react";
 import Markdown from "react-markdown";
-import ArrowDownIcon from "../../assets/icons/arrow_down.svg";
+import { ArrowDownIcon } from "../../assets/icons/ArrowDownIcon";
 import { getSummaryBackgroundColor } from "../../utils/styles/colors";
 
 interface SummaryProps {
@@ -17,10 +16,16 @@ export const Summary: FC<SummaryProps> = ({ content }) => {
 
 	const handleToggle = () => {
 		if (isExpanded) {
-			summaryRef.current?.scrollIntoView({
-				behavior: "smooth",
-				block: "start",
-			});
+			const element = summaryRef.current;
+
+			if (element) {
+				const offsetTop =
+					element.getBoundingClientRect().top + window.scrollY - 75;
+				window.scrollTo({
+					top: offsetTop,
+					behavior: "smooth",
+				});
+			}
 		}
 
 		setIsExpanded(!isExpanded);
@@ -34,8 +39,8 @@ export const Summary: FC<SummaryProps> = ({ content }) => {
 			>
 				<div className="w-full relative">
 					<div
-						className={`w-full overflow-hidden transition-all duration-300 ${
-							isExpanded ? "max-h-none" : "max-h-48 md:max-h-80"
+						className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${
+							isExpanded ? "max-h-[125rem]" : "max-h-48 md:max-h-80"
 						}`}
 					>
 						<Markdown>{content}</Markdown>
@@ -57,12 +62,11 @@ export const Summary: FC<SummaryProps> = ({ content }) => {
 					aria-expanded={isExpanded}
 					aria-label={isExpanded ? "Voir moins" : "Voir plus"}
 				>
-					<Image
-						src={ArrowDownIcon}
-						className={isExpanded ? "rotate-180" : ""}
-						alt="Icône de fléche"
-						width={20}
-					/>
+					<div
+						className={`transition-transform duration-500 ease-in-out ${isExpanded ? "rotate-180" : ""}`}
+					>
+						<ArrowDownIcon customColor="black" />
+					</div>
 				</button>
 			</div>
 		</div>

@@ -1,6 +1,10 @@
 # Notes de version 2.16.0 (??/12/2025)
 
-# Les Grandes Lignes
+## Général
+
+- Ajout d'un bouton permettant de remonter en haut de page lors que l'utilisateur est descendu à plus d'une taille d'écran à la verticale.
+
+## Les Grandes Lignes
 
 - Suppression du bloc de Transcription.
 - Découpage du fichier de routing [...cards] pour plus de lisibilité.
