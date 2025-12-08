@@ -1,12 +1,16 @@
-import React from "react";
-import PageHeader from "../../../src/components/generics/PageHeader";
 import SubjectCardList from "../../../src/components/domains/cards/LPCardList";
-import {
-	fetchCardStories,
-	getSubjectStory,
-} from "../../../src/utils/cms/cms.requests";
+import PageHeader from "../../../src/components/generics/PageHeader";
 import { getSubjectLabelFromValue } from "../../../src/utils/cards/subjects";
-import { SubjectValue } from "../../../src/utils/cards/subjects.constants";
+import type { SubjectValue } from "../../../src/utils/cards/subjects.constants";
+import {
+	fetchCardsFromCriterias,
+	fetchSpecificSubject,
+} from "../../../src/utils/cms/cms.requests";
+
+export const dynamicParams = true;
+export const generateStaticParams = async () => [];
+// Revalidate constant should be statically analyzed, so no calculation or export can be used
+export const revalidate = 604800;
 
 interface SubjectPagePropsType {
 	params: Promise<{ subject: string }>;
@@ -15,13 +19,19 @@ interface SubjectPagePropsType {
 export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 	const pageParams = await params;
 	const subject = pageParams.subject;
-	const story = await getSubjectStory(subject);
+	const story = await fetchSpecificSubject(subject);
+
+	const subjectLabel = getSubjectLabelFromValue(subject as SubjectValue);
+	const optimizedTitle = `${subjectLabel} | Mythologie - Palmythology`;
+	const { metaDescription } = story.story.content;
+
+	const description =
+		metaDescription ||
+		`Découvrez tous les ${subjectLabel} de la mythologie mondiale. Fiches illustrées, comparaisons et ressources pédagogiques sur Palmythology.`;
 
 	return {
-		title: `Sujet ${getSubjectLabelFromValue(
-			subject as SubjectValue,
-		)?.toLowerCase()} - Les Grandes Lignes | Palmythology`,
-		description: story.data.story.content?.metaDescription,
+		title: optimizedTitle,
+		description,
 		robots: {
 			index: true,
 			follow: true,
@@ -33,10 +43,8 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 			},
 		},
 		openGraph: {
-			title: `Sujet ${getSubjectLabelFromValue(
-				subject as SubjectValue,
-			)?.toLowerCase()} - Les Grandes Lignes | Palmythology`,
-			description: story.data.story.content?.metaDescription,
+			title: optimizedTitle,
+			description,
 			url: `https://palmythology.com/subjects/${subject}`,
 			siteName: "Palmythology",
 			images: [
@@ -45,6 +53,7 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 					width: 600,
 					height: 600,
 					alt: "Logo officiel de la Palmythology",
+					type: "image/x-icon",
 				},
 			],
 			locale: "fr_FR",
@@ -52,11 +61,14 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 		},
 		twitter: {
 			card: "summary_large_image",
-			title: `Sujet ${getSubjectLabelFromValue(
-				subject as SubjectValue,
-			)?.toLowerCase()} - Les Grandes Lignes | Palmythology`,
-			description: story.data.story.content?.metaDescription,
-			images: ["https://palmythology.com/icon/favicon.ico"],
+			title: optimizedTitle,
+			description,
+			images: [
+				{
+					url: "https://palmythology.com/icon/favicon.ico",
+					alt: "Logo officiel de la Palmythology",
+				},
+			],
 		},
 	};
 };
@@ -65,7 +77,10 @@ const SubjectPage = async ({ params }: SubjectPagePropsType) => {
 	const pageParams = await params;
 	const subject = pageParams.subject;
 
-	const { results } = await fetchCardStories({ pantheon: "", subject }, 1);
+	const { results } = await fetchCardsFromCriterias(
+		{ pantheon: "", subject },
+		1,
+	);
 
 	const subjectLabel = getSubjectLabelFromValue(subject! as SubjectValue);
 

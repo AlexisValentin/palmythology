@@ -1,9 +1,9 @@
 import Image from "next/image";
-import {
-	SOCIAL_NETWORKS,
-	SOCIAL_NETWORK_STATUS,
-} from "../../utils/socials.constants";
 import Link from "next/link";
+import {
+	SOCIAL_NETWORK_STATUS,
+	SOCIAL_NETWORKS,
+} from "../../utils/socials.constants";
 
 interface SocialNetworkProps {
 	name: string;
@@ -64,12 +64,12 @@ const SocialNetworks: React.FC<SocialNetworksProps> = ({ customLinks }) => {
 
 	return (
 		<>
-			{SOCIAL_NETWORKS.map(({ name, url, iconUrl, status }, idx) => {
+			{SOCIAL_NETWORKS.map(({ name, url, iconUrl, status }) => {
 				if (status === SOCIAL_NETWORK_STATUS.INACTIVE) return null;
 
 				return (
 					<SocialNetwork
-						key={`${name}-${idx}`}
+						key={`${name}`}
 						name={name}
 						url={url}
 						iconUrl={iconUrl}

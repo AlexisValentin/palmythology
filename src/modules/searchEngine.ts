@@ -1,16 +1,19 @@
-import {
-	fetchCardStories,
-	fetchPlaceholderCards,
-} from "../utils/cms/cms.requests";
-import { CardDetails, ResearchCriterias } from "../utils/cards/card.constants";
+import type {
+	CardDetails,
+	ResearchCriterias,
+} from "../utils/cards/card.constants";
 import { getPantheonLabelFromValue } from "../utils/cards/pantheons";
 import { getSubjectLabelFromValue } from "../utils/cards/subjects";
+import {
+	fetchCardsFromCriterias,
+	fetchPlaceholderCards,
+} from "../utils/cms/cms.requests";
 
 export const filterCards = async (
 	currentPage: number,
 	searchCriterias?: ResearchCriterias,
 ) => {
-	const cardStories = await fetchCardStories(
+	const cardStories = await fetchCardsFromCriterias(
 		searchCriterias ?? { pantheon: "", subject: "" },
 		currentPage,
 	);
