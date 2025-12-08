@@ -1,4 +1,4 @@
-# Notes de version 2.16.0 (??/12/2025)
+# Notes de version 2.16.0 (08/12/2025)
 
 ## Général
 
@@ -15,3 +15,7 @@
 - Le résumé est désormais condensé et peut être déplié pour en dévoiler la totalité
   - Une fléche permet à l'utilisateur d'intéragir avec l'état du résumé
   - Fermer le résumé permet de scroller en haut de la section du résumé
+
+# Divers
+
+- Modification de la configuration du site concernant l'interprétation des fichiers d'images.
