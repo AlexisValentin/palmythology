@@ -3,3 +3,4 @@
 ## Divers
 
 - Mise en place des conventions de code dans le dossier dédié à la LLM Claude.
+- Mise à jour des dépendances à leurs dernières versions de patch. (X.X.0)
