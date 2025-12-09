@@ -40,13 +40,13 @@ export const Summary: FC<SummaryProps> = ({ content }) => {
 				<div className="w-full relative">
 					<div
 						className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${
-							isExpanded ? "max-h-[125rem]" : "max-h-48 md:max-h-80"
+							isExpanded ? "max-h-500" : "max-h-48 md:max-h-80"
 						}`}
 					>
 						<Markdown>{content}</Markdown>
 					</div>
 					{!isExpanded && (
-						<div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-neutral-200 via-neutral-200 to-transparent pointer-events-none" />
+						<div className="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-neutral-200 via-neutral-200 to-transparent pointer-events-none" />
 					)}
 				</div>
 				<button

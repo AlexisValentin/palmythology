@@ -1,0 +1,26 @@
+<!-- Safelist for dynamic Tailwind classes - Pantheon colors -->
+
+<!-- Backgrounds -->
+bg-orange-700 bg-emerald-700 bg-red-700 bg-amber-400 bg-blue-700
+bg-amber-500 bg-neutral-300 bg-violet-800 bg-pink-500 bg-sky-500
+bg-red-900 bg-neutral-900 bg-slate-500
+
+<!-- Text colors -->
+text-orange-700 text-emerald-700 text-red-700 text-amber-400 text-blue-700
+text-amber-500 text-neutral-300 text-violet-800 text-pink-500 text-sky-500
+text-red-900 text-neutral-100 text-neutral-900 text-emerald-900 text-red-800
+
+<!-- Border colors -->
+border-orange-700 border-emerald-700 border-red-700 border-amber-400 border-blue-700
+border-amber-500 border-neutral-300 border-violet-800 border-pink-500 border-sky-500
+border-red-900 border-neutral-900
+
+<!-- Hover backgrounds (lg) -->
+lg:hover:bg-orange-700 lg:hover:bg-emerald-700 lg:hover:bg-red-700
+lg:hover:bg-amber-400 lg:hover:bg-blue-700 lg:hover:bg-amber-500
+lg:hover:bg-neutral-300 lg:hover:bg-violet-800 lg:hover:bg-pink-500
+lg:hover:bg-sky-500 lg:hover:bg-red-900 lg:hover:bg-slate-500
+
+<!-- Hover text colors (lg) -->
+lg:hover:text-neutral-100 lg:hover:text-neutral-900 lg:hover:text-emerald-900
+lg:hover:text-red-800 lg:hover:text-amber-500

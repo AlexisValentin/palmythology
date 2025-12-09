@@ -5,3 +5,4 @@
 - Mise en place des conventions de code dans le dossier dédié à la LLM Claude.
 - Mise à jour des dépendances à leurs dernières versions de patch. (X.X.0)
 - Mise à jour des dépendances à leurs dernières versions mineures. (X.0.X)
+- Mise à jour de TailwindCSS à sa dernière version majeure. (4.0.0)

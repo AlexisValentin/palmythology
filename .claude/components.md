@@ -242,7 +242,7 @@ const Component = ({ color }) => (
 
 // Combine static and conditional classes
 const Button = ({ active }) => (
-  <button className={`px-4 py-2 rounded ${active ? "bg-blue-500" : "bg-gray-300"}`}>
+  <button className={`px-4 py-2 rounded-sm ${active ? "bg-blue-500" : "bg-gray-300"}`}>
     ...
   </button>
 );
