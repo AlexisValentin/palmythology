@@ -19,8 +19,7 @@
 	},
 	"editor.formatOnSave": true,
 	"editor.codeActionsOnSave": {
-		"quickfix.biome": "explicit",
-		"source.organizeImports.biome": "explicit"
+		"source.fixAll.biome": "explicit"
 	},
 	"css.validate": false,
 	"less.validate": false,

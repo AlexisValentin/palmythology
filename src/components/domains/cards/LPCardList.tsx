@@ -1,4 +1,4 @@
-import { CardRelatedType } from "../../../utils/cms/cms.constants";
+import type { CardRelatedType } from "../../../utils/cms/cms.constants";
 import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
 
 interface PantheonCardListProps {

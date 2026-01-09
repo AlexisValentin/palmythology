@@ -1,6 +1,6 @@
-import { StoryblokImageType } from "../cms/cms.constants";
-import { PantheonLabel, PantheonValue } from "./pantheons.constants";
-import { SubjectLabel, SubjectValue } from "./subjects.constants";
+import type { StoryblokImageType } from "../cms/cms.constants";
+import type { PantheonLabel, PantheonValue } from "./pantheons.constants";
+import type { SubjectLabel, SubjectValue } from "./subjects.constants";
 
 export interface Card {
 	details: CardDetails;

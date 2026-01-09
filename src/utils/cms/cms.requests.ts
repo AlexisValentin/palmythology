@@ -2,11 +2,13 @@
 
 import { unstable_cache } from "next/cache";
 import type { CardDetails, ResearchCriterias } from "../cards/card.constants";
+import type { GodleEntity, GodleProperties } from "../godle/godle.types";
 import { parseStringToSlug, replaceHyphenByDashes } from "../string";
 import { getCacheTags } from "./cache";
 import { getStoryblokBaseUrl, getStoryblokToken } from "./cms";
 import {
 	type AvailableCardForSitemap,
+	type GodlePropertiesType,
 	type Quoi2NeufStoryType,
 	STORYBLOK_MAX_ITEMS_PER_REQUEST,
 	STORYBLOK_RESULTS_PER_PAGE,
@@ -308,4 +310,96 @@ const parseQuoi2NeufData = (
 	const { title, subtitle, icon, available, pantheon } = quoi2NeufItem.content;
 
 	return { title, subtitle, icon, available, pantheon };
+};
+
+export const fetchAllAvailableEntitiesForGodle = async (): Promise<
+	GodleEntity[]
+> => {
+	const cacheTags = await getCacheTags();
+
+	const requestAllEntities = async (): Promise<GodleEntity[]> => {
+		try {
+			let allEntities: GodleEntity[] = [];
+			let currentPage = 1;
+			let hasMorePages = true;
+
+			while (hasMorePages) {
+				// Add cv parameter only in dev to bust Storyblok CDN cache
+				const cvParam = process.env.ENV === "dev" ? `&cv=${Date.now()}` : "";
+				const response = await fetch(
+					`${getStoryblokBaseUrl()}?starts_with=cards&token=${getStoryblokToken()}&version=${
+						STORYBLOK_VERSIONS.PUBLISHED
+					}&per_page=${STORYBLOK_SITEMAP_MAX_ITEMS}&page=${currentPage}&filter_query[component][in]=card&filter_query[available][in]=true${cvParam}`,
+				);
+
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+
+				const data = await response.json();
+				const stories = data.stories || [];
+				const total = Number.parseInt(response.headers.get("total") || "0", 10);
+
+				const entities = stories
+					.filter(
+						(story: { content: { available: boolean } }) =>
+							story.content.available === true,
+					)
+					.map(
+						(story: {
+							content: {
+								name: string;
+								pantheon: string;
+								subject: string;
+								godle?: GodlePropertiesType[]; // Array in Storyblok
+							};
+							full_slug: string;
+						}) => {
+							let transformedGodle: GodleProperties | undefined;
+
+							if (
+								story.content.godle &&
+								Array.isArray(story.content.godle) &&
+								story.content.godle.length > 0
+							) {
+								const godleData = story.content.godle[0];
+								transformedGodle = {
+									genre: godleData.genre,
+									domain: godleData.domain
+										? godleData.domain
+												.split(",")
+												.map((d: string) => d.trim())
+												.filter((d: string) => d.length > 0)
+										: [],
+									status: godleData.status || [],
+								};
+							}
+
+							return {
+								name: story.content.name,
+								pantheon: story.content.pantheon,
+								subject: story.content.subject,
+								slug: story.full_slug,
+								godle: transformedGodle,
+							};
+						},
+					);
+
+				allEntities = [...allEntities, ...entities];
+				const totalFetched = currentPage * STORYBLOK_SITEMAP_MAX_ITEMS;
+				hasMorePages = totalFetched < total;
+				currentPage++;
+			}
+
+			return allEntities;
+		} catch (error) {
+			console.error("Error fetching entities for Godle:", error);
+			return [];
+		}
+	};
+
+	return unstable_cache(async () => requestAllEntities(), ["godle-entities"], {
+		tags: [cacheTags.GODLE.TAG, cacheTags.ALL.TAG],
+		revalidate: cacheTags.GODLE.DURATION,
+	})();
 };

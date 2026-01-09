@@ -3,8 +3,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
-import Button from "./Button";
 import TestIcon from "../../assets/icons/anonymous.svg";
+import Button from "./Button";
 
 test("should trigger callback when clicking on the button", async () => {
 	const alertMock = vi.spyOn(window, "alert").mockImplementation(vi.fn());

@@ -1,4 +1,4 @@
-import { TextBlockType } from "../../utils/cms/cms.constants";
+import type { TextBlockType } from "../../utils/cms/cms.constants";
 import { isEven } from "../../utils/number";
 
 export enum IconSize {

@@ -1,6 +1,6 @@
-import { Quoi2NeufStoryType } from "../../../utils/cms/cms.constants";
-import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
+import type { Quoi2NeufStoryType } from "../../../utils/cms/cms.constants";
 import PageHeader from "../../generics/PageHeader";
+import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
 
 const Q2NCardList: React.FC<{ stories: any }> = ({ stories }) => (
 	<>

@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
+import type React from "react";
 
 import PageHeader from "../../../src/components/generics/PageHeader";
 import useErrorHandler, {
-	ErrorProps,
+	type ErrorProps,
 } from "../../../src/components/hooks/useErrorHandler";
 
 const Error: React.FC<ErrorProps> = ({ error }) => {

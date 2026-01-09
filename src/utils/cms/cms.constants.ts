@@ -15,6 +15,14 @@ export interface StoryblokImageType {
 	filename: string;
 }
 
+export interface GodlePropertiesType {
+	_uid?: string;
+	component?: string;
+	genre: "male" | "female" | "androgynous" | "none" | "undefined";
+	domain: string; // Single string in Storyblok, not array
+	status: string[];
+}
+
 interface StoryblokLinkType {
 	alt: string;
 	filename: string;
@@ -61,6 +69,7 @@ export interface StoryblokCardComponentType {
 		subject: SubjectValue;
 		available: boolean;
 		isFolder: boolean;
+		godle?: GodlePropertiesType[]; // Array of godle properties in Storyblok
 	};
 }
 

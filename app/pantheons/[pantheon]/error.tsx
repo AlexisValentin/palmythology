@@ -1,15 +1,14 @@
 "use client";
 
 /* Libs */
-import React from "react";
-
+import type React from "react";
+import PantheonList from "../../../src/components/domains/cards/PantheonList";
 /* Components */
 import PageHeader from "../../../src/components/generics/PageHeader";
-import PantheonList from "../../../src/components/domains/cards/PantheonList";
 
 /* Hooks */
 import useErrorHandler, {
-	ErrorProps,
+	type ErrorProps,
 } from "../../../src/components/hooks/useErrorHandler";
 
 const PantheonErrorPage: React.FC<ErrorProps> = ({ error }) => {
