@@ -1,10 +1,10 @@
+import type { DomainValue } from "../cards/domains.constants";
 import type { PantheonValue } from "../cards/pantheons.constants";
 import type { SubjectValue } from "../cards/subjects.constants";
 
 export interface GodleProperties {
 	genre: "male" | "female" | "androgynous" | "none" | "undefined";
-	domain: string[];
-	status: string[];
+	domain: DomainValue[];
 }
 
 export interface GodleEntity {
@@ -12,6 +12,10 @@ export interface GodleEntity {
 	pantheon: PantheonValue;
 	subject: SubjectValue;
 	slug: string;
+	icon: {
+		alt: string;
+		filename: string;
+	};
 	godle?: GodleProperties;
 }
 
@@ -27,7 +31,6 @@ export interface GuessResult {
 	subjectMatch: MatchType;
 	genreMatch: MatchType;
 	domainMatch: MatchType;
-	statusMatch: MatchType;
 	isCorrect: boolean;
 }
 

@@ -351,7 +351,8 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 								name: string;
 								pantheon: string;
 								subject: string;
-								godle?: GodlePropertiesType[]; // Array in Storyblok
+								icon: { alt: string; filename: string };
+								godle?: GodlePropertiesType[];
 							};
 							full_slug: string;
 						}) => {
@@ -365,13 +366,7 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 								const godleData = story.content.godle[0];
 								transformedGodle = {
 									genre: godleData.genre,
-									domain: godleData.domain
-										? godleData.domain
-												.split(",")
-												.map((d: string) => d.trim())
-												.filter((d: string) => d.length > 0)
-										: [],
-									status: godleData.status || [],
+									domain: godleData.domain || [],
 								};
 							}
 
@@ -380,10 +375,12 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 								pantheon: story.content.pantheon,
 								subject: story.content.subject,
 								slug: story.full_slug,
+								icon: story.content.icon,
 								godle: transformedGodle,
 							};
 						},
-					);
+					)
+					.filter((entity: GodleEntity) => entity.godle !== undefined);
 
 				allEntities = [...allEntities, ...entities];
 				const totalFetched = currentPage * STORYBLOK_SITEMAP_MAX_ITEMS;

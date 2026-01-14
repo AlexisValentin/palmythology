@@ -5,9 +5,8 @@ import SocialsIncentivePopin from "../src/components/domains/social/SocialsIncen
 import Breadcrumbs from "../src/components/generics/Breadcrumbs";
 import StoryblokProvider from "../src/components/StoryblokProvider";
 import "../src/global.css";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import type { Viewport } from "next";
+import type { Metadata, Viewport } from "next";
+import TrackingNotice from "../src/components/domains/tracking/TrackingNotice";
 import { UpPageButton } from "../src/components/generics/UpPageButton";
 
 interface MainLayoutProps {
@@ -20,7 +19,7 @@ export const viewport: Viewport = {
 	maximumScale: 5,
 };
 
-export const metadata = {
+export const metadata: Metadata = {
 	icons: {
 		icon: "https://a.storyblok.com/f/187414/2048x2048/c834d0c07d/logo.png",
 		shortcut: "https://a.storyblok.com/f/187414/2048x2048/c834d0c07d/logo.png",
@@ -117,12 +116,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 					<div className="flex flex-col min-h-screen">
 						<div className="px-6 mb-20 sm:px-12 md:px-24 lg:px-40 xl:px-56 2xl:px-72">
 							{children}
-							{process.env.ENV === "production" && (
-								<>
-									<Analytics />
-									<SpeedInsights />
-								</>
-							)}
 						</div>
 					</div>
 					<UpPageButton />

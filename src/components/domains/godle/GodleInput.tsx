@@ -5,18 +5,23 @@ import { getPantheonLabelFromValue } from "../../../utils/cards/pantheons";
 import { getSubjectLabelFromValue } from "../../../utils/cards/subjects";
 import type { GodleEntity } from "../../../utils/godle/godle.types";
 
+const normalizeString = (str: string): string => {
+	return str
+		.toLowerCase()
+		.normalize("NFD")
+		.replaceAll(/[\u0300-\u036f]/g, "");
+};
+
 interface GodleInputProps {
 	entities: GodleEntity[];
 	onGuess: (entity: GodleEntity) => void;
 	disabled: boolean;
-	alreadyGuessed: string[];
 }
 
 const GodleInput: React.FC<GodleInputProps> = ({
 	entities,
 	onGuess,
 	disabled,
-	alreadyGuessed,
 }) => {
 	const [query, setQuery] = useState("");
 	const [isOpen, setIsOpen] = useState(false);
@@ -25,15 +30,13 @@ const GodleInput: React.FC<GodleInputProps> = ({
 	const listRef = useRef<HTMLDivElement>(null);
 
 	const filteredEntities = useMemo(() => {
-		const lowerQuery = query.toLowerCase();
+		const normalizedQuery = normalizeString(query);
 		return entities
-			.filter(
-				(entity) =>
-					entity.name.toLowerCase().includes(lowerQuery) &&
-					!alreadyGuessed.includes(entity.name),
+			.filter((entity) =>
+				normalizeString(entity.name).includes(normalizedQuery),
 			)
 			.slice(0, 50);
-	}, [query, entities, alreadyGuessed]);
+	}, [query, entities]);
 
 	const handleSelect = (entity: GodleEntity) => {
 		if (!disabled) {
@@ -100,17 +103,13 @@ const GodleInput: React.FC<GodleInputProps> = ({
 	}, [focusedIndex]);
 
 	return (
-		<div className="mb-6">
+		<div className="mb-8">
 			<div className="relative">
 				<input
 					ref={inputRef}
 					type="text"
-					className="w-full px-4 py-3 border-2 border-neutral-300 rounded-lg focus:border-[#f461b1] focus:outline-none disabled:bg-neutral-100 disabled:cursor-not-allowed"
-					placeholder={
-						disabled
-							? "Partie terminée"
-							: "Rechercher une entité mythologique..."
-					}
+					className="w-full px-4 py-3 md:px-5 md:py-4 border-2 border-neutral-300 rounded-xl focus:border-pink-400 focus:ring-4 focus:ring-pink-400/20 focus:outline-none disabled:bg-neutral-100 disabled:cursor-not-allowed transition-all duration-200 text-base font-medium placeholder:text-neutral-400 shadow-sm focus:shadow-md"
+					placeholder="Rechercher une entité..."
 					value={query}
 					onChange={(e) => {
 						setQuery(e.target.value);
@@ -128,25 +127,26 @@ const GodleInput: React.FC<GodleInputProps> = ({
 					isOpen && (
 						<div
 							ref={listRef}
-							className="absolute z-10 w-full mt-1 bg-white border-2 border-neutral-300 rounded-lg shadow-lg max-h-60 overflow-auto"
+							className="absolute z-10 w-full mt-1 bg-white border-2 border-neutral-300 rounded-xl shadow-lg max-h-48 md:max-h-60 overflow-auto"
 						>
 							{filteredEntities.map((entity, index) => (
-								<div
+								<button
+									type="button"
 									key={entity.slug}
-									className={`px-4 py-2 cursor-pointer flex justify-between items-center ${
+									className={`w-full text-left px-3 py-2.5 md:px-4 md:py-3 cursor-pointer flex flex-col md:flex-row md:justify-between md:items-center gap-1 md:gap-3 transition-all duration-150 ${
 										index === focusedIndex
-											? "bg-neutral-200"
-											: "hover:bg-neutral-100"
+											? "bg-pink-50 border-l-4 border-pink-400"
+											: "hover:bg-neutral-50"
 									}`}
 									onClick={() => handleSelect(entity)}
 									onMouseEnter={() => setFocusedIndex(index)}
 								>
-									<span className="font-medium">{entity.name}</span>
-									<span className="text-sm text-neutral-600">
+									<span className="font-semibold truncate">{entity.name}</span>
+									<span className="text-xs text-neutral-500 flex-shrink-0">
 										{getPantheonLabelFromValue(entity.pantheon)} •{" "}
 										{getSubjectLabelFromValue(entity.subject)}
 									</span>
-								</div>
+								</button>
 							))}
 						</div>
 					)}

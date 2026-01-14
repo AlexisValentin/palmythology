@@ -27,7 +27,6 @@ export const compareGuess = (
 
 	let genreMatch = MatchType.NONE;
 	let domainMatch = MatchType.NONE;
-	let statusMatch = MatchType.NONE;
 
 	if (hasGodleProperties && guess.godle && target.godle) {
 		genreMatch =
@@ -35,7 +34,6 @@ export const compareGuess = (
 				? MatchType.EXACT
 				: MatchType.NONE;
 		domainMatch = compareArrays(guess.godle.domain, target.godle.domain);
-		statusMatch = compareArrays(guess.godle.status, target.godle.status);
 	}
 
 	return {
@@ -46,7 +44,6 @@ export const compareGuess = (
 			guess.subject === target.subject ? MatchType.EXACT : MatchType.NONE,
 		genreMatch,
 		domainMatch,
-		statusMatch,
 		isCorrect: guess.name === target.name,
 	};
 };
@@ -78,9 +75,8 @@ export const generateShareText = (
 		const subjectEmoji = getMatchEmoji(guess.subjectMatch);
 		const genreEmoji = getMatchEmoji(guess.genreMatch);
 		const domainEmoji = getMatchEmoji(guess.domainMatch);
-		const statusEmoji = getMatchEmoji(guess.statusMatch);
 
-		shareText += `${correctEmoji}${pantheonEmoji}${subjectEmoji}${genreEmoji}${domainEmoji}${statusEmoji}\n`;
+		shareText += `${correctEmoji}${pantheonEmoji}${subjectEmoji}${genreEmoji}${domainEmoji}\n`;
 	}
 
 	shareText += `\n${GODLE_CONFIG.SHARE_URL}`;

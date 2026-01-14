@@ -6,6 +6,8 @@
   - Chaque jour, une nouvelle entité mythologique est à trouver.
   - Chaque tentative permet de découvrir les indices associées à l'entité du jour.
   - Uniquement les entités liées aux fiches du site sont disponibles.
+  - Les résultats affichent les indices liés ou non au résultat attendu.
+    - Les cellules sont cliquables et ouvrent un nouvel onglet du site.
   - Un système de partage une fois l'entité trouvée est disponible.
 
 ## Divers

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { compareGuess } from "../../../modules/godle/godleEngine";
 import {
 	loadDailyGameState,
@@ -12,8 +12,9 @@ import type {
 	GodleEntity,
 	GuessResult,
 } from "../../../utils/godle/godle.types";
+import useModal from "../../hooks/useModal";
+import GodleFAQ from "./GodleFAQ";
 import GodleGuessHistory from "./GodleGuessHistory";
-import GodleHeader from "./GodleHeader";
 import GodleInput from "./GodleInput";
 import GodleResultModal from "./GodleResultModal";
 
@@ -33,23 +34,26 @@ const GodleGame: React.FC<GodleGameProps> = ({
 	const [guesses, setGuesses] = useState<GuessResult[]>([]);
 	const [isComplete, setIsComplete] = useState(false);
 	const [isWon, setIsWon] = useState(false);
-	const [showModal, setShowModal] = useState(false);
 	const [statistics, setStatistics] = useState(loadStatistics());
+	const modalRef = useRef<HTMLDivElement>(null);
+	const { shouldDisplayModal, displayModal, hideModal } = useModal(
+		false,
+		modalRef,
+	);
 
 	useEffect(() => {
 		const savedState = loadDailyGameState(todayDate);
 
 		if (savedState && savedState.targetEntityName === dailyEntity.name) {
-			// Check if all guessed entities still exist in the filtered list
 			const allEntitiesExist = savedState.guesses.every((guessName) =>
 				allEntities.some((e) => e.name === guessName),
 			);
 
-			// If any entity is missing (due to godle filtering), skip restoration
 			if (!allEntitiesExist) {
 				console.warn(
 					"Saved game state contains entities without godle. Starting fresh.",
 				);
+
 				return;
 			}
 
@@ -94,45 +98,43 @@ const GodleGame: React.FC<GodleGameProps> = ({
 		if (complete) {
 			updateStatistics(won, newGuesses.length, todayDate);
 			setStatistics(loadStatistics());
-			setShowModal(true);
+			displayModal();
 		}
 	};
 
-	const alreadyGuessed = guesses.map((g) => g.entity.name);
-
 	return (
-		<div className="max-w-3xl mx-auto">
-			<GodleHeader />
-
-			<GodleInput
-				entities={allEntities}
-				onGuess={handleGuess}
-				disabled={isComplete}
-				alreadyGuessed={alreadyGuessed}
-			/>
-
+		<div className="max-w-4xl mx-auto px-4 py-6">
+			{!isComplete && (
+				<GodleInput
+					entities={allEntities}
+					onGuess={handleGuess}
+					disabled={isComplete}
+				/>
+			)}
 			<GodleGuessHistory guesses={guesses} />
-
-			{isComplete && !showModal && (
-				<div className="text-center mb-6">
+			{isComplete && !shouldDisplayModal && (
+				<div className="text-center mt-12">
 					<button
 						type="button"
-						onClick={() => setShowModal(true)}
-						className="px-6 py-3 bg-[#f461b1] text-white rounded-lg font-bold hover:bg-[#e04ca0] transition-colors"
+						onClick={displayModal}
+						className="px-6 py-3 bg-gradient-to-r from-pink-400 to-sky-500 text-white rounded-xl font-bold transition-colors shadow-lg hover:shadow-xl cursor-pointer hover:from-pink-500 hover:to-sky-500"
 					>
 						Voir les résultats
 					</button>
 				</div>
 			)}
-
 			<GodleResultModal
-				isOpen={showModal}
+				isOpen={shouldDisplayModal}
 				won={isWon}
 				guesses={guesses}
 				gameNumber={gameNumber}
 				target={dailyEntity}
 				statistics={statistics}
+				onClose={hideModal}
 			/>
+			<div className="mt-12">
+				<GodleFAQ />
+			</div>
 		</div>
 	);
 };

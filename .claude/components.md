@@ -297,6 +297,74 @@ describe("Button", () => {
 });
 ```
 
+## Avoiding Code Duplication
+
+### Local Sub-Components Pattern
+
+When a component contains **repetitive JSX blocks** (3+ similar structures), extract them into local sub-components within the same file. This keeps related code together while eliminating duplication.
+
+```typescript
+// ❌ Bad: Repetitive JSX blocks
+const Statistics: React.FC<Props> = ({ stats }) => (
+  <div className="flex gap-2">
+    <div className="text-center flex-1">
+      <div className="text-2xl font-bold">{stats.games}</div>
+      <div className="text-sm text-neutral-600">Games</div>
+    </div>
+    <div className="text-center flex-1">
+      <div className="text-2xl font-bold">{stats.wins}</div>
+      <div className="text-sm text-neutral-600">Wins</div>
+    </div>
+    <div className="text-center flex-1">
+      <div className="text-2xl font-bold">{stats.streak}</div>
+      <div className="text-sm text-neutral-600">Streak</div>
+    </div>
+  </div>
+);
+
+// ✅ Good: Extract local sub-component
+interface StatItemProps {
+  value: number;
+  label: string;
+}
+
+const StatItem: React.FC<StatItemProps> = ({ value, label }) => (
+  <div className="text-center flex-1">
+    <div className="text-2xl font-bold">{value}</div>
+    <div className="text-sm text-neutral-600">{label}</div>
+  </div>
+);
+
+const Statistics: React.FC<Props> = ({ stats }) => (
+  <div className="flex gap-2">
+    <StatItem value={stats.games} label="Games" />
+    <StatItem value={stats.wins} label="Wins" />
+    <StatItem value={stats.streak} label="Streak" />
+  </div>
+);
+```
+
+### When to Extract Sub-Components
+
+Extract a local sub-component when:
+- The same structure repeats **3 or more times**
+- The repeated block has **5+ lines of JSX**
+- Props vary only in **data values**, not structure
+
+### When to Create a Separate File
+
+Move the sub-component to its own file when:
+- It's used across **multiple files**
+- It has **complex logic** (hooks, effects)
+- It's **generic enough** to be reusable elsewhere
+
+### Naming Sub-Components
+
+Use descriptive names that indicate the parent-child relationship:
+- `GodleStatItem` (within `GodleStatistics.tsx`)
+- `GodleGuessCell` (extracted from `GodleGuessRow.tsx`)
+- `GodleMatchIndicator` (within `GodleFAQContent.tsx`)
+
 ## Examples from Codebase
 
 ### Button Component (Generic)

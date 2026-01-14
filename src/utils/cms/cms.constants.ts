@@ -1,3 +1,4 @@
+import type { DomainValue } from "../cards/domains.constants";
 import type { PantheonValue } from "../cards/pantheons.constants";
 import type { SubjectValue } from "../cards/subjects.constants";
 
@@ -19,8 +20,7 @@ export interface GodlePropertiesType {
 	_uid?: string;
 	component?: string;
 	genre: "male" | "female" | "androgynous" | "none" | "undefined";
-	domain: string; // Single string in Storyblok, not array
-	status: string[];
+	domain: DomainValue[];
 }
 
 interface StoryblokLinkType {

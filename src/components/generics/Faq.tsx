@@ -3,9 +3,10 @@ import Markdown from "react-markdown";
 export interface FaqProps {
 	question: string;
 	response: string;
+	children?: React.ReactNode;
 }
 
-export const Faq: React.FC<FaqProps> = ({ question, response }) => {
+export const Faq: React.FC<FaqProps> = ({ question, response, children }) => {
 	const faqSchema = {
 		"@context": "https://schema.org",
 		"@type": "Question",
@@ -39,8 +40,8 @@ export const Faq: React.FC<FaqProps> = ({ question, response }) => {
 					itemProp="acceptedAnswer"
 					className="p-2 pt-0"
 				>
-					<div itemProp="text">
-						<Markdown>{response}</Markdown>
+					<div className="p-1" itemProp="text">
+						{children ?? <Markdown>{response}</Markdown>}
 					</div>
 				</div>
 			</div>
