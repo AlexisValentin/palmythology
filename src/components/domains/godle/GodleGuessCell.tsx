@@ -52,7 +52,10 @@ const GodleGuessCell: React.FC<GodleGuessCellProps> = ({
 	}
 
 	return (
-		<div className={cellClasses} style={{ animationDelay: `${animationDelay}ms` }}>
+		<div
+			className={cellClasses}
+			style={{ animationDelay: `${animationDelay}ms` }}
+		>
 			{content}
 		</div>
 	);

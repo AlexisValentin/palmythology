@@ -102,56 +102,6 @@ export const fetchSpecificCard = async (title: string, pantheon: string) => {
 	)();
 };
 
-export const fetchSpecificPantheon = async (pantheon: string) => {
-	const cacheTags = await getCacheTags();
-
-	const requestSpecificPantheon = async (pantheon: string) => {
-		const response = await fetch(
-			`${getStoryblokBaseUrl()}pantheons/${pantheon}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
-		);
-
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
-
-		return response.json();
-	};
-
-	return unstable_cache(
-		async () => requestSpecificPantheon(pantheon),
-		["pantheon-story", pantheon],
-		{
-			tags: [cacheTags.PANTHEONS.TAG, cacheTags.ALL.TAG],
-			revalidate: cacheTags.PANTHEONS.DURATION,
-		},
-	)();
-};
-
-export const fetchSpecificSubject = async (subject: string) => {
-	const cacheTags = await getCacheTags();
-
-	const requestSpecificSubject = async (subject: string) => {
-		const response = await fetch(
-			`${getStoryblokBaseUrl()}subjects/${subject}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
-		);
-
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
-
-		return response.json();
-	};
-
-	return unstable_cache(
-		async () => requestSpecificSubject(subject),
-		["subject-story", subject],
-		{
-			tags: [cacheTags.SUBJECTS.TAG, cacheTags.ALL.TAG],
-			revalidate: cacheTags.SUBJECTS.DURATION,
-		},
-	)();
-};
-
 export const fetchCardsFromCriterias = async (
 	searchCriterias: ResearchCriterias,
 	currentPage: number,
@@ -184,6 +134,64 @@ export const fetchCardsFromCriterias = async (
 			searchCriterias.pantheon || "all",
 			searchCriterias.subject || "all",
 			currentPage.toString(),
+		],
+		{
+			tags: [cacheTags.CARDS.TAG, cacheTags.ALL.TAG],
+			revalidate: cacheTags.SEARCH.DURATION,
+		},
+	)();
+};
+
+export const fetchAllCardsFromCriterias = async (
+	searchCriterias: ResearchCriterias,
+): Promise<CardDetails[]> => {
+	const cacheTags = await getCacheTags();
+
+	const requestAllCards = async (): Promise<CardDetails[]> => {
+		const { pantheon, subject } = searchCriterias;
+		let allCards: CardDetails[] = [];
+		let currentPage = 1;
+		let hasMorePages = true;
+
+		while (hasMorePages) {
+			const pantheonFilter = pantheon
+				? `filter_query[pantheon][in]=${pantheon}`
+				: "";
+			const subjectFilter = subject
+				? `filter_query[subject][in]=${subject}`
+				: "";
+
+			const response = await fetch(
+				`${getStoryblokBaseUrl()}?starts_with=card&token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_SITEMAP_MAX_ITEMS}&page=${currentPage}&${pantheonFilter}&${subjectFilter}`,
+			);
+
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+
+			const data = await response.json();
+			const stories: StoryblokCardComponentType[] = data.stories || [];
+			const total = Number.parseInt(response.headers.get("total") || "0", 10);
+
+			const cards = stories
+				.filter((story) => story.content.component === "card")
+				.map((story) => parseCardData(story));
+
+			allCards = [...allCards, ...cards];
+			const totalFetched = currentPage * STORYBLOK_SITEMAP_MAX_ITEMS;
+			hasMorePages = totalFetched < total;
+			currentPage++;
+		}
+
+		return allCards.sort((a, b) => a.name.localeCompare(b.name, "fr"));
+	};
+
+	return unstable_cache(
+		async () => requestAllCards(),
+		[
+			"all-cards-from-criteria",
+			searchCriterias.pantheon || "all",
+			searchCriterias.subject || "all",
 		],
 		{
 			tags: [cacheTags.CARDS.TAG, cacheTags.ALL.TAG],

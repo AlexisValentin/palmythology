@@ -26,7 +26,6 @@ const GodleGuessHistoryHeader: React.FC<GodleGuessHistoryHeaderProps> = ({
 	</div>
 );
 
-
 interface GodleGuessHistoryProps {
 	guesses: GuessResult[];
 }

@@ -1,6 +1,3 @@
-/* Components */
-
-/* Constants */
 import { ALL_PANTHEON } from "../../../utils/cards/pantheons.constants";
 import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
 

@@ -1,5 +1,9 @@
 # Notes de version 2.17.0 (??/01/2026)
 
+# Landing pages
+
+- Récupération de l'ensemble des contenus relatifs aux pages dédiées des panthéons et des sujets au lieu d'un dataset paramétré via le CMS.
+
 # Godle
 
 - Nouvelle section présente dans le site !

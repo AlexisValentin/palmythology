@@ -2,7 +2,7 @@ import type { DomainValue } from "../cards/domains.constants";
 import type { PantheonValue } from "../cards/pantheons.constants";
 import type { SubjectValue } from "../cards/subjects.constants";
 
-export const STORYBLOK_RESULTS_PER_PAGE = 12;
+export const STORYBLOK_RESULTS_PER_PAGE = 20;
 export const STORYBLOK_MAX_ITEMS_PER_REQUEST = 20;
 export const STORYBLOK_SITEMAP_MAX_ITEMS = 100;
 

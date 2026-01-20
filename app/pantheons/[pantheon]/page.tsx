@@ -1,11 +1,8 @@
-import PantheonCardList from "../../../src/components/domains/cards/LPCardList";
+import LPCardList from "../../../src/components/domains/cards/LPCardList";
 import PageHeader from "../../../src/components/generics/PageHeader";
 import { getPantheonLabelFromValue } from "../../../src/utils/cards/pantheons";
 import type { PantheonValue } from "../../../src/utils/cards/pantheons.constants";
-import {
-	fetchCardsFromCriterias,
-	fetchSpecificPantheon,
-} from "../../../src/utils/cms/cms.requests";
+import { fetchAllCardsFromCriterias } from "../../../src/utils/cms/cms.requests";
 
 export const dynamicParams = true;
 export const generateStaticParams = async () => [];
@@ -19,15 +16,11 @@ interface PantheonPagePropsType {
 export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
 	const pageParams = await params;
 	const pantheon = pageParams.pantheon;
-	const story = await fetchSpecificPantheon(pantheon);
 
 	const pantheonLabel = getPantheonLabelFromValue(pantheon as PantheonValue);
 	const optimizedTitle = `${pantheonLabel} | Panthéon mythologique - Palmythology`;
-	const { metaDescription } = story.story.content;
 
-	const description =
-		metaDescription ||
-		`Explorez le panthéon ${pantheonLabel} avec des fiches détaillées sur les divinités, héros et créatures. Ressources pédagogiques sur Palmythology.`;
+	const description = `Explorez le panthéon ${pantheonLabel} avec des fiches détaillées sur les divinités, héros et créatures. Ressources pédagogiques sur Palmythology.`;
 
 	return {
 		title: optimizedTitle,
@@ -77,17 +70,14 @@ const PantheonPage = async ({ params }: PantheonPagePropsType) => {
 	const pageParams = await params;
 	const pantheon = pageParams.pantheon;
 
-	const { results } = await fetchCardsFromCriterias(
-		{ pantheon, subject: "" },
-		1,
-	);
+	const results = await fetchAllCardsFromCriterias({ pantheon, subject: "" });
 
 	const pantheonLabel = getPantheonLabelFromValue(pantheon as PantheonValue);
 
 	return (
 		<>
 			<PageHeader title={`Panthéon ${pantheonLabel?.toLowerCase()}`} />
-			<PantheonCardList relatedCards={results} />
+			<LPCardList cards={results} />
 		</>
 	);
 };
