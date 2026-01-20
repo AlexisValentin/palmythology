@@ -17,6 +17,7 @@
 # SEO
 
 - Correction d'une erreur `avalaibleLanguage` sur la donnée structurée de l'organisation.
+- Autorisation du crawl des robots suite à la mise à jour du fichier `robots.txt`.
 
 ## Divers
 
