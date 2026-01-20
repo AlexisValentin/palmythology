@@ -63,11 +63,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 			"@type": "Country",
 			name: "France",
 		},
-		availableLanguage: {
-			"@type": "Language",
-			name: "French",
-			alternateName: "fr",
-		},
+		availableLanguage: "fr",
 		sameAs: [
 			"https://www.instagram.com/palmythology",
 			"https://www.threads.net/@palmythology",

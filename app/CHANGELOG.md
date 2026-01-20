@@ -14,6 +14,10 @@
     - Les cellules sont cliquables et ouvrent un nouvel onglet du site.
   - Un système de partage une fois l'entité trouvée est disponible.
 
+# SEO
+
+- Correction d'une erreur `avalaibleLanguage` sur la donnée structurée de l'organisation.
+
 ## Divers
 
 - Mise en place des conventions de code dans le dossier dédié à la LLM Claude.
