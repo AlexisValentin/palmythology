@@ -29,6 +29,7 @@ app/
 │       └── page.tsx
 ├── search/page.tsx         # /search
 ├── q2n/page.tsx            # /q2n
+├── godle/page.tsx          # /godle (mythology guessing game)
 └── api/
     └── revalidate/route.ts # API route
 ```
@@ -49,6 +50,7 @@ export const ROUTE_URLS = {
   SUBJECT: "/subjects/:subject",
   SEARCH: "/search",
   Q2N: "/q2n",
+  GODLE: "/godle",
 };
 
 export const ROUTES = [

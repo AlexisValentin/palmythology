@@ -48,6 +48,7 @@ app/
 │       └── error.tsx
 ├── search/page.tsx          # /search
 ├── q2n/page.tsx             # /q2n ("Quoi 2 Neuf")
+├── godle/page.tsx           # /godle (mythology guessing game)
 └── api/
     └── revalidate/route.ts  # Cache revalidation webhook
 ```
@@ -72,8 +73,18 @@ components/
 │   │   └── SelectFilter.tsx
 │   ├── social/
 │   │   └── SocialsIncentivePopin.tsx
-│   └── tracking/
-│       └── TrackingNotice.tsx
+│   ├── tracking/
+│   │   └── TrackingNotice.tsx
+│   └── godle/               # Godle game components
+│       ├── GodleGame.tsx
+│       ├── GodleInput.tsx
+│       ├── GodleGuessHistory.tsx
+│       ├── GodleGuessRow.tsx
+│       ├── GodleGuessCell.tsx
+│       ├── GodleResultModal.tsx
+│       ├── GodleStatistics.tsx
+│       ├── GodleFAQ.tsx
+│       └── GodleFAQContent.tsx
 ├── generics/                # Reusable, domain-agnostic components
 │   ├── Breadcrumbs.tsx
 │   ├── Button.tsx

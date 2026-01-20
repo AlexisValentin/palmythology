@@ -19,11 +19,11 @@ This folder contains documentation of all code conventions and patterns used in 
 - **Framework**: Next.js 16 (App Router)
 - **UI Library**: React 19
 - **Language**: TypeScript 5.9.3 (strict mode)
-- **Styling**: Tailwind CSS 3.4.17
+- **Styling**: Tailwind CSS 4 (major v4 upgrade)
 - **CMS**: Storyblok (Headless CMS)
-- **Testing**: Vitest 4.0.6 + Testing Library
-- **Code Quality**: Biome 2.0.5+ (linter/formatter)
-- **Git Hooks**: Husky 9.1.7 + CommitLint
+- **Testing**: Vitest 4 + Testing Library
+- **Code Quality**: Biome 2 (linter/formatter)
+- **Git Hooks**: Husky 9 + CommitLint 20
 - **Package Manager**: pnpm 10
 
 ## Key Principles

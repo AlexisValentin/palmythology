@@ -224,8 +224,18 @@ domains/
 │   └── Footer.tsx             # Site footer
 ├── social/
 │   └── SocialsIncentivePopin.tsx  # Social follow modal
-└── tracking/
-    └── TrackingNotice.tsx     # Analytics consent
+├── tracking/
+│   └── TrackingNotice.tsx     # Analytics consent
+└── godle/                     # Godle (mythology guessing game)
+    ├── GodleGame.tsx          # Main game orchestrator
+    ├── GodleInput.tsx         # Autocomplete input for guesses
+    ├── GodleGuessHistory.tsx  # List of previous guesses
+    ├── GodleGuessRow.tsx      # Single guess row
+    ├── GodleGuessCell.tsx     # Cell with match indicator
+    ├── GodleResultModal.tsx   # Win/lose modal
+    ├── GodleStatistics.tsx    # Player stats display
+    ├── GodleFAQ.tsx           # FAQ wrapper
+    └── GodleFAQContent.tsx    # FAQ content with rules
 ```
 
 ## Styling Conventions
@@ -361,9 +371,9 @@ Move the sub-component to its own file when:
 ### Naming Sub-Components
 
 Use descriptive names that indicate the parent-child relationship:
-- `GodleStatItem` (within `GodleStatistics.tsx`)
-- `GodleGuessCell` (extracted from `GodleGuessRow.tsx`)
-- `GodleMatchIndicator` (within `GodleFAQContent.tsx`)
+- `GodleStatItem` (local sub-component within `GodleStatistics.tsx`)
+- `GodleMatchIndicator` (local sub-component within `GodleFAQContent.tsx`)
+- `GodleGuessCell` (separate file - extracted because it has complex logic and is reused 4 times)
 
 ## Examples from Codebase
 

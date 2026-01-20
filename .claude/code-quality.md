@@ -4,11 +4,11 @@
 
 | Tool | Version | Purpose |
 |------|---------|---------|
-| Biome | 2.0.5+ | Linting & Formatting (replaces ESLint + Prettier) |
+| Biome | 2 | Linting & Formatting (replaces ESLint + Prettier) |
 | TypeScript | 5.9.3 | Type checking (strict mode) |
-| Vitest | 4.0.6 | Unit & component testing |
-| Husky | 9.1.7 | Git hooks |
-| CommitLint | 20.1.0 | Conventional commit enforcement |
+| Vitest | 4 | Unit & component testing |
+| Husky | 9 | Git hooks |
+| CommitLint | 20 | Conventional commit enforcement |
 
 ## Biome Configuration
 
