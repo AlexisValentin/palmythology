@@ -55,7 +55,7 @@ const getMatchEmoji = (matchType: MatchType): string => {
 		case MatchType.PARTIAL:
 			return "🟨";
 		case MatchType.NONE:
-			return "⬜";
+			return "🟥";
 	}
 };
 
@@ -69,8 +69,10 @@ export const generateShareText = (
 
 	let shareText = `${GODLE_CONFIG.GAME_NAME} #${gameNumber} ${result}\n\n`;
 
+	shareText += "❓🏛️🔎⚧️🌟\n";
+
 	for (const guess of guesses) {
-		const correctEmoji = guess.isCorrect ? "🟩" : "⬜";
+		const correctEmoji = guess.isCorrect ? "🟩" : "🟥";
 		const pantheonEmoji = getMatchEmoji(guess.pantheonMatch);
 		const subjectEmoji = getMatchEmoji(guess.subjectMatch);
 		const genreEmoji = getMatchEmoji(guess.genreMatch);
@@ -79,6 +81,8 @@ export const generateShareText = (
 		shareText += `${correctEmoji}${pantheonEmoji}${subjectEmoji}${genreEmoji}${domainEmoji}\n`;
 	}
 
-	shareText += `\n${GODLE_CONFIG.SHARE_URL}`;
+	shareText += `\nTentez de trouver l'entité mythologique du jour !\n`;
+	shareText += `${GODLE_CONFIG.SHARE_URL}`;
+
 	return shareText;
 };
