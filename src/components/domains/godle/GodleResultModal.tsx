@@ -40,7 +40,7 @@ const GodleResultModal: React.FC<GodleResultModalProps> = ({
 	if (!isOpen) return null;
 
 	const handleShare = async () => {
-		const shareText = generateShareText(guesses, gameNumber, won);
+		const shareText = generateShareText(guesses, gameNumber, won, statistics);
 
 		try {
 			await navigator.clipboard.writeText(shareText);

@@ -1,6 +1,7 @@
 import { GODLE_CONFIG } from "../../utils/godle/godle.constants";
 import {
 	type GodleEntity,
+	type GodleStats,
 	type GuessResult,
 	MatchType,
 } from "../../utils/godle/godle.types";
@@ -63,6 +64,7 @@ export const generateShareText = (
 	guesses: GuessResult[],
 	gameNumber: number,
 	won: boolean,
+	statistics: GodleStats,
 ): string => {
 	const guessCount = guesses.length;
 	const result = won ? `${guessCount}/∞` : "X/∞";
@@ -80,6 +82,14 @@ export const generateShareText = (
 
 		shareText += `${correctEmoji}${pantheonEmoji}${subjectEmoji}${genreEmoji}${domainEmoji}\n`;
 	}
+
+	const winRate =
+		statistics.gamesPlayed > 0
+			? Math.round((statistics.gamesWon / statistics.gamesPlayed) * 100)
+			: 0;
+
+	shareText += `\n📊 Parties: ${statistics.gamesPlayed} | Taux de victoires: ${winRate}%\n`;
+	shareText += `🔥 Série: ${statistics.currentStreak} | Max: ${statistics.maxStreak}\n`;
 
 	shareText += `\nTentez de trouver l'entité mythologique du jour !\n`;
 	shareText += `${GODLE_CONFIG.SHARE_URL}`;

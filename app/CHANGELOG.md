@@ -13,6 +13,7 @@
   - Les résultats affichent les indices liés ou non au résultat attendu.
     - Les cellules sont cliquables et ouvrent un nouvel onglet du site.
   - Un système de partage une fois l'entité trouvée est disponible.
+    - Il inclut les statistiques de tentatives, les victoires, le taux de victoire, le nombre de parties jouées...
 
 # Réseaux sociaux
 
