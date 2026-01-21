@@ -17,6 +17,7 @@
 # Réseaux sociaux
 
 - Threads et Bluesky ne sont plus supportés. Par conséquent, les liens du site sont désactivés.
+- Ajout des liens vers Mastodon et Pixelfed.
 
 # SEO
 
