@@ -130,8 +130,6 @@ const CardPage: FC<CardPagePropsType> = async ({ params }) => {
 		images,
 		available,
 		instagramUrl,
-		threadsUrl,
-		blueskyUrl,
 		relatedCards,
 		subject,
 		quotations,
@@ -140,12 +138,8 @@ const CardPage: FC<CardPagePropsType> = async ({ params }) => {
 
 	if (!available || !pantheon) return null;
 
-	const hasCustomLinks =
-		instagramUrl?.url || threadsUrl?.url || blueskyUrl?.url;
-	const socialLinks = hasCustomLinks && {
+	const socialLinks = {
 		instagram: instagramUrl?.url,
-		threads: threadsUrl?.url,
-		bluesky: blueskyUrl?.url,
 	};
 
 	const pantheonData = getPantheonData(pantheon as PantheonValue);
@@ -236,7 +230,7 @@ const CardPage: FC<CardPagePropsType> = async ({ params }) => {
 				<CardPageFaqSection faq={faq} />
 				<CardPageQuotationsSection quotations={quotations} />
 				<CardPageRelatedCardsSection relatedCards={relatedCards} />
-				{hasCustomLinks && (
+				{socialLinks && (
 					<div className="mt-16">
 						<SocialNetworks customLinks={socialLinks} />
 					</div>

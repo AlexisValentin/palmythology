@@ -14,6 +14,10 @@
     - Les cellules sont cliquables et ouvrent un nouvel onglet du site.
   - Un système de partage une fois l'entité trouvée est disponible.
 
+# Réseaux sociaux
+
+- Threads et Bluesky ne sont plus supportés. Par conséquent, les liens du site sont désactivés.
+
 # SEO
 
 - Correction d'une erreur `avalaibleLanguage` sur la donnée structurée de l'organisation.
