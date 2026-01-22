@@ -7,7 +7,6 @@ import {
 	LOCAL_STORAGE_KEYS,
 	setInLocalStorage,
 } from "../../../utils/storage";
-import { COLOR_TAINTS, COLORS } from "../../../utils/styles/colors.constants";
 import Button from "../../generics/Button";
 import useModal from "../../hooks/useModal";
 
@@ -58,7 +57,7 @@ const TrackingNotice = () => {
 						<div className="mr-4">
 							<Button
 								label="Accepter"
-								color={`${COLORS.GREEN}-${COLOR_TAINTS.DARK}`}
+								bgColor="bg-green-600"
 								onClick={onClick}
 								className="min-w-24"
 							/>
@@ -66,7 +65,7 @@ const TrackingNotice = () => {
 						<div className="mr-4">
 							<Button
 								label="Refuser"
-								color={`${COLORS.RED}-${COLOR_TAINTS.DARK}`}
+								bgColor="bg-red-600"
 								onClick={onClick}
 								className="min-w-24"
 							/>
