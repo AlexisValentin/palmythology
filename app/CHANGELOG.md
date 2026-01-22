@@ -1,5 +1,9 @@
 # Notes de version 2.17.0 (??/01/2026)
 
+## Quoi 2 Neuf
+
+- Ajout d'un texte de teasing pour les prochaines fiches à paraître.
+
 ## Landing pages
 
 - Récupération de l'ensemble des contenus relatifs aux pages dédiées des panthéons et des sujets au lieu d'un dataset paramétré via le CMS.

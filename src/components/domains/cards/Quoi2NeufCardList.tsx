@@ -1,8 +1,14 @@
+import type { FC } from "react";
 import type { Quoi2NeufStoryType } from "../../../utils/cms/cms.constants";
+import { setCardRouteParameters } from "../../../utils/routes/routes";
 import PageHeader from "../../generics/PageHeader";
-import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
+import PageSection from "../../generics/PageSection";
 
-const Q2NCardList: React.FC<{ stories: any }> = ({ stories }) => (
+interface Q2NCardListProps {
+	stories: Quoi2NeufStoryType[];
+}
+
+const Q2NCardList: React.FC<Q2NCardListProps> = ({ stories }) => (
 	<>
 		<PageHeader
 			title="Quoi 2 Neuf ?"
@@ -13,30 +19,30 @@ const Q2NCardList: React.FC<{ stories: any }> = ({ stories }) => (
 	</>
 );
 
-const Q2NItemLists = ({
-	quoi2NeufStories,
-}: {
+interface Q2NItemListsProps {
 	quoi2NeufStories: Quoi2NeufStoryType[];
-}) => {
-	return (
-		<div className="flex flex-row items-center">
-			<div className="flex items-center justify-center flex-wrap mt-12">
-				{quoi2NeufStories.map((item) => {
-					const { title, subtitle, icon, pantheon, available } = item;
+}
 
-					return (
-						<PageSquare
-							key={`q2n-${title}-${subtitle}`}
-							title={title}
-							subtitle={subtitle}
-							icon={icon}
-							available={available}
-							pantheon={pantheon}
-							contentType={CONTENT_TYPE.CARD}
-						/>
-					);
-				})}
-			</div>
+const Q2NItemLists: FC<Q2NItemListsProps> = ({ quoi2NeufStories }) => {
+	return (
+		<div className="flex flex-col items-center gap-6 mt-12 px-4 sm:px-8 lg:px-16">
+			{quoi2NeufStories.map((item) => {
+				const { title, icon, pantheon, available, teasing } = item;
+				const url = available
+					? setCardRouteParameters(title, pantheon)
+					: undefined;
+
+				return (
+					<PageSection
+						key={`q2n-${title}-${pantheon}`}
+						name={title}
+						description={teasing}
+						icon={icon}
+						url={url}
+						pantheon={pantheon}
+					/>
+				);
+			})}
 		</div>
 	);
 };

@@ -315,9 +315,10 @@ const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
 const parseQuoi2NeufData = (
 	quoi2NeufItem: StoryblokQ2NComponentType,
 ): Quoi2NeufStoryType => {
-	const { title, subtitle, icon, available, pantheon } = quoi2NeufItem.content;
+	const { title, subtitle, icon, available, pantheon, teasing } =
+		quoi2NeufItem.content;
 
-	return { title, subtitle, icon, available, pantheon };
+	return { title, subtitle, icon, available, pantheon, teasing };
 };
 
 export const fetchAllAvailableEntitiesForGodle = async (): Promise<

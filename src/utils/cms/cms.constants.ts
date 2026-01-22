@@ -46,12 +46,13 @@ export interface CardItemType {
 }
 
 export interface Quoi2NeufStoryType {
-	title: string;
-	subtitle: string;
-	pantheon: PantheonValue;
-	icon: StoryblokImageType;
-	available?: boolean;
-}
+		title: string;
+		subtitle: string;
+		pantheon: PantheonValue;
+		icon: StoryblokImageType;
+		available?: boolean;
+		teasing: string;
+	}
 
 export type AboutPageType = AboutItemType[];
 export interface AboutItemType {
@@ -59,30 +60,31 @@ export interface AboutItemType {
 }
 
 export interface StoryblokCardComponentType {
-	content: {
-		component: string;
-		name: string;
-		subtitle: string;
-		icon: StoryblokImageType;
-		pantheon: PantheonValue;
-		subject: SubjectValue;
-		available: boolean;
-		isFolder: boolean;
-		godle?: GodlePropertiesType[]; // Array of godle properties in Storyblok
-	};
-}
+		content: {
+			component: string;
+			name: string;
+			subtitle: string;
+			icon: StoryblokImageType;
+			pantheon: PantheonValue;
+			subject: SubjectValue;
+			available: boolean;
+			isFolder: boolean;
+			godle?: GodlePropertiesType[];
+		};
+	}
 
 export interface StoryblokQ2NComponentType {
-	content: {
-		component: string;
-		title: string;
-		subtitle: PantheonValue;
-		icon: { alt: string; filename: string };
-		available: boolean;
-		isFolder: boolean;
-		pantheon: PantheonValue;
-	};
-}
+		content: {
+			component: string;
+			title: string;
+			subtitle: PantheonValue;
+			icon: { alt: string; filename: string };
+			available: boolean;
+			isFolder: boolean;
+			pantheon: PantheonValue;
+			teasing: string;
+		};
+	}
 
 export interface TextBlockType {
 	text: string;

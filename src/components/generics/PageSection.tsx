@@ -1,12 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { PantheonValue } from "../../utils/cards/pantheons.constants";
+import type { StoryblokImageType } from "../../utils/cms/cms.constants";
 import type { NextImageType } from "../../utils/image.constants";
+import {
+	getPantheonMainColor,
+	getPantheonTextColor,
+} from "../../utils/styles/colors";
 
 type PageSectionProps = {
 	name: string;
 	description: string;
-	icon: NextImageType;
+	icon: NextImageType | StoryblokImageType;
 	url?: string;
+	pantheon?: PantheonValue;
+};
+
+const isStoryblokImage = (
+	icon: NextImageType | StoryblokImageType,
+): icon is StoryblokImageType => {
+	return "filename" in icon;
 };
 
 const PageSectionContent: React.FC<PageSectionProps> = ({
@@ -15,16 +28,21 @@ const PageSectionContent: React.FC<PageSectionProps> = ({
 	icon,
 	url,
 }) => {
+	const imageSrc = isStoryblokImage(icon) ? icon.filename : icon;
+	const imageAlt = isStoryblokImage(icon)
+		? icon.alt || `${name} - ${description}`
+		: `${name} - ${description}`;
+
 	return (
-		<section className="flex flex-col items-center rounded-3xl p-2.5 w-60 sm:w-full sm:flex-row bg-white sm:p-0">
+		<section className="flex flex-col items-center rounded-3xl p-2.5 w-60 sm:w-full sm:flex-row sm:p-0">
 			<Image
 				className="w-24 m-6 sm:m-12"
-				src={icon}
-				alt={`${name} - ${description}`}
+				src={imageSrc}
+				alt={imageAlt}
 				width={100}
 				height={100}
 			/>
-			<div className="flex items-center grow sm:my-12 sm:mr-12">
+			<div className="flex items-center grow">
 				<div className="flex flex-col mt-2 mb-2">
 					<h3
 						className={`font-semibold text-md ${url ? "text-xl" : "hidden"} md:block`}
@@ -47,11 +65,15 @@ const PageSection: React.FC<PageSectionProps> = ({
 	url,
 	description,
 	icon,
-}) =>
-	url ? (
+	pantheon,
+}) => {
+	const mainColor = pantheon ? getPantheonMainColor(pantheon) : "slate-500";
+	const textColor = pantheon ? getPantheonTextColor(pantheon) : "white";
+
+	return url ? (
 		<Link
 			href={url}
-			className="flex flex-row m-5 sm:block sm:w-full sm:m-0 hover:opacity-75"
+			className={`flex flex-row m-5 sm:block sm:w-full sm:m-0 rounded-3xl border-4 border-${mainColor} bg-${mainColor} text-${textColor} lg:bg-transparent lg:text-black lg:hover:bg-${mainColor} lg:hover:text-${textColor} transition-colors`}
 		>
 			<PageSectionContent
 				name={name}
@@ -65,5 +87,6 @@ const PageSection: React.FC<PageSectionProps> = ({
 			<PageSectionContent name={name} description={description} icon={icon} />
 		</div>
 	);
+};
 
 export default PageSection;
