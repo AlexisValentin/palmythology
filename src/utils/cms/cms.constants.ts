@@ -1,7 +1,8 @@
+import type { DomainValue } from "../cards/domains.constants";
 import type { PantheonValue } from "../cards/pantheons.constants";
 import type { SubjectValue } from "../cards/subjects.constants";
 
-export const STORYBLOK_RESULTS_PER_PAGE = 12;
+export const STORYBLOK_RESULTS_PER_PAGE = 20;
 export const STORYBLOK_MAX_ITEMS_PER_REQUEST = 20;
 export const STORYBLOK_SITEMAP_MAX_ITEMS = 100;
 
@@ -13,6 +14,13 @@ export enum STORYBLOK_VERSIONS {
 export interface StoryblokImageType {
 	alt: string;
 	filename: string;
+}
+
+export interface GodlePropertiesType {
+	_uid?: string;
+	component?: string;
+	genre: "male" | "female" | "androgynous" | "none" | "undefined";
+	domain: DomainValue[];
 }
 
 interface StoryblokLinkType {
@@ -34,7 +42,6 @@ export interface CardItemType {
 	available: boolean;
 	isFolder: boolean;
 	instagramUrl: StoryblokLinkType;
-	threadsUrl: StoryblokLinkType;
 	relatedCards: CardRelatedType[];
 }
 
@@ -44,6 +51,7 @@ export interface Quoi2NeufStoryType {
 	pantheon: PantheonValue;
 	icon: StoryblokImageType;
 	available?: boolean;
+	teasing: string;
 }
 
 export type AboutPageType = AboutItemType[];
@@ -61,6 +69,7 @@ export interface StoryblokCardComponentType {
 		subject: SubjectValue;
 		available: boolean;
 		isFolder: boolean;
+		godle?: GodlePropertiesType[];
 	};
 }
 
@@ -73,6 +82,7 @@ export interface StoryblokQ2NComponentType {
 		available: boolean;
 		isFolder: boolean;
 		pantheon: PantheonValue;
+		teasing: string;
 	};
 }
 
@@ -96,6 +106,29 @@ export interface StoryblokStoryResponse {
 	published_at: string;
 	content: {
 		available: boolean;
+		component: string;
+	};
+}
+
+export interface FaqItemType {
+	question: string;
+	response: string;
+}
+
+export interface CategoryPageContentType {
+	metaDescription: string;
+	mdSummary?: string;
+	faq?: FaqItemType[];
+}
+
+export interface StoryblokPantheonComponentType {
+	content: CategoryPageContentType & {
+		component: string;
+	};
+}
+
+export interface StoryblokSubjectComponentType {
+	content: CategoryPageContentType & {
 		component: string;
 	};
 }

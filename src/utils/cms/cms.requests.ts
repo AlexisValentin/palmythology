@@ -2,17 +2,21 @@
 
 import { unstable_cache } from "next/cache";
 import type { CardDetails, ResearchCriterias } from "../cards/card.constants";
+import type { GodleEntity, GodleProperties } from "../godle/godle.types";
 import { parseStringToSlug, replaceHyphenByDashes } from "../string";
 import { getCacheTags } from "./cache";
 import { getStoryblokBaseUrl, getStoryblokToken } from "./cms";
 import {
 	type AvailableCardForSitemap,
+	type CategoryPageContentType,
+	type GodlePropertiesType,
 	type Quoi2NeufStoryType,
 	STORYBLOK_MAX_ITEMS_PER_REQUEST,
 	STORYBLOK_RESULTS_PER_PAGE,
 	STORYBLOK_SITEMAP_MAX_ITEMS,
 	STORYBLOK_VERSIONS,
 	type StoryblokCardComponentType,
+	type StoryblokPantheonComponentType,
 	type StoryblokQ2NComponentType,
 	type StoryblokStoryResponse,
 } from "./cms.constants";
@@ -100,56 +104,6 @@ export const fetchSpecificCard = async (title: string, pantheon: string) => {
 	)();
 };
 
-export const fetchSpecificPantheon = async (pantheon: string) => {
-	const cacheTags = await getCacheTags();
-
-	const requestSpecificPantheon = async (pantheon: string) => {
-		const response = await fetch(
-			`${getStoryblokBaseUrl()}pantheons/${pantheon}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
-		);
-
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
-
-		return response.json();
-	};
-
-	return unstable_cache(
-		async () => requestSpecificPantheon(pantheon),
-		["pantheon-story", pantheon],
-		{
-			tags: [cacheTags.PANTHEONS.TAG, cacheTags.ALL.TAG],
-			revalidate: cacheTags.PANTHEONS.DURATION,
-		},
-	)();
-};
-
-export const fetchSpecificSubject = async (subject: string) => {
-	const cacheTags = await getCacheTags();
-
-	const requestSpecificSubject = async (subject: string) => {
-		const response = await fetch(
-			`${getStoryblokBaseUrl()}subjects/${subject}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
-		);
-
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
-
-		return response.json();
-	};
-
-	return unstable_cache(
-		async () => requestSpecificSubject(subject),
-		["subject-story", subject],
-		{
-			tags: [cacheTags.SUBJECTS.TAG, cacheTags.ALL.TAG],
-			revalidate: cacheTags.SUBJECTS.DURATION,
-		},
-	)();
-};
-
 export const fetchCardsFromCriterias = async (
 	searchCriterias: ResearchCriterias,
 	currentPage: number,
@@ -182,6 +136,64 @@ export const fetchCardsFromCriterias = async (
 			searchCriterias.pantheon || "all",
 			searchCriterias.subject || "all",
 			currentPage.toString(),
+		],
+		{
+			tags: [cacheTags.CARDS.TAG, cacheTags.ALL.TAG],
+			revalidate: cacheTags.SEARCH.DURATION,
+		},
+	)();
+};
+
+export const fetchAllCardsFromCriterias = async (
+	searchCriterias: ResearchCriterias,
+): Promise<CardDetails[]> => {
+	const cacheTags = await getCacheTags();
+
+	const requestAllCards = async (): Promise<CardDetails[]> => {
+		const { pantheon, subject } = searchCriterias;
+		let allCards: CardDetails[] = [];
+		let currentPage = 1;
+		let hasMorePages = true;
+
+		while (hasMorePages) {
+			const pantheonFilter = pantheon
+				? `filter_query[pantheon][in]=${pantheon}`
+				: "";
+			const subjectFilter = subject
+				? `filter_query[subject][in]=${subject}`
+				: "";
+
+			const response = await fetch(
+				`${getStoryblokBaseUrl()}?starts_with=card&token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_SITEMAP_MAX_ITEMS}&page=${currentPage}&${pantheonFilter}&${subjectFilter}`,
+			);
+
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+
+			const data = await response.json();
+			const stories: StoryblokCardComponentType[] = data.stories || [];
+			const total = Number.parseInt(response.headers.get("total") || "0", 10);
+
+			const cards = stories
+				.filter((story) => story.content.component === "card")
+				.map((story) => parseCardData(story));
+
+			allCards = [...allCards, ...cards];
+			const totalFetched = currentPage * STORYBLOK_SITEMAP_MAX_ITEMS;
+			hasMorePages = totalFetched < total;
+			currentPage++;
+		}
+
+		return allCards.sort((a, b) => a.name.localeCompare(b.name, "fr"));
+	};
+
+	return unstable_cache(
+		async () => requestAllCards(),
+		[
+			"all-cards-from-criteria",
+			searchCriterias.pantheon || "all",
+			searchCriterias.subject || "all",
 		],
 		{
 			tags: [cacheTags.CARDS.TAG, cacheTags.ALL.TAG],
@@ -305,7 +317,138 @@ const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
 const parseQuoi2NeufData = (
 	quoi2NeufItem: StoryblokQ2NComponentType,
 ): Quoi2NeufStoryType => {
-	const { title, subtitle, icon, available, pantheon } = quoi2NeufItem.content;
+	const { title, subtitle, icon, available, pantheon, teasing } =
+		quoi2NeufItem.content;
 
-	return { title, subtitle, icon, available, pantheon };
+	return { title, subtitle, icon, available, pantheon, teasing };
+};
+
+export const fetchAllAvailableEntitiesForGodle = async (): Promise<
+	GodleEntity[]
+> => {
+	const cacheTags = await getCacheTags();
+
+	const requestAllEntities = async (): Promise<GodleEntity[]> => {
+		try {
+			let allEntities: GodleEntity[] = [];
+			let currentPage = 1;
+			let hasMorePages = true;
+
+			while (hasMorePages) {
+				// Add cv parameter only in dev to bust Storyblok CDN cache
+				const cvParam = process.env.ENV === "dev" ? `&cv=${Date.now()}` : "";
+				const response = await fetch(
+					`${getStoryblokBaseUrl()}?starts_with=cards&token=${getStoryblokToken()}&version=${
+						STORYBLOK_VERSIONS.PUBLISHED
+					}&per_page=${STORYBLOK_SITEMAP_MAX_ITEMS}&page=${currentPage}&filter_query[component][in]=card&filter_query[available][in]=true${cvParam}`,
+				);
+
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+
+				const data = await response.json();
+				const stories = data.stories || [];
+				const total = Number.parseInt(response.headers.get("total") || "0", 10);
+
+				const entities = stories
+					.filter(
+						(story: { content: { available: boolean } }) =>
+							story.content.available === true,
+					)
+					.map(
+						(story: {
+							content: {
+								name: string;
+								pantheon: string;
+								subject: string;
+								icon: { alt: string; filename: string };
+								godle?: GodlePropertiesType[];
+							};
+							full_slug: string;
+						}) => {
+							let transformedGodle: GodleProperties | undefined;
+
+							if (
+								story.content.godle &&
+								Array.isArray(story.content.godle) &&
+								story.content.godle.length > 0
+							) {
+								const godleData = story.content.godle[0];
+								transformedGodle = {
+									genre: godleData.genre,
+									domain: godleData.domain || [],
+								};
+							}
+
+							return {
+								name: story.content.name,
+								pantheon: story.content.pantheon,
+								subject: story.content.subject,
+								slug: story.full_slug,
+								icon: story.content.icon,
+								godle: transformedGodle,
+							};
+						},
+					)
+					.filter((entity: GodleEntity) => entity.godle !== undefined);
+
+				allEntities = [...allEntities, ...entities];
+				const totalFetched = currentPage * STORYBLOK_SITEMAP_MAX_ITEMS;
+				hasMorePages = totalFetched < total;
+				currentPage++;
+			}
+
+			return allEntities;
+		} catch (error) {
+			console.error("Error fetching entities for Godle:", error);
+			return [];
+		}
+	};
+
+	return unstable_cache(async () => requestAllEntities(), ["godle-entities"], {
+		tags: [cacheTags.GODLE.TAG, cacheTags.ALL.TAG],
+		revalidate: cacheTags.GODLE.DURATION,
+	})();
+};
+
+export type LandingPageType = "pantheons" | "subjects";
+
+export const fetchLandingPage = async (
+	landingPage: LandingPageType,
+	slug: string,
+): Promise<CategoryPageContentType | null> => {
+	const cacheTags = await getCacheTags();
+
+	const requestLandingPage = async (
+		landingPage: LandingPageType,
+		slug: string,
+	): Promise<CategoryPageContentType | null> => {
+		try {
+			const response = await fetch(
+				`${getStoryblokBaseUrl()}${landingPage}/${slug}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+			);
+
+			if (!response.ok) {
+				return null;
+			}
+
+			const data: { story: StoryblokPantheonComponentType } =
+				await response.json();
+			const { metaDescription, mdSummary, faq } = data.story.content;
+
+			return { metaDescription, mdSummary, faq };
+		} catch {
+			return null;
+		}
+	};
+
+	return unstable_cache(
+		async () => requestLandingPage(landingPage, slug),
+		[`${landingPage}-story`, slug],
+		{
+			tags: [cacheTags.CARDS.TAG, cacheTags.ALL.TAG],
+			revalidate: cacheTags.CARDS.DURATION,
+		},
+	)();
 };

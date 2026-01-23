@@ -1,20 +1,21 @@
 export interface ButtonProps {
-	label: string;
-	color: string;
-	onClick: () => void;
-	icon?: string;
-	className?: string;
-}
+		label: string;
+		bgColor: string;
+		onClick: () => void;
+		icon?: string;
+		className?: string;
+	}
 
 const Button: React.FC<ButtonProps> = ({
 	label,
-	color,
+	bgColor,
 	onClick,
 	icon,
 	className = "",
 }) => (
 	<button
-		className={`bg-${color} text-white rounded-lg hover:opacity-75 ${className}`}
+		type="button"
+		className={`${bgColor} text-white rounded-lg hover:opacity-75 ${className} cursor-pointer`}
 		onClick={onClick}
 	>
 		<div className="m-2">

@@ -1,10 +1,10 @@
+import type { MockInstance } from "vitest";
+import * as pantheonUtils from "../cards/pantheons";
 import { PantheonLabel, PantheonValue } from "../cards/pantheons.constants";
+import * as subjectUtils from "../cards/subjects";
+import { SubjectLabel, SubjectValue } from "../cards/subjects.constants";
 import { generateBreadcrumbLinks, parseBreadcrumbNode } from "./routes";
 import { BREADCRUMB_NODES } from "./routes.constants";
-import * as subjectUtils from "../cards/subjects";
-import * as pantheonUtils from "../cards/pantheons";
-import { MockInstance } from "vitest";
-import { SubjectLabel, SubjectValue } from "../cards/subjects.constants";
 
 vi.mock("./string");
 

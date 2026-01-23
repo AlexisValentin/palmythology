@@ -1,8 +1,5 @@
-/* Components */
-import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
-
-/* Constants */
 import { ALL_PANTHEON } from "../../../utils/cards/pantheons.constants";
+import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
 
 const PantheonsList = () => (
 	<div className="flex flex-col items-center justify-center flex-wrap md:flex-row mt-4">

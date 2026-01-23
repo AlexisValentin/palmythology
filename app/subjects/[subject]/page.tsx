@@ -1,10 +1,14 @@
-import SubjectCardList from "../../../src/components/domains/cards/LPCardList";
+import LPCardList from "../../../src/components/domains/cards/LPCardList";
+import {
+	CategoryPageFaqSection,
+	CategoryPageSummarySection,
+} from "../../../src/components/domains/categories/CategoryPageSections";
 import PageHeader from "../../../src/components/generics/PageHeader";
 import { getSubjectLabelFromValue } from "../../../src/utils/cards/subjects";
 import type { SubjectValue } from "../../../src/utils/cards/subjects.constants";
 import {
-	fetchCardsFromCriterias,
-	fetchSpecificSubject,
+	fetchAllCardsFromCriterias,
+	fetchLandingPage,
 } from "../../../src/utils/cms/cms.requests";
 
 export const dynamicParams = true;
@@ -19,15 +23,11 @@ interface SubjectPagePropsType {
 export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 	const pageParams = await params;
 	const subject = pageParams.subject;
-	const story = await fetchSpecificSubject(subject);
 
 	const subjectLabel = getSubjectLabelFromValue(subject as SubjectValue);
 	const optimizedTitle = `${subjectLabel} | Mythologie - Palmythology`;
-	const { metaDescription } = story.story.content;
 
-	const description =
-		metaDescription ||
-		`Découvrez tous les ${subjectLabel} de la mythologie mondiale. Fiches illustrées, comparaisons et ressources pédagogiques sur Palmythology.`;
+	const description = `Découvrez tous les ${subjectLabel} de la mythologie mondiale. Fiches illustrées, comparaisons et ressources pédagogiques sur Palmythology.`;
 
 	return {
 		title: optimizedTitle,
@@ -77,17 +77,19 @@ const SubjectPage = async ({ params }: SubjectPagePropsType) => {
 	const pageParams = await params;
 	const subject = pageParams.subject;
 
-	const { results } = await fetchCardsFromCriterias(
-		{ pantheon: "", subject },
-		1,
-	);
+	const [results, subjectContent] = await Promise.all([
+		fetchAllCardsFromCriterias({ pantheon: "", subject }),
+		fetchLandingPage("subjects", subject),
+	]);
 
-	const subjectLabel = getSubjectLabelFromValue(subject! as SubjectValue);
+	const subjectLabel = getSubjectLabelFromValue(subject as SubjectValue);
 
 	return (
 		<>
 			<PageHeader title={`${subjectLabel}`} />
-			<SubjectCardList relatedCards={results} />
+			<CategoryPageSummarySection summary={subjectContent?.mdSummary} />
+			<LPCardList cards={results} />
+			<CategoryPageFaqSection faq={subjectContent?.faq} />
 		</>
 	);
 };

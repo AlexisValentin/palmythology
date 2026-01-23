@@ -1,8 +1,8 @@
 /* Components */
-import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
 
 /* Consts */
 import { ALL_SUBJECT } from "../../../utils/cards/subjects.constants";
+import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
 
 const SubjectList: React.FC = () => (
 	<div className="flex flex-col items-center justify-center flex-wrap md:flex-row mt-4">

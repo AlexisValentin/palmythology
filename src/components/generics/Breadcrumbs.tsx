@@ -1,13 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import type React from "react";
 import {
 	generateBreadcrumbLinks,
 	getHomeBreadcrumbNode,
 	parseBreadcrumbNode,
 } from "../../utils/routes/routes";
-import Link from "next/link";
 
 const Breadcrumbs: React.FC = () => {
 	const nodes = usePathname()

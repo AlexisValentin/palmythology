@@ -1,5 +1,4 @@
 User-Agent: *
 Allow: /
-Disallow: /_next/
 
 Sitemap: https://palmythology.com/sitemap.xml

@@ -14,6 +14,7 @@ export const getCacheTags = async () => ({
 	SUBJECTS: { TAG: "cms-subjects", DURATION: SEVEN_DAYS_IN_S },
 	SEARCH: { TAG: "cms-search", DURATION: HOUR_IN_S },
 	Q2N: { TAG: "cms-q2n", DURATION: HALF_DAY_IN_S },
+	GODLE: { TAG: "godle-entities", DURATION: DAY_IN_S },
 	ALL: { TAG: "cms", DURATION: DAY_IN_S },
 });
 

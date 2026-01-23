@@ -3,8 +3,9 @@ import InformationIcon from "../../assets/icons/information.svg";
 import LaurelIcon from "../../assets/icons/laurel.svg";
 import MagnifyingGlassIcon from "../../assets/icons/magnifying_glass.svg";
 import Q2NIcon from "../../assets/icons/number_two.svg";
+import QuestionMarksIcon from "../../assets/icons/question_marks.svg";
 import PalmythologyLogo from "../../assets/images/logo.png";
-import { NextImageType } from "../image.constants";
+import type { NextImageType } from "../image.constants";
 
 export const ROOT = "/";
 
@@ -21,6 +22,7 @@ export const ROUTE_URLS = {
 	ABOUT: `${ROOT}about`,
 	Q2N: `${ROOT}q2n`,
 	CHANGELOG: `${ROOT}changelog`,
+	GODLE: `${ROOT}godle`,
 	CARD: `${ROOT}cards/:pantheon/:card`,
 	PANTHEONS: `${ROOT}pantheons`,
 	PANTHEON: `${ROOT}pantheons/:pantheon`,
@@ -59,6 +61,12 @@ export const ROUTES: RouteType[] = [
 		icon: MagnifyingGlassIcon as unknown as NextImageType,
 	},
 	{
+		name: "Godle",
+		url: ROUTE_URLS.GODLE,
+		subtitle: "Le jeu quotidien",
+		icon: QuestionMarksIcon as unknown as NextImageType,
+	},
+	{
 		name: "A propos",
 		url: ROUTE_URLS.ABOUT,
 		subtitle: "La Palmythology et vous",
@@ -70,6 +78,7 @@ export const BREADCRUMB_NODES = {
 	ABOUT: { label: "A propos", value: "about" },
 	CARDS: { label: "Les grandes lignes", value: "cards" },
 	CHANGELOG: { label: "Notes de version", value: "changelog" },
+	GODLE: { label: "Godle", value: "godle" },
 	PANTHEONS: { label: "Panthéons", value: "pantheons" },
 	Q2N: { label: "Quoi 2 Neuf", value: "q2n" },
 	SEARCH: { label: "Recherche", value: "search" },

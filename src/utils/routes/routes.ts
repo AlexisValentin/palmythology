@@ -1,13 +1,13 @@
-import { BREADCRUMB_NODES, ROUTE_URLS } from "./routes.constants";
+import { getPantheonLabelFromValue } from "../cards/pantheons";
+import { PantheonValue } from "../cards/pantheons.constants";
+import { getSubjectLabelFromValue } from "../cards/subjects";
+import { SubjectValue } from "../cards/subjects.constants";
 import {
 	capitalize,
 	parseStringToSlug,
 	replaceDashesBySpaces,
 } from "../string";
-import { PantheonValue } from "../cards/pantheons.constants";
-import { getPantheonLabelFromValue } from "../cards/pantheons";
-import { SubjectValue } from "../cards/subjects.constants";
-import { getSubjectLabelFromValue } from "../cards/subjects";
+import { BREADCRUMB_NODES, ROUTE_URLS } from "./routes.constants";
 
 export const setCardRouteParameters = (cardName: string, pantheon: string) =>
 	ROUTE_URLS.CARD.replace(":pantheon", pantheon).replace(
@@ -63,7 +63,7 @@ export const parseBreadcrumbNode = (nodeLabel: string) => {
 };
 
 export const generateBreadcrumbLinks = (breadcrumbNodes: string[]) => {
-	let breadcrumLinks: string[] = [];
+	const breadcrumLinks: string[] = [];
 
 	breadcrumbNodes.reduce((acc, curr) => {
 		const link = acc ? `${acc}/${curr}` : `/${curr}`;

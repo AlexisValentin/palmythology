@@ -1,5 +1,5 @@
-import { PantheonSelectType } from "../../../utils/cards/pantheons.constants";
-import { SubjectSelectType } from "../../../utils/cards/subjects.constants";
+import type { PantheonSelectType } from "../../../utils/cards/pantheons.constants";
+import type { SubjectSelectType } from "../../../utils/cards/subjects.constants";
 
 interface SelectFilterProps {
 	selectLabel: string;

@@ -4,7 +4,7 @@ import {
 	COLOR_TAINTS,
 	COLORS,
 	MYTHOLOGY_COLORS,
-	PantheonStyleType,
+	type PantheonStyleType,
 	TEXT_COLORS,
 } from "./colors.constants";
 

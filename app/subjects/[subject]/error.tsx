@@ -1,15 +1,14 @@
 "use client";
 
 /* Libs */
-import React from "react";
-
+import type React from "react";
+import SubjectList from "../../../src/components/domains/cards/SubjectList";
 /* Components */
 import PageHeader from "../../../src/components/generics/PageHeader";
-import SubjectList from "../../../src/components/domains/cards/SubjectList";
 
 /* Hooks */
 import useErrorHandler, {
-	ErrorProps,
+	type ErrorProps,
 } from "../../../src/components/hooks/useErrorHandler";
 
 const SubjectErrorPage: React.FC<ErrorProps> = ({ error }) => {

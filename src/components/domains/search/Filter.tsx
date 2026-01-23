@@ -1,11 +1,11 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { ALL_PANTHEON } from "../../../utils/cards/pantheons.constants";
+import { ALL_SUBJECT } from "../../../utils/cards/subjects.constants";
 import { BASE_INPUT_NAMES } from "../../../utils/form.constants";
 import SearchResults from "./SearchResults";
 import SelectFilter from "./SelectFilter";
-import { ALL_PANTHEON } from "../../../utils/cards/pantheons.constants";
-import { ALL_SUBJECT } from "../../../utils/cards/subjects.constants";
 
 const Filter = () => {
 	const [pantheonSearchCriteria, setPantheonSearchCriteria] = useState("");

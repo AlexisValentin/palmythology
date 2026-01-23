@@ -1,18 +1,16 @@
-import { CardRelatedType } from "../../../utils/cms/cms.constants";
+import type { CardDetails } from "../../../utils/cards/card.constants";
 import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
 
-interface PantheonCardListProps {
-	relatedCards: CardRelatedType[];
+interface LPCardListProps {
+	cards: CardDetails[];
 }
 
-const PantheonCardList: React.FC<PantheonCardListProps> = ({
-	relatedCards,
-}) => (
+const LPCardList: React.FC<LPCardListProps> = ({ cards }) => (
 	<>
-		{relatedCards && relatedCards.length > 0 && (
+		{cards && cards.length > 0 && (
 			<div className="flex flex-col mt-2 xl:mt-0">
 				<div className="flex flex-col justify-center lg:flex-wrap lg:flex-row mt-4">
-					{relatedCards.map((card: CardRelatedType) => (
+					{cards.map((card: CardDetails) => (
 						<PageSquare
 							key={`${card.name}-${card.subtitle}}`}
 							title={card.name}
@@ -28,4 +26,4 @@ const PantheonCardList: React.FC<PantheonCardListProps> = ({
 	</>
 );
 
-export default PantheonCardList;
+export default LPCardList;

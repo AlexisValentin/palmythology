@@ -1,10 +1,23 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(pnpm test:*)",
-      "Bash(git mv:*)"
-    ],
-    "deny": [],
-    "ask": []
-  }
+	"permissions": {
+		"allow": [
+			"Bash(pnpm test:*)",
+			"Bash(git mv:*)",
+			"Bash(pnpm build:*)",
+			"Bash(tree /F \"c:\\\\Users\\\\User\\\\Documents\\\\Web\\\\palmythology\\\\app\" /A)",
+			"Bash(pnpm exec biome check:*)",
+			"Bash(pnpm exec next build:*)",
+			"Bash(pnpm exec tsc:*)",
+			"Bash(pnpm exec next lint:*)",
+			"Bash(curl:*)",
+			"Bash(find:*)",
+			"Bash(netstat:*)",
+			"Bash(findstr:*)",
+			"Bash(npx tsc:*)",
+			"Bash(npm run build:*)",
+			"Bash(pnpm format:*)"
+		],
+		"deny": [],
+		"ask": []
+	}
 }
