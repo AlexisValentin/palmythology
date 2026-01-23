@@ -64,7 +64,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 			name: "France",
 		},
 		availableLanguage: "fr",
-		sameAs: ["https://www.instagram.com/palmythology"],
+		sameAs: [
+			"https://www.instagram.com/palmythology",
+			"https://www.threads.net/@palmythology",
+			"https://bsky.app/profile/palmythology.com",
+		],
 	};
 
 	const websiteSchema = {
@@ -110,7 +114,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 							{children}
 						</div>
 					</div>
-					<TrackingNotice />
 					<UpPageButton />
 					<Breadcrumbs />
 					<Footer />
