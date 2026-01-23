@@ -1,8 +1,15 @@
 import LPCardList from "../../../src/components/domains/cards/LPCardList";
+import {
+	CategoryPageFaqSection,
+	CategoryPageSummarySection,
+} from "../../../src/components/domains/categories/CategoryPageSections";
 import PageHeader from "../../../src/components/generics/PageHeader";
 import { getSubjectLabelFromValue } from "../../../src/utils/cards/subjects";
 import type { SubjectValue } from "../../../src/utils/cards/subjects.constants";
-import { fetchAllCardsFromCriterias } from "../../../src/utils/cms/cms.requests";
+import {
+	fetchAllCardsFromCriterias,
+	fetchLandingPage,
+} from "../../../src/utils/cms/cms.requests";
 
 export const dynamicParams = true;
 export const generateStaticParams = async () => [];
@@ -70,14 +77,19 @@ const SubjectPage = async ({ params }: SubjectPagePropsType) => {
 	const pageParams = await params;
 	const subject = pageParams.subject;
 
-	const results = await fetchAllCardsFromCriterias({ pantheon: "", subject });
+	const [results, subjectContent] = await Promise.all([
+		fetchAllCardsFromCriterias({ pantheon: "", subject }),
+		fetchLandingPage("subjects", subject),
+	]);
 
 	const subjectLabel = getSubjectLabelFromValue(subject as SubjectValue);
 
 	return (
 		<>
 			<PageHeader title={`${subjectLabel}`} />
+			<CategoryPageSummarySection summary={subjectContent?.mdSummary} />
 			<LPCardList cards={results} />
+			<CategoryPageFaqSection faq={subjectContent?.faq} />
 		</>
 	);
 };

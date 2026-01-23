@@ -1,4 +1,4 @@
-# Notes de version 2.17.0 (??/01/2026)
+# Notes de version 2.17.0 (23/01/2026)
 
 ## Quoi 2 Neuf
 
@@ -7,6 +7,7 @@
 ## Landing pages
 
 - Récupération de l'ensemble des contenus relatifs aux pages dédiées des panthéons et des sujets au lieu d'un dataset paramétré via le CMS.
+- Intégration de blocs de résumés et d'une section FAQ pour les landings pages dédiées aux panthéons et aux sujets.
 
 ## Godle
 
