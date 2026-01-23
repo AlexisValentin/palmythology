@@ -8,6 +8,7 @@ import { getCacheTags } from "./cache";
 import { getStoryblokBaseUrl, getStoryblokToken } from "./cms";
 import {
 	type AvailableCardForSitemap,
+	type CategoryPageContentType,
 	type GodlePropertiesType,
 	type Quoi2NeufStoryType,
 	STORYBLOK_MAX_ITEMS_PER_REQUEST,
@@ -15,6 +16,7 @@ import {
 	STORYBLOK_SITEMAP_MAX_ITEMS,
 	STORYBLOK_VERSIONS,
 	type StoryblokCardComponentType,
+	type StoryblokPantheonComponentType,
 	type StoryblokQ2NComponentType,
 	type StoryblokStoryResponse,
 } from "./cms.constants";
@@ -408,4 +410,45 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 		tags: [cacheTags.GODLE.TAG, cacheTags.ALL.TAG],
 		revalidate: cacheTags.GODLE.DURATION,
 	})();
+};
+
+export type LandingPageType = "pantheons" | "subjects";
+
+export const fetchLandingPage = async (
+	landingPage: LandingPageType,
+	slug: string,
+): Promise<CategoryPageContentType | null> => {
+	const cacheTags = await getCacheTags();
+
+	const requestLandingPage = async (
+		landingPage: LandingPageType,
+		slug: string,
+	): Promise<CategoryPageContentType | null> => {
+		try {
+			const response = await fetch(
+				`${getStoryblokBaseUrl()}${landingPage}/${slug}/?token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+			);
+
+			if (!response.ok) {
+				return null;
+			}
+
+			const data: { story: StoryblokPantheonComponentType } =
+				await response.json();
+			const { metaDescription, mdSummary, faq } = data.story.content;
+
+			return { metaDescription, mdSummary, faq };
+		} catch {
+			return null;
+		}
+	};
+
+	return unstable_cache(
+		async () => requestLandingPage(landingPage, slug),
+		[`${landingPage}-story`, slug],
+		{
+			tags: [cacheTags.CARDS.TAG, cacheTags.ALL.TAG],
+			revalidate: cacheTags.CARDS.DURATION,
+		},
+	)();
 };

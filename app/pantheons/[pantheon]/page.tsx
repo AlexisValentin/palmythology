@@ -1,8 +1,15 @@
 import LPCardList from "../../../src/components/domains/cards/LPCardList";
+import {
+	CategoryPageFaqSection,
+	CategoryPageSummarySection,
+} from "../../../src/components/domains/categories/CategoryPageSections";
 import PageHeader from "../../../src/components/generics/PageHeader";
 import { getPantheonLabelFromValue } from "../../../src/utils/cards/pantheons";
 import type { PantheonValue } from "../../../src/utils/cards/pantheons.constants";
-import { fetchAllCardsFromCriterias } from "../../../src/utils/cms/cms.requests";
+import {
+	fetchAllCardsFromCriterias,
+	fetchLandingPage,
+} from "../../../src/utils/cms/cms.requests";
 
 export const dynamicParams = true;
 export const generateStaticParams = async () => [];
@@ -70,14 +77,19 @@ const PantheonPage = async ({ params }: PantheonPagePropsType) => {
 	const pageParams = await params;
 	const pantheon = pageParams.pantheon;
 
-	const results = await fetchAllCardsFromCriterias({ pantheon, subject: "" });
+	const [results, pantheonContent] = await Promise.all([
+		fetchAllCardsFromCriterias({ pantheon, subject: "" }),
+		fetchLandingPage("pantheons", pantheon),
+	]);
 
 	const pantheonLabel = getPantheonLabelFromValue(pantheon as PantheonValue);
 
 	return (
 		<>
 			<PageHeader title={`Panthéon ${pantheonLabel?.toLowerCase()}`} />
+			<CategoryPageSummarySection summary={pantheonContent?.mdSummary} />
 			<LPCardList cards={results} />
+			<CategoryPageFaqSection faq={pantheonContent?.faq} />
 		</>
 	);
 };

@@ -46,13 +46,13 @@ export interface CardItemType {
 }
 
 export interface Quoi2NeufStoryType {
-		title: string;
-		subtitle: string;
-		pantheon: PantheonValue;
-		icon: StoryblokImageType;
-		available?: boolean;
-		teasing: string;
-	}
+	title: string;
+	subtitle: string;
+	pantheon: PantheonValue;
+	icon: StoryblokImageType;
+	available?: boolean;
+	teasing: string;
+}
 
 export type AboutPageType = AboutItemType[];
 export interface AboutItemType {
@@ -60,31 +60,31 @@ export interface AboutItemType {
 }
 
 export interface StoryblokCardComponentType {
-		content: {
-			component: string;
-			name: string;
-			subtitle: string;
-			icon: StoryblokImageType;
-			pantheon: PantheonValue;
-			subject: SubjectValue;
-			available: boolean;
-			isFolder: boolean;
-			godle?: GodlePropertiesType[];
-		};
-	}
+	content: {
+		component: string;
+		name: string;
+		subtitle: string;
+		icon: StoryblokImageType;
+		pantheon: PantheonValue;
+		subject: SubjectValue;
+		available: boolean;
+		isFolder: boolean;
+		godle?: GodlePropertiesType[];
+	};
+}
 
 export interface StoryblokQ2NComponentType {
-		content: {
-			component: string;
-			title: string;
-			subtitle: PantheonValue;
-			icon: { alt: string; filename: string };
-			available: boolean;
-			isFolder: boolean;
-			pantheon: PantheonValue;
-			teasing: string;
-		};
-	}
+	content: {
+		component: string;
+		title: string;
+		subtitle: PantheonValue;
+		icon: { alt: string; filename: string };
+		available: boolean;
+		isFolder: boolean;
+		pantheon: PantheonValue;
+		teasing: string;
+	};
+}
 
 export interface TextBlockType {
 	text: string;
@@ -106,6 +106,29 @@ export interface StoryblokStoryResponse {
 	published_at: string;
 	content: {
 		available: boolean;
+		component: string;
+	};
+}
+
+export interface FaqItemType {
+	question: string;
+	response: string;
+}
+
+export interface CategoryPageContentType {
+	metaDescription: string;
+	mdSummary?: string;
+	faq?: FaqItemType[];
+}
+
+export interface StoryblokPantheonComponentType {
+	content: CategoryPageContentType & {
+		component: string;
+	};
+}
+
+export interface StoryblokSubjectComponentType {
+	content: CategoryPageContentType & {
 		component: string;
 	};
 }
