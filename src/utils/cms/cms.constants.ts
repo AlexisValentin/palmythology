@@ -42,6 +42,7 @@ export interface CardItemType {
 	available: boolean;
 	isFolder: boolean;
 	instagramUrl: StoryblokLinkType;
+	threadsUrl: StoryblokLinkType;
 	relatedCards: CardRelatedType[];
 }
 
