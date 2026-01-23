@@ -103,7 +103,7 @@ const GodleInput: React.FC<GodleInputProps> = ({
 	}, [focusedIndex]);
 
 	return (
-		<div className="mb-8">
+		<div className="mb-8 sticky top-16 rounded-lg bg-white z-20">
 			<div className="relative">
 				<input
 					ref={inputRef}
