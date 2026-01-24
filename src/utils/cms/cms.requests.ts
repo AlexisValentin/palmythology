@@ -327,6 +327,7 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 	GodleEntity[]
 > => {
 	const cacheTags = await getCacheTags();
+	const todayKey = new Date().toISOString().split("T")[0];
 
 	const requestAllEntities = async (): Promise<GodleEntity[]> => {
 		try {
@@ -406,10 +407,14 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 		}
 	};
 
-	return unstable_cache(async () => requestAllEntities(), ["godle-entities"], {
-		tags: [cacheTags.GODLE.TAG, cacheTags.ALL.TAG],
-		revalidate: cacheTags.GODLE.DURATION,
-	})();
+	return unstable_cache(
+		async () => requestAllEntities(),
+		["godle-entities", todayKey],
+		{
+			tags: [cacheTags.GODLE.TAG, cacheTags.ALL.TAG],
+			revalidate: cacheTags.GODLE.DURATION,
+		},
+	)();
 };
 
 export type LandingPageType = "pantheons" | "subjects";
