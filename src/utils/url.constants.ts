@@ -6,6 +6,7 @@ export const URLS = {
 		"https://palmythology.com/sujets",
 		"https://palmythology.com/search",
 		"https://palmythology.com/about",
+		"https://palmythology.com/godle",
 	],
 	PANTHEONS: [
 		"https://palmythology.com/pantheons/aztec",
