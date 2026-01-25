@@ -1,9 +1,6 @@
-# Notes de version 2.17.2 (23/01/2026)
+# Notes de version 2.17.3 (25/01/2026)
 
 ## Godle
 
-- Correction d'un bug qui faisait que le cache prévenait la mise à jour de l'entité suivante à minuit.
-
-## Divers
-
-- Ajout de la page `/godle` dans le fichier sitemap.xml.
+- Correction d'un bug qui faisait que les entités n'étaient pas générées aléatoirement mais selon une liste prédéfinie.
+- Correction d'un bug qui faisait que le cache n'était pas revalidé à minuit heure de Paris.

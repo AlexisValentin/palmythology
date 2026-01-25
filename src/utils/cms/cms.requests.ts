@@ -2,6 +2,7 @@
 
 import { unstable_cache } from "next/cache";
 import type { CardDetails, ResearchCriterias } from "../cards/card.constants";
+import { getParisDateString } from "../dates/dates";
 import type { GodleEntity, GodleProperties } from "../godle/godle.types";
 import { parseStringToSlug, replaceHyphenByDashes } from "../string";
 import { getCacheTags } from "./cache";
@@ -327,7 +328,7 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 	GodleEntity[]
 > => {
 	const cacheTags = await getCacheTags();
-	const todayKey = new Date().toISOString().split("T")[0];
+	const todayKey = getParisDateString();
 
 	const requestAllEntities = async (): Promise<GodleEntity[]> => {
 		try {

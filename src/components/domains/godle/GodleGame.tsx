@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { compareGuess } from "../../../modules/godle/godleEngine";
 import {
@@ -23,6 +24,7 @@ interface GodleGameProps {
 	allEntities: GodleEntity[];
 	todayDate: string;
 	gameNumber: number;
+	yesterdayEntity: GodleEntity | null;
 }
 
 const GodleGame: React.FC<GodleGameProps> = ({
@@ -30,6 +32,7 @@ const GodleGame: React.FC<GodleGameProps> = ({
 	allEntities,
 	todayDate,
 	gameNumber,
+	yesterdayEntity,
 }) => {
 	const [guesses, setGuesses] = useState<GuessResult[]>([]);
 	const [isComplete, setIsComplete] = useState(false);
@@ -103,7 +106,20 @@ const GodleGame: React.FC<GodleGameProps> = ({
 	};
 
 	return (
-		<div className="max-w-4xl mx-auto px-4 py-6">
+		<div className="max-w-4xl mx-auto px-4">
+			{yesterdayEntity && (
+				<p className="text-center my-8">
+					L'entité d'hier était{" "}
+					<Link
+						target="_blank"
+						href={`/${yesterdayEntity.slug}`}
+						className="font-bold underline underline-offset-[0.3rem] max-lg:text-pink-400 max-lg:decoration-sky-500 hover:text-pink-400 hover:decoration-sky-500"
+					>
+						{yesterdayEntity.name}
+					</Link>
+					.
+				</p>
+			)}
 			{!isComplete && (
 				<GodleInput
 					entities={allEntities}
