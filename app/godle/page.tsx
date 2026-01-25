@@ -5,6 +5,7 @@ import {
 	getDailyEntity,
 	getGameNumber,
 	getTodayDateString,
+	getYesterdayEntity,
 } from "../../src/modules/godle/godleDaily";
 import { fetchAllAvailableEntitiesForGodle } from "../../src/utils/cms/cms.requests";
 
@@ -54,6 +55,7 @@ const GodlePage = async () => {
 		const allEntities = await fetchAllAvailableEntitiesForGodle();
 		const gameNumber = await getGameNumber();
 		const todayDate = await getTodayDateString();
+		const yesterdayEntity = await getYesterdayEntity();
 
 		const videoGameSchema = {
 			"@context": "https://schema.org",
@@ -130,6 +132,7 @@ const GodlePage = async () => {
 					allEntities={allEntities}
 					todayDate={todayDate}
 					gameNumber={gameNumber}
+					yesterdayEntity={yesterdayEntity}
 				/>
 			</>
 		);
