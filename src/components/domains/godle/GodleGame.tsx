@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
 	loadDailyGameState,
 	loadStatistics,
@@ -53,6 +53,16 @@ const GodleGame: React.FC<GodleGameProps> = ({
 	const { shouldDisplayModal, displayModal, hideModal } = useModal(
 		false,
 		modalRef,
+	);
+
+	const guessedNames = useMemo(
+		() => new Set(guesses.map((g) => g.entity.name)),
+		[guesses],
+	);
+
+	const availableEntities = useMemo(
+		() => allEntities.filter((e) => !guessedNames.has(e.name)),
+		[allEntities, guessedNames],
 	);
 
 	useEffect(() => {
@@ -162,7 +172,7 @@ const GodleGame: React.FC<GodleGameProps> = ({
 			)}
 			{!isComplete && (
 				<GodleInput
-					entities={allEntities}
+					entities={availableEntities}
 					onGuess={handleGuess}
 					disabled={isComplete}
 				/>
