@@ -1,17 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { compareGuess } from "../../../modules/godle/godleEngine";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
 	loadDailyGameState,
 	loadStatistics,
 	saveDailyGameState,
 	updateStatistics,
 } from "../../../modules/godle/godleStorage";
+import { restoreGameGuesses, validateGuess } from "../../../utils/godle";
 import type {
 	GodleEntity,
 	GuessResult,
+	MatchType,
 } from "../../../utils/godle/godle.types";
 import useModal from "../../hooks/useModal";
 import GodleFAQ from "./GodleFAQ";
@@ -19,8 +20,17 @@ import GodleGuessHistory from "./GodleGuessHistory";
 import GodleInput from "./GodleInput";
 import GodleResultModal from "./GodleResultModal";
 
+const toMatchType = (value: "exact" | "partial" | "none"): MatchType => {
+	const map: Record<string, MatchType> = {
+		exact: "exact" as MatchType,
+		partial: "partial" as MatchType,
+		none: "none" as MatchType,
+	};
+
+	return map[value];
+};
+
 interface GodleGameProps {
-	dailyEntity: GodleEntity;
 	allEntities: GodleEntity[];
 	todayDate: string;
 	gameNumber: number;
@@ -28,7 +38,6 @@ interface GodleGameProps {
 }
 
 const GodleGame: React.FC<GodleGameProps> = ({
-	dailyEntity,
 	allEntities,
 	todayDate,
 	gameNumber,
@@ -37,71 +46,112 @@ const GodleGame: React.FC<GodleGameProps> = ({
 	const [guesses, setGuesses] = useState<GuessResult[]>([]);
 	const [isComplete, setIsComplete] = useState(false);
 	const [isWon, setIsWon] = useState(false);
+	const [targetEntity, setTargetEntity] = useState<GodleEntity | null>(null);
 	const [statistics, setStatistics] = useState(loadStatistics());
+	const [isLoading, setIsLoading] = useState(false);
 	const modalRef = useRef<HTMLDivElement>(null);
 	const { shouldDisplayModal, displayModal, hideModal } = useModal(
 		false,
 		modalRef,
 	);
 
+	const guessedNames = useMemo(
+		() => new Set(guesses.map((g) => g.entity.name)),
+		[guesses],
+	);
+
+	const availableEntities = useMemo(
+		() => allEntities.filter((e) => !guessedNames.has(e.name)),
+		[allEntities, guessedNames],
+	);
+
 	useEffect(() => {
-		const savedState = loadDailyGameState(todayDate);
+		const restoreState = async () => {
+			const savedState = loadDailyGameState(todayDate);
 
-		if (savedState && savedState.targetEntityName === dailyEntity.name) {
-			const allEntitiesExist = savedState.guesses.every((guessName) =>
-				allEntities.some((e) => e.name === guessName),
-			);
-
-			if (!allEntitiesExist) {
-				console.warn(
-					"Saved game state contains entities without godle. Starting fresh.",
+			if (savedState?.date === todayDate && savedState.guesses.length > 0) {
+				const allEntitiesExist = savedState.guesses.every((guessName) =>
+					allEntities.some((e) => e.name === guessName),
 				);
 
-				return;
+				if (!allEntitiesExist) {
+					console.warn(
+						"Saved game state contains entities without godle. Starting fresh.",
+					);
+					return;
+				}
+
+				const {
+					results,
+					targetEntity: target,
+					isComplete: complete,
+				} = await restoreGameGuesses(savedState.guesses);
+
+				const restoredGuesses: GuessResult[] = results.map((r) => ({
+					entity: r.guessedEntity,
+					pantheonMatch: toMatchType(r.pantheonMatch),
+					subjectMatch: toMatchType(r.subjectMatch),
+					genreMatch: toMatchType(r.genreMatch),
+					domainMatch: toMatchType(r.domainMatch),
+					isCorrect: r.isCorrect,
+				}));
+
+				setGuesses(restoredGuesses);
+				setIsComplete(complete);
+				setIsWon(complete);
+				target && setTargetEntity(target);
+			}
+		};
+
+		restoreState();
+	}, [allEntities, todayDate]);
+
+	const handleGuess = async (entity: GodleEntity) => {
+		if (isComplete || isLoading) return;
+
+		setIsLoading(true);
+
+		try {
+			const { result, targetEntity: target } = await validateGuess(entity.name);
+
+			const guessResult: GuessResult = {
+				entity: result.guessedEntity,
+				pantheonMatch: toMatchType(result.pantheonMatch),
+				subjectMatch: toMatchType(result.subjectMatch),
+				genreMatch: toMatchType(result.genreMatch),
+				domainMatch: toMatchType(result.domainMatch),
+				isCorrect: result.isCorrect,
+			};
+
+			const newGuesses = [...guesses, guessResult];
+			setGuesses(newGuesses);
+
+			const won = result.isCorrect;
+			const complete = won;
+
+			setIsWon(won);
+			setIsComplete(complete);
+
+			if (target) {
+				setTargetEntity(target);
 			}
 
-			const restoredGuesses: GuessResult[] = savedState.guesses.map(
-				(guessName) => {
-					const guessEntity = allEntities.find((e) => e.name === guessName);
-					if (!guessEntity) {
-						throw new Error(`Entity not found: ${guessName}`);
-					}
-					return compareGuess(guessEntity, dailyEntity);
-				},
-			);
+			const newState = {
+				date: todayDate,
+				targetEntityName: target?.name ?? "",
+				guesses: newGuesses.map((g) => g.entity.name),
+				isComplete: complete,
+				isWon: won,
+			};
+			saveDailyGameState(newState);
 
-			setGuesses(restoredGuesses);
-			setIsComplete(savedState.isComplete);
-			setIsWon(savedState.isWon);
-		}
-	}, [dailyEntity, allEntities, todayDate]);
-
-	const handleGuess = (entity: GodleEntity) => {
-		if (isComplete) return;
-
-		const result = compareGuess(entity, dailyEntity);
-		const newGuesses = [...guesses, result];
-		setGuesses(newGuesses);
-
-		const won = result.isCorrect;
-		const complete = won;
-
-		setIsWon(won);
-		setIsComplete(complete);
-
-		const newState = {
-			date: todayDate,
-			targetEntityName: dailyEntity.name,
-			guesses: newGuesses.map((g) => g.entity.name),
-			isComplete: complete,
-			isWon: won,
-		};
-		saveDailyGameState(newState);
-
-		if (complete) {
-			updateStatistics(won, newGuesses.length, todayDate);
-			setStatistics(loadStatistics());
-			displayModal();
+			if (complete) {
+				updateStatistics(won, newGuesses.length, todayDate);
+				setStatistics(loadStatistics());
+				displayModal();
+			}
+		} finally {
+			setIsLoading(false);
 		}
 	};
 
@@ -122,7 +172,7 @@ const GodleGame: React.FC<GodleGameProps> = ({
 			)}
 			{!isComplete && (
 				<GodleInput
-					entities={allEntities}
+					entities={availableEntities}
 					onGuess={handleGuess}
 					disabled={isComplete}
 				/>
@@ -133,21 +183,23 @@ const GodleGame: React.FC<GodleGameProps> = ({
 					<button
 						type="button"
 						onClick={displayModal}
-						className="px-6 py-3 bg-gradient-to-r from-pink-400 to-sky-500 text-white rounded-xl font-bold transition-colors shadow-lg hover:shadow-xl cursor-pointer hover:from-pink-500 hover:to-sky-500"
+						className="px-6 py-3 bg-linear-to-r from-pink-400 to-sky-500 text-white rounded-xl font-bold transition-colors shadow-lg hover:shadow-xl cursor-pointer hover:from-pink-500 hover:to-sky-500"
 					>
 						Voir les résultats
 					</button>
 				</div>
 			)}
-			<GodleResultModal
-				isOpen={shouldDisplayModal}
-				won={isWon}
-				guesses={guesses}
-				gameNumber={gameNumber}
-				target={dailyEntity}
-				statistics={statistics}
-				onClose={hideModal}
-			/>
+			{targetEntity && (
+				<GodleResultModal
+					isOpen={shouldDisplayModal}
+					won={isWon}
+					guesses={guesses}
+					gameNumber={gameNumber}
+					target={targetEntity}
+					statistics={statistics}
+					onClose={hideModal}
+				/>
+			)}
 			<div className="mt-12">
 				<GodleFAQ />
 			</div>

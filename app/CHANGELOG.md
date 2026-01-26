@@ -1,6 +1,7 @@
-# Notes de version 2.17.3 (25/01/2026)
+# Notes de version 2.17.4 (26/01/2026)
 
 ## Godle
 
-- Correction d'un bug qui faisait que les entités n'étaient pas générées aléatoirement mais selon une liste prédéfinie.
-- Correction d'un bug qui faisait que le cache n'était pas revalidé à minuit heure de Paris.
+- Les tentatives s'affichent désormais en mode pile, de la plus récente à la plus ancienne.
+- Correction d'un bug qui faisait que l'utilisateur pouvait entrer plusieurs fois la même entité.
+- Correction d'un bug qui faisait que l'entité du jour pouvait être tracée via la console du navigateur.

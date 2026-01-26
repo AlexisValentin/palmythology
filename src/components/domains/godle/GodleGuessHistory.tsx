@@ -68,18 +68,18 @@ const GodleGuessHistory: React.FC<GodleGuessHistoryProps> = ({ guesses }) => {
 				/>
 			</div>
 			<div className="space-y-3">
-				{guesses.map((guess, index) => {
-					const isOlderGuess = index < guesses.length - 3;
-					return (
+				{guesses
+					.slice()
+					.reverse()
+					.map((guess, index) => (
 						<div
 							key={`${guess.entity.name}-${index}`}
-							className={`animate-slideInFromBottom transition-opacity duration-500 ${isOlderGuess ? "opacity-60" : "opacity-100"}`}
+							className="animate-slideInFromBottom transition-opacity duration-500"
 							style={{ animationDelay: `${index * 50}ms` }}
 						>
 							<GodleGuessRow guess={guess} />
 						</div>
-					);
-				})}
+					))}
 			</div>
 		</div>
 	);
