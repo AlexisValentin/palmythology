@@ -1,3 +1,4 @@
+import { compareArraysForMatch } from "../../utils/array";
 import { GODLE_CONFIG } from "../../utils/godle/godle.constants";
 import {
 	type GodleEntity,
@@ -10,19 +11,6 @@ export const compareGuess = (
 	guess: GodleEntity,
 	target: GodleEntity,
 ): GuessResult => {
-	const compareArrays = (arr1: string[], arr2: string[]): MatchType => {
-		if (
-			arr1.length === arr2.length &&
-			arr1.every((item) => arr2.includes(item))
-		) {
-			return MatchType.EXACT;
-		}
-		if (arr1.some((item) => arr2.includes(item))) {
-			return MatchType.PARTIAL;
-		}
-		return MatchType.NONE;
-	};
-
 	const hasGodleProperties =
 		guess.godle !== undefined && target.godle !== undefined;
 
@@ -34,7 +22,10 @@ export const compareGuess = (
 			guess.godle.genre === target.godle.genre
 				? MatchType.EXACT
 				: MatchType.NONE;
-		domainMatch = compareArrays(guess.godle.domain, target.godle.domain);
+		domainMatch = compareArraysForMatch(
+			guess.godle.domain,
+			target.godle.domain,
+		);
 	}
 
 	return {

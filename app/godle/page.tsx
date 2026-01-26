@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import GodleGame from "../../src/components/domains/godle/GodleGame";
 import PageHeader from "../../src/components/generics/PageHeader";
+import { fetchAllAvailableEntitiesForGodle } from "../../src/utils/cms/cms.requests";
 import {
-	getDailyEntity,
 	getGameNumber,
 	getTodayDateString,
 	getYesterdayEntity,
-} from "../../src/modules/godle/godleDaily";
-import { fetchAllAvailableEntitiesForGodle } from "../../src/utils/cms/cms.requests";
+} from "../../src/utils/godle";
 
 export const metadata: Metadata = {
 	title: "Godle | Le jeu quotidien - Palmythology",
@@ -51,7 +50,6 @@ export const metadata: Metadata = {
 
 const GodlePage = async () => {
 	try {
-		const dailyEntity = await getDailyEntity();
 		const allEntities = await fetchAllAvailableEntitiesForGodle();
 		const gameNumber = await getGameNumber();
 		const todayDate = await getTodayDateString();
@@ -128,7 +126,6 @@ const GodlePage = async () => {
 					subtitle="Devinez l'entité mythologique du jour"
 				/>
 				<GodleGame
-					dailyEntity={dailyEntity}
 					allEntities={allEntities}
 					todayDate={todayDate}
 					gameNumber={gameNumber}

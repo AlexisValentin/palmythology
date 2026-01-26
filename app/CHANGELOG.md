@@ -3,3 +3,4 @@
 ## Godle
 
 - Les tentatives s'affichent désormais en mode pile, de la plus récente à la plus ancienne.
+- Correction d'un bug qui faisait que l'entité du jour pouvait être tracée via la console du navigateur.

@@ -5,9 +5,9 @@ import Link from "next/link";
 import { getDomainLabelFromValue } from "../../../utils/cards/domains";
 import { getPantheonLabelFromValue } from "../../../utils/cards/pantheons";
 import { getSubjectLabelFromValue } from "../../../utils/cards/subjects";
-import { getEntityIcon } from "../../../utils/godle";
 import type { GuessResult } from "../../../utils/godle/godle.types";
 import { MatchType } from "../../../utils/godle/godle.types";
+import { getPantheonIcon } from "../../../utils/pantheons";
 import GodleGuessCell from "./GodleGuessCell";
 
 interface GodleGuessRowProps {
@@ -15,7 +15,12 @@ interface GodleGuessRowProps {
 }
 
 const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
-	const entityIcon = getEntityIcon(guess);
+	const entityIcon = guess.entity.icon?.filename
+		? { src: guess.entity.icon.filename, alt: guess.entity.icon.alt }
+		: {
+				src: getPantheonIcon(guess.entity.pantheon),
+				alt: getPantheonLabelFromValue(guess.entity.pantheon) || "",
+			};
 
 	const getMatchStyle = (isCorrect: boolean, matchType: MatchType): string => {
 		const baseClasses = "transition-all duration-500 ease-out";
