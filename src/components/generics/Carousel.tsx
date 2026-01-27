@@ -32,15 +32,17 @@ const Carousel: React.FC<CarouselProps> = ({ imageList }) => (
 
 			return (
 				<SwiperSlide key={alt}>
-					<Image
-						src={filename}
-						alt={alt}
-						width={1000}
-						height={1000}
-						loading={loadingStrategy}
-						priority={isPriority}
-						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 1000px"
-					/>
+					<div className="relative aspect-square w-full">
+						<Image
+							src={filename}
+							alt={alt}
+							fill
+							className="object-contain"
+							loading={loadingStrategy}
+							priority={isPriority}
+							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 1000px"
+						/>
+					</div>
 				</SwiperSlide>
 			);
 		})}

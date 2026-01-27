@@ -8,6 +8,7 @@ import { getSubjectLabelFromValue } from "../../../utils/cards/subjects";
 import type { GuessResult } from "../../../utils/godle/godle.types";
 import { MatchType } from "../../../utils/godle/godle.types";
 import { getPantheonIcon } from "../../../utils/pantheons";
+import { getSubjectIcon } from "../../../utils/subjects";
 import GodleGuessCell from "./GodleGuessCell";
 
 interface GodleGuessRowProps {
@@ -83,7 +84,8 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 								alt={entityIcon.alt}
 								width={56}
 								height={56}
-								className="object-cover"
+								className="object-contain"
+								sizes="3.5rem"
 							/>
 						</Link>
 						<div className="flex-1 min-w-0">
@@ -148,13 +150,14 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 					style={{ animationDelay: "0ms" }}
 				>
 					<div className="flex justify-center mb-2">
-						<div className="flex justify-center w-14 h-14 overflow-hidden">
+						<div className="flex justify-center w-10 h-10 overflow-hidden">
 							<Image
 								src={entityIcon.src}
 								alt={entityIcon.alt}
-								width={56}
-								height={56}
-								className="object-cover"
+								width={40}
+								height={40}
+								className="object-contain"
+								sizes="2.5rem"
 							/>
 						</div>
 					</div>
@@ -167,12 +170,20 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 					matchType={guess.pantheonMatch}
 					href={pantheonUrl}
 					animationDelay={100}
+					icon={{
+						src: getPantheonIcon(guess.entity.pantheon),
+						alt: getPantheonLabelFromValue(guess.entity.pantheon) || "",
+					}}
 				/>
 				<GodleGuessCell
 					label={getSubjectLabelFromValue(guess.entity.subject)}
 					matchType={guess.subjectMatch}
 					href={subjectUrl}
 					animationDelay={200}
+					icon={{
+						src: getSubjectIcon(guess.entity.subject),
+						alt: getSubjectLabelFromValue(guess.entity.subject) || "",
+					}}
 				/>
 				<GodleGuessCell
 					label={getGenreLabel(guess.entity.godle?.genre)}

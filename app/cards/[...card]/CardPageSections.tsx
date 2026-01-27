@@ -33,6 +33,7 @@ export const CardPageSummarySection: FC<CardPageSummarySectionProps> = ({
 					alt="Icône de résumé"
 					width={24}
 					height={24}
+					unoptimized
 				/>
 				<h3 className="text-xl font-bold">Les Grandes Lignes</h3>
 			</div>
@@ -79,6 +80,7 @@ export const CardPageFaqSection: FC<CardPageFaqSectionProps> = ({ faq }) => {
 						alt="Icône de foire aux questions"
 						width={32}
 						height={32}
+						unoptimized
 					/>
 					<h3 className="text-xl font-bold">Questions fréquentes</h3>
 				</div>
@@ -115,6 +117,7 @@ export const CardPageQuotationsSection: FC<CardPageQuotationsSectionProps> = ({
 					alt="Icône de citation"
 					width={24}
 					height={24}
+					unoptimized
 				/>
 				<h3 className="text-xl font-bold">Citations</h3>
 			</div>
@@ -152,6 +155,7 @@ export const CardPageRelatedCardsSection: FC<
 					alt="Icône de foire aux questions"
 					width={32}
 					height={32}
+					unoptimized
 				/>
 				<h3 className="text-xl font-bold">Dans le même sujet</h3>
 			</div>

@@ -123,9 +123,14 @@ const PageSquareBlock: React.FC<
 				alt={typeof icon === "string" ? `Icône ${title}` : icon?.alt}
 				width={100}
 				height={100}
+				sizes="6rem"
 			/>
-			{!withoutText && <h3 className="font-bold truncate px-2">{title}</h3>}
-			{!withoutText && <h4 className="italic truncate px-2">{subtitle}</h4>}
+			{!withoutText && (
+				<>
+					<h3 className="font-bold truncate px-2">{title}</h3>
+					<h4 className="italic truncate px-2">{subtitle}</h4>
+				</>
+			)}
 		</div>
 	</div>
 );

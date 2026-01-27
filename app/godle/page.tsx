@@ -8,6 +8,8 @@ import {
 	getYesterdayEntity,
 } from "../../src/utils/godle";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
 	title: "Godle | Le jeu quotidien - Palmythology",
 	description:
