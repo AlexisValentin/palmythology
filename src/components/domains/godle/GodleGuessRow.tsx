@@ -84,6 +84,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 								width={56}
 								height={56}
 								className="object-cover"
+								sizes="3.5rem"
 							/>
 						</Link>
 						<div className="flex-1 min-w-0">
@@ -155,6 +156,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 								width={56}
 								height={56}
 								className="object-cover"
+								sizes="3.5rem"
 							/>
 						</div>
 					</div>

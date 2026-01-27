@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { TextBlockType } from "../../utils/cms/cms.constants";
 import { isEven } from "../../utils/number";
 
@@ -49,11 +50,12 @@ const TextBlock: React.FC<TextBlockProps> = ({
 						</div>
 						{block.illustration?.filename && (
 							<div className={`flex ${getIconContainerWidthStyle(iconSize)}`}>
-								<img
+								<Image
 									src={block.illustration.filename}
 									alt={block.illustration.alt}
 									width={100}
 									height={100}
+									sizes="6.25rem"
 								/>
 							</div>
 						)}

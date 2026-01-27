@@ -30,12 +30,19 @@ const MainMenu = () => {
 									alt="Logo de la Palmythology"
 									width={40}
 									height={40}
+									sizes="2.5rem"
 								/>
 							) : (
 								<>
 									<div className="hidden md:block">{name}</div>
 									<div className="md:hidden block">
-										<Image src={icon} alt={name} width={40} height={40} />
+										<Image
+											src={icon}
+											alt={name}
+											width={40}
+											height={40}
+											sizes="2.5rem"
+										/>
 									</div>
 								</>
 							)}

@@ -40,6 +40,7 @@ const PageSectionContent: React.FC<Omit<PageSectionProps, "url">> = ({
 				alt={imageAlt}
 				width={100}
 				height={100}
+				sizes="6rem"
 			/>
 			<div className="flex items-center grow">
 				<div className="flex flex-col my-2 md:mr-6">

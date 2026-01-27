@@ -25,6 +25,7 @@ export const CategoryPageSummarySection: FC<
 					alt="Icône de résumé"
 					width={24}
 					height={24}
+					unoptimized
 				/>
 				<h3 className="text-xl font-bold">Présentation</h3>
 			</div>
@@ -73,6 +74,7 @@ export const CategoryPageFaqSection: FC<CategoryPageFaqSectionProps> = ({
 						alt="Icône de foire aux questions"
 						width={32}
 						height={32}
+						unoptimized
 					/>
 					<h3 className="text-xl font-bold">Questions fréquentes</h3>
 				</div>

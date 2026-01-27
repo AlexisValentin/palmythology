@@ -74,7 +74,7 @@ const GodleResultModal: React.FC<GodleResultModalProps> = ({
 					onClick={onClose}
 					className="absolute top-3 right-3 md:top-4 md:right-4 hover:opacity-50 transition-opacity cursor-pointer"
 				>
-					<Image src={CrossIcon} alt="" width={18} height={18} />
+					<Image src={CrossIcon} alt="" width={18} height={18} unoptimized />
 				</button>
 				<div className="text-center mb-4 md:mb-6">
 					<div className="flex justify-center items-center text-6xl mb-2 md:mb-3">
@@ -84,6 +84,7 @@ const GodleResultModal: React.FC<GodleResultModalProps> = ({
 							alt="Icône de confettis"
 							width={50}
 							height={50}
+							unoptimized
 						/>
 					</div>
 					<h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-400 to-sky-500 bg-clip-text text-transparent">

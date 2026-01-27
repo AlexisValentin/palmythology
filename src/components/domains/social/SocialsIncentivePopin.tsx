@@ -127,6 +127,7 @@ const SocialsIncentivePopin = () => {
 							alt={`Double flèches vers la ${isExpanded ? "droite" : "gauche"}`}
 							width={16}
 							height={16}
+							unoptimized
 						/>
 					</button>
 					<div className="bg-white rounded-r-lg shadow-2xl p-6 w-40 xl:w-56 2xl:w-72">
