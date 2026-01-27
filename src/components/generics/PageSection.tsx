@@ -22,11 +22,10 @@ const isStoryblokImage = (
 	return "filename" in icon;
 };
 
-const PageSectionContent: React.FC<PageSectionProps> = ({
+const PageSectionContent: React.FC<Omit<PageSectionProps, "url">> = ({
 	name,
 	description,
 	icon,
-	url,
 }) => {
 	const imageSrc = isStoryblokImage(icon) ? icon.filename : icon;
 	const imageAlt = isStoryblokImage(icon)
@@ -43,15 +42,11 @@ const PageSectionContent: React.FC<PageSectionProps> = ({
 				height={100}
 			/>
 			<div className="flex items-center grow">
-				<div className="flex flex-col mt-2 mb-2">
-					<h3
-						className={`font-semibold text-md ${url ? "text-xl" : "hidden"} md:block`}
-					>
+				<div className="flex flex-col my-2 md:mr-6">
+					<h3 className="font-semibold text-md text-xl text-center md:text-left md:block ">
 						{name}
 					</h3>
-					<div
-						className={`font-medium mt-6 ${url ? "hidden" : "block text-center"} md:block md:text-left`}
-					>
+					<div className="font-medium mt-6 block text-center md:block md:text-left">
 						{description}
 					</div>
 				</div>
@@ -75,12 +70,7 @@ const PageSection: React.FC<PageSectionProps> = ({
 			href={url}
 			className={`flex flex-row m-5 sm:block sm:w-full sm:m-0 rounded-3xl border-4 border-${mainColor} bg-${mainColor} text-${textColor} lg:bg-transparent lg:text-black lg:hover:bg-${mainColor} lg:hover:text-${textColor} transition-colors`}
 		>
-			<PageSectionContent
-				name={name}
-				description={description}
-				icon={icon}
-				url={url}
-			/>
+			<PageSectionContent name={name} description={description} icon={icon} />
 		</Link>
 	) : (
 		<div className="flex flex-row items-center justify-center sm:block sm:w-full sm:m-0">
