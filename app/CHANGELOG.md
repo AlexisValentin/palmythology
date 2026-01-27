@@ -1,7 +1,5 @@
-# Notes de version 2.17.4 (26/01/2026)
+# Notes de version 2.17.5 (27/01/2026)
 
 ## Godle
 
-- Les tentatives s'affichent désormais en mode pile, de la plus récente à la plus ancienne.
-- Correction d'un bug qui faisait que l'utilisateur pouvait entrer plusieurs fois la même entité.
-- Correction d'un bug qui faisait que l'entité du jour pouvait être tracée via la console du navigateur.
+- Correction d'un bug qui faisait que les résultats ne se réinitialisaient pas à minuit heure de Paris, malgré la réinitialisation de l'entité mythologique. 
