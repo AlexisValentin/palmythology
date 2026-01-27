@@ -11,6 +11,8 @@
 
 ## Godle
 
+- Ajout des icônes liés aux panthéons et aux divinités dans les cellules dédiées.
+- Diminution de la taille des icônes dans les cellules uniquement sur écrans de bureau.
 - Correction d'un bug qui faisait que les résultats ne se réinitialisaient pas à minuit heure de Paris, malgré la réinitialisation de l'entité mythologique.
 
 # Divers
