@@ -38,7 +38,7 @@ const fetchLatestCards = async () => {
 	const response = await fetch(
 		`${getStoryblokBaseUrl()}?token=${getStoryblokToken()}&version=${
 			STORYBLOK_VERSIONS.PUBLISHED
-		}&starts_with=card&sort_by=published_at:desc&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=1`,
+		}&starts_with=card&sort_by=published_at:desc&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=1&filter_query[available][in]=true`,
 	);
 
 	if (!response.ok) {
@@ -58,7 +58,7 @@ const fetchFilteredCards = async (
 	const response = await fetch(
 		`${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${
 			STORYBLOK_VERSIONS.PUBLISHED
-		}&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=${currentPage}&${
+		}&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=${currentPage}&filter_query[available][in]=true&${
 			pantheon && `filter_query[pantheon][in]=${pantheon}`
 		}&${subject && `filter_query[subject][in]=${subject}`}`,
 	);

@@ -1,5 +1,13 @@
-# Notes de version 2.17.6 (28/01/2026)
+# Notes de version 2.17.6 (29/01/2026)
 
 ## Général
 
 - Mise à jour de la date du copyright qui était toujours bloqué à 2025.
+
+## Recherche
+
+- Correction d'un bug qui faisait que les entités publiées avec le flag `available` à `false` remontaient dans les résultats de recherche.
+
+## Godle
+
+- Correction d'un bug qui faisait que les entités publiées avec le flag `available` à `false` pouvaient potentiellement apparaître en tant qu'entité du jour.
