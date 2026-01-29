@@ -3,6 +3,7 @@
 ## Général
 
 - Mise à jour de la date du copyright qui était toujours bloqué à 2025.
+- Correction d'un bug qui faisait que le bouton de remontée en haut de page passait derrière le fil d'Ariane à certains moments.
 
 ## Recherche
 
