@@ -1,23 +1,14 @@
-# Notes de version 2.17.5 (27/01/2026)
+# Notes de version 2.17.6 (29/01/2026)
 
-## Les Grandes Lignes
+## Général
 
-- Correction d'un bug qui faisait que les images du carousel laissaient un espace blanc sur des zoom réduit du navigateur web.
+- Mise à jour de la date du copyright qui était toujours bloqué à 2025.
+- Correction d'un bug qui faisait que le bouton de remontée en haut de page passait derrière le fil d'Ariane à certains moments.
 
-## Quoi 2 Neuf
+## Recherche
 
-- Correction d'un bug qui faisait que le nouveau texte d'aperçu ne s'affichait pas sur écrans mobiles lorsque le lien est accessible.
-- Ajustement de marges CSS pour les écrans bureaux et mobiles. 
+- Correction d'un bug qui faisait que les entités publiées avec le flag `available` à `false` remontaient dans les résultats de recherche.
 
 ## Godle
 
-- Ajout des icônes liés aux panthéons et aux divinités dans les cellules dédiées.
-- Diminution de la taille des icônes dans les cellules uniquement sur écrans de bureau.
-- Correction d'un bug qui faisait que les résultats ne se réinitialisaient pas à minuit heure de Paris, malgré la réinitialisation de l'entité mythologique.
-
-# Divers
-
-- Optimisation du chargement des images:
-  - Utilisation du composant `next/image`.
-  - Intégration de props `sizes` pour définir une valeur fixe pour chaque image.
-  - Arrêt de l'optimisation des images vectorielles.
+- Correction d'un bug qui faisait que les entités publiées avec le flag `available` à `false` pouvaient potentiellement apparaître en tant qu'entité du jour.

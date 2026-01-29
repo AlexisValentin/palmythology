@@ -33,7 +33,7 @@ export const UpPageButton: FC = () => {
 				e.preventDefault();
 				handleToggle();
 			}}
-			className={`w-12 h-12 fixed flex items-center justify-center rounded-full bg-sky-500 hover:bg-pink-400 transition-all duration-300 cursor-pointer bottom-10 right-6 text-white ${
+			className={`w-12 h-12 fixed flex items-center justify-center rounded-full bg-sky-500 hover:bg-pink-400 transition-all duration-300 cursor-pointer bottom-10 right-6 text-white z-20 ${
 				isVisible
 					? "opacity-100 translate-y-0"
 					: "opacity-0 translate-y-4 pointer-events-none"

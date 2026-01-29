@@ -68,7 +68,8 @@ export const isACardFound = (
 	);
 
 	if (found?.isFolder) return false;
-
+	if (!found?.available) return false;
+	
 	if (asked?.pantheon && !asked.subject) return matchingPantheon;
 	if (!asked?.pantheon && asked?.subject) return matchingSubject;
 	if (asked?.pantheon && asked?.subject)
