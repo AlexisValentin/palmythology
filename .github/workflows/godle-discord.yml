@@ -2,10 +2,9 @@ name: Godle Discord Webhook
 
 on:
   schedule:
-    # Runs at midnight Paris time (23:00 UTC in winter CET, 22:00 UTC in summer CEST)
     - cron: "0 23 * * *"
     - cron: "0 22 * * *"
-  workflow_dispatch: # Allow manual trigger for testing
+  workflow_dispatch:
 
 jobs:
   send-webhook:
@@ -21,7 +20,6 @@ jobs:
           else
             echo "is_midnight=false" >> $GITHUB_OUTPUT
           fi
-
       - name: Trigger Godle Discord Webhook
         if: steps.check-time.outputs.is_midnight == 'true' || github.event_name == 'workflow_dispatch'
         run: |
@@ -29,13 +27,10 @@ jobs:
             -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}" \
             -H "User-Agent: GitHub-Actions-Godle-Webhook/1.0" \
             "https://palmythology.com/api/godle?secret=${{ secrets.CRON_SECRET }}")
-
           http_code=$(echo "$response" | tail -n1)
           body=$(echo "$response" | sed '$d')
-
           echo "Response: $body"
           echo "HTTP Code: $http_code"
-
           if [ "$http_code" -ne 200 ]; then
             echo "Request failed with status $http_code"
             exit 1

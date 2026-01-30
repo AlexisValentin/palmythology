@@ -1,5 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { getDayMonthYearFormat, getParisDate } from "../../../src/utils/dates/dates";
+import {
+	getDayMonthYearFormat,
+	getParisDate,
+} from "../../../src/utils/dates/dates";
 import { getYesterdayEntity } from "../../../src/utils/godle";
 
 type DiscordEmbed = {
@@ -38,7 +41,7 @@ export const GET = async (request: NextRequest) => {
 		}
 
 		const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
-		
+
 		if (!webhookUrl) {
 			return NextResponse.json(
 				{ message: "Discord webhook URL not configured" },
@@ -80,12 +83,15 @@ export const GET = async (request: NextRequest) => {
 		}
 
 		return NextResponse.json(
-			{ message: "Discord webhook sent successfully", entity: yesterdayEntity.name },
+			{
+				message: "Discord webhook sent successfully",
+				entity: yesterdayEntity.name,
+			},
 			{ status: 200 },
 		);
 	} catch (error) {
 		console.error("Error sending Godle webhook:", error);
-		
+
 		return NextResponse.json(
 			{ message: "Internal server error" },
 			{ status: 500 },
