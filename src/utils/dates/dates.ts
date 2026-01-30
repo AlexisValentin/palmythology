@@ -68,3 +68,23 @@ const getParisOffsetMs = (date: Date): number => {
 
 	return parisDate.getTime() - utcDate.getTime();
 };
+
+export const getDayMonthYearFormat = (
+	date: Date,
+): { day: string; month: string; year: string } => {
+	const day = date.getDate().toString().padStart(2, "0");
+	const month = (date.getMonth() + 1).toString().padStart(2, "0");
+	const year = date.getFullYear().toString();
+
+	return { day, month, year };
+};
+
+export const getParisDate = (): Date => {
+	const parisString = new Date().toLocaleString("fr-FR", {
+		timeZone: PARIS_TIMEZONE,
+	});
+
+	return parseFrenchDateTime(parisString);
+};
+
+export const isMidnightInParis = (): boolean => getParisDate().getHours() === 0;
