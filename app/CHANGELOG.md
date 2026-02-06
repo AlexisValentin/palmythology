@@ -5,3 +5,7 @@
 - Création d'un webhook qui se déclenche chaque jour à minuit heure locale.
   - Affichage de l'entité de la veille.
   - Alerte sur le fait que le Godle vient de se réinitialiser.
+
+## Divers
+
+- Mise à jour des dépendances vers leurs version de patch (`X.X.0`).
