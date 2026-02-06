@@ -105,16 +105,18 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 					/>
 				</head>
 				<body>
-					<SocialsIncentivePopin />
-					<MainMenu />
-					<div className="flex flex-col min-h-screen">
-						<div className="px-6 mb-20 sm:px-12 md:px-24 lg:px-40 xl:px-56 2xl:px-72">
-							{children}
+					<NuqsAdapter>
+						<SocialsIncentivePopin />
+						<MainMenu />
+						<div className="flex flex-col min-h-screen">
+							<div className="px-6 mb-20 sm:px-12 md:px-24 lg:px-40 xl:px-56 2xl:px-72">
+								{children}
+							</div>
 						</div>
-					</div>
-					<UpPageButton />
-					<Breadcrumbs />
-					<Footer />
+						<UpPageButton />
+						<Breadcrumbs />
+						<Footer />
+					</NuqsAdapter>
 				</body>
 			</html>
 		</StoryblokProvider>
