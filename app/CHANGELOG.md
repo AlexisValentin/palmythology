@@ -10,3 +10,4 @@
 
 - Mise à jour des dépendances vers leurs versions de patch (`X.X.0`).
 - Mise à jour des dépendances vers leurs versions mineures (`X.0.X`).
+- Mise à jour des dépendances vers leurs versions majeures (`0.X.X`).
