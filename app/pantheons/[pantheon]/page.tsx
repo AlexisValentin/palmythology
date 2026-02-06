@@ -78,7 +78,7 @@ const PantheonPage = async ({ params }: PantheonPagePropsType) => {
 	const pantheon = pageParams.pantheon;
 
 	const [results, pantheonContent] = await Promise.all([
-		fetchAllCardsFromCriterias({ pantheon, subject: "" }),
+		fetchAllCardsFromCriterias({ pantheon, subject: "", genre: "" }),
 		fetchLandingPage("pantheons", pantheon),
 	]);
 

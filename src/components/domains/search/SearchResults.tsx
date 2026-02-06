@@ -15,7 +15,11 @@ import { isStringEmpty } from "../../../utils/string";
 import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
 import Pagination from "../../generics/Pagination";
 
-const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
+const SearchResults: React.FC<ResearchCriterias> = ({
+	pantheon,
+	subject,
+	genre,
+}) => {
 	const [searchResults, setSearchResults] = useState<TranslatedCardDetails[]>(
 		[],
 	);
@@ -23,8 +27,9 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
 	const [currentPage, setCurrentPage] = useState(1);
 
 	const areFiltersUnfilled = useCallback(
-		() => isStringEmpty(pantheon) && isStringEmpty(subject),
-		[pantheon, subject],
+		() =>
+			isStringEmpty(pantheon) && isStringEmpty(subject) && isStringEmpty(genre),
+		[pantheon, subject, genre],
 	);
 
 	useEffect(() => {
@@ -41,7 +46,11 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
 				setTotalResult(0);
 				setSearchResults(results);
 			} else {
-				const cards = await filterCards(currentPage, { pantheon, subject });
+				const cards = await filterCards(currentPage, {
+					pantheon,
+					subject,
+					genre,
+				});
 				const { results, total } = cards;
 
 				setSearchResults(results);
@@ -50,7 +59,7 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
 		};
 
 		updateResultData();
-	}, [pantheon, subject, currentPage, areFiltersUnfilled]);
+	}, [pantheon, subject, genre, currentPage, areFiltersUnfilled]);
 
 	return (
 		<div className="mt-12">

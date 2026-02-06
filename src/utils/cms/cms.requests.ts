@@ -53,15 +53,16 @@ const fetchFilteredCards = async (
 	searchCriterias: ResearchCriterias,
 	currentPage: number,
 ) => {
-	const { pantheon, subject } = searchCriterias;
+	const { pantheon, subject, genre } = searchCriterias;
+	const urlQuery = `${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${
+		STORYBLOK_VERSIONS.PUBLISHED
+	}&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=${currentPage}&filter_query[available][in]=true&${
+		pantheon && `filter_query[pantheon][in]=${pantheon}`
+	}&${subject && `filter_query[subject][in]=${subject}`}&${
+		genre && `filter_query[genre][in]=${genre}`
+	}`;
 
-	const response = await fetch(
-		`${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${
-			STORYBLOK_VERSIONS.PUBLISHED
-		}&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=${currentPage}&filter_query[available][in]=true&${
-			pantheon && `filter_query[pantheon][in]=${pantheon}`
-		}&${subject && `filter_query[subject][in]=${subject}`}`,
-	);
+	const response = await fetch(urlQuery);
 
 	if (!response.ok) {
 		throw new Error(`HTTP error! status: ${response.status}`);
@@ -136,6 +137,7 @@ export const fetchCardsFromCriterias = async (
 			"card-stories",
 			searchCriterias.pantheon || "all",
 			searchCriterias.subject || "all",
+			searchCriterias.genre || "all",
 			currentPage.toString(),
 		],
 		{
@@ -151,7 +153,7 @@ export const fetchAllCardsFromCriterias = async (
 	const cacheTags = await getCacheTags();
 
 	const requestAllCards = async (): Promise<CardDetails[]> => {
-		const { pantheon, subject } = searchCriterias;
+		const { pantheon, subject, genre } = searchCriterias;
 		let allCards: CardDetails[] = [];
 		let currentPage = 1;
 		let hasMorePages = true;
@@ -163,9 +165,10 @@ export const fetchAllCardsFromCriterias = async (
 			const subjectFilter = subject
 				? `filter_query[subject][in]=${subject}`
 				: "";
+			const genreFilter = genre ? `filter_query[genre][in]=${genre}` : "";
 
 			const response = await fetch(
-				`${getStoryblokBaseUrl()}?starts_with=card&token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_SITEMAP_MAX_ITEMS}&page=${currentPage}&${pantheonFilter}&${subjectFilter}`,
+				`${getStoryblokBaseUrl()}?starts_with=card&token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_SITEMAP_MAX_ITEMS}&page=${currentPage}&${pantheonFilter}&${subjectFilter}&${genreFilter}`,
 			);
 
 			if (!response.ok) {
@@ -195,6 +198,7 @@ export const fetchAllCardsFromCriterias = async (
 			"all-cards-from-criteria",
 			searchCriterias.pantheon || "all",
 			searchCriterias.subject || "all",
+			searchCriterias.genre || "all",
 		],
 		{
 			tags: [cacheTags.CARDS.TAG, cacheTags.ALL.TAG],
@@ -309,10 +313,27 @@ export const fetchAvailableCards = async (): Promise<
 };
 
 const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
-	const { name, subtitle, icon, pantheon, subject, available, isFolder } =
-		card.content;
+	const {
+		name,
+		subtitle,
+		icon,
+		pantheon,
+		subject,
+		genre,
+		available,
+		isFolder,
+	} = card.content;
 
-	return { name, subtitle, icon, pantheon, subject, available, isFolder };
+	return {
+		name,
+		subtitle,
+		icon,
+		pantheon,
+		subject,
+		genre,
+		available,
+		isFolder,
+	};
 };
 
 const parseQuoi2NeufData = (
@@ -364,6 +385,7 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 								name: string;
 								pantheon: string;
 								subject: string;
+								genre: string;
 								icon: { alt: string; filename: string };
 								godle?: GodlePropertiesType[];
 							};
@@ -378,7 +400,6 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 							) {
 								const godleData = story.content.godle[0];
 								transformedGodle = {
-									genre: godleData.genre,
 									domain: godleData.domain || [],
 								};
 							}
@@ -387,6 +408,7 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 								name: story.content.name,
 								pantheon: story.content.pantheon,
 								subject: story.content.subject,
+								genre: story.content.genre,
 								slug: story.full_slug,
 								icon: story.content.icon,
 								godle: transformedGodle,

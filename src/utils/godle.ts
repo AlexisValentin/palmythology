@@ -24,12 +24,12 @@ const compareEntityToTarget = (
 	const hasGodleProperties =
 		guessedEntity.godle !== undefined && target.godle !== undefined;
 
-	let genreMatch: MatchResult = "none";
+	const genreMatch: MatchResult =
+		guessedEntity.genre === target.genre ? "exact" : "none";
+
 	let domainMatch: MatchResult = "none";
 
 	if (hasGodleProperties && guessedEntity.godle && target.godle) {
-		genreMatch =
-			guessedEntity.godle.genre === target.godle.genre ? "exact" : "none";
 		domainMatch = compareArraysForMatch(
 			guessedEntity.godle.domain,
 			target.godle.domain,

@@ -14,14 +14,12 @@ export const compareGuess = (
 	const hasGodleProperties =
 		guess.godle !== undefined && target.godle !== undefined;
 
-	let genreMatch = MatchType.NONE;
+	const genreMatch =
+		guess.genre === target.genre ? MatchType.EXACT : MatchType.NONE;
+
 	let domainMatch = MatchType.NONE;
 
 	if (hasGodleProperties && guess.godle && target.godle) {
-		genreMatch =
-			guess.godle.genre === target.godle.genre
-				? MatchType.EXACT
-				: MatchType.NONE;
 		domainMatch = compareArraysForMatch(
 			guess.godle.domain,
 			target.godle.domain,

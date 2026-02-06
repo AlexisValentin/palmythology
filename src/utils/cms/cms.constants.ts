@@ -1,4 +1,5 @@
 import type { DomainValue } from "../cards/domains.constants";
+import type { GenreValue } from "../cards/genres.constants";
 import type { PantheonValue } from "../cards/pantheons.constants";
 import type { SubjectValue } from "../cards/subjects.constants";
 
@@ -17,11 +18,10 @@ export interface StoryblokImageType {
 }
 
 export interface GodlePropertiesType {
-	_uid?: string;
-	component?: string;
-	genre: "male" | "female" | "androgynous" | "none" | "undefined";
-	domain: DomainValue[];
-}
+		_uid?: string;
+		component?: string;
+		domain: DomainValue[];
+	}
 
 interface StoryblokLinkType {
 	alt: string;
@@ -61,18 +61,19 @@ export interface AboutItemType {
 }
 
 export interface StoryblokCardComponentType {
-	content: {
-		component: string;
-		name: string;
-		subtitle: string;
-		icon: StoryblokImageType;
-		pantheon: PantheonValue;
-		subject: SubjectValue;
-		available: boolean;
-		isFolder: boolean;
-		godle?: GodlePropertiesType[];
-	};
-}
+		content: {
+			component: string;
+			name: string;
+			subtitle: string;
+			icon: StoryblokImageType;
+			pantheon: PantheonValue;
+			subject: SubjectValue;
+			genre: GenreValue;
+			available: boolean;
+			isFolder: boolean;
+			godle?: GodlePropertiesType[];
+		};
+	}
 
 export interface StoryblokQ2NComponentType {
 	content: {
