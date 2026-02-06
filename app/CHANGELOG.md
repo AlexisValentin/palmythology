@@ -1,4 +1,13 @@
-# Notes de version 2.18.0 (??/02/2026)
+# Notes de version 2.18.0 (15/02/2026)
+
+## Recherche
+
+- Les critères de recherche sont désormais sauvegardés dans l'url.
+  - Cela intègre les champs `pantheon` et `subject`.
+    - Une recherche sur le panthéon "Grec" sur le sujet "Personnage" générera l'url `/search?subject=person&pantheon=greek`.
+  - Permet le retour navigateur tout en conservant les critères de recherches précédents.
+  - Permet le partage de l'url du navigateur.
+  - Permet un référencement de variantes de la page.
 
 ## Godle
 

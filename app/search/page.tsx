@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type React from "react";
+import { Suspense } from "react";
 import Filter from "../../src/components/domains/search/Filter";
 import PageHeader from "../../src/components/generics/PageHeader";
 
@@ -67,7 +68,9 @@ const SearchPage: React.FC = () => {
 				title="Recherche"
 				subtitle="Recherchez votre fiche préférée de la Palmythology"
 			/>
-			<Filter />
+			<Suspense>
+				<Filter />
+			</Suspense>
 		</>
 	);
 };

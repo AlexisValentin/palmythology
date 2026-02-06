@@ -4,6 +4,7 @@ import type { SubjectSelectType } from "../../../utils/cards/subjects.constants"
 interface SelectFilterProps {
 	selectLabel: string;
 	selectName: string;
+	value?: string;
 	onChange: (selected: string) => void;
 	options: PantheonSelectType[] | SubjectSelectType[];
 }
@@ -11,6 +12,7 @@ interface SelectFilterProps {
 const SelectFilter: React.FC<SelectFilterProps> = ({
 	selectLabel,
 	selectName,
+	value,
 	onChange,
 	options,
 }) => (
@@ -21,6 +23,7 @@ const SelectFilter: React.FC<SelectFilterProps> = ({
 		<select
 			className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
 			name={selectName}
+			value={value}
 			onChange={(e) => onChange(e.target.value)}
 		>
 			<option value={""} label={`--- ${selectLabel} ---`} />
