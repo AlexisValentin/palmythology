@@ -8,4 +8,5 @@
 
 ## Divers
 
-- Mise à jour des dépendances vers leurs version de patch (`X.X.0`).
+- Mise à jour des dépendances vers leurs versions de patch (`X.X.0`).
+- Mise à jour des dépendances vers leurs versions mineures (`X.0.X`).
