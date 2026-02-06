@@ -1,3 +1,4 @@
+import type { GenreSelectType } from "../../../utils/cards/genres.constants";
 import type { PantheonSelectType } from "../../../utils/cards/pantheons.constants";
 import type { SubjectSelectType } from "../../../utils/cards/subjects.constants";
 
@@ -6,7 +7,7 @@ interface SelectFilterProps {
 	selectName: string;
 	value?: string;
 	onChange: (selected: string) => void;
-	options: PantheonSelectType[] | SubjectSelectType[];
+	options: PantheonSelectType[] | SubjectSelectType[] | GenreSelectType[];
 }
 
 const SelectFilter: React.FC<SelectFilterProps> = ({

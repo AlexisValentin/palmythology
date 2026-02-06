@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getDomainLabelFromValue } from "../../../utils/cards/domains";
+import { getGenreLabelFromValue } from "../../../utils/cards/genres";
 import { getPantheonLabelFromValue } from "../../../utils/cards/pantheons";
 import { getSubjectLabelFromValue } from "../../../utils/cards/subjects";
 import type { GuessResult } from "../../../utils/godle/godle.types";
@@ -35,19 +36,8 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 		return `${baseClasses} bg-gradient-to-br from-red-500 to-red-600 text-white border-red-700 shadow-lg shadow-red-500/30`;
 	};
 
-	const getGenreLabel = (genre?: string): string => {
-		if (!genre) return "/";
-
-		const labels: Record<string, string> = {
-			male: "Masculin",
-			female: "Féminin",
-			androgynous: "Androgyne",
-			none: "Aucun",
-			undefined: "Indéfini",
-		};
-
-		return labels[genre] || genre;
-	};
+	const getGenreLabel = (genre?: string): string =>
+		genre ? (getGenreLabelFromValue(genre as never) ?? genre) : "/";
 
 	const getDomainLabel = (domains?: string[]): string => {
 		if (!domains || domains.length === 0) return "/";
@@ -126,7 +116,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.genreMatch)}`}
 									/>
 									<span className="truncate">
-										{getGenreLabel(guess.entity.godle?.genre)}
+										{getGenreLabel(guess.entity.genre)}
 									</span>
 								</div>
 								<div className="flex items-baseline gap-1.5 col-span-2">
@@ -186,7 +176,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 					}}
 				/>
 				<GodleGuessCell
-					label={getGenreLabel(guess.entity.godle?.genre)}
+					label={getGenreLabel(guess.entity.genre)}
 					matchType={guess.genreMatch}
 					animationDelay={300}
 				/>

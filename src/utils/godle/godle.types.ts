@@ -1,9 +1,9 @@
 import type { DomainValue } from "../cards/domains.constants";
+import type { GenreValue } from "../cards/genres.constants";
 import type { PantheonValue } from "../cards/pantheons.constants";
 import type { SubjectValue } from "../cards/subjects.constants";
 
 export interface GodleProperties {
-	genre: "male" | "female" | "androgynous" | "none" | "undefined";
 	domain: DomainValue[];
 }
 
@@ -11,6 +11,7 @@ export interface GodleEntity {
 	name: string;
 	pantheon: PantheonValue;
 	subject: SubjectValue;
+	genre: GenreValue;
 	slug: string;
 	icon: {
 		alt: string;

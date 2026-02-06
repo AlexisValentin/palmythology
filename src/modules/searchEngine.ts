@@ -2,6 +2,7 @@ import type {
 	CardDetails,
 	ResearchCriterias,
 } from "../utils/cards/card.constants";
+import { getGenreLabelFromValue } from "../utils/cards/genres";
 import { getPantheonLabelFromValue } from "../utils/cards/pantheons";
 import { getSubjectLabelFromValue } from "../utils/cards/subjects";
 import {
@@ -14,7 +15,7 @@ export const filterCards = async (
 	searchCriterias?: ResearchCriterias,
 ) => {
 	const cardStories = await fetchCardsFromCriterias(
-		searchCriterias ?? { pantheon: "", subject: "" },
+		searchCriterias ?? { pantheon: "", subject: "", genre: "" },
 		currentPage,
 	);
 
@@ -23,12 +24,13 @@ export const filterCards = async (
 		results: cardStories.results
 			.map((card: CardDetails) => {
 				if (isACardFound(searchCriterias, card)) {
-					const { pantheon, subject } = card;
+					const { pantheon, subject, genre } = card;
 
 					return {
 						...card,
 						pantheon: getPantheonLabelFromValue(pantheon),
 						subject: getSubjectLabelFromValue(subject),
+						genre: getGenreLabelFromValue(genre),
 					};
 				}
 
@@ -43,12 +45,13 @@ export const getPlaceholderCards = async () => {
 
 	return {
 		results: stories.results.map((card: CardDetails) => {
-			const { pantheon, subject } = card;
+			const { pantheon, subject, genre } = card;
 
 			return {
 				...card,
 				pantheon: getPantheonLabelFromValue(pantheon),
 				subject: getSubjectLabelFromValue(subject),
+				genre: getGenreLabelFromValue(genre),
 			};
 		}),
 	};
@@ -58,29 +61,31 @@ export const isACardFound = (
 	asked?: ResearchCriterias,
 	found?: CardDetails,
 ): boolean => {
-	const matchingPantheon = isSelectedOptionMatching(
-		asked?.pantheon,
-		found?.pantheon,
-	);
-	const matchingSubject = isSelectedOptionMatching(
-		asked?.subject,
-		found?.subject,
-	);
-
 	if (found?.isFolder) return false;
 	if (!found?.available) return false;
-	
-	if (asked?.pantheon && !asked.subject) return matchingPantheon;
-	if (!asked?.pantheon && asked?.subject) return matchingSubject;
-	if (asked?.pantheon && asked?.subject)
-		return matchingPantheon && matchingSubject;
 
-	return false;
+	const hasAnyFilter = asked?.pantheon || asked?.subject || asked?.genre;
+	if (!hasAnyFilter) return false;
+
+	if (
+		asked?.pantheon &&
+		!isSelectedOptionMatching(asked.pantheon, found?.pantheon)
+	)
+		return false;
+
+	if (
+		asked?.subject &&
+		!isSelectedOptionMatching(asked.subject, found?.subject)
+	)
+		return false;
+
+	if (asked?.genre && !isSelectedOptionMatching(asked.genre, found?.genre))
+		return false;
+
+	return true;
 };
 
 export const isSelectedOptionMatching = (
 	asked?: string,
 	found?: string,
-): boolean => {
-	return asked === found;
-};
+): boolean => asked === found;

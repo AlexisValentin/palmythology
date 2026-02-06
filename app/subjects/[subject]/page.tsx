@@ -78,7 +78,7 @@ const SubjectPage = async ({ params }: SubjectPagePropsType) => {
 	const subject = pageParams.subject;
 
 	const [results, subjectContent] = await Promise.all([
-		fetchAllCardsFromCriterias({ pantheon: "", subject }),
+		fetchAllCardsFromCriterias({ pantheon: "", subject, genre: "" }),
 		fetchLandingPage("subjects", subject),
 	]);
 

@@ -2,8 +2,9 @@
 
 ## Recherche
 
+- Ajout du `genre` en tant que nouveau critère de recherche.
 - Les critères de recherche sont désormais sauvegardés dans l'url.
-  - Cela intègre les champs `pantheon` et `subject`.
+  - Cela intègre les champs `pantheon`,`subject` et `genre`.
     - Une recherche sur le panthéon "Grec" sur le sujet "Personnage" générera l'url `/search?subject=person&pantheon=greek`.
   - Permet le retour navigateur tout en conservant les critères de recherches précédents.
   - Permet le partage de l'url du navigateur.
