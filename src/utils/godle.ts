@@ -13,7 +13,8 @@ interface ComparisonResult {
 	pantheonMatch: MatchResult;
 	subjectMatch: MatchResult;
 	genreMatch: MatchResult;
-	domainMatch: MatchResult;
+	mainDomainMatch: MatchResult;
+	attributesMatch: MatchResult;
 	isCorrect: boolean;
 }
 
@@ -21,20 +22,16 @@ const compareEntityToTarget = (
 	guessedEntity: GodleEntity,
 	target: GodleEntity,
 ): ComparisonResult => {
-	const hasGodleProperties =
-		guessedEntity.godle !== undefined && target.godle !== undefined;
-
 	const genreMatch: MatchResult =
 		guessedEntity.genre === target.genre ? "exact" : "none";
 
-	let domainMatch: MatchResult = "none";
+	const mainDomainMatch: MatchResult =
+		guessedEntity.mainDomain === target.mainDomain ? "exact" : "none";
 
-	if (hasGodleProperties && guessedEntity.godle && target.godle) {
-		domainMatch = compareArraysForMatch(
-			guessedEntity.godle.domain,
-			target.godle.domain,
-		);
-	}
+	const attributesMatch: MatchResult = compareArraysForMatch(
+		guessedEntity.attributes,
+		target.attributes,
+	);
 
 	return {
 		guessedEntity,
@@ -42,7 +39,8 @@ const compareEntityToTarget = (
 			guessedEntity.pantheon === target.pantheon ? "exact" : "none",
 		subjectMatch: guessedEntity.subject === target.subject ? "exact" : "none",
 		genreMatch,
-		domainMatch,
+		mainDomainMatch,
+		attributesMatch,
 		isCorrect: guessedEntity.name === target.name,
 	};
 };

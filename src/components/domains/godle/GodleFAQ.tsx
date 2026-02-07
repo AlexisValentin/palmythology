@@ -5,7 +5,7 @@ import GodleRules from "./GodleRules";
 const GodleFAQ = () => {
 	const mainQuestion = "Comment jouer ?";
 	const mainResponse =
-		"Devinez l'entité mythologique du jour en sélectionnant des entités dans la liste. Après chaque tentative, la couleur des attributs indiquera si vous êtes proche ou non de la réponse. Les attributs comparés sont le panthéon, le sujet, le genre et les domaines.";
+		"Devinez l'entité mythologique du jour en sélectionnant des entités dans la liste. Après chaque tentative, la couleur des attributs indiquera si vous êtes proche ou non de la réponse. Les attributs comparés sont le panthéon, le sujet, le genre, le domaine principal et les attributs.";
 
 	const faqItems = [
 		{
@@ -20,7 +20,7 @@ const GodleFAQ = () => {
 		{
 			question: "Quels sont les attributs comparés dans Godle ?",
 			answer:
-				"Quatre attributs sont comparés à chaque tentative : le panthéon (mythologie grecque, égyptienne, nordique, etc.), le sujet (divinité, créature, héros, lieu ou événement), le genre (masculin, féminin, androgyne ou autre) et les domaines d'attribution (amour, guerre, mort, nature, etc.). Chaque attribut peut afficher une correspondance exacte (vert), partielle (jaune) ou aucune correspondance (rouge).",
+				"Cinq attributs sont comparés à chaque tentative : le panthéon (mythologie grecque, égyptienne, nordique, etc.), le sujet (divinité, créature, héros, lieu ou événement), le genre (masculin, féminin, androgyne ou autre), le domaine principal et les attributs (amour, guerre, mort, nature, etc.). Chaque attribut peut afficher une correspondance exacte (vert), partielle (jaune) ou aucune correspondance (rouge).",
 		},
 		{
 			question: "Comment sont calculées les statistiques et les séries ?",

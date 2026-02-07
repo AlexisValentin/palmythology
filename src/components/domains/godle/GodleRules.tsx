@@ -61,9 +61,7 @@ const GodleRules: FC = () => (
 		</section>
 		<section>
 			<h3 className="font-semibold text-lg mb-2">Attributs comparés</h3>
-			<p className="mb-2">
-				Quatre attributs sont analysés à chaque tentative :
-			</p>
+			<p className="mb-2">Cinq attributs sont analysés à chaque tentative :</p>
 			<ul className="list-disc list-inside space-y-2 ml-2">
 				<li>
 					<strong>Panthéon</strong> : La mythologie d&apos;origine (grecque,
@@ -79,10 +77,13 @@ const GodleRules: FC = () => (
 					l&apos;entité (masculin, féminin, androgyne, aucun, indéfini)
 				</li>
 				<li>
-					<strong>Domaines</strong> : Les domaines d&apos;attribution ou sphères
-					d&apos;influence (amour, guerre, sagesse, mort, nature, etc.). Une
-					correspondance partielle (jaune) indique qu&apos;au moins un domaine
-					correspond.
+					<strong>Domaine principal</strong> : Le domaine d&apos;attribution
+					principal de l&apos;entité (guerre, amour, sagesse, etc.)
+				</li>
+				<li>
+					<strong>Attributs</strong> : L&apos;ensemble des attributs ou sphères
+					d&apos;influence. Une correspondance partielle (jaune) indique
+					qu&apos;au moins un attribut correspond.
 				</li>
 			</ul>
 		</section>
@@ -106,8 +107,8 @@ const GodleRules: FC = () => (
 				consiste à deviner avec le moins d&apos;essais possible. Commencez par
 				des entités connues de différents panthéons pour éliminer les
 				possibilités. Utilisez les indices de couleur pour affiner vos
-				hypothèses. Les domaines en jaune vous donnent des pistes précieuses sur
-				les attributions de l&apos;entité recherchée.
+				hypothèses. Les attributs en jaune vous donnent des pistes précieuses
+				sur l&apos;entité recherchée.
 			</p>
 		</section>
 
