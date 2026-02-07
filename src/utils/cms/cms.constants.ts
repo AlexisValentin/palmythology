@@ -1,4 +1,4 @@
-import type { DomainValue } from "../cards/domains.constants";
+import type { AttributeValue } from "../cards/attributes.constants";
 import type { GenreValue } from "../cards/genres.constants";
 import type { PantheonValue } from "../cards/pantheons.constants";
 import type { SubjectValue } from "../cards/subjects.constants";
@@ -16,12 +16,6 @@ export interface StoryblokImageType {
 	alt: string;
 	filename: string;
 }
-
-export interface GodlePropertiesType {
-		_uid?: string;
-		component?: string;
-		domain: DomainValue[];
-	}
 
 interface StoryblokLinkType {
 	alt: string;
@@ -71,7 +65,8 @@ export interface StoryblokCardComponentType {
 			genre: GenreValue;
 			available: boolean;
 			isFolder: boolean;
-			godle?: GodlePropertiesType[];
+			mainDomain?: AttributeValue;
+			attributes?: AttributeValue[];
 		};
 	}
 

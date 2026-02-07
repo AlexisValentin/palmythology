@@ -92,7 +92,8 @@ const GodleGame: React.FC<GodleGameProps> = ({
 					pantheonMatch: toMatchType(r.pantheonMatch),
 					subjectMatch: toMatchType(r.subjectMatch),
 					genreMatch: toMatchType(r.genreMatch),
-					domainMatch: toMatchType(r.domainMatch),
+					mainDomainMatch: toMatchType(r.mainDomainMatch),
+					attributesMatch: toMatchType(r.attributesMatch),
 					isCorrect: r.isCorrect,
 				}));
 
@@ -119,7 +120,8 @@ const GodleGame: React.FC<GodleGameProps> = ({
 				pantheonMatch: toMatchType(result.pantheonMatch),
 				subjectMatch: toMatchType(result.subjectMatch),
 				genreMatch: toMatchType(result.genreMatch),
-				domainMatch: toMatchType(result.domainMatch),
+				mainDomainMatch: toMatchType(result.mainDomainMatch),
+				attributesMatch: toMatchType(result.attributesMatch),
 				isCorrect: result.isCorrect,
 			};
 

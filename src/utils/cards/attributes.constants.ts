@@ -1,5 +1,4 @@
-// Domain values from Storyblok - stored in French Pascal case
-export type DomainValue =
+export type AttributeValue =
 	| "Guerre"
 	| "Amour"
 	| "Sagesse"

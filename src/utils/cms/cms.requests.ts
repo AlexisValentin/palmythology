@@ -3,14 +3,13 @@
 import { unstable_cache } from "next/cache";
 import type { CardDetails, ResearchCriterias } from "../cards/card.constants";
 import { getParisDateString } from "../dates/dates";
-import type { GodleEntity, GodleProperties } from "../godle/godle.types";
+import type { GodleEntity } from "../godle/godle.types";
 import { parseStringToSlug, replaceHyphenByDashes } from "../string";
 import { getCacheTags } from "./cache";
 import { getStoryblokBaseUrl, getStoryblokToken } from "./cms";
 import {
 	type AvailableCardForSitemap,
 	type CategoryPageContentType,
-	type GodlePropertiesType,
 	type Quoi2NeufStoryType,
 	STORYBLOK_MAX_ITEMS_PER_REQUEST,
 	STORYBLOK_RESULTS_PER_PAGE,
@@ -387,35 +386,25 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 								subject: string;
 								genre: string;
 								icon: { alt: string; filename: string };
-								godle?: GodlePropertiesType[];
+								mainDomain?: string;
+								attributes?: string[];
 							};
 							full_slug: string;
-						}) => {
-							let transformedGodle: GodleProperties | undefined;
-
-							if (
-								story.content.godle &&
-								Array.isArray(story.content.godle) &&
-								story.content.godle.length > 0
-							) {
-								const godleData = story.content.godle[0];
-								transformedGodle = {
-									domain: godleData.domain || [],
-								};
-							}
-
-							return {
-								name: story.content.name,
-								pantheon: story.content.pantheon,
-								subject: story.content.subject,
-								genre: story.content.genre,
-								slug: story.full_slug,
-								icon: story.content.icon,
-								godle: transformedGodle,
-							};
-						},
+						}) => ({
+							name: story.content.name,
+							pantheon: story.content.pantheon,
+							subject: story.content.subject,
+							genre: story.content.genre,
+							slug: story.full_slug,
+							icon: story.content.icon,
+							mainDomain: story.content.mainDomain,
+							attributes: story.content.attributes || [],
+						}),
 					)
-					.filter((entity: GodleEntity) => entity.godle !== undefined);
+					.filter(
+						(entity: { mainDomain?: string }) =>
+							entity.mainDomain !== undefined,
+					);
 
 				allEntities = [...allEntities, ...entities];
 				const totalFetched = currentPage * STORYBLOK_SITEMAP_MAX_ITEMS;
