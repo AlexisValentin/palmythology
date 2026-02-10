@@ -7,6 +7,8 @@
 
 ## Recherche
 
+- Ajout d'un champ de recherche similaire à celui présent dans la page Godle.
+  -Sélectionner l'une des options charge la page de la carte sélectionnée.
 - Ajout du `genre` en tant que nouveau critère de recherche.
 - Les critères de recherche sont désormais sauvegardés dans l'url.
   - Cela intègre les champs `pantheon`,`subject` et `genre`.

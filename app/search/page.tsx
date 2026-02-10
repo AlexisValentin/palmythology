@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type React from "react";
 import { Suspense } from "react";
 import Filter from "../../src/components/domains/search/Filter";
+import SearchAutocomplete from "../../src/components/domains/search/SearchAutocomplete";
 import PageHeader from "../../src/components/generics/PageHeader";
 
 export const metadata: Metadata = {
@@ -68,6 +69,13 @@ const SearchPage: React.FC = () => {
 				title="Recherche"
 				subtitle="Recherchez votre fiche préférée de la Palmythology"
 			/>
+			<div className="flex flex-col items-center justify-center mt-12">
+				<div className="w-full px-4 md:w-3/4 lg:w-2/3 xl:w-1/2">
+					<Suspense>
+						<SearchAutocomplete />
+					</Suspense>
+				</div>
+			</div>
 			<Suspense>
 				<Filter />
 			</Suspense>
