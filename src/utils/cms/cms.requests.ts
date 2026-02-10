@@ -429,6 +429,86 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 	)();
 };
 
+export const fetchAllAvailableCardsForSearch = async (): Promise<
+	GodleEntity[]
+> => {
+	const cacheTags = await getCacheTags();
+	const todayKey = getParisDateString();
+
+	const requestAllCards = async (): Promise<GodleEntity[]> => {
+		try {
+			let allCards: GodleEntity[] = [];
+			let currentPage = 1;
+			let hasMorePages = true;
+
+			while (hasMorePages) {
+				const cvParam = process.env.ENV === "dev" ? `&cv=${Date.now()}` : "";
+				const response = await fetch(
+					`${getStoryblokBaseUrl()}?starts_with=cards&token=${getStoryblokToken()}&version=${
+						STORYBLOK_VERSIONS.PUBLISHED
+					}&per_page=${STORYBLOK_SITEMAP_MAX_ITEMS}&page=${currentPage}&filter_query[component][in]=card&filter_query[available][in]=true${cvParam}`,
+				);
+
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+
+				const data = await response.json();
+				const stories = data.stories || [];
+				const total = Number.parseInt(response.headers.get("total") || "0", 10);
+
+				const cards = stories
+					.filter(
+						(story: { content: { available: boolean } }) =>
+							story.content.available === true,
+					)
+					.map(
+						(story: {
+							content: {
+								name: string;
+								pantheon: string;
+								subject: string;
+								genre: string;
+								icon: { alt: string; filename: string };
+								mainDomain?: string;
+								attributes?: string[];
+							};
+							full_slug: string;
+						}) => ({
+							name: story.content.name,
+							pantheon: story.content.pantheon,
+							subject: story.content.subject,
+							genre: story.content.genre,
+							slug: story.full_slug,
+							icon: story.content.icon,
+							mainDomain: story.content.mainDomain,
+							attributes: story.content.attributes || [],
+						}),
+					);
+
+				allCards = [...allCards, ...cards];
+				const totalFetched = currentPage * STORYBLOK_SITEMAP_MAX_ITEMS;
+				hasMorePages = totalFetched < total;
+				currentPage++;
+			}
+
+			return allCards;
+		} catch (error) {
+			console.error("Error fetching cards for search:", error);
+			return [];
+		}
+	};
+
+	return unstable_cache(
+		async () => requestAllCards(),
+		["search-cards", todayKey],
+		{
+			tags: [cacheTags.SEARCH.TAG, cacheTags.ALL.TAG],
+			revalidate: cacheTags.SEARCH.DURATION,
+		},
+	)();
+};
+
 export type LandingPageType = "pantheons" | "subjects";
 
 export const fetchLandingPage = async (
