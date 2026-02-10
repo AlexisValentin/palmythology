@@ -1,5 +1,10 @@
 # Notes de version 2.18.0 (15/02/2026)
 
+## Quoi 2 Neuf
+
+- Ajout des sous-titres sur grands écrans.
+- Ajustement de styles CSS.
+
 ## Recherche
 
 - Ajout du `genre` en tant que nouveau critère de recherche.

@@ -75,17 +75,17 @@ const AboutPage = () => {
 			/>
 			<div className="flex flex-col">
 				<PageSection
-					name="100% français"
+					title="100% français"
 					description="Cocorico ! Le site web de la Palmythology est réalisé par un seul et unique développeur français."
 					icon={FrenchHeartIcon as unknown as NextImageType}
 				/>
 				<PageSection
-					name="Garanti sans publicité"
+					title="Garanti sans publicité"
 					description="La Palmythology vous garantit une navigation sans aucune pollution visuelle."
 					icon={NoAdsIcon as unknown as NextImageType}
 				/>
 				<PageSection
-					name="Données anonymisées"
+					title="Données anonymisées"
 					description="Le site récolte des statistiques de navigation sans pour autant impacter vos données personnelles."
 					icon={AnonymousIcon as unknown as NextImageType}
 				/>
