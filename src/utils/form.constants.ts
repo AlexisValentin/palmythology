@@ -1,6 +1,7 @@
 export const BASE_INPUT_NAMES = {
 	PANTHEON: "pantheon",
 	SUBJECT: "subject",
+	GENRE: "genre",
 };
 
 export const EMPTY_STRING = "";

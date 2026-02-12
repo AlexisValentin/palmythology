@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+.github
+.husky
+.vscode
+.claude
+coverage
+nul
+*.md
+.env
+.biome*

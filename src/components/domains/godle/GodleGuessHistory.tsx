@@ -40,7 +40,7 @@ const GodleGuessHistory: React.FC<GodleGuessHistoryProps> = ({ guesses }) => {
 			<h3 className="flex justify-center text-lg md:text-xl font-bold mb-6 md:mb-12 text-neutral-800">
 				Tentative #{guesses.length}
 			</h3>
-			<div className="hidden md:grid md:grid-cols-5 gap-2 mb-4 px-1">
+			<div className="hidden md:grid md:grid-cols-6 gap-2 mb-4 px-1">
 				<GodleGuessHistoryHeader
 					icon={MysteriousFaceIcon}
 					iconAlt="Icône de visage mystérieux"
@@ -64,7 +64,12 @@ const GodleGuessHistory: React.FC<GodleGuessHistoryProps> = ({ guesses }) => {
 				<GodleGuessHistoryHeader
 					icon={GoldMedalIcon}
 					iconAlt="Icône de médaille d'or"
-					headerLabel="Domaines"
+					headerLabel="Domaine principal"
+				/>
+				<GodleGuessHistoryHeader
+					icon={GoldMedalIcon}
+					iconAlt="Icône de médaille d'or"
+					headerLabel="Attributs"
 				/>
 			</div>
 			<div className="space-y-3">

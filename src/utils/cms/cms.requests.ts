@@ -3,14 +3,13 @@
 import { unstable_cache } from "next/cache";
 import type { CardDetails, ResearchCriterias } from "../cards/card.constants";
 import { getParisDateString } from "../dates/dates";
-import type { GodleEntity, GodleProperties } from "../godle/godle.types";
+import type { GodleEntity } from "../godle/godle.types";
 import { parseStringToSlug, replaceHyphenByDashes } from "../string";
 import { getCacheTags } from "./cache";
 import { getStoryblokBaseUrl, getStoryblokToken } from "./cms";
 import {
 	type AvailableCardForSitemap,
 	type CategoryPageContentType,
-	type GodlePropertiesType,
 	type Quoi2NeufStoryType,
 	STORYBLOK_MAX_ITEMS_PER_REQUEST,
 	STORYBLOK_RESULTS_PER_PAGE,
@@ -53,15 +52,16 @@ const fetchFilteredCards = async (
 	searchCriterias: ResearchCriterias,
 	currentPage: number,
 ) => {
-	const { pantheon, subject } = searchCriterias;
+	const { pantheon, subject, genre } = searchCriterias;
+	const urlQuery = `${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${
+		STORYBLOK_VERSIONS.PUBLISHED
+	}&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=${currentPage}&filter_query[available][in]=true&${
+		pantheon && `filter_query[pantheon][in]=${pantheon}`
+	}&${subject && `filter_query[subject][in]=${subject}`}&${
+		genre && `filter_query[genre][in]=${genre}`
+	}`;
 
-	const response = await fetch(
-		`${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${
-			STORYBLOK_VERSIONS.PUBLISHED
-		}&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=${currentPage}&filter_query[available][in]=true&${
-			pantheon && `filter_query[pantheon][in]=${pantheon}`
-		}&${subject && `filter_query[subject][in]=${subject}`}`,
-	);
+	const response = await fetch(urlQuery);
 
 	if (!response.ok) {
 		throw new Error(`HTTP error! status: ${response.status}`);
@@ -136,6 +136,7 @@ export const fetchCardsFromCriterias = async (
 			"card-stories",
 			searchCriterias.pantheon || "all",
 			searchCriterias.subject || "all",
+			searchCriterias.genre || "all",
 			currentPage.toString(),
 		],
 		{
@@ -151,7 +152,7 @@ export const fetchAllCardsFromCriterias = async (
 	const cacheTags = await getCacheTags();
 
 	const requestAllCards = async (): Promise<CardDetails[]> => {
-		const { pantheon, subject } = searchCriterias;
+		const { pantheon, subject, genre } = searchCriterias;
 		let allCards: CardDetails[] = [];
 		let currentPage = 1;
 		let hasMorePages = true;
@@ -163,9 +164,10 @@ export const fetchAllCardsFromCriterias = async (
 			const subjectFilter = subject
 				? `filter_query[subject][in]=${subject}`
 				: "";
+			const genreFilter = genre ? `filter_query[genre][in]=${genre}` : "";
 
 			const response = await fetch(
-				`${getStoryblokBaseUrl()}?starts_with=card&token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_SITEMAP_MAX_ITEMS}&page=${currentPage}&${pantheonFilter}&${subjectFilter}`,
+				`${getStoryblokBaseUrl()}?starts_with=card&token=${getStoryblokToken()}&version=${STORYBLOK_VERSIONS.PUBLISHED}&per_page=${STORYBLOK_SITEMAP_MAX_ITEMS}&page=${currentPage}&${pantheonFilter}&${subjectFilter}&${genreFilter}`,
 			);
 
 			if (!response.ok) {
@@ -195,6 +197,7 @@ export const fetchAllCardsFromCriterias = async (
 			"all-cards-from-criteria",
 			searchCriterias.pantheon || "all",
 			searchCriterias.subject || "all",
+			searchCriterias.genre || "all",
 		],
 		{
 			tags: [cacheTags.CARDS.TAG, cacheTags.ALL.TAG],
@@ -309,10 +312,27 @@ export const fetchAvailableCards = async (): Promise<
 };
 
 const parseCardData = (card: StoryblokCardComponentType): CardDetails => {
-	const { name, subtitle, icon, pantheon, subject, available, isFolder } =
-		card.content;
+	const {
+		name,
+		subtitle,
+		icon,
+		pantheon,
+		subject,
+		genre,
+		available,
+		isFolder,
+	} = card.content;
 
-	return { name, subtitle, icon, pantheon, subject, available, isFolder };
+	return {
+		name,
+		subtitle,
+		icon,
+		pantheon,
+		subject,
+		genre,
+		available,
+		isFolder,
+	};
 };
 
 const parseQuoi2NeufData = (
@@ -364,36 +384,27 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 								name: string;
 								pantheon: string;
 								subject: string;
+								genre: string;
 								icon: { alt: string; filename: string };
-								godle?: GodlePropertiesType[];
+								mainDomain?: string;
+								attributes?: string[];
 							};
 							full_slug: string;
-						}) => {
-							let transformedGodle: GodleProperties | undefined;
-
-							if (
-								story.content.godle &&
-								Array.isArray(story.content.godle) &&
-								story.content.godle.length > 0
-							) {
-								const godleData = story.content.godle[0];
-								transformedGodle = {
-									genre: godleData.genre,
-									domain: godleData.domain || [],
-								};
-							}
-
-							return {
-								name: story.content.name,
-								pantheon: story.content.pantheon,
-								subject: story.content.subject,
-								slug: story.full_slug,
-								icon: story.content.icon,
-								godle: transformedGodle,
-							};
-						},
+						}) => ({
+							name: story.content.name,
+							pantheon: story.content.pantheon,
+							subject: story.content.subject,
+							genre: story.content.genre,
+							slug: story.full_slug,
+							icon: story.content.icon,
+							mainDomain: story.content.mainDomain,
+							attributes: story.content.attributes || [],
+						}),
 					)
-					.filter((entity: GodleEntity) => entity.godle !== undefined);
+					.filter(
+						(entity: { mainDomain?: string }) =>
+							entity.mainDomain !== undefined,
+					);
 
 				allEntities = [...allEntities, ...entities];
 				const totalFetched = currentPage * STORYBLOK_SITEMAP_MAX_ITEMS;
@@ -414,6 +425,86 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 		{
 			tags: [cacheTags.GODLE.TAG, cacheTags.ALL.TAG],
 			revalidate: cacheTags.GODLE.DURATION,
+		},
+	)();
+};
+
+export const fetchAllAvailableCardsForSearch = async (): Promise<
+	GodleEntity[]
+> => {
+	const cacheTags = await getCacheTags();
+	const todayKey = getParisDateString();
+
+	const requestAllCards = async (): Promise<GodleEntity[]> => {
+		try {
+			let allCards: GodleEntity[] = [];
+			let currentPage = 1;
+			let hasMorePages = true;
+
+			while (hasMorePages) {
+				const cvParam = process.env.ENV === "dev" ? `&cv=${Date.now()}` : "";
+				const response = await fetch(
+					`${getStoryblokBaseUrl()}?starts_with=cards&token=${getStoryblokToken()}&version=${
+						STORYBLOK_VERSIONS.PUBLISHED
+					}&per_page=${STORYBLOK_SITEMAP_MAX_ITEMS}&page=${currentPage}&filter_query[component][in]=card&filter_query[available][in]=true${cvParam}`,
+				);
+
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+
+				const data = await response.json();
+				const stories = data.stories || [];
+				const total = Number.parseInt(response.headers.get("total") || "0", 10);
+
+				const cards = stories
+					.filter(
+						(story: { content: { available: boolean } }) =>
+							story.content.available === true,
+					)
+					.map(
+						(story: {
+							content: {
+								name: string;
+								pantheon: string;
+								subject: string;
+								genre: string;
+								icon: { alt: string; filename: string };
+								mainDomain?: string;
+								attributes?: string[];
+							};
+							full_slug: string;
+						}) => ({
+							name: story.content.name,
+							pantheon: story.content.pantheon,
+							subject: story.content.subject,
+							genre: story.content.genre,
+							slug: story.full_slug,
+							icon: story.content.icon,
+							mainDomain: story.content.mainDomain,
+							attributes: story.content.attributes || [],
+						}),
+					);
+
+				allCards = [...allCards, ...cards];
+				const totalFetched = currentPage * STORYBLOK_SITEMAP_MAX_ITEMS;
+				hasMorePages = totalFetched < total;
+				currentPage++;
+			}
+
+			return allCards;
+		} catch (error) {
+			console.error("Error fetching cards for search:", error);
+			return [];
+		}
+	};
+
+	return unstable_cache(
+		async () => requestAllCards(),
+		["search-cards", todayKey],
+		{
+			tags: [cacheTags.SEARCH.TAG, cacheTags.ALL.TAG],
+			revalidate: cacheTags.SEARCH.DURATION,
 		},
 	)();
 };

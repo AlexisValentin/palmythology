@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { getDomainLabelFromValue } from "../../../utils/cards/domains";
+import { getAttributeLabelFromValue } from "../../../utils/cards/attributes";
+import { getGenreLabelFromValue } from "../../../utils/cards/genres";
 import { getPantheonLabelFromValue } from "../../../utils/cards/pantheons";
 import { getSubjectLabelFromValue } from "../../../utils/cards/subjects";
 import type { GuessResult } from "../../../utils/godle/godle.types";
@@ -35,24 +36,13 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 		return `${baseClasses} bg-gradient-to-br from-red-500 to-red-600 text-white border-red-700 shadow-lg shadow-red-500/30`;
 	};
 
-	const getGenreLabel = (genre?: string): string => {
-		if (!genre) return "/";
+	const getGenreLabel = (genre?: string): string =>
+		genre ? (getGenreLabelFromValue(genre as never) ?? genre) : "/";
 
-		const labels: Record<string, string> = {
-			male: "Masculin",
-			female: "Féminin",
-			androgynous: "Androgyne",
-			none: "Aucun",
-			undefined: "Indéfini",
-		};
+	const getAttributesLabel = (attributes: string[]): string => {
+		if (attributes.length === 0) return "/";
 
-		return labels[genre] || genre;
-	};
-
-	const getDomainLabel = (domains?: string[]): string => {
-		if (!domains || domains.length === 0) return "/";
-
-		return domains.map((d) => getDomainLabelFromValue(d)).join(", ");
+		return attributes.map((a) => getAttributeLabelFromValue(a)).join(", ");
 	};
 
 	const getMatchIndicatorColor = (matchType: MatchType): string => {
@@ -126,15 +116,23 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.genreMatch)}`}
 									/>
 									<span className="truncate">
-										{getGenreLabel(guess.entity.godle?.genre)}
+										{getGenreLabel(guess.entity.genre)}
+									</span>
+								</div>
+								<div className="flex items-baseline gap-1.5">
+									<span
+										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.mainDomainMatch)}`}
+									/>
+									<span className="truncate">
+										{getAttributeLabelFromValue(guess.entity.mainDomain)}
 									</span>
 								</div>
 								<div className="flex items-baseline gap-1.5 col-span-2">
 									<span
-										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.domainMatch)}`}
+										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.attributesMatch)}`}
 									/>
 									<span className="text-xs">
-										{getDomainLabel(guess.entity.godle?.domain)}
+										{getAttributesLabel(guess.entity.attributes)}
 									</span>
 								</div>
 							</div>
@@ -142,7 +140,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 					</div>
 				</div>
 			</div>
-			<div className="hidden md:grid md:grid-cols-5 gap-2 mb-3">
+			<div className="hidden md:grid md:grid-cols-6 gap-2 mb-3">
 				<Link
 					href={entityUrl}
 					target="_blank"
@@ -186,14 +184,19 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 					}}
 				/>
 				<GodleGuessCell
-					label={getGenreLabel(guess.entity.godle?.genre)}
+					label={getGenreLabel(guess.entity.genre)}
 					matchType={guess.genreMatch}
 					animationDelay={300}
 				/>
 				<GodleGuessCell
-					label={getDomainLabel(guess.entity.godle?.domain)}
-					matchType={guess.domainMatch}
+					label={getAttributeLabelFromValue(guess.entity.mainDomain)}
+					matchType={guess.mainDomainMatch}
 					animationDelay={400}
+				/>
+				<GodleGuessCell
+					label={getAttributesLabel(guess.entity.attributes)}
+					matchType={guess.attributesMatch}
+					animationDelay={500}
 					textSize="sm"
 				/>
 			</div>
