@@ -18,16 +18,16 @@ const SelectFilter: React.FC<SelectFilterProps> = ({
 	options,
 }) => (
 	<label className="block">
-		<span className="block text-sm font-medium text-slate-700 mb-2">
+		<span className="block text-base font-medium text-neutral-700 mb-2">
 			{selectLabel}
 		</span>
 		<select
-			className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+			className="w-full px-4 py-3 md:px-5 md:py-4 border-2 border-neutral-300 rounded-xl focus:border-pink-400 focus:ring-4 focus:ring-pink-400/20 focus:outline-none transition-all duration-200 text-base font-medium shadow-sm focus:shadow-md cursor-pointer bg-white"
 			name={selectName}
 			value={value}
 			onChange={(e) => onChange(e.target.value)}
 		>
-			<option value={""} label={`--- ${selectLabel} ---`} />
+			<option value={""} label={`- ${selectLabel} -`} />
 			{options.map((option) => {
 				const { label, value } = option;
 
