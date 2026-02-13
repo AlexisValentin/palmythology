@@ -25,6 +25,7 @@
 
 ## Divers
 
+- Ajout de templates pour les erreurs HTTP 403, 404, 500.
 - Migration d'infrastructure.
   - Passage de Vercel à Dokploy.
   - Création d'un fichier Dockerfile.
