@@ -171,9 +171,24 @@ Component Rendering
 3. **Researchers**: Quick reference for mythological entities
 4. **Gamers**: Daily Godle challenge participants
 
-## Technical Documentation
+## Documentation Structure
 
-For detailed coding conventions, patterns, and examples:
+### User-Facing Documentation (docs/)
+
+Feature-specific and subsystem documentation for developers:
+
+- **[docs/CARDS.md](docs/CARDS.md)** - Cards system, pantheons, subjects, routing
+- **[docs/GODLE.md](docs/GODLE.md)** - Godle daily game mechanics, Discord integration
+- **[docs/Q2N.md](docs/Q2N.md)** - Q2N (What's New) feature, content teasing
+- **[docs/SEARCH.md](docs/SEARCH.md)** - Search & filter system, multi-criteria queries
+- **[docs/CMS.md](docs/CMS.md)** - Storyblok integration, ISR caching, webhook revalidation
+- **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Vercel and Docker deployment processes
+- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** - High-level architecture, design patterns
+- **[docs/TESTING.md](docs/TESTING.md)** - Testing approach with Vitest, coverage goals
+
+### Technical Documentation (.claude/)
+
+Detailed coding conventions and patterns for AI-assisted development:
 
 👉 **See [.claude/README.md](.claude/README.md)** for comprehensive technical documentation including:
 - Architecture and folder structure
