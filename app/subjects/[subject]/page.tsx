@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import LPCardList from "../../../src/components/domains/cards/LPCardList";
 import {
 	CategoryPageFaqSection,
@@ -76,13 +77,14 @@ export const generateMetadata = async ({ params }: SubjectPagePropsType) => {
 const SubjectPage = async ({ params }: SubjectPagePropsType) => {
 	const pageParams = await params;
 	const subject = pageParams.subject;
+	const subjectLabel = getSubjectLabelFromValue(subject as SubjectValue);
+
+	if (!subjectLabel) notFound();
 
 	const [results, subjectContent] = await Promise.all([
 		fetchAllCardsFromCriterias({ pantheon: "", subject, genre: "" }),
 		fetchLandingPage("subjects", subject),
 	]);
-
-	const subjectLabel = getSubjectLabelFromValue(subject as SubjectValue);
 
 	return (
 		<>

@@ -1,13 +1,13 @@
 "use client";
 
 import type React from "react";
-import ErrorPageLayout from "../../../src/components/domains/errors/ErrorPageLayout";
+import ErrorPageLayout from "../src/components/domains/errors/ErrorPageLayout";
 import useErrorHandler, {
 	type ErrorProps,
-} from "../../../src/components/hooks/useErrorHandler";
-import { getErrorContent } from "../../../src/utils/errors/errors.constants";
+} from "../src/components/hooks/useErrorHandler";
+import { getErrorContent } from "../src/utils/errors/errors.constants";
 
-const CardErrorPage: React.FC<ErrorProps> = ({ error }) => {
+const ErrorPage: React.FC<ErrorProps> = ({ error }) => {
 	const { httpCode } = useErrorHandler(error);
 	const errorContent = getErrorContent(httpCode);
 
@@ -22,4 +22,4 @@ const CardErrorPage: React.FC<ErrorProps> = ({ error }) => {
 	);
 };
 
-export default CardErrorPage;
+export default ErrorPage;
