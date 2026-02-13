@@ -29,6 +29,9 @@
   - Passage de Vercel à Dokploy.
   - Création d'un fichier Dockerfile.
   - Le projet tourne désormais sur une image Docker.
+- Ajout de fichiers de directives Claude.
+  - CLAUDE.md pour les directives gloables.
+  - AGENTS.md pour les directives spécifiques par agents LLMs.
 - Mise à jour des dépendances vers leurs versions de patch (`X.X.0`).
 - Mise à jour des dépendances vers leurs versions mineures (`X.0.X`).
 - Mise à jour des dépendances vers leurs versions majeures (`0.X.X`).
