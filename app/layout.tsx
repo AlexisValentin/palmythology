@@ -6,7 +6,6 @@ import Breadcrumbs from "../src/components/generics/Breadcrumbs";
 import StoryblokProvider from "../src/components/StoryblokProvider";
 import "../src/global.css";
 import type { Metadata, Viewport } from "next";
-import TrackingNotice from "../src/components/domains/tracking/TrackingNotice";
 import { UpPageButton } from "../src/components/generics/UpPageButton";
 
 interface MainLayoutProps {
@@ -87,12 +86,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 				<head>
 					<link rel="preconnect" href="https://a.storyblok.com" />
 					<link rel="dns-prefetch" href="https://a.storyblok.com" />
-					<link rel="preconnect" href="https://plausible.io" />
-					{process.env.ENV === "production" && (
+					{process.env.NODE_ENV === "production" && (
 						<script
-							defer
-							data-domain="palmythology.com"
-							src="https://plausible.io/js/script.js"
+							src="https://analytics.lepalmypede.eu/api/script.js"
+							data-site-id="7822bb4f36a9"
+							async
 						/>
 					)}
 					<script
