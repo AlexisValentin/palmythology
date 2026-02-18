@@ -57,12 +57,12 @@ const Breadcrumbs: React.FC = () => {
 							<span className="text-slate-500">{`${parseBreadcrumbNode(node)}`}</span>
 						) : (
 							<span>
-								<a
+								<Link
 									className="hover:underline hover:text-pink-500 decoration-sky-500 underline-offset-4"
 									href={breadcrumLinks[idx]}
 								>
 									{node ? parseBreadcrumbNode(node) : getHomeBreadcrumbNode()}
-								</a>
+								</Link>
 								<BreadcrumbSeparator />
 							</span>
 						)}

@@ -62,9 +62,7 @@ const getEntityIndexForDay = (
 	return index;
 };
 
-export const getDailyEntity = async (): Promise<GodleEntity> => {
-	const entities = await fetchAllAvailableEntitiesForGodle();
-
+const getDailyEntityFromList = (entities: GodleEntity[]): GodleEntity => {
 	if (entities.length === 0) {
 		throw new Error("No entities available for Godle");
 	}
@@ -83,6 +81,11 @@ export const getDailyEntity = async (): Promise<GodleEntity> => {
 	);
 
 	return entities[todayIndex];
+};
+
+export const getDailyEntity = async (): Promise<GodleEntity> => {
+	const entities = await fetchAllAvailableEntitiesForGodle();
+	return getDailyEntityFromList(entities);
 };
 
 export const getYesterdayEntity = async (): Promise<GodleEntity | null> => {
@@ -129,10 +132,8 @@ export const validateGuess = async (
 	result: GuessResult;
 	targetEntity: GodleEntity | null;
 }> => {
-	const [target, allEntities] = await Promise.all([
-		getDailyEntity(),
-		fetchAllAvailableEntitiesForGodle(),
-	]);
+	const allEntities = await fetchAllAvailableEntitiesForGodle();
+	const target = getDailyEntityFromList(allEntities);
 
 	const guessedEntity = allEntities.find((e) => e.name === guessName);
 
@@ -155,10 +156,8 @@ export const restoreGameGuesses = async (
 	targetEntity: GodleEntity | null;
 	isComplete: boolean;
 }> => {
-	const [target, allEntities] = await Promise.all([
-		getDailyEntity(),
-		fetchAllAvailableEntitiesForGodle(),
-	]);
+	const allEntities = await fetchAllAvailableEntitiesForGodle();
+	const target = getDailyEntityFromList(allEntities);
 
 	const results: GuessResult[] = [];
 	let foundCorrect = false;

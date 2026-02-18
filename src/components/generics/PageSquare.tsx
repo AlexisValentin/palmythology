@@ -73,11 +73,13 @@ const PageSquare: React.FC<PageSquareProps> = ({
 		}
 	}, [contentType, title, pantheon, subject, url]);
 
-	if (available === undefined || !buildLink()) return null;
+	const link = buildLink();
+
+	if (available === undefined || !link) return null;
 
 	return available ? (
 		<Link
-			href={buildLink()!}
+			href={link}
 			className={`border-4 border-${
 				pantheon ? getPantheonMainColor(pantheon) : BLACK_COLOR
 			} rounded-3xl p-6 m-6 ${withoutText && "py-2 m-4"} bg-${
