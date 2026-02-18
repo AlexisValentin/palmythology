@@ -14,7 +14,7 @@ export const getFromLocalStorage = (key: LOCAL_STORAGE_KEYS) => {
 	return localStorage.getItem(key);
 };
 
-export const setInLocalStorage = (key: LOCAL_STORAGE_KEYS, payload: any) => {
+export const setInLocalStorage = (key: LOCAL_STORAGE_KEYS, payload: string) => {
 	if (isPageServerSide()) return null;
 
 	return localStorage.setItem(key, payload);

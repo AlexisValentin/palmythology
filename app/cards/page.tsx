@@ -3,7 +3,6 @@ import ColorsIcon from "../../src/assets/icons/colors.svg";
 import KnowledgeIcon from "../../src/assets/icons/knowledge.svg";
 import PageHeader from "../../src/components/generics/PageHeader";
 import PageSection from "../../src/components/generics/PageSection";
-import type { NextImageType } from "../../src/utils/image.constants";
 
 export const metadata: Metadata = {
 	title: "Les Grandes Lignes - fiches mythologiques | Palmythology",
@@ -76,12 +75,12 @@ const CardHubPage = () => {
 				<PageSection
 					title="Des connaissances essentielles"
 					description="Les fiches de la Palmythology résument de manière concise et intuitive l'entièreté d'un sujet mythologique ainsi que tout son écosystème. De cette manière, la Palmythologie analyse l'essentiel des panthéons à travers le monde, afin de fournir un accès rapide et clair à l'information sur les mythes et légendes."
-					icon={KnowledgeIcon as unknown as NextImageType}
+					icon={KnowledgeIcon }
 				/>
 				<PageSection
 					title="Un univers coloré !"
 					description="Chaque panthéon est associé à un code couleur spécifique et à une icône dédiée en haut à gauche de la page de couverture. La Palmythology découpe ses fiches en plusieurs sujets, eux aussi reconnaissables grâce à une icône dédiée en bas à droite de la page de couverture."
-					icon={ColorsIcon as unknown as NextImageType}
+					icon={ColorsIcon }
 				/>
 			</div>
 		</>

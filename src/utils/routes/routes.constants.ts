@@ -34,43 +34,43 @@ export const ROUTES: RouteType[] = [
 	{
 		name: "Palmythology",
 		url: ROUTE_URLS.HOME,
-		icon: PalmythologyLogo as unknown as NextImageType,
+		icon: PalmythologyLogo,
 	},
 	{
 		name: "Quoi 2 Neuf ?",
 		subtitle: "Le planning",
 		url: ROUTE_URLS.Q2N,
-		icon: Q2NIcon as unknown as NextImageType,
+		icon: Q2NIcon,
 	},
 	{
 		name: "Panthéons",
 		subtitle: "11 civilisations",
 		url: ROUTE_URLS.PANTHEONS,
-		icon: LaurelIcon as unknown as NextImageType,
+		icon: LaurelIcon,
 	},
 	{
 		name: "Sujets",
 		subtitle: "7 thématiques",
 		url: ROUTE_URLS.SUBJECTS,
-		icon: FoldersIcon as unknown as NextImageType,
+		icon: FoldersIcon,
 	},
 	{
 		name: "Recherche",
 		url: ROUTE_URLS.SEARCH,
 		subtitle: "Trouver votre fiche",
-		icon: MagnifyingGlassIcon as unknown as NextImageType,
+		icon: MagnifyingGlassIcon,
 	},
 	{
 		name: "Godle",
 		url: ROUTE_URLS.GODLE,
 		subtitle: "Le jeu quotidien",
-		icon: QuestionMarksIcon as unknown as NextImageType,
+		icon: QuestionMarksIcon,
 	},
 	{
 		name: "A propos",
 		url: ROUTE_URLS.ABOUT,
 		subtitle: "La Palmythology et vous",
-		icon: InformationIcon as unknown as NextImageType,
+		icon: InformationIcon,
 	},
 ];
 

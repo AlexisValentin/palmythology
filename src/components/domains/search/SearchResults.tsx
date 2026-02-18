@@ -33,10 +33,6 @@ const SearchResults: React.FC<ResearchCriterias> = ({
 	);
 
 	useEffect(() => {
-		setCurrentPage(1);
-	}, []);
-
-	useEffect(() => {
 		const updateResultData = async () => {
 			if (areFiltersUnfilled()) {
 				const cards = await getPlaceholderCards();

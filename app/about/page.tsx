@@ -4,7 +4,7 @@ import FrenchHeartIcon from "../../src/assets/icons/french_heart.svg";
 import NoAdsIcon from "../../src/assets/icons/no_ads.svg";
 import PageHeader from "../../src/components/generics/PageHeader";
 import PageSection from "../../src/components/generics/PageSection";
-import type { NextImageType } from "../../src/utils/image.constants";
+
 
 export const metadata: Metadata = {
 	title: "À propos | Palmythology",
@@ -77,17 +77,17 @@ const AboutPage = () => {
 				<PageSection
 					title="100% français"
 					description="Cocorico ! Le site web de la Palmythology est réalisé par un seul et unique développeur français."
-					icon={FrenchHeartIcon as unknown as NextImageType}
+					icon={FrenchHeartIcon}
 				/>
 				<PageSection
 					title="Garanti sans publicité"
 					description="La Palmythology vous garantit une navigation sans aucune pollution visuelle."
-					icon={NoAdsIcon as unknown as NextImageType}
+					icon={NoAdsIcon}
 				/>
 				<PageSection
 					title="Données anonymisées"
 					description="Le site récolte des statistiques de navigation sans pour autant impacter vos données personnelles."
-					icon={AnonymousIcon as unknown as NextImageType}
+					icon={AnonymousIcon}
 				/>
 			</div>
 		</>

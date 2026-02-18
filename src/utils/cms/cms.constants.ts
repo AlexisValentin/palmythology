@@ -17,11 +17,6 @@ export interface StoryblokImageType {
 	filename: string;
 }
 
-interface StoryblokLinkType {
-	alt: string;
-	filename: string;
-}
-
 export type CardRelatedType = Pick<
 	CardItemType,
 	"name" | "subtitle" | "pantheon"
@@ -35,8 +30,8 @@ export interface CardItemType {
 	images: StoryblokImageType[];
 	available: boolean;
 	isFolder: boolean;
-	instagramUrl: StoryblokLinkType;
-	threadsUrl: StoryblokLinkType;
+	instagramUrl: StoryblokImageType;
+	threadsUrl: StoryblokImageType;
 	relatedCards: CardRelatedType[];
 }
 
@@ -74,8 +69,8 @@ export interface StoryblokQ2NComponentType {
 	content: {
 		component: string;
 		title: string;
-		subtitle: PantheonValue;
-		icon: { alt: string; filename: string };
+		subtitle: string;
+		icon: StoryblokImageType;
 		available: boolean;
 		isFolder: boolean;
 		pantheon: PantheonValue;
