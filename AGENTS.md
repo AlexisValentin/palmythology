@@ -183,7 +183,10 @@ These agents are designed to work with Claude Code and provide focused assistanc
 **Context Files**:
 - [src/modules/searchEngine.ts](src/modules/searchEngine.ts) - Search engine logic
 - [src/components/domains/search/](src/components/domains/search/) - Search components
+- [src/components/domains/search/SearchAutocompleteClient.tsx](src/components/domains/search/SearchAutocompleteClient.tsx) - Client-side autocomplete
+- [src/components/generics/EntityAutocompleteInput.tsx](src/components/generics/EntityAutocompleteInput.tsx) - Reusable autocomplete input
 - [.claude/utilities.md](.claude/utilities.md) - Search patterns
+- Uses [nuqs](https://nuqs.47ng.com/) for URL-based search state management
 
 **Common Tasks**:
 - Add new search filters (genre, attributes, etc.)
@@ -210,7 +213,7 @@ These agents are designed to work with Claude Code and provide focused assistanc
 
 **Context Files**:
 - [src/utils/cards/](src/utils/cards/) - Card-related constants and types
-- [src/types/](src/types/) - Type definitions
+- `src/utils/*/constants.ts` - Type definitions colocated with domain utilities
 - [.claude/utilities.md](.claude/utilities.md) - Constants patterns
 
 **Common Tasks**:
@@ -238,8 +241,7 @@ These agents are designed to work with Claude Code and provide focused assistanc
 
 **Context Files**:
 - [Dockerfile](Dockerfile) - Multi-stage Docker build
-- [next.config.js](next.config.js) - Next.js configuration
-- [server.js](server.js) - Custom Node.js server
+- [next.config.js](next.config.js) - Next.js configuration (`output: "standalone"`)
 - [.env.exemple](.env.exemple) - Environment variables
 
 **Common Tasks**:
@@ -290,6 +292,36 @@ These agents are designed to work with Claude Code and provide focused assistanc
 
 ---
 
+## 11. Godle Agent
+
+**Purpose**: Manage the Godle daily guessing game feature, including game logic, types, and Discord integration.
+
+**Context Files**:
+- [src/utils/godle.ts](src/utils/godle.ts) - Core game logic
+- [src/utils/godle/godle.types.ts](src/utils/godle/godle.types.ts) - Godle type definitions
+- [src/utils/godle/godle.constants.ts](src/utils/godle/godle.constants.ts) - Godle constants
+- [src/utils/godle/godle.styles.ts](src/utils/godle/godle.styles.ts) - Godle styling utilities
+- [src/components/domains/godle/](src/components/domains/godle/) - Godle UI components
+- [app/api/godle/route.ts](app/api/godle/route.ts) - Godle API route handler
+
+**Common Tasks**:
+- Update game logic and comparison algorithms
+- Add new comparison attributes for guessing
+- Modify Discord webhook notifications
+- Update Godle types and style definitions
+- Extend daily game configuration and history
+
+**Tools Available**: Read, Write, Edit, Bash (for testing game logic)
+
+**Example Use Cases**:
+```
+"Add a new 'domain' attribute to the Godle comparison grid"
+"Update the Discord webhook to include a daily streak counter"
+"Modify game logic to support multiple difficulty levels"
+```
+
+---
+
 ## Agent Usage Guidelines
 
 ### When to Use Agents
@@ -315,5 +347,5 @@ These agents are designed to work with Claude Code and provide focused assistanc
 
 ---
 
-**Last Updated**: 2026-02-13
+**Last Updated**: 2026-02-18
 **Maintained By**: Palmythology Development Team

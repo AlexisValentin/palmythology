@@ -14,7 +14,7 @@ Palmythology is a **French-language mythology encyclopedia web application** tha
 - Hindu (Hindou)
 - Aztec (Aztèque)
 - Mesopotamian (Mésopotamien)
-- Slavic (Slave)
+- Mayan (Maya)
 
 **Purpose**: Educational platform for students, mythology enthusiasts, researchers, and anyone curious about world mythologies.
 
@@ -44,6 +44,7 @@ A daily mythology guessing game (like Wordle, but for mythology):
 - Feedback shows pantheon, subject, and attribute matches
 - Discord webhook integration for notifications
 - Daily challenges with statistics tracking
+- API endpoint for GitHub Actions CRON integration
 
 ### 5. Search & Filter
 Advanced search functionality with:
@@ -68,7 +69,11 @@ Advanced search functionality with:
 **Code Quality**: Biome 2 (linter/formatter)
 **Package Manager**: pnpm 10
 **Deployment**: Docker + Vercel
-**Analytics**: Plausible.io (privacy-focused)
+**Analytics**: Rybbit (self-hosted, privacy-focused)
+**URL State**: nuqs (URL-based state management)
+**Carousel**: Swiper
+**Markdown**: react-markdown
+**CSS Preprocessor**: Sass
 
 ## Architecture Philosophy
 
@@ -141,7 +146,7 @@ Component Rendering
 - **Base Image**: Node 20 Alpine
 - **Build**: Multi-stage (deps → builder → runner)
 - **Port**: 3000
-- **Server**: Custom Node.js server ([server.js](server.js))
+- **Server**: Next.js standalone output
 
 ## Development Workflow
 
@@ -152,6 +157,9 @@ Component Rendering
   - `pnpm build` - Production build
   - `pnpm test` - Run Vitest tests
   - `pnpm biome` - Format and lint code
+
+### Scripts
+- **`scripts/content-report.ts`** - Content report generation script
 
 ### Quality Gates
 - **Husky Git Hooks**: Pre-commit validation
@@ -211,18 +219,20 @@ The `.claude/` folder contains ~70KB of detailed technical guides designed for A
 | **Node Version** | 18.17.0+ (recommended: 20.x LTS) |
 | **Package Manager** | pnpm 10 |
 | **Deployment** | Vercel (production + preview) |
-| **Environment Files** | `.env` (see `.env.exemple`) |
+| **Environment Files** | `.env` (see `.env.example`) |
 
 ## Environment Variables
 
-Required environment variables (see [.env.exemple](.env.exemple)):
+Required environment variables (see [.env.example](.env.example)):
 - `ENV` - Environment flag (`dev`/`production`)
 - `STORYBLOK_BASE_URL` - CMS API endpoint
 - `STORYBLOK_TOKEN` - CMS authentication token
 - `REVALIDATION_SECRET` - Cache revalidation secret
 - `DISCORD_WEBHOOK_URL` - Godle Discord notifications
+- `NEXT_PUBLIC_STORYBLOK_TOKEN` - Public CMS token for client-side access
+- `GODLE_SECRET` - Godle API authentication secret
 
 ---
 
-**Last Updated**: 2026-02-13
+**Last Updated**: 2026-02-18
 **Version**: 2.18.0
