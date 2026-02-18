@@ -12,7 +12,7 @@ const LPCardList: React.FC<LPCardListProps> = ({ cards }) => (
 				<div className="flex flex-col justify-center lg:flex-wrap lg:flex-row mt-4">
 					{cards.map((card: CardDetails) => (
 						<PageSquare
-							key={`${card.name}-${card.subtitle}}`}
+							key={`${card.name}-${card.subtitle}`}
 							title={card.name}
 							subtitle={card.subtitle}
 							pantheon={card.pantheon}

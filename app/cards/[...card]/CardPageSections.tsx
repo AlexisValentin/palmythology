@@ -163,7 +163,7 @@ export const CardPageRelatedCardsSection: FC<
 				{relatedCards.map(
 					({ name, subtitle, pantheon, icon }: CardRelatedType) => (
 						<PageSquare
-							key={`${name}-${subtitle}}`}
+							key={`${name}-${subtitle}`}
 							title={name}
 							subtitle={subtitle}
 							pantheon={pantheon}

@@ -4,7 +4,7 @@ const next = require("next");
 
 const port = process.env.PORT || 3000;
 
-// Create the Express-Next App
+// Create the Node HTTP server for Next.js
 const app = next({
 	dev: false,
 });
@@ -15,9 +15,7 @@ app
 	.then(() => {
 		createServer((req, res) => {
 			const parsedUrl = parse(req.url, true);
-			const { pathname } = parsedUrl;
 			handle(req, res, parsedUrl);
-			console.log("pathname", pathname);
 		}).listen(port, (err) => {
 			if (err) throw err;
 			console.log(`> Ready on http://localhost:${port}`);

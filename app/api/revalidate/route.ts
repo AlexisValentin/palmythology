@@ -9,9 +9,10 @@ import {
 
 const revalidateCache = async (request: NextRequest) => {
 	try {
-		const searchParams = request.nextUrl.searchParams;
-		const secret = searchParams.get("secret");
-		const type = searchParams.get("type");
+		const secret =
+			request.headers.get("authorization")?.replace("Bearer ", "") ??
+			request.nextUrl.searchParams.get("secret");
+		const type = request.nextUrl.searchParams.get("type");
 
 		if (secret !== process.env.REVALIDATION_SECRET) {
 			return NextResponse.json({ message: "Invalid token." }, { status: 403 });

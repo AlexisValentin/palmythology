@@ -34,7 +34,9 @@ const sendDiscordEmbed = async (
 
 export const GET = async (request: NextRequest) => {
 	try {
-		const secret = request.nextUrl.searchParams.get("secret");
+		const secret =
+			request.headers.get("authorization")?.replace("Bearer ", "") ??
+			request.nextUrl.searchParams.get("secret");
 
 		if (secret !== process.env.CRON_SECRET) {
 			return NextResponse.json({ message: "Unauthorized" }, { status: 401 });

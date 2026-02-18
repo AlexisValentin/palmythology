@@ -53,13 +53,18 @@ const fetchFilteredCards = async (
 	currentPage: number,
 ) => {
 	const { pantheon, subject, genre } = searchCriterias;
-	const urlQuery = `${getStoryblokBaseUrl()}?starts_with=${startingString}&token=${getStoryblokToken()}&version=${
-		STORYBLOK_VERSIONS.PUBLISHED
-	}&per_page=${STORYBLOK_RESULTS_PER_PAGE}&page=${currentPage}&filter_query[available][in]=true&${
-		pantheon && `filter_query[pantheon][in]=${pantheon}`
-	}&${subject && `filter_query[subject][in]=${subject}`}&${
-		genre && `filter_query[genre][in]=${genre}`
-	}`;
+	const params = [
+		`starts_with=${startingString}`,
+		`token=${getStoryblokToken()}`,
+		`version=${STORYBLOK_VERSIONS.PUBLISHED}`,
+		`per_page=${STORYBLOK_RESULTS_PER_PAGE}`,
+		`page=${currentPage}`,
+		"filter_query[available][in]=true",
+		pantheon ? `filter_query[pantheon][in]=${pantheon}` : "",
+		subject ? `filter_query[subject][in]=${subject}` : "",
+		genre ? `filter_query[genre][in]=${genre}` : "",
+	].filter(Boolean);
+	const urlQuery = `${getStoryblokBaseUrl()}?${params.join("&")}`;
 
 	const response = await fetch(urlQuery);
 
