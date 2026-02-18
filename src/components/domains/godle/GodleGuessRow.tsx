@@ -6,6 +6,7 @@ import { getAttributeLabelFromValue } from "../../../utils/cards/attributes";
 import { getGenreLabelFromValue } from "../../../utils/cards/genres";
 import { getPantheonLabelFromValue } from "../../../utils/cards/pantheons";
 import { getSubjectLabelFromValue } from "../../../utils/cards/subjects";
+import { getMatchStyle } from "../../../utils/godle/godle.styles";
 import type { GuessResult } from "../../../utils/godle/godle.types";
 import { MatchType } from "../../../utils/godle/godle.types";
 import { getPantheonIcon } from "../../../utils/pantheons";
@@ -23,18 +24,6 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 				src: getPantheonIcon(guess.entity.pantheon),
 				alt: getPantheonLabelFromValue(guess.entity.pantheon) || "",
 			};
-
-	const getMatchStyle = (isCorrect: boolean, matchType: MatchType): string => {
-		const baseClasses = "transition-all duration-500 ease-out";
-
-		if (isCorrect || matchType === MatchType.EXACT) {
-			return `${baseClasses} bg-gradient-to-br from-green-500 to-green-600 text-white border-green-700 shadow-lg shadow-green-500/30`;
-		}
-		if (matchType === MatchType.PARTIAL) {
-			return `${baseClasses} bg-gradient-to-br from-yellow-400 to-yellow-500 text-white border-yellow-600 shadow-lg shadow-yellow-500/30`;
-		}
-		return `${baseClasses} bg-gradient-to-br from-red-500 to-red-600 text-white border-red-700 shadow-lg shadow-red-500/30`;
-	};
 
 	const getGenreLabel = (genre?: string): string =>
 		genre ? (getGenreLabelFromValue(genre as never) ?? genre) : "/";
@@ -60,7 +49,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 		<>
 			<div className="md:hidden">
 				<div
-					className={`px-4 py-4 rounded-xl border-2 animate-colorReveal ${getMatchStyle(guess.isCorrect, MatchType.NONE)}`}
+					className={`px-4 py-4 rounded-xl border-2 animate-colorReveal ${getMatchStyle(guess.isCorrect ? MatchType.EXACT : MatchType.NONE)}`}
 					style={{ animationDelay: "0ms" }}
 				>
 					<div className="flex items-center gap-4">
@@ -144,7 +133,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 				<Link
 					href={entityUrl}
 					target="_blank"
-					className={`px-4 py-5 rounded-xl border-2 text-center animate-colorReveal hover:brightness-75 ${getMatchStyle(guess.isCorrect, MatchType.NONE)}`}
+					className={`px-4 py-5 rounded-xl border-2 text-center animate-colorReveal hover:brightness-75 ${getMatchStyle(guess.isCorrect ? MatchType.EXACT : MatchType.NONE)}`}
 					style={{ animationDelay: "0ms" }}
 				>
 					<div className="flex justify-center mb-2">

@@ -1,12 +1,12 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import type { GodleEntity } from "../../../utils/godle/godle.types";
+import type { CardEntity } from "../../../utils/cms/cms.requests";
 import { setCardRouteParameters } from "../../../utils/routes/routes";
 import EntityAutocompleteInput from "../../generics/EntityAutocompleteInput";
 
 interface SearchAutocompleteClientProps {
-	entities: GodleEntity[];
+	entities: CardEntity[];
 }
 
 const SearchAutocompleteClient: React.FC<SearchAutocompleteClientProps> = ({
@@ -14,7 +14,7 @@ const SearchAutocompleteClient: React.FC<SearchAutocompleteClientProps> = ({
 }) => {
 	const router = useRouter();
 
-	const handleSelect = (entity: GodleEntity) => {
+	const handleSelect = (entity: CardEntity) => {
 		const cardUrl = setCardRouteParameters(entity.name, entity.pantheon);
 		router.push(cardUrl);
 	};

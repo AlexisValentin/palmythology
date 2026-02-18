@@ -3,24 +3,24 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getPantheonLabelFromValue } from "../../utils/cards/pantheons";
 import { getSubjectLabelFromValue } from "../../utils/cards/subjects";
-import type { GodleEntity } from "../../utils/godle/godle.types";
+import type { CardEntity } from "../../utils/cms/cms.requests";
 import { normalizeString } from "../../utils/string";
 
-interface EntityAutocompleteInputProps {
-	entities: GodleEntity[];
-	onSelect: (entity: GodleEntity) => void;
+interface EntityAutocompleteInputProps<T extends CardEntity> {
+	entities: T[];
+	onSelect: (entity: T) => void;
 	placeholder?: string;
 	disabled?: boolean;
 	maxResults?: number;
 }
 
-const EntityAutocompleteInput: React.FC<EntityAutocompleteInputProps> = ({
+function EntityAutocompleteInput<T extends CardEntity>({
 	entities,
 	onSelect,
 	placeholder = "Rechercher une entité...",
 	disabled = false,
 	maxResults = 50,
-}) => {
+}: EntityAutocompleteInputProps<T>) {
 	const [query, setQuery] = useState("");
 	const [isOpen, setIsOpen] = useState(false);
 	const [focusedIndex, setFocusedIndex] = useState(-1);
@@ -36,7 +36,7 @@ const EntityAutocompleteInput: React.FC<EntityAutocompleteInputProps> = ({
 			.slice(0, maxResults);
 	}, [query, entities, maxResults]);
 
-	const handleSelect = (entity: GodleEntity) => {
+	const handleSelect = (entity: T) => {
 		if (!disabled) {
 			onSelect(entity);
 			setQuery("");
@@ -149,6 +149,6 @@ const EntityAutocompleteInput: React.FC<EntityAutocompleteInputProps> = ({
 				)}
 		</div>
 	);
-};
+}
 
 export default EntityAutocompleteInput;
