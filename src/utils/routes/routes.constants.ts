@@ -1,9 +1,9 @@
+import DiceIcon from "../../assets/icons/dice.svg";
 import FoldersIcon from "../../assets/icons/folders.svg";
 import InformationIcon from "../../assets/icons/information.svg";
 import LaurelIcon from "../../assets/icons/laurel.svg";
 import MagnifyingGlassIcon from "../../assets/icons/magnifying_glass.svg";
 import Q2NIcon from "../../assets/icons/number_two.svg";
-import QuestionMarksIcon from "../../assets/icons/question_marks.svg";
 import PalmythologyLogo from "../../assets/images/logo.png";
 import type { NextImageType } from "../image.constants";
 
@@ -64,7 +64,7 @@ export const ROUTES: RouteType[] = [
 		name: "Godle",
 		url: ROUTE_URLS.GODLE,
 		subtitle: "Le jeu quotidien",
-		icon: QuestionMarksIcon,
+		icon: DiceIcon,
 	},
 	{
 		name: "A propos",
