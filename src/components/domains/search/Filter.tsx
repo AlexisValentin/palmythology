@@ -5,6 +5,7 @@ import { ALL_GENRE } from "../../../utils/cards/genres.constants";
 import { ALL_PANTHEON } from "../../../utils/cards/pantheons.constants";
 import { ALL_SUBJECT } from "../../../utils/cards/subjects.constants";
 import { BASE_INPUT_NAMES } from "../../../utils/form.constants";
+import { isStringEmpty } from "../../../utils/string";
 import SearchResults from "./SearchResults";
 import SelectFilter from "./SelectFilter";
 
@@ -23,6 +24,14 @@ const Filter = () => {
 		subject: BASE_INPUT_NAMES.SUBJECT,
 		genre: BASE_INPUT_NAMES.GENRE,
 	};
+
+	const hasActiveFilters =
+		!isStringEmpty(filters.pantheon) ||
+		!isStringEmpty(filters.subject) ||
+		!isStringEmpty(filters.genre);
+
+	const resetFilters = () =>
+		setFilters({ pantheon: "", subject: "", genre: "" });
 
 	return (
 		<div className="flex flex-col items-center justify-center mt-12">
@@ -57,6 +66,14 @@ const Filter = () => {
 						options={ALL_GENRE}
 					/>
 				</div>
+				<button
+					type="button"
+					disabled={!hasActiveFilters}
+					className="px-4 py-3 md:px-5 md:py-4 rounded-xl bg-gradient-to-r from-pink-400 to-sky-500 text-white text-base font-semibold hover:from-pink-500 hover:to-sky-500 focus:ring-4 focus:ring-pink-400/20 focus:outline-none cursor-pointer transition-all duration-200 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:from-pink-400 disabled:hover:to-sky-500 self-center md:self-end"
+					onClick={resetFilters}
+				>
+					Réinitialiser
+				</button>
 			</form>
 			<SearchResults
 				pantheon={filters.pantheon}

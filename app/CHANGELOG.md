@@ -20,6 +20,7 @@
   - Permet le retour navigateur tout en conservant les critères de recherches précédents.
   - Permet le partage de l'url du navigateur.
   - Permet un référencement de variantes de la page.
+- Ajout d'un bouton permettant de réinitialiser les critères de recherche.
 
 ## Godle
 
