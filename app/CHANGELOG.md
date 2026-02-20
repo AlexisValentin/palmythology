@@ -28,6 +28,8 @@
 - Création d'un webhook qui se déclenche chaque jour à minuit heure locale.
   - Affichage de l'entité de la veille.
   - Alerte sur le fait que le Godle vient de se réinitialiser.
+- Ajout d'un nouveau champ de recherche à des fins d'indices.
+- Mise à jour du texte descriptif en bas de page.
 
 ## Divers
 

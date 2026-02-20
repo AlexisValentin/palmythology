@@ -77,8 +77,8 @@ const GodleRules: FC = () => (
 					l&apos;entité (masculin, féminin, androgyne, aucun, indéfini)
 				</li>
 				<li>
-					<strong>Domaine principal</strong> : Le domaine d&apos;attribution
-					principal de l&apos;entité (guerre, amour, sagesse, etc.)
+					<strong>Domaine</strong> : Le domaine d&apos;attribution de
+					l&apos;entité (guerre, amour, sagesse, etc.)
 				</li>
 				<li>
 					<strong>Attributs</strong> : L&apos;ensemble des attributs ou sphères
