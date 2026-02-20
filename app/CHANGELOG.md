@@ -30,6 +30,8 @@
   - Affichage de l'entité de la veille.
   - Alerte sur le fait que le Godle vient de se réinitialiser.
 - Ajout d'un nouveau champ de recherche à des fins d'indices.
+- Changement de couleur vers le jaune lorsqu'au moins 3 critères correspondre à l'entité du jour.
+- Remplacement des points de couleurs par des icônes sur mobile.
 - Mise à jour du texte descriptif en bas de page.
 
 ## Divers

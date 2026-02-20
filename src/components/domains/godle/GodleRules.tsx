@@ -1,19 +1,33 @@
+import type { StaticImageData } from "next/image";
+import Image from "next/image";
 import type { FC } from "react";
+import BulbIcon from "../../../assets/icons/bulb.svg";
+import CheckIcon from "../../../assets/icons/check.svg";
+import WrongIcon from "../../../assets/icons/wrong.svg";
 
 interface GodleMatchIndicatorProps {
 	colorClasses: string;
+	icon: StaticImageData;
 	title: string;
 	description: string;
 }
 
 const GodleMatchIndicator: React.FC<GodleMatchIndicatorProps> = ({
 	colorClasses,
+	icon,
 	title,
 	description,
 }) => (
 	<div className="flex items-center gap-3 p-3 bg-neutral-50 rounded-lg border-2 border-neutral-200">
 		<div
-			className={`w-10 h-10 rounded-lg bg-gradient-to-br ${colorClasses} flex-shrink-0`}
+			className={`hidden md:block w-10 h-10 rounded-lg bg-gradient-to-br ${colorClasses} flex-shrink-0`}
+		/>
+		<Image
+			src={icon}
+			alt=""
+			width={28}
+			height={28}
+			className="md:hidden flex-shrink-0"
 		/>
 		<div className="flex-1">
 			<div className="font-semibold text-sm">{title}</div>
@@ -43,16 +57,19 @@ const GodleRules: FC = () => (
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-3">
 					<GodleMatchIndicator
 						colorClasses="from-green-500 to-green-600 shadow-lg shadow-green-500/30"
+						icon={CheckIcon}
 						title="Correspondance exacte"
 						description="Le ou les attributs sont identiques"
 					/>
 					<GodleMatchIndicator
 						colorClasses="from-yellow-400 to-yellow-500 shadow-lg shadow-yellow-500/30"
+						icon={BulbIcon}
 						title="Correspondance partielle"
 						description="Certains attributs correspondent"
 					/>
 					<GodleMatchIndicator
 						colorClasses="from-red-500 to-red-600 shadow-lg shadow-red-500/30"
+						icon={WrongIcon}
 						title="Aucune correspondance"
 						description="Le ou les attributs sont différents"
 					/>

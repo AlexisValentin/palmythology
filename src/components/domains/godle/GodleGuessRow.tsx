@@ -1,7 +1,11 @@
 "use client";
 
+import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
+import BulbIcon from "../../../assets/icons/bulb.svg";
+import CheckIcon from "../../../assets/icons/check.svg";
+import WrongIcon from "../../../assets/icons/wrong.svg";
 import { getAttributeLabelFromValue } from "../../../utils/cards/attributes";
 import { getGenreLabelFromValue } from "../../../utils/cards/genres";
 import { getPantheonLabelFromValue } from "../../../utils/cards/pantheons";
@@ -34,11 +38,26 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 		return attributes.map((a) => getAttributeLabelFromValue(a)).join(", ");
 	};
 
-	const getMatchIndicatorColor = (matchType: MatchType): string => {
-		if (matchType === MatchType.EXACT) return "bg-green-300";
-		if (matchType === MatchType.PARTIAL) return "bg-yellow-300";
+	const getMatchIndicatorIcon = (matchType: MatchType): StaticImageData => {
+		if (matchType === MatchType.EXACT) return CheckIcon;
+		if (matchType === MatchType.PARTIAL) return BulbIcon;
+		return WrongIcon;
+	};
 
-		return "bg-red-300";
+	const getCardMatchType = (): MatchType => {
+		if (guess.isCorrect) return MatchType.EXACT;
+		
+		const exactCount = [
+			guess.pantheonMatch,
+			guess.subjectMatch,
+			guess.genreMatch,
+			guess.mainDomainMatch,
+			guess.attributesMatch,
+		].filter((m) => m === MatchType.EXACT || m === MatchType.PARTIAL).length;
+		
+		if (exactCount >= 3) return MatchType.PARTIAL;
+		
+		return MatchType.NONE;
 	};
 
 	const entityUrl = `/${guess.entity.slug}`;
@@ -49,7 +68,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 		<>
 			<div className="md:hidden">
 				<div
-					className={`px-4 py-4 rounded-xl border-2 animate-colorReveal ${getMatchStyle(guess.isCorrect ? MatchType.EXACT : MatchType.NONE)}`}
+					className={`px-4 py-4 rounded-xl border-2 animate-colorReveal ${getMatchStyle(getCardMatchType())}`}
 					style={{ animationDelay: "0ms" }}
 				>
 					<div className="flex items-center gap-4">
@@ -79,10 +98,14 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 								<Link
 									href={pantheonUrl}
 									target="_blank"
-									className="flex items-baseline gap-1.5"
+									className="flex items-center gap-1.5"
 								>
-									<span
-										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.pantheonMatch)}`}
+									<Image
+										src={getMatchIndicatorIcon(guess.pantheonMatch)}
+										alt=""
+										width={14}
+										height={14}
+										className="flex-shrink-0"
 									/>
 									<span className="truncate">
 										{getPantheonLabelFromValue(guess.entity.pantheon)}
@@ -91,34 +114,50 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 								<Link
 									href={subjectUrl}
 									target="_blank"
-									className="flex items-baseline gap-1.5"
+									className="flex items-center gap-1.5"
 								>
-									<span
-										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.subjectMatch)}`}
+									<Image
+										src={getMatchIndicatorIcon(guess.subjectMatch)}
+										alt=""
+										width={14}
+										height={14}
+										className="flex-shrink-0"
 									/>
 									<span className="truncate">
 										{getSubjectLabelFromValue(guess.entity.subject)}
 									</span>
 								</Link>
-								<div className="flex items-baseline gap-1.5">
-									<span
-										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.genreMatch)}`}
+								<div className="flex items-center gap-1.5">
+									<Image
+										src={getMatchIndicatorIcon(guess.genreMatch)}
+										alt=""
+										width={14}
+										height={14}
+										className="flex-shrink-0"
 									/>
 									<span className="truncate">
 										{getGenreLabel(guess.entity.genre)}
 									</span>
 								</div>
-								<div className="flex items-baseline gap-1.5">
-									<span
-										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.mainDomainMatch)}`}
+								<div className="flex items-center gap-1.5">
+									<Image
+										src={getMatchIndicatorIcon(guess.mainDomainMatch)}
+										alt=""
+										width={14}
+										height={14}
+										className="flex-shrink-0"
 									/>
 									<span className="truncate">
 										{getAttributeLabelFromValue(guess.entity.mainDomain)}
 									</span>
 								</div>
-								<div className="flex items-baseline gap-1.5 col-span-2">
-									<span
-										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.attributesMatch)}`}
+								<div className="flex items-center gap-1.5 col-span-2">
+									<Image
+										src={getMatchIndicatorIcon(guess.attributesMatch)}
+										alt=""
+										width={14}
+										height={14}
+										className="flex-shrink-0"
 									/>
 									<span className="text-xs">
 										{getAttributesLabel(guess.entity.attributes)}
