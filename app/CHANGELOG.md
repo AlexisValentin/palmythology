@@ -1,9 +1,13 @@
-# Notes de version 2.18.0 (15/02/2026)
+# Notes de version 2.18.0 (22/02/2026)
 
 ## Quoi 2 Neuf
 
 - Ajout des sous-titres sur grands écrans.
 - Ajustement de styles CSS.
+
+## Les grandes lignes
+
+- Réduction de la taille du carousel sur grands écrans.
 
 ## Recherche
 

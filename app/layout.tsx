@@ -6,6 +6,7 @@ import Breadcrumbs from "../src/components/generics/Breadcrumbs";
 import StoryblokProvider from "../src/components/StoryblokProvider";
 import "../src/global.css";
 import type { Metadata, Viewport } from "next";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { UpPageButton } from "../src/components/generics/UpPageButton";
 
 interface MainLayoutProps {
