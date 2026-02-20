@@ -11,31 +11,16 @@ export const compareGuess = (
 	guess: GodleEntity,
 	target: GodleEntity,
 ): GuessResult => {
-	const hasGodleProperties =
-		guess.godle !== undefined && target.godle !== undefined;
-
-	let genreMatch = MatchType.NONE;
-	let domainMatch = MatchType.NONE;
-
-	if (hasGodleProperties && guess.godle && target.godle) {
-		genreMatch =
-			guess.godle.genre === target.godle.genre
-				? MatchType.EXACT
-				: MatchType.NONE;
-		domainMatch = compareArraysForMatch(
-			guess.godle.domain,
-			target.godle.domain,
-		);
-	}
-
 	return {
 		entity: guess,
 		pantheonMatch:
 			guess.pantheon === target.pantheon ? MatchType.EXACT : MatchType.NONE,
 		subjectMatch:
 			guess.subject === target.subject ? MatchType.EXACT : MatchType.NONE,
-		genreMatch,
-		domainMatch,
+		genreMatch: guess.genre === target.genre ? MatchType.EXACT : MatchType.NONE,
+		mainDomainMatch:
+			guess.mainDomain === target.mainDomain ? MatchType.EXACT : MatchType.NONE,
+		attributesMatch: compareArraysForMatch(guess.attributes, target.attributes),
 		isCorrect: guess.name === target.name,
 	};
 };
@@ -62,16 +47,17 @@ export const generateShareText = (
 
 	let shareText = `${GODLE_CONFIG.GAME_NAME} #${gameNumber} ${result}\n\n`;
 
-	shareText += "❓🏛️🔎⚧️🌟\n";
+	shareText += "❓🏛️🔎⚧️⭐🌟\n";
 
 	for (const guess of guesses) {
 		const correctEmoji = guess.isCorrect ? "🟩" : "🟥";
 		const pantheonEmoji = getMatchEmoji(guess.pantheonMatch);
 		const subjectEmoji = getMatchEmoji(guess.subjectMatch);
 		const genreEmoji = getMatchEmoji(guess.genreMatch);
-		const domainEmoji = getMatchEmoji(guess.domainMatch);
+		const mainDomainEmoji = getMatchEmoji(guess.mainDomainMatch);
+		const attributesEmoji = getMatchEmoji(guess.attributesMatch);
 
-		shareText += `${correctEmoji}${pantheonEmoji}${subjectEmoji}${genreEmoji}${domainEmoji}\n`;
+		shareText += `${correctEmoji}${pantheonEmoji}${subjectEmoji}${genreEmoji}${mainDomainEmoji}${attributesEmoji}\n`;
 	}
 
 	const winRate =

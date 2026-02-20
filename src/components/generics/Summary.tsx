@@ -40,7 +40,7 @@ export const Summary: FC<SummaryProps> = ({ content }) => {
 				<div className="w-full relative">
 					<div
 						className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${
-							isExpanded ? "max-h-500" : "max-h-48 md:max-h-80"
+							isExpanded ? "max-h-125" : "max-h-48 md:max-h-80"
 						}`}
 					>
 						<Markdown>{content}</Markdown>

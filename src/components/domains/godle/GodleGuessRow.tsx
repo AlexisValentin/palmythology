@@ -1,10 +1,16 @@
 "use client";
 
+import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
-import { getDomainLabelFromValue } from "../../../utils/cards/domains";
+import BulbIcon from "../../../assets/icons/bulb.svg";
+import CheckIcon from "../../../assets/icons/check.svg";
+import WrongIcon from "../../../assets/icons/wrong.svg";
+import { getAttributeLabelFromValue } from "../../../utils/cards/attributes";
+import { getGenreLabelFromValue } from "../../../utils/cards/genres";
 import { getPantheonLabelFromValue } from "../../../utils/cards/pantheons";
 import { getSubjectLabelFromValue } from "../../../utils/cards/subjects";
+import { getMatchStyle } from "../../../utils/godle/godle.styles";
 import type { GuessResult } from "../../../utils/godle/godle.types";
 import { MatchType } from "../../../utils/godle/godle.types";
 import { getPantheonIcon } from "../../../utils/pantheons";
@@ -23,43 +29,35 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 				alt: getPantheonLabelFromValue(guess.entity.pantheon) || "",
 			};
 
-	const getMatchStyle = (isCorrect: boolean, matchType: MatchType): string => {
-		const baseClasses = "transition-all duration-500 ease-out";
+	const getGenreLabel = (genre?: string): string =>
+		genre ? (getGenreLabelFromValue(genre as never) ?? genre) : "/";
 
-		if (isCorrect || matchType === MatchType.EXACT) {
-			return `${baseClasses} bg-gradient-to-br from-green-500 to-green-600 text-white border-green-700 shadow-lg shadow-green-500/30`;
-		}
-		if (matchType === MatchType.PARTIAL) {
-			return `${baseClasses} bg-gradient-to-br from-yellow-400 to-yellow-500 text-white border-yellow-600 shadow-lg shadow-yellow-500/30`;
-		}
-		return `${baseClasses} bg-gradient-to-br from-red-500 to-red-600 text-white border-red-700 shadow-lg shadow-red-500/30`;
+	const getAttributesLabel = (attributes: string[]): string => {
+		if (attributes.length === 0) return "/";
+
+		return attributes.map((a) => getAttributeLabelFromValue(a)).join(", ");
 	};
 
-	const getGenreLabel = (genre?: string): string => {
-		if (!genre) return "/";
-
-		const labels: Record<string, string> = {
-			male: "Masculin",
-			female: "Féminin",
-			androgynous: "Androgyne",
-			none: "Aucun",
-			undefined: "Indéfini",
-		};
-
-		return labels[genre] || genre;
+	const getMatchIndicatorIcon = (matchType: MatchType): StaticImageData => {
+		if (matchType === MatchType.EXACT) return CheckIcon;
+		if (matchType === MatchType.PARTIAL) return BulbIcon;
+		return WrongIcon;
 	};
 
-	const getDomainLabel = (domains?: string[]): string => {
-		if (!domains || domains.length === 0) return "/";
-
-		return domains.map((d) => getDomainLabelFromValue(d)).join(", ");
-	};
-
-	const getMatchIndicatorColor = (matchType: MatchType): string => {
-		if (matchType === MatchType.EXACT) return "bg-green-300";
-		if (matchType === MatchType.PARTIAL) return "bg-yellow-300";
-
-		return "bg-red-300";
+	const getCardMatchType = (): MatchType => {
+		if (guess.isCorrect) return MatchType.EXACT;
+		
+		const exactCount = [
+			guess.pantheonMatch,
+			guess.subjectMatch,
+			guess.genreMatch,
+			guess.mainDomainMatch,
+			guess.attributesMatch,
+		].filter((m) => m === MatchType.EXACT || m === MatchType.PARTIAL).length;
+		
+		if (exactCount >= 3) return MatchType.PARTIAL;
+		
+		return MatchType.NONE;
 	};
 
 	const entityUrl = `/${guess.entity.slug}`;
@@ -70,7 +68,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 		<>
 			<div className="md:hidden">
 				<div
-					className={`px-4 py-4 rounded-xl border-2 animate-colorReveal ${getMatchStyle(guess.isCorrect, MatchType.NONE)}`}
+					className={`px-4 py-4 rounded-xl border-2 animate-colorReveal ${getMatchStyle(getCardMatchType())}`}
 					style={{ animationDelay: "0ms" }}
 				>
 					<div className="flex items-center gap-4">
@@ -100,10 +98,14 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 								<Link
 									href={pantheonUrl}
 									target="_blank"
-									className="flex items-baseline gap-1.5"
+									className="flex items-center gap-1.5"
 								>
-									<span
-										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.pantheonMatch)}`}
+									<Image
+										src={getMatchIndicatorIcon(guess.pantheonMatch)}
+										alt=""
+										width={14}
+										height={14}
+										className="flex-shrink-0"
 									/>
 									<span className="truncate">
 										{getPantheonLabelFromValue(guess.entity.pantheon)}
@@ -112,29 +114,53 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 								<Link
 									href={subjectUrl}
 									target="_blank"
-									className="flex items-baseline gap-1.5"
+									className="flex items-center gap-1.5"
 								>
-									<span
-										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.subjectMatch)}`}
+									<Image
+										src={getMatchIndicatorIcon(guess.subjectMatch)}
+										alt=""
+										width={14}
+										height={14}
+										className="flex-shrink-0"
 									/>
 									<span className="truncate">
 										{getSubjectLabelFromValue(guess.entity.subject)}
 									</span>
 								</Link>
-								<div className="flex items-baseline gap-1.5">
-									<span
-										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.genreMatch)}`}
+								<div className="flex items-center gap-1.5">
+									<Image
+										src={getMatchIndicatorIcon(guess.genreMatch)}
+										alt=""
+										width={14}
+										height={14}
+										className="flex-shrink-0"
 									/>
 									<span className="truncate">
-										{getGenreLabel(guess.entity.godle?.genre)}
+										{getGenreLabel(guess.entity.genre)}
 									</span>
 								</div>
-								<div className="flex items-baseline gap-1.5 col-span-2">
-									<span
-										className={`inline-block w-2 h-2 rounded-full flex-shrink-0 translate-y-[-1px] ${getMatchIndicatorColor(guess.domainMatch)}`}
+								<div className="flex items-center gap-1.5">
+									<Image
+										src={getMatchIndicatorIcon(guess.mainDomainMatch)}
+										alt=""
+										width={14}
+										height={14}
+										className="flex-shrink-0"
+									/>
+									<span className="truncate">
+										{getAttributeLabelFromValue(guess.entity.mainDomain)}
+									</span>
+								</div>
+								<div className="flex items-center gap-1.5 col-span-2">
+									<Image
+										src={getMatchIndicatorIcon(guess.attributesMatch)}
+										alt=""
+										width={14}
+										height={14}
+										className="flex-shrink-0"
 									/>
 									<span className="text-xs">
-										{getDomainLabel(guess.entity.godle?.domain)}
+										{getAttributesLabel(guess.entity.attributes)}
 									</span>
 								</div>
 							</div>
@@ -142,11 +168,11 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 					</div>
 				</div>
 			</div>
-			<div className="hidden md:grid md:grid-cols-5 gap-2 mb-3">
+			<div className="hidden md:grid md:grid-cols-6 gap-2 mb-3">
 				<Link
 					href={entityUrl}
 					target="_blank"
-					className={`px-4 py-5 rounded-xl border-2 text-center animate-colorReveal hover:brightness-75 ${getMatchStyle(guess.isCorrect, MatchType.NONE)}`}
+					className={`px-4 py-5 rounded-xl border-2 text-center animate-colorReveal hover:brightness-75 ${getMatchStyle(guess.isCorrect ? MatchType.EXACT : MatchType.NONE)}`}
 					style={{ animationDelay: "0ms" }}
 				>
 					<div className="flex justify-center mb-2">
@@ -186,14 +212,19 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 					}}
 				/>
 				<GodleGuessCell
-					label={getGenreLabel(guess.entity.godle?.genre)}
+					label={getGenreLabel(guess.entity.genre)}
 					matchType={guess.genreMatch}
 					animationDelay={300}
 				/>
 				<GodleGuessCell
-					label={getDomainLabel(guess.entity.godle?.domain)}
-					matchType={guess.domainMatch}
+					label={getAttributeLabelFromValue(guess.entity.mainDomain)}
+					matchType={guess.mainDomainMatch}
 					animationDelay={400}
+				/>
+				<GodleGuessCell
+					label={getAttributesLabel(guess.entity.attributes)}
+					matchType={guess.attributesMatch}
+					animationDelay={500}
 					textSize="sm"
 				/>
 			</div>

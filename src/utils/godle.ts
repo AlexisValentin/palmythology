@@ -4,45 +4,33 @@ import { compareArraysForMatch } from "./array";
 import { fetchAllAvailableEntitiesForGodle } from "./cms/cms.requests";
 import { getDaysSinceDate, getParisDateString } from "./dates/dates";
 import { GODLE_CONFIG } from "./godle/godle.constants";
-import type { GodleEntity } from "./godle/godle.types";
-
-type MatchResult = "exact" | "partial" | "none";
-
-interface ComparisonResult {
-	guessedEntity: GodleEntity;
-	pantheonMatch: MatchResult;
-	subjectMatch: MatchResult;
-	genreMatch: MatchResult;
-	domainMatch: MatchResult;
-	isCorrect: boolean;
-}
+import type { GodleEntity, GuessResult } from "./godle/godle.types";
+import { MatchType } from "./godle/godle.types";
 
 const compareEntityToTarget = (
 	guessedEntity: GodleEntity,
 	target: GodleEntity,
-): ComparisonResult => {
-	const hasGodleProperties =
-		guessedEntity.godle !== undefined && target.godle !== undefined;
-
-	let genreMatch: MatchResult = "none";
-	let domainMatch: MatchResult = "none";
-
-	if (hasGodleProperties && guessedEntity.godle && target.godle) {
-		genreMatch =
-			guessedEntity.godle.genre === target.godle.genre ? "exact" : "none";
-		domainMatch = compareArraysForMatch(
-			guessedEntity.godle.domain,
-			target.godle.domain,
-		);
-	}
-
+): GuessResult => {
 	return {
-		guessedEntity,
+		entity: guessedEntity,
 		pantheonMatch:
-			guessedEntity.pantheon === target.pantheon ? "exact" : "none",
-		subjectMatch: guessedEntity.subject === target.subject ? "exact" : "none",
-		genreMatch,
-		domainMatch,
+			guessedEntity.pantheon === target.pantheon
+				? MatchType.EXACT
+				: MatchType.NONE,
+		subjectMatch:
+			guessedEntity.subject === target.subject
+				? MatchType.EXACT
+				: MatchType.NONE,
+		genreMatch:
+			guessedEntity.genre === target.genre ? MatchType.EXACT : MatchType.NONE,
+		mainDomainMatch:
+			guessedEntity.mainDomain === target.mainDomain
+				? MatchType.EXACT
+				: MatchType.NONE,
+		attributesMatch: compareArraysForMatch(
+			guessedEntity.attributes,
+			target.attributes,
+		),
 		isCorrect: guessedEntity.name === target.name,
 	};
 };
@@ -74,9 +62,7 @@ const getEntityIndexForDay = (
 	return index;
 };
 
-export const getDailyEntity = async (): Promise<GodleEntity> => {
-	const entities = await fetchAllAvailableEntitiesForGodle();
-
+const getDailyEntityFromList = (entities: GodleEntity[]): GodleEntity => {
 	if (entities.length === 0) {
 		throw new Error("No entities available for Godle");
 	}
@@ -95,6 +81,11 @@ export const getDailyEntity = async (): Promise<GodleEntity> => {
 	);
 
 	return entities[todayIndex];
+};
+
+export const getDailyEntity = async (): Promise<GodleEntity> => {
+	const entities = await fetchAllAvailableEntitiesForGodle();
+	return getDailyEntityFromList(entities);
 };
 
 export const getYesterdayEntity = async (): Promise<GodleEntity | null> => {
@@ -138,13 +129,11 @@ export const getDailyEntityName = async (): Promise<string> => {
 export const validateGuess = async (
 	guessName: string,
 ): Promise<{
-	result: ComparisonResult;
+	result: GuessResult;
 	targetEntity: GodleEntity | null;
 }> => {
-	const [target, allEntities] = await Promise.all([
-		getDailyEntity(),
-		fetchAllAvailableEntitiesForGodle(),
-	]);
+	const allEntities = await fetchAllAvailableEntitiesForGodle();
+	const target = getDailyEntityFromList(allEntities);
 
 	const guessedEntity = allEntities.find((e) => e.name === guessName);
 
@@ -163,16 +152,14 @@ export const validateGuess = async (
 export const restoreGameGuesses = async (
 	guessNames: string[],
 ): Promise<{
-	results: ComparisonResult[];
+	results: GuessResult[];
 	targetEntity: GodleEntity | null;
 	isComplete: boolean;
 }> => {
-	const [target, allEntities] = await Promise.all([
-		getDailyEntity(),
-		fetchAllAvailableEntitiesForGodle(),
-	]);
+	const allEntities = await fetchAllAvailableEntitiesForGodle();
+	const target = getDailyEntityFromList(allEntities);
 
-	const results: ComparisonResult[] = [];
+	const results: GuessResult[] = [];
 	let foundCorrect = false;
 
 	for (const guessName of guessNames) {

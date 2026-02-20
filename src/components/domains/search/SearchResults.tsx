@@ -15,11 +15,11 @@ import { isStringEmpty } from "../../../utils/string";
 import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
 import Pagination from "../../generics/Pagination";
 
-const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
-	const [searchCriterias, setSearchCriterias] = useState<ResearchCriterias>({
-		pantheon: "",
-		subject: "",
-	});
+const SearchResults: React.FC<ResearchCriterias> = ({
+	pantheon,
+	subject,
+	genre,
+}) => {
 	const [searchResults, setSearchResults] = useState<TranslatedCardDetails[]>(
 		[],
 	);
@@ -28,15 +28,9 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
 
 	const areFiltersUnfilled = useCallback(
 		() =>
-			isStringEmpty(searchCriterias.pantheon) &&
-			isStringEmpty(searchCriterias.subject),
-		[searchCriterias],
+			isStringEmpty(pantheon) && isStringEmpty(subject) && isStringEmpty(genre),
+		[pantheon, subject, genre],
 	);
-
-	useEffect(() => {
-		setSearchCriterias({ pantheon, subject });
-		setCurrentPage(1);
-	}, [pantheon, subject]);
 
 	useEffect(() => {
 		const updateResultData = async () => {
@@ -48,7 +42,11 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
 				setTotalResult(0);
 				setSearchResults(results);
 			} else {
-				const cards = await filterCards(currentPage, searchCriterias);
+				const cards = await filterCards(currentPage, {
+					pantheon,
+					subject,
+					genre,
+				});
 				const { results, total } = cards;
 
 				setSearchResults(results);
@@ -57,7 +55,7 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
 		};
 
 		updateResultData();
-	}, [searchCriterias, currentPage, areFiltersUnfilled]);
+	}, [pantheon, subject, genre, currentPage, areFiltersUnfilled]);
 
 	return (
 		<div className="mt-12">
@@ -70,7 +68,7 @@ const SearchResults: React.FC<ResearchCriterias> = ({ pantheon, subject }) => {
 				{searchResults.map((card: TranslatedCardDetails) => {
 					const { name, subtitle, pantheon, icon } = card;
 
-					if (!icon) return <></>;
+					if (!icon) return null;
 
 					return (
 						<PageSquare

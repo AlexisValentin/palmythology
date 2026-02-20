@@ -12,7 +12,7 @@ describe("utils/string", () => {
 			expect(isStringEmpty("")).toEqual(true);
 		});
 
-		test("should return `false` if string is blankisObjectEmpty space", () => {
+		test("should return `false` if string is blank space", () => {
 			expect(isStringEmpty(" ")).toEqual(false);
 		});
 

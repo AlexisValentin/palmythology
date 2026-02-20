@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MatchType } from "../../../utils/godle/godle.types";
+import type { MatchType } from "../../../utils/godle/godle.types";
+import { getMatchStyle } from "../../../utils/godle/godle.styles";
 
 interface GodleGuessCellProps {
 	label: string | null;
@@ -13,18 +14,6 @@ interface GodleGuessCellProps {
 		alt: string;
 	};
 }
-
-const getMatchStyle = (matchType: MatchType): string => {
-	const baseClasses = "transition-all duration-500 ease-out";
-
-	if (matchType === MatchType.EXACT) {
-		return `${baseClasses} bg-gradient-to-br from-green-500 to-green-600 text-white border-green-700 shadow-lg shadow-green-500/30`;
-	}
-	if (matchType === MatchType.PARTIAL) {
-		return `${baseClasses} bg-gradient-to-br from-yellow-400 to-yellow-500 text-white border-yellow-600 shadow-lg shadow-yellow-500/30`;
-	}
-	return `${baseClasses} bg-gradient-to-br from-red-500 to-red-600 text-white border-red-700 shadow-lg shadow-red-500/30`;
-};
 
 const GodleGuessCell: React.FC<GodleGuessCellProps> = ({
 	label,

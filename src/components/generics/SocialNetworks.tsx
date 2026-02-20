@@ -1,3 +1,4 @@
+import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -8,7 +9,7 @@ import {
 interface SocialNetworkProps {
 	name: string;
 	url?: string;
-	iconUrl: string;
+	iconUrl: StaticImageData;
 }
 
 interface SocialNetworksProps {

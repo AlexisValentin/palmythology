@@ -3,7 +3,7 @@ export const URLS = {
 		"https://palmythology.com",
 		"https://palmythology.com/q2n",
 		"https://palmythology.com/pantheons",
-		"https://palmythology.com/sujets",
+		"https://palmythology.com/subjects",
 		"https://palmythology.com/search",
 		"https://palmythology.com/about",
 		"https://palmythology.com/godle",

@@ -1,23 +1,21 @@
-import type { DomainValue } from "../cards/domains.constants";
+import type { AttributeValue } from "../cards/attributes.constants";
+import type { GenreValue } from "../cards/genres.constants";
 import type { PantheonValue } from "../cards/pantheons.constants";
 import type { SubjectValue } from "../cards/subjects.constants";
 
-export interface GodleProperties {
-	genre: "male" | "female" | "androgynous" | "none" | "undefined";
-	domain: DomainValue[];
-}
-
 export interface GodleEntity {
-	name: string;
-	pantheon: PantheonValue;
-	subject: SubjectValue;
-	slug: string;
-	icon: {
-		alt: string;
-		filename: string;
-	};
-	godle?: GodleProperties;
-}
+		name: string;
+		pantheon: PantheonValue;
+		subject: SubjectValue;
+		genre: GenreValue;
+		slug: string;
+		icon: {
+			alt: string;
+			filename: string;
+		};
+		mainDomain: AttributeValue;
+		attributes: AttributeValue[];
+	}
 
 export enum MatchType {
 	EXACT = "exact",
@@ -26,13 +24,14 @@ export enum MatchType {
 }
 
 export interface GuessResult {
-	entity: GodleEntity;
-	pantheonMatch: MatchType;
-	subjectMatch: MatchType;
-	genreMatch: MatchType;
-	domainMatch: MatchType;
-	isCorrect: boolean;
-}
+		entity: GodleEntity;
+		pantheonMatch: MatchType;
+		subjectMatch: MatchType;
+		genreMatch: MatchType;
+		mainDomainMatch: MatchType;
+		attributesMatch: MatchType;
+		isCorrect: boolean;
+	}
 
 export interface GodleDailyState {
 	date: string;

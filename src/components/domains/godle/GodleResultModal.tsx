@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ConfettiPopperIcon from "../../../assets/icons/confetti_popper.svg";
 import CrossIcon from "../../../assets/icons/cross.svg";
 import { generateShareText } from "../../../modules/godle/godleEngine";
@@ -37,6 +37,19 @@ const GodleResultModal: React.FC<GodleResultModalProps> = ({
 	const [copied, setCopied] = useState(false);
 	const modalRef = useRef<HTMLDivElement>(null);
 
+	useEffect(() => {
+		if (!isOpen) return;
+
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "Escape") onClose();
+		};
+
+		document.addEventListener("keydown", handleKeyDown);
+		modalRef.current?.focus();
+
+		return () => document.removeEventListener("keydown", handleKeyDown);
+	}, [isOpen, onClose]);
+
 	if (!isOpen) return null;
 
 	const handleShare = async () => {
@@ -61,18 +74,20 @@ const GodleResultModal: React.FC<GodleResultModalProps> = ({
 		<div
 			className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-3 md:p-4 animate-fadeIn"
 			onMouseDown={handleBackdropClick}
-			role="alert"
 		>
 			<div
 				ref={modalRef}
 				className="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto p-5 md:p-8 shadow-2xl animate-slideUpModal relative"
 				role="dialog"
 				aria-modal="true"
+				aria-labelledby="godle-result-title"
+				tabIndex={-1}
 			>
 				<button
 					type="button"
 					onClick={onClose}
 					className="absolute top-3 right-3 md:top-4 md:right-4 hover:opacity-50 transition-opacity cursor-pointer"
+					aria-label="Fermer"
 				>
 					<Image src={CrossIcon} alt="" width={18} height={18} unoptimized />
 				</button>
@@ -87,7 +102,10 @@ const GodleResultModal: React.FC<GodleResultModalProps> = ({
 							unoptimized
 						/>
 					</div>
-					<h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-400 to-sky-500 bg-clip-text text-transparent">
+					<h2
+						id="godle-result-title"
+						className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-400 to-sky-500 bg-clip-text text-transparent"
+					>
 						Félicitations !
 					</h2>
 				</div>
