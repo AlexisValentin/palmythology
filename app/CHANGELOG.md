@@ -8,6 +8,7 @@
 ## Les grandes lignes
 
 - Réduction de la taille du carousel sur grands écrans.
+- Correction d'un bug qui faisait que les liens Mastodons remontaient avec l'icône Twitch.
 
 ## Recherche
 
@@ -31,10 +32,12 @@
 ## Divers
 
 - Ajout de templates pour les erreurs HTTP 403, 404, 500.
+- Corrections techniques diverses.
 - Migration d'infrastructure.
   - Passage de Vercel à Dokploy.
   - Création d'un fichier Dockerfile.
   - Le projet tourne désormais sur une image Docker.
+  - Changement de tracker analytics de Plausible vers Rybbit.
 - Mise à jour et ajout de documentations.
 - Ajout de fichiers de directives Claude.
   - CLAUDE.md pour les directives gloables.

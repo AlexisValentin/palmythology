@@ -37,15 +37,15 @@ export const SOCIAL_NETWORKS: SocialNetworkType[] = [
 		status: SOCIAL_NETWORK_STATUS.ACTIVE,
 	},
 	{
-		name: "Twitch",
-		url: "https://www.twitch.tv/lepalmypede/",
-		iconUrl: TwitchIcon,
-		status: SOCIAL_NETWORK_STATUS.ACTIVE,
-	},
-	{
 		name: "Mastodon",
 		url: "https://mastodon.social/@lepalmypede",
 		iconUrl: MastodonIcon,
+		status: SOCIAL_NETWORK_STATUS.ACTIVE,
+	},
+	{
+		name: "Twitch",
+		url: "https://www.twitch.tv/lepalmypede/",
+		iconUrl: TwitchIcon,
 		status: SOCIAL_NETWORK_STATUS.ACTIVE,
 	},
 ];
