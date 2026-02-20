@@ -4,6 +4,7 @@
 
 - Ajout des sous-titres sur grands écrans.
 - Ajustement de styles CSS.
+- Ajout d'une mention "Bientôt disponible" pour les prochaines fiches à paraître.
 
 ## Les grandes lignes
 

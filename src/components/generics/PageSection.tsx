@@ -15,20 +15,16 @@ type PageSectionProps = {
 	icon: NextImageType | StoryblokImageType;
 	url?: string;
 	pantheon?: PantheonValue;
+	badge?: React.ReactNode;
 };
 
 const isStoryblokImage = (
 	icon: NextImageType | StoryblokImageType,
-): icon is StoryblokImageType => {
-	return "filename" in icon;
-};
+): icon is StoryblokImageType => "filename" in icon;
 
-const PageSectionContent: React.FC<Omit<PageSectionProps, "url">> = ({
-	title,
-	subtitle,
-	description,
-	icon,
-}) => {
+const PageSectionContent: React.FC<
+	Omit<PageSectionProps, "url" | "pantheon">
+> = ({ title, subtitle, description, icon, badge }) => {
 	const imageSrc = isStoryblokImage(icon) ? icon.filename : icon;
 	const imageAlt = isStoryblokImage(icon)
 		? icon.alt || `${title} - ${description}`
@@ -45,13 +41,18 @@ const PageSectionContent: React.FC<Omit<PageSectionProps, "url">> = ({
 				sizes="6rem"
 			/>
 			<div className="flex items-center grow">
-				<div className="flex flex-col sm:py-4 sm:pr-8 md:mr-6">
-					<h3 className="font-semibold text-md text-xl text-center md:text-left md:block ">
-						{title}
-						{subtitle && (
-							<span className="hidden md:inline text-sm ml-4">{subtitle}</span>
-						)}
-					</h3>
+				<div className="flex flex-col grow sm:py-4 sm:pr-8 md:mr-6">
+					<div className="flex flex-col items-center sm:flex-row sm:items-center sm:justify-between">
+						<h3 className="font-semibold text-md text-xl text-center md:text-left md:block">
+							{title}
+							{subtitle && (
+								<span className="hidden md:inline text-sm ml-4">
+									{subtitle}
+								</span>
+							)}
+						</h3>
+						<span className="mt-2 md:mt-0">{badge}</span>
+					</div>
 					<div className="font-medium mt-4 block text-center md:block md:text-left">
 						{description}
 					</div>
@@ -68,6 +69,7 @@ const PageSection: React.FC<PageSectionProps> = ({
 	description,
 	icon,
 	pantheon,
+	badge,
 }) => {
 	const mainColor = pantheon ? getPantheonMainColor(pantheon) : "slate-500";
 	const textColor = pantheon ? getPantheonTextColor(pantheon) : "white";
@@ -82,6 +84,7 @@ const PageSection: React.FC<PageSectionProps> = ({
 				subtitle={subtitle}
 				description={description}
 				icon={icon}
+				badge={badge}
 			/>
 		</Link>
 	) : (
@@ -91,6 +94,7 @@ const PageSection: React.FC<PageSectionProps> = ({
 				subtitle={subtitle}
 				description={description}
 				icon={icon}
+				badge={badge}
 			/>
 		</div>
 	);

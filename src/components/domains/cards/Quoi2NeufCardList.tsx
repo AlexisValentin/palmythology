@@ -41,6 +41,13 @@ const Q2NItemLists: FC<Q2NItemListsProps> = ({ quoi2NeufStories }) => {
 						icon={icon}
 						url={url}
 						pantheon={pantheon}
+						badge={
+							available ? undefined : (
+								<span className="italic text-sm text-gray-500 whitespace-nowrap">
+									Bientôt disponible
+								</span>
+							)
+						}
 					/>
 				);
 			})}
