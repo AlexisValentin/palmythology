@@ -7,6 +7,39 @@ import { GODLE_CONFIG } from "./godle/godle.constants";
 import type { GodleEntity, GuessResult } from "./godle/godle.types";
 import { MatchType } from "./godle/godle.types";
 
+const getMainDomainMatch = (
+	guessed: GodleEntity,
+	target: GodleEntity,
+): MatchType => {
+	if (guessed.mainDomain === target.mainDomain) return MatchType.EXACT;
+
+	const isInTargetAttributes = target.attributes.includes(guessed.mainDomain);
+	const isInGuessedAttributes = guessed.attributes.includes(target.mainDomain);
+
+	if (isInTargetAttributes || isInGuessedAttributes) return MatchType.PARTIAL;
+
+	return MatchType.NONE;
+};
+
+const getAttributesMatch = (
+	guessed: GodleEntity,
+	target: GodleEntity,
+): MatchType => {
+	const arrayMatch = compareArraysForMatch(
+		guessed.attributes,
+		target.attributes,
+	);
+
+	if (arrayMatch !== MatchType.NONE) return arrayMatch;
+
+	const hasMainDomainCrossMatch =
+		guessed.attributes.includes(target.mainDomain);
+
+	if (hasMainDomainCrossMatch) return MatchType.PARTIAL;
+
+	return MatchType.NONE;
+};
+
 const compareEntityToTarget = (
 	guessedEntity: GodleEntity,
 	target: GodleEntity,
@@ -23,14 +56,8 @@ const compareEntityToTarget = (
 				: MatchType.NONE,
 		genreMatch:
 			guessedEntity.genre === target.genre ? MatchType.EXACT : MatchType.NONE,
-		mainDomainMatch:
-			guessedEntity.mainDomain === target.mainDomain
-				? MatchType.EXACT
-				: MatchType.NONE,
-		attributesMatch: compareArraysForMatch(
-			guessedEntity.attributes,
-			target.attributes,
-		),
+		mainDomainMatch: getMainDomainMatch(guessedEntity, target),
+		attributesMatch: getAttributesMatch(guessedEntity, target),
 		isCorrect: guessedEntity.name === target.name,
 	};
 };
