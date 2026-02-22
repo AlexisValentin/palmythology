@@ -4,6 +4,7 @@ import Image, { type StaticImageData } from "next/image";
 import FoldersIcon from "../../../assets/icons/folders.svg";
 import GenderIcon from "../../../assets/icons/gender_all.svg";
 import GoldMedalIcon from "../../../assets/icons/gold_medal.svg";
+import IdCardIcon from "../../../assets/icons/id_card.svg";
 import LaurelIcon from "../../../assets/icons/laurel.svg";
 import MysteriousFaceIcon from "../../../assets/icons/mysterious_face.svg";
 import type { GuessResult } from "../../../utils/godle/godle.types";
@@ -20,9 +21,15 @@ const GodleGuessHistoryHeader: React.FC<GodleGuessHistoryHeaderProps> = ({
 	iconAlt,
 	headerLabel,
 }) => (
-	<div className="flex justify-center text-center text-sm font-semibold">
-		<Image className="mr-1" src={icon} alt={iconAlt} width={16} height={16} />{" "}
-		{headerLabel}
+	<div className="flex flex-col items-center justify-center text-center text-sm font-semibold whitespace-nowrap">
+		<Image
+			className="shrink-0"
+			src={icon}
+			alt={iconAlt}
+			width={24}
+			height={24}
+		/>
+		<span className="mt-1">{headerLabel}</span>
 	</div>
 );
 
@@ -40,7 +47,7 @@ const GodleGuessHistory: React.FC<GodleGuessHistoryProps> = ({ guesses }) => {
 			<h3 className="flex justify-center text-lg md:text-xl font-bold mb-6 md:mb-12 text-neutral-800">
 				Tentative #{guesses.length}
 			</h3>
-			<div className="hidden md:grid md:grid-cols-5 gap-2 mb-4 px-1">
+			<div className="hidden md:grid md:grid-cols-6 gap-2 mb-4 px-1">
 				<GodleGuessHistoryHeader
 					icon={MysteriousFaceIcon}
 					iconAlt="Icône de visage mystérieux"
@@ -64,7 +71,12 @@ const GodleGuessHistory: React.FC<GodleGuessHistoryProps> = ({ guesses }) => {
 				<GodleGuessHistoryHeader
 					icon={GoldMedalIcon}
 					iconAlt="Icône de médaille d'or"
-					headerLabel="Domaines"
+					headerLabel="Domaine"
+				/>
+				<GodleGuessHistoryHeader
+					icon={IdCardIcon}
+					iconAlt="Icône de médaille d'or"
+					headerLabel="Attributs"
 				/>
 			</div>
 			<div className="space-y-3">

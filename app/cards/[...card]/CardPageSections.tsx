@@ -1,18 +1,18 @@
 import Image from "next/image";
-import Script from "next/script";
 import type { FC } from "react";
-import MagnifyingGlassIcon from "../../../src/assets/icons/magnifying_glass.svg";
-import QnAIcon from "../../../src/assets/icons/question_marks.svg";
 import QuotationIcon from "../../../src/assets/icons/quotation_marks.svg";
 import ReuseArrowsIcon from "../../../src/assets/icons/reuse_arrows.svg";
-import { Faq, type FaqProps } from "../../../src/components/generics/Faq";
+import type { FaqProps } from "../../../src/components/generics/Faq";
+import {
+	PageFaqSection,
+	PageSummarySection,
+} from "../../../src/components/generics/PageSummarySections";
 import PageSquare, {
 	CONTENT_TYPE,
 	PAGE_SQUARE_SIZE_TYPE,
 } from "../../../src/components/generics/PageSquare";
 import type { QuotationProps } from "../../../src/components/generics/Quotation";
 import Quotation from "../../../src/components/generics/Quotation";
-import { Summary } from "../../../src/components/generics/Summary";
 import type { CardRelatedType } from "../../../src/utils/cms/cms.constants";
 
 interface CardPageSummarySectionProps {
@@ -21,81 +21,15 @@ interface CardPageSummarySectionProps {
 
 export const CardPageSummarySection: FC<CardPageSummarySectionProps> = ({
 	summary,
-}) => {
-	if (!summary) return null;
-
-	return (
-		<>
-			<div className="flex md:hidden flex-row justify-center items-center mt-8">
-				<Image
-					className="mr-2"
-					src={MagnifyingGlassIcon}
-					alt="Icône de résumé"
-					width={24}
-					height={24}
-					unoptimized
-				/>
-				<h3 className="text-xl font-bold">Les Grandes Lignes</h3>
-			</div>
-			<div className="w-full mt-8">
-				<Summary content={summary} />
-			</div>
-		</>
-	);
-};
+}) => <PageSummarySection summary={summary} label="Les Grandes Lignes" />;
 
 interface CardPageFaqSectionProps {
 	faq: FaqProps[];
 }
 
-export const CardPageFaqSection: FC<CardPageFaqSectionProps> = ({ faq }) => {
-	if (!faq || faq?.length === 0) {
-		return null;
-	}
-
-	const faqPageSchema = {
-		"@context": "https://schema.org",
-		"@type": "FAQPage",
-		mainEntity: faq.map(({ question, response }) => ({
-			"@type": "Question",
-			name: question,
-			acceptedAnswer: {
-				"@type": "Answer",
-				text: response,
-			},
-		})),
-	};
-
-	return (
-		<>
-			<Script
-				type="application/ld+json"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
-			/>
-			<div className="flex flex-col items-center w-full border-t-2 mt-8 lg:w-3/4">
-				<div className="flex flex-row justify-center items-center mt-6">
-					<Image
-						className="mr-2"
-						src={QnAIcon}
-						alt="Icône de foire aux questions"
-						width={32}
-						height={32}
-						unoptimized
-					/>
-					<h3 className="text-xl font-bold">Questions fréquentes</h3>
-				</div>
-				{faq.map(({ question, response }) => (
-					<div
-						key={question}
-						className="flex flex-col justify-center items-center mt-8 w-full"
-					>
-						<Faq question={question} response={response} />
-					</div>
-				))}
-			</div>
-		</>
-	);
-};
+export const CardPageFaqSection: FC<CardPageFaqSectionProps> = ({ faq }) => (
+	<PageFaqSection faq={faq} />
+);
 
 interface CardPageQuotationsSectionProps {
 	quotations: QuotationProps[];
@@ -163,7 +97,7 @@ export const CardPageRelatedCardsSection: FC<
 				{relatedCards.map(
 					({ name, subtitle, pantheon, icon }: CardRelatedType) => (
 						<PageSquare
-							key={`${name}-${subtitle}}`}
+							key={`${name}-${subtitle}`}
 							title={name}
 							subtitle={subtitle}
 							pantheon={pantheon}

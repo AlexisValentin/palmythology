@@ -229,7 +229,7 @@ const CardPage: FC<CardPagePropsType> = async ({ params }) => {
 				<div className="hidden md:block w-full lg:w-3/4">
 					<CardPageSummarySection summary={mdSummary} />
 				</div>
-				<div className="flex items-center justify-center w-full lg:w-3/4 mt-4">
+				<div className="flex items-center justify-center w-full lg:w-3/4 xl:w-2/3 2xl:w-3/5 mt-4">
 					<Carousel imageList={images} />
 				</div>
 				<div className="block md:hidden border-t-2 mt-8 w-full lg:w-3/4">

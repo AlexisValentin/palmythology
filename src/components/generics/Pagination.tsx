@@ -37,6 +37,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
 	setCurrentPage,
 }) => (
 	<button
+		type="button"
 		className={`border rounded-lg border-slate-300 ${
 			isActivePage ? `bg-slate-300 hover:bg-slate-100` : `hover:bg-slate-200`
 		} w-7 m-1 px-2 py-1`}

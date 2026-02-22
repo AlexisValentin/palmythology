@@ -9,9 +9,10 @@ import {
 
 const revalidateCache = async (request: NextRequest) => {
 	try {
-		const searchParams = request.nextUrl.searchParams;
-		const secret = searchParams.get("secret");
-		const type = searchParams.get("type");
+		const secret =
+			request.headers.get("authorization")?.replace("Bearer ", "") ??
+			request.nextUrl.searchParams.get("secret");
+		const type = request.nextUrl.searchParams.get("type");
 
 		if (secret !== process.env.REVALIDATION_SECRET) {
 			return NextResponse.json({ message: "Invalid token." }, { status: 403 });
@@ -43,6 +44,7 @@ const revalidateCache = async (request: NextRequest) => {
 		return NextResponse.json(result, { status: 200 });
 	} catch (error) {
 		console.error("Something went wrong during cache invalidation => ", error);
+		
 		return NextResponse.json(
 			{ message: "Something went wrong during cache invalidation" },
 			{ status: 500 },
@@ -50,8 +52,5 @@ const revalidateCache = async (request: NextRequest) => {
 	}
 };
 
-// Direct browser access
 export const GET = async (request: NextRequest) => revalidateCache(request);
-
-// Webhook access
 export const POST = async (request: NextRequest) => revalidateCache(request);

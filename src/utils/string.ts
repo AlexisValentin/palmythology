@@ -3,6 +3,9 @@ export const isStringEmpty = (value?: string): boolean => value === "";
 export const stripDiacritics = (stringToStrip: string): string =>
 	stringToStrip?.normalize("NFD").replaceAll(/[\u0300-\u036f]/g, "");
 
+export const normalizeString = (str: string): string =>
+	stripDiacritics(str).toLowerCase();
+
 export const replaceHyphenByDashes = (stringToParse: string): string =>
 	stringToParse.replaceAll("'", "-");
 

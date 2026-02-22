@@ -1,9 +1,9 @@
+import DiceIcon from "../../assets/icons/dice.svg";
 import FoldersIcon from "../../assets/icons/folders.svg";
 import InformationIcon from "../../assets/icons/information.svg";
 import LaurelIcon from "../../assets/icons/laurel.svg";
 import MagnifyingGlassIcon from "../../assets/icons/magnifying_glass.svg";
 import Q2NIcon from "../../assets/icons/number_two.svg";
-import QuestionMarksIcon from "../../assets/icons/question_marks.svg";
 import PalmythologyLogo from "../../assets/images/logo.png";
 import type { NextImageType } from "../image.constants";
 
@@ -34,43 +34,43 @@ export const ROUTES: RouteType[] = [
 	{
 		name: "Palmythology",
 		url: ROUTE_URLS.HOME,
-		icon: PalmythologyLogo as unknown as NextImageType,
+		icon: PalmythologyLogo,
 	},
 	{
 		name: "Quoi 2 Neuf ?",
 		subtitle: "Le planning",
 		url: ROUTE_URLS.Q2N,
-		icon: Q2NIcon as unknown as NextImageType,
+		icon: Q2NIcon,
 	},
 	{
 		name: "Panthéons",
 		subtitle: "11 civilisations",
 		url: ROUTE_URLS.PANTHEONS,
-		icon: LaurelIcon as unknown as NextImageType,
+		icon: LaurelIcon,
 	},
 	{
 		name: "Sujets",
 		subtitle: "7 thématiques",
 		url: ROUTE_URLS.SUBJECTS,
-		icon: FoldersIcon as unknown as NextImageType,
+		icon: FoldersIcon,
 	},
 	{
 		name: "Recherche",
 		url: ROUTE_URLS.SEARCH,
 		subtitle: "Trouver votre fiche",
-		icon: MagnifyingGlassIcon as unknown as NextImageType,
+		icon: MagnifyingGlassIcon,
 	},
 	{
 		name: "Godle",
 		url: ROUTE_URLS.GODLE,
 		subtitle: "Le jeu quotidien",
-		icon: QuestionMarksIcon as unknown as NextImageType,
+		icon: DiceIcon,
 	},
 	{
 		name: "A propos",
 		url: ROUTE_URLS.ABOUT,
 		subtitle: "La Palmythology et vous",
-		icon: InformationIcon as unknown as NextImageType,
+		icon: InformationIcon,
 	},
 ];
 

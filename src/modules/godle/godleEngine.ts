@@ -11,31 +11,16 @@ export const compareGuess = (
 	guess: GodleEntity,
 	target: GodleEntity,
 ): GuessResult => {
-	const hasGodleProperties =
-		guess.godle !== undefined && target.godle !== undefined;
-
-	let genreMatch = MatchType.NONE;
-	let domainMatch = MatchType.NONE;
-
-	if (hasGodleProperties && guess.godle && target.godle) {
-		genreMatch =
-			guess.godle.genre === target.godle.genre
-				? MatchType.EXACT
-				: MatchType.NONE;
-		domainMatch = compareArraysForMatch(
-			guess.godle.domain,
-			target.godle.domain,
-		);
-	}
-
 	return {
 		entity: guess,
 		pantheonMatch:
 			guess.pantheon === target.pantheon ? MatchType.EXACT : MatchType.NONE,
 		subjectMatch:
 			guess.subject === target.subject ? MatchType.EXACT : MatchType.NONE,
-		genreMatch,
-		domainMatch,
+		genreMatch: guess.genre === target.genre ? MatchType.EXACT : MatchType.NONE,
+		mainDomainMatch:
+			guess.mainDomain === target.mainDomain ? MatchType.EXACT : MatchType.NONE,
+		attributesMatch: compareArraysForMatch(guess.attributes, target.attributes),
 		isCorrect: guess.name === target.name,
 	};
 };
@@ -62,24 +47,38 @@ export const generateShareText = (
 
 	let shareText = `${GODLE_CONFIG.GAME_NAME} #${gameNumber} ${result}\n\n`;
 
-	shareText += "❓🏛️🔎⚧️🌟\n";
+	shareText += "❓🏛️🔎⚧️⭐🌟\n";
 
 	for (const guess of guesses) {
 		const correctEmoji = guess.isCorrect ? "🟩" : "🟥";
 		const pantheonEmoji = getMatchEmoji(guess.pantheonMatch);
 		const subjectEmoji = getMatchEmoji(guess.subjectMatch);
 		const genreEmoji = getMatchEmoji(guess.genreMatch);
-		const domainEmoji = getMatchEmoji(guess.domainMatch);
+		const mainDomainEmoji = getMatchEmoji(guess.mainDomainMatch);
+		const attributesEmoji = getMatchEmoji(guess.attributesMatch);
 
-		shareText += `${correctEmoji}${pantheonEmoji}${subjectEmoji}${genreEmoji}${domainEmoji}\n`;
+		shareText += `${correctEmoji}${pantheonEmoji}${subjectEmoji}${genreEmoji}${mainDomainEmoji}${attributesEmoji}\n`;
 	}
 
-	const winRate =
-		statistics.gamesPlayed > 0
-			? Math.round((statistics.gamesWon / statistics.gamesPlayed) * 100)
-			: 0;
+	const distribution = statistics.guessDistribution;
+	const distributionEntries = Object.entries(distribution);
 
-	shareText += `\n📊 Parties: ${statistics.gamesPlayed} | Taux de victoires: ${winRate}%\n`;
+	const averageGuesses =
+		distributionEntries.length > 0
+			? (
+					distributionEntries.reduce(
+						(sum, [guesses, count]) => sum + Number(guesses) * count,
+						0,
+					) / distributionEntries.reduce((sum, [, count]) => sum + count, 0)
+				).toFixed(1)
+			: "-";
+
+	const bestGuess =
+		distributionEntries.length > 0
+			? Math.min(...distributionEntries.map(([guesses]) => Number(guesses)))
+			: "-";
+
+	shareText += `\n📊 Parties: ${statistics.gamesPlayed} | Moyenne: ${averageGuesses} | Record: ${bestGuess}\n`;
 	shareText += `🔥 Série: ${statistics.currentStreak} | Max: ${statistics.maxStreak}\n`;
 
 	shareText += `\nTentez de trouver l'entité mythologique du jour !\n`;

@@ -1,4 +1,5 @@
-import type { DomainValue } from "../cards/domains.constants";
+import type { AttributeValue } from "../cards/attributes.constants";
+import type { GenreValue } from "../cards/genres.constants";
 import type { PantheonValue } from "../cards/pantheons.constants";
 import type { SubjectValue } from "../cards/subjects.constants";
 
@@ -16,18 +17,6 @@ export interface StoryblokImageType {
 	filename: string;
 }
 
-export interface GodlePropertiesType {
-	_uid?: string;
-	component?: string;
-	genre: "male" | "female" | "androgynous" | "none" | "undefined";
-	domain: DomainValue[];
-}
-
-interface StoryblokLinkType {
-	alt: string;
-	filename: string;
-}
-
 export type CardRelatedType = Pick<
 	CardItemType,
 	"name" | "subtitle" | "pantheon"
@@ -41,8 +30,8 @@ export interface CardItemType {
 	images: StoryblokImageType[];
 	available: boolean;
 	isFolder: boolean;
-	instagramUrl: StoryblokLinkType;
-	threadsUrl: StoryblokLinkType;
+	instagramUrl: StoryblokImageType;
+	threadsUrl: StoryblokImageType;
 	relatedCards: CardRelatedType[];
 }
 
@@ -61,25 +50,27 @@ export interface AboutItemType {
 }
 
 export interface StoryblokCardComponentType {
-	content: {
-		component: string;
-		name: string;
-		subtitle: string;
-		icon: StoryblokImageType;
-		pantheon: PantheonValue;
-		subject: SubjectValue;
-		available: boolean;
-		isFolder: boolean;
-		godle?: GodlePropertiesType[];
-	};
-}
+		content: {
+			component: string;
+			name: string;
+			subtitle: string;
+			icon: StoryblokImageType;
+			pantheon: PantheonValue;
+			subject: SubjectValue;
+			genre: GenreValue;
+			available: boolean;
+			isFolder: boolean;
+			mainDomain?: AttributeValue;
+			attributes?: AttributeValue[];
+		};
+	}
 
 export interface StoryblokQ2NComponentType {
 	content: {
 		component: string;
 		title: string;
-		subtitle: PantheonValue;
-		icon: { alt: string; filename: string };
+		subtitle: string;
+		icon: StoryblokImageType;
 		available: boolean;
 		isFolder: boolean;
 		pantheon: PantheonValue;

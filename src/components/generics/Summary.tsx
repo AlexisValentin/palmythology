@@ -35,12 +35,12 @@ export const Summary: FC<SummaryProps> = ({ content }) => {
 		<div className="md:flex md:justify-center">
 			<div
 				ref={summaryRef}
-				className={`flex flex-col items-center justify-center rounded-lg drop-shadow-lg ${getSummaryBackgroundColor()} italic p-3 mb-10 w-full relative`}
+				className={`flex flex-col items-center justify-center rounded-lg drop-shadow-lg ${getSummaryBackgroundColor()} p-3 mb-10 w-full relative`}
 			>
 				<div className="w-full relative">
 					<div
 						className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${
-							isExpanded ? "max-h-500" : "max-h-48 md:max-h-80"
+							isExpanded ? "max-h-125" : "max-h-48 md:max-h-80"
 						}`}
 					>
 						<Markdown>{content}</Markdown>

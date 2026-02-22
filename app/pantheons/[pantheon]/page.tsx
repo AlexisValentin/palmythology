@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import LPCardList from "../../../src/components/domains/cards/LPCardList";
 import {
 	CategoryPageFaqSection,
@@ -76,13 +77,14 @@ export const generateMetadata = async ({ params }: PantheonPagePropsType) => {
 const PantheonPage = async ({ params }: PantheonPagePropsType) => {
 	const pageParams = await params;
 	const pantheon = pageParams.pantheon;
+	const pantheonLabel = getPantheonLabelFromValue(pantheon as PantheonValue);
+
+	if (!pantheonLabel) notFound();
 
 	const [results, pantheonContent] = await Promise.all([
-		fetchAllCardsFromCriterias({ pantheon, subject: "" }),
+		fetchAllCardsFromCriterias({ pantheon, subject: "", genre: "" }),
 		fetchLandingPage("pantheons", pantheon),
 	]);
-
-	const pantheonLabel = getPantheonLabelFromValue(pantheon as PantheonValue);
 
 	return (
 		<>

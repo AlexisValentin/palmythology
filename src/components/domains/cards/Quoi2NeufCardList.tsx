@@ -27,7 +27,7 @@ const Q2NItemLists: FC<Q2NItemListsProps> = ({ quoi2NeufStories }) => {
 	return (
 		<div className="flex flex-col items-center gap-6 mt-12 px-4 sm:px-8 lg:px-16">
 			{quoi2NeufStories.map((item) => {
-				const { title, icon, pantheon, available, teasing } = item;
+				const { title, subtitle, icon, pantheon, available, teasing } = item;
 				const url = available
 					? setCardRouteParameters(title, pantheon)
 					: undefined;
@@ -35,11 +35,19 @@ const Q2NItemLists: FC<Q2NItemListsProps> = ({ quoi2NeufStories }) => {
 				return (
 					<PageSection
 						key={`q2n-${title}-${pantheon}`}
-						name={title}
+						title={title}
+						subtitle={subtitle}
 						description={teasing}
 						icon={icon}
 						url={url}
 						pantheon={pantheon}
+						badge={
+							available ? undefined : (
+								<span className="italic text-sm text-gray-500 whitespace-nowrap">
+									Bientôt disponible
+								</span>
+							)
+						}
 					/>
 				);
 			})}

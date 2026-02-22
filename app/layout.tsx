@@ -6,6 +6,7 @@ import Breadcrumbs from "../src/components/generics/Breadcrumbs";
 import StoryblokProvider from "../src/components/StoryblokProvider";
 import "../src/global.css";
 import type { Metadata, Viewport } from "next";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { UpPageButton } from "../src/components/generics/UpPageButton";
 
 interface MainLayoutProps {
@@ -90,8 +91,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 						<script
 							src="https://analytics.lepalmypede.eu/api/script.js"
 							data-site-id="7822bb4f36a9"
-							async
-						/>
+							defer
+						></script>
 					)}
 					<script
 						type="application/ld+json"
@@ -105,16 +106,18 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 					/>
 				</head>
 				<body>
-					<SocialsIncentivePopin />
-					<MainMenu />
-					<div className="flex flex-col min-h-screen">
-						<div className="px-6 mb-20 sm:px-12 md:px-24 lg:px-40 xl:px-56 2xl:px-72">
-							{children}
+					<NuqsAdapter>
+						<SocialsIncentivePopin />
+						<MainMenu />
+						<div className="flex flex-col min-h-screen">
+							<div className="px-6 mb-20 sm:px-12 md:px-24 lg:px-40 xl:px-56 2xl:px-72">
+								{children}
+							</div>
 						</div>
-					</div>
-					<UpPageButton />
-					<Breadcrumbs />
-					<Footer />
+						<UpPageButton />
+						<Breadcrumbs />
+						<Footer />
+					</NuqsAdapter>
 				</body>
 			</html>
 		</StoryblokProvider>

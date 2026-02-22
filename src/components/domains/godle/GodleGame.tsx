@@ -9,26 +9,12 @@ import {
 	updateStatistics,
 } from "../../../modules/godle/godleStorage";
 import { restoreGameGuesses, validateGuess } from "../../../utils/godle";
-import type {
-	GodleEntity,
-	GuessResult,
-	MatchType,
-} from "../../../utils/godle/godle.types";
+import type { GodleEntity, GuessResult } from "../../../utils/godle/godle.types";
 import useModal from "../../hooks/useModal";
 import GodleFAQ from "./GodleFAQ";
 import GodleGuessHistory from "./GodleGuessHistory";
 import GodleInput from "./GodleInput";
 import GodleResultModal from "./GodleResultModal";
-
-const toMatchType = (value: "exact" | "partial" | "none"): MatchType => {
-	const map: Record<string, MatchType> = {
-		exact: "exact" as MatchType,
-		partial: "partial" as MatchType,
-		none: "none" as MatchType,
-	};
-
-	return map[value];
-};
 
 interface GodleGameProps {
 	allEntities: GodleEntity[];
@@ -87,16 +73,7 @@ const GodleGame: React.FC<GodleGameProps> = ({
 					isComplete: complete,
 				} = await restoreGameGuesses(savedState.guesses);
 
-				const restoredGuesses: GuessResult[] = results.map((r) => ({
-					entity: r.guessedEntity,
-					pantheonMatch: toMatchType(r.pantheonMatch),
-					subjectMatch: toMatchType(r.subjectMatch),
-					genreMatch: toMatchType(r.genreMatch),
-					domainMatch: toMatchType(r.domainMatch),
-					isCorrect: r.isCorrect,
-				}));
-
-				setGuesses(restoredGuesses);
+				setGuesses(results);
 				setIsComplete(complete);
 				setIsWon(complete);
 				target && setTargetEntity(target);
@@ -114,16 +91,7 @@ const GodleGame: React.FC<GodleGameProps> = ({
 		try {
 			const { result, targetEntity: target } = await validateGuess(entity.name);
 
-			const guessResult: GuessResult = {
-				entity: result.guessedEntity,
-				pantheonMatch: toMatchType(result.pantheonMatch),
-				subjectMatch: toMatchType(result.subjectMatch),
-				genreMatch: toMatchType(result.genreMatch),
-				domainMatch: toMatchType(result.domainMatch),
-				isCorrect: result.isCorrect,
-			};
-
-			const newGuesses = [...guesses, guessResult];
+			const newGuesses = [...guesses, result];
 			setGuesses(newGuesses);
 
 			const won = result.isCorrect;
