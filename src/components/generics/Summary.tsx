@@ -35,7 +35,7 @@ export const Summary: FC<SummaryProps> = ({ content }) => {
 		<div className="md:flex md:justify-center">
 			<div
 				ref={summaryRef}
-				className={`flex flex-col items-center justify-center rounded-lg drop-shadow-lg ${getSummaryBackgroundColor()} italic p-3 mb-10 w-full relative`}
+				className={`flex flex-col items-center justify-center rounded-lg drop-shadow-lg ${getSummaryBackgroundColor()} p-3 mb-10 w-full relative`}
 			>
 				<div className="w-full relative">
 					<div

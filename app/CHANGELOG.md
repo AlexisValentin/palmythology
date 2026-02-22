@@ -30,8 +30,10 @@
   - Affichage de l'entité de la veille.
   - Alerte sur le fait que le Godle vient de se réinitialiser.
 - Ajout d'un nouveau champ de recherche à des fins d'indices.
-- Changement de couleur vers le jaune lorsqu'au moins 3 critères correspondre à l'entité du jour.
+- Changement de couleur vers le jaune pour une cellule sur desktop lorsque le domaine et les attributs correspondent.
+- Changement de couleur vers le jaune lorsqu'au moins 3 critères correspondre à l'entité du jour sur mobile.
 - Remplacement des points de couleurs par des icônes sur mobile.
+- Suppression de la statistique de streak au profit de la moyenne + record de tentatives.
 - Mise à jour du texte descriptif en bas de page.
 
 ## Divers

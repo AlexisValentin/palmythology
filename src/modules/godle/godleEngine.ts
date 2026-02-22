@@ -60,12 +60,25 @@ export const generateShareText = (
 		shareText += `${correctEmoji}${pantheonEmoji}${subjectEmoji}${genreEmoji}${mainDomainEmoji}${attributesEmoji}\n`;
 	}
 
-	const winRate =
-		statistics.gamesPlayed > 0
-			? Math.round((statistics.gamesWon / statistics.gamesPlayed) * 100)
-			: 0;
+	const distribution = statistics.guessDistribution;
+	const distributionEntries = Object.entries(distribution);
 
-	shareText += `\n📊 Parties: ${statistics.gamesPlayed} | Taux de victoires: ${winRate}%\n`;
+	const averageGuesses =
+		distributionEntries.length > 0
+			? (
+					distributionEntries.reduce(
+						(sum, [guesses, count]) => sum + Number(guesses) * count,
+						0,
+					) / distributionEntries.reduce((sum, [, count]) => sum + count, 0)
+				).toFixed(1)
+			: "-";
+
+	const bestGuess =
+		distributionEntries.length > 0
+			? Math.min(...distributionEntries.map(([guesses]) => Number(guesses)))
+			: "-";
+
+	shareText += `\n📊 Parties: ${statistics.gamesPlayed} | Moyenne: ${averageGuesses} | Record: ${bestGuess}\n`;
 	shareText += `🔥 Série: ${statistics.currentStreak} | Max: ${statistics.maxStreak}\n`;
 
 	shareText += `\nTentez de trouver l'entité mythologique du jour !\n`;
