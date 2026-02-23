@@ -3,14 +3,14 @@ import type { FC } from "react";
 import QuotationIcon from "../../../src/assets/icons/quotation_marks.svg";
 import ReuseArrowsIcon from "../../../src/assets/icons/reuse_arrows.svg";
 import type { FaqProps } from "../../../src/components/generics/Faq";
-import {
-	PageFaqSection,
-	PageSummarySection,
-} from "../../../src/components/generics/PageSummarySections";
 import PageSquare, {
 	CONTENT_TYPE,
 	PAGE_SQUARE_SIZE_TYPE,
 } from "../../../src/components/generics/PageSquare";
+import {
+	PageFaqSection,
+	PageSummarySection,
+} from "../../../src/components/generics/PageSummarySections";
 import type { QuotationProps } from "../../../src/components/generics/Quotation";
 import Quotation from "../../../src/components/generics/Quotation";
 import type { CardRelatedType } from "../../../src/utils/cms/cms.constants";

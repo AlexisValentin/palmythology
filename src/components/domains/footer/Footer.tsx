@@ -12,7 +12,7 @@ const Footer = () => (
 			</span>
 		</div>
 		<div className="flex items-center justify-center">
-			<SocialNetworks />
+			<SocialNetworks context="footer" />
 		</div>
 	</footer>
 );

@@ -9,7 +9,10 @@ import {
 	updateStatistics,
 } from "../../../modules/godle/godleStorage";
 import { restoreGameGuesses, validateGuess } from "../../../utils/godle";
-import type { GodleEntity, GuessResult } from "../../../utils/godle/godle.types";
+import type {
+	GodleEntity,
+	GuessResult,
+} from "../../../utils/godle/godle.types";
 import useModal from "../../hooks/useModal";
 import GodleFAQ from "./GodleFAQ";
 import GodleGuessHistory from "./GodleGuessHistory";
@@ -132,6 +135,7 @@ const GodleGame: React.FC<GodleGameProps> = ({
 						target="_blank"
 						href={`/${yesterdayEntity.slug}`}
 						className="font-bold underline underline-offset-[0.3rem] max-lg:text-pink-400 max-lg:decoration-sky-500 hover:text-pink-400 hover:decoration-sky-500"
+						data-rybbit-event="godle_yesterday_click"
 					>
 						{yesterdayEntity.name}
 					</Link>
@@ -152,6 +156,7 @@ const GodleGame: React.FC<GodleGameProps> = ({
 						type="button"
 						onClick={displayModal}
 						className="px-6 py-3 bg-linear-to-r from-pink-400 to-sky-500 text-white rounded-xl font-bold transition-colors shadow-lg hover:shadow-xl cursor-pointer hover:from-pink-500 hover:to-sky-500"
+						data-rybbit-event="godle_view_results"
 					>
 						Voir les résultats
 					</button>

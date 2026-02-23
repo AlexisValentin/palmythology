@@ -46,6 +46,12 @@ interface PageSquareProps {
 	url?: string;
 }
 
+const RYBBIT_EVENTS: Partial<Record<CONTENT_TYPE, string>> = {
+	[CONTENT_TYPE.CARD]: "card_click",
+	[CONTENT_TYPE.PANTHEON]: "pantheon_click",
+	[CONTENT_TYPE.SUBJECT]: "subject_click",
+};
+
 const PageSquare: React.FC<PageSquareProps> = ({
 	title,
 	subtitle,
@@ -74,12 +80,17 @@ const PageSquare: React.FC<PageSquareProps> = ({
 	}, [contentType, title, pantheon, subject, url]);
 
 	const link = buildLink();
+	const rybbitEvent = RYBBIT_EVENTS[contentType];
 
 	if (available === undefined || !link) return null;
 
 	return available ? (
 		<Link
 			href={link}
+			{...(rybbitEvent && {
+				"data-rybbit-event": rybbitEvent,
+				"data-rybbit-prop-title": title,
+			})}
 			className={`border-4 border-${
 				pantheon ? getPantheonMainColor(pantheon) : BLACK_COLOR
 			} rounded-3xl p-6 m-6 ${withoutText && "py-2 m-4"} bg-${

@@ -421,8 +421,7 @@ export const fetchAllAvailableEntitiesForGodle = async (): Promise<
 			try {
 				const entities = await fetchAllAvailableCardEntities();
 				return entities.filter(
-					(entity): entity is GodleEntity =>
-						entity.mainDomain !== undefined,
+					(entity): entity is GodleEntity => entity.mainDomain !== undefined,
 				);
 			} catch (error) {
 				console.error("Error fetching entities for Godle:", error);

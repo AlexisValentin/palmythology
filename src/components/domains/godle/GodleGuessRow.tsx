@@ -46,7 +46,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 
 	const getCardMatchType = (): MatchType => {
 		if (guess.isCorrect) return MatchType.EXACT;
-		
+
 		const exactCount = [
 			guess.pantheonMatch,
 			guess.subjectMatch,
@@ -54,9 +54,9 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 			guess.mainDomainMatch,
 			guess.attributesMatch,
 		].filter((m) => m === MatchType.EXACT || m === MatchType.PARTIAL).length;
-		
+
 		if (exactCount >= 3) return MatchType.PARTIAL;
-		
+
 		return MatchType.NONE;
 	};
 

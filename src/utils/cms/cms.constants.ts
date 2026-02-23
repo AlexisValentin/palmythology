@@ -50,20 +50,20 @@ export interface AboutItemType {
 }
 
 export interface StoryblokCardComponentType {
-		content: {
-			component: string;
-			name: string;
-			subtitle: string;
-			icon: StoryblokImageType;
-			pantheon: PantheonValue;
-			subject: SubjectValue;
-			genre: GenreValue;
-			available: boolean;
-			isFolder: boolean;
-			mainDomain?: AttributeValue;
-			attributes?: AttributeValue[];
-		};
-	}
+	content: {
+		component: string;
+		name: string;
+		subtitle: string;
+		icon: StoryblokImageType;
+		pantheon: PantheonValue;
+		subject: SubjectValue;
+		genre: GenreValue;
+		available: boolean;
+		isFolder: boolean;
+		mainDomain?: AttributeValue;
+		attributes?: AttributeValue[];
+	};
+}
 
 export interface StoryblokQ2NComponentType {
 	content: {

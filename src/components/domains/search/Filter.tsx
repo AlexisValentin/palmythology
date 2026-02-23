@@ -42,7 +42,14 @@ const Filter = () => {
 						selectLabel="Panthéon"
 						selectName={selectNames.pantheon}
 						value={filters.pantheon}
-						onChange={(selected) => setFilters({ pantheon: selected })}
+						onChange={(selected) => {
+							setFilters({ pantheon: selected });
+							if (selected)
+								window.rybbit?.event("search_filter", {
+									type: "pantheon",
+									value: selected,
+								});
+						}}
 						options={ALL_PANTHEON}
 					/>
 				</div>
@@ -52,7 +59,14 @@ const Filter = () => {
 						selectLabel="Sujet"
 						selectName={selectNames.subject}
 						value={filters.subject}
-						onChange={(selected) => setFilters({ subject: selected })}
+						onChange={(selected) => {
+							setFilters({ subject: selected });
+							if (selected)
+								window.rybbit?.event("search_filter", {
+									type: "subject",
+									value: selected,
+								});
+						}}
 						options={ALL_SUBJECT}
 					/>
 				</div>
@@ -62,7 +76,14 @@ const Filter = () => {
 						selectLabel="Genre"
 						selectName={selectNames.genre}
 						value={filters.genre}
-						onChange={(selected) => setFilters({ genre: selected })}
+						onChange={(selected) => {
+							setFilters({ genre: selected });
+							if (selected)
+								window.rybbit?.event("search_filter", {
+									type: "genre",
+									value: selected,
+								});
+						}}
 						options={ALL_GENRE}
 					/>
 				</div>
@@ -71,6 +92,7 @@ const Filter = () => {
 					disabled={!hasActiveFilters}
 					className="px-4 py-3 md:px-5 md:py-4 rounded-xl bg-gradient-to-r from-pink-400 to-sky-500 text-white text-base font-semibold hover:from-pink-500 hover:to-sky-500 focus:ring-4 focus:ring-pink-400/20 focus:outline-none cursor-pointer transition-all duration-200 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:from-pink-400 disabled:hover:to-sky-500 self-center md:self-end"
 					onClick={resetFilters}
+					data-rybbit-event="search_reset"
 				>
 					Réinitialiser
 				</button>

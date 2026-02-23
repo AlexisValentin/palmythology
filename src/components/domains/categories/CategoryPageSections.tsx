@@ -11,7 +11,9 @@ interface CategoryPageSummarySectionProps {
 
 export const CategoryPageSummarySection: FC<
 	CategoryPageSummarySectionProps
-> = ({ summary }) => <PageSummarySection summary={summary} label="Présentation" />;
+> = ({ summary }) => (
+	<PageSummarySection summary={summary} label="Présentation" />
+);
 
 interface CategoryPageFaqSectionProps {
 	faq?: FaqItemType[];

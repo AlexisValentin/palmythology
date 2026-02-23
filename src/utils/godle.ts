@@ -32,8 +32,9 @@ const getAttributesMatch = (
 
 	if (arrayMatch !== MatchType.NONE) return arrayMatch;
 
-	const hasMainDomainCrossMatch =
-		guessed.attributes.includes(target.mainDomain);
+	const hasMainDomainCrossMatch = guessed.attributes.includes(
+		target.mainDomain,
+	);
 
 	if (hasMainDomainCrossMatch) return MatchType.PARTIAL;
 

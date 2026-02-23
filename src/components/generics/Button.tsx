@@ -1,10 +1,10 @@
 export interface ButtonProps {
-		label: string;
-		bgColor: string;
-		onClick: () => void;
-		icon?: string;
-		className?: string;
-	}
+	label: string;
+	bgColor: string;
+	onClick: () => void;
+	icon?: string;
+	className?: string;
+}
 
 const Button: React.FC<ButtonProps> = ({
 	label,
