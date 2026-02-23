@@ -37,6 +37,7 @@ const MainMenu = () => {
 									width={40}
 									height={40}
 									sizes="2.5rem"
+									priority
 								/>
 							) : (
 								<>

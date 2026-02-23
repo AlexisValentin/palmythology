@@ -86,7 +86,7 @@ export const CardPageRelatedCardsSection: FC<
 				<Image
 					className="mr-2"
 					src={ReuseArrowsIcon}
-					alt="Icône de foire aux questions"
+					alt="Icône de suggestions"
 					width={32}
 					height={32}
 					unoptimized
@@ -104,6 +104,7 @@ export const CardPageRelatedCardsSection: FC<
 							icon={icon}
 							contentType={CONTENT_TYPE.CARD}
 							size={PAGE_SQUARE_SIZE_TYPE.COMPACT}
+							prefetch={false}
 						/>
 					),
 				)}

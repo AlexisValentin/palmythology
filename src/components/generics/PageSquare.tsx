@@ -44,6 +44,7 @@ interface PageSquareProps {
 		| PAGE_SQUARE_SIZE_TYPE.XL;
 	withoutText?: boolean;
 	url?: string;
+	prefetch?: boolean;
 }
 
 const RYBBIT_EVENTS: Partial<Record<CONTENT_TYPE, string>> = {
@@ -63,6 +64,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
 	size = PAGE_SQUARE_SIZE_TYPE.MD,
 	withoutText = false,
 	url,
+	prefetch,
 }) => {
 	const buildLink = useCallback(() => {
 		switch (contentType) {
@@ -87,6 +89,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
 	return available ? (
 		<Link
 			href={link}
+			prefetch={prefetch}
 			{...(rybbitEvent && {
 				"data-rybbit-event": rybbitEvent,
 				"data-rybbit-prop-title": title,
