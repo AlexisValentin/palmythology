@@ -25,6 +25,8 @@ const MainMenu = () => {
 						href={url}
 						key={`section-${name}`}
 						aria-current={isCurrent ? "page" : undefined}
+						data-rybbit-event="nav_click"
+						data-rybbit-prop-section={name}
 					>
 						<div className="justify-items-center content-center py-3">
 							{isHomePage(name) ? (
@@ -35,6 +37,7 @@ const MainMenu = () => {
 									width={40}
 									height={40}
 									sizes="2.5rem"
+									priority
 								/>
 							) : (
 								<>

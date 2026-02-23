@@ -10,6 +10,7 @@ interface SocialNetworkProps {
 	name: string;
 	url?: string;
 	iconUrl: StaticImageData;
+	context?: string;
 }
 
 interface SocialNetworksProps {
@@ -18,16 +19,25 @@ interface SocialNetworksProps {
 		threads: string;
 		bluesky: string;
 	};
+	context?: string;
 }
 
 const SocialNetwork: React.FC<SocialNetworkProps> = ({
 	name,
 	url,
 	iconUrl,
+	context,
 }) => (
 	<>
 		{url && (
-			<Link href={url} target="_blank" rel="noreferrer">
+			<Link
+				href={url}
+				target="_blank"
+				rel="noreferrer"
+				data-rybbit-event="social_click"
+				data-rybbit-prop-network={name}
+				{...(context && { "data-rybbit-prop-context": context })}
+			>
 				<div className="flex items-center justify-center m-1 hover:scale-110 transition-transform duration-200">
 					<Image
 						className="w-10"
@@ -42,7 +52,10 @@ const SocialNetwork: React.FC<SocialNetworkProps> = ({
 	</>
 );
 
-const SocialNetworks: React.FC<SocialNetworksProps> = ({ customLinks }) => {
+const SocialNetworks: React.FC<SocialNetworksProps> = ({
+	customLinks,
+	context,
+}) => {
 	if (customLinks) {
 		return (
 			<>
@@ -56,6 +69,7 @@ const SocialNetworks: React.FC<SocialNetworksProps> = ({ customLinks }) => {
 							name={SOCIAL_NETWORKS[idx].name}
 							url={socialLink}
 							iconUrl={SOCIAL_NETWORKS[idx].iconUrl}
+							context={context}
 						/>
 					))}
 				</div>
@@ -74,6 +88,7 @@ const SocialNetworks: React.FC<SocialNetworksProps> = ({ customLinks }) => {
 						name={name}
 						url={url}
 						iconUrl={iconUrl}
+						context={context}
 					/>
 				);
 			})}

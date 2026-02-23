@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { MatchType } from "../../../utils/godle/godle.types";
 import { getMatchStyle } from "../../../utils/godle/godle.styles";
+import type { MatchType } from "../../../utils/godle/godle.types";
 
 interface GodleGuessCellProps {
 	label: string | null;

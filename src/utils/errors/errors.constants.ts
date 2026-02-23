@@ -4,12 +4,12 @@ import NotFoundIcon from "../../assets/icons/http/404.svg";
 import ErrorIcon from "../../assets/icons/http/500.svg";
 
 export interface ErrorContent {
-		code: number;
-		title: string;
-		subtitle: string;
-		illustration: StaticImageData;
-		illustrationAlt: string;
-	}
+	code: number;
+	title: string;
+	subtitle: string;
+	illustration: StaticImageData;
+	illustrationAlt: string;
+}
 
 export const ERROR_404: ErrorContent = {
 	code: 404,

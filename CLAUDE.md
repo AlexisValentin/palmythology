@@ -193,6 +193,7 @@ Feature-specific and subsystem documentation for developers:
 - **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Vercel and Docker deployment processes
 - **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** - High-level architecture, design patterns
 - **[docs/TESTING.md](docs/TESTING.md)** - Testing approach with Vitest, coverage goals
+- **[docs/ANALYTICS.md](docs/ANALYTICS.md)** - Rybbit analytics, custom events tracking, conventions
 
 ### Technical Documentation (.claude/)
 

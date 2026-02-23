@@ -5,7 +5,6 @@ import NoAdsIcon from "../../src/assets/icons/no_ads.svg";
 import PageHeader from "../../src/components/generics/PageHeader";
 import PageSection from "../../src/components/generics/PageSection";
 
-
 export const metadata: Metadata = {
 	title: "À propos | Palmythology",
 	description:

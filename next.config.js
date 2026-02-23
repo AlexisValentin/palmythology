@@ -3,6 +3,7 @@ const nextConfig = {
 	reactStrictMode: true,
 	output: "standalone",
 	images: {
+		formats: ["image/avif", "image/webp"],
 		remotePatterns: [{ protocol: "https", hostname: "a.storyblok.com" }],
 	},
 	env: {
@@ -48,7 +49,8 @@ const nextConfig = {
 					},
 					{
 						key: "Content-Security-Policy",
-						value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://analytics.lepalmypede.eu; style-src 'self' 'unsafe-inline'; img-src 'self' https://a.storyblok.com data:; font-src 'self'; connect-src 'self' https://api.storyblok.com https://analytics.lepalmypede.eu; frame-ancestors 'none';",
+						value:
+							"default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://analytics.lepalmypede.eu; style-src 'self' 'unsafe-inline'; img-src 'self' https://a.storyblok.com data:; font-src 'self'; connect-src 'self' https://api.storyblok.com https://analytics.lepalmypede.eu; frame-ancestors 'none';",
 					},
 				],
 			},

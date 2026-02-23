@@ -120,6 +120,7 @@ const SocialsIncentivePopin = () => {
 								? "Masquer les réseaux sociaux"
 								: "Afficher les réseaux sociaux"
 						}
+						data-rybbit-event="social_popin_toggle"
 					>
 						<Image
 							src={DoubleArrowRightIcon}
@@ -137,7 +138,7 @@ const SocialsIncentivePopin = () => {
 								réseaux sociaux !
 							</p>
 							<div className="flex justify-center items-center">
-								<SocialNetworks />
+								<SocialNetworks context="popin" />
 							</div>
 						</div>
 					</div>
@@ -157,6 +158,7 @@ const SocialsIncentivePopin = () => {
 									onClick={closeMobile}
 									className="text-gray-500 hover:text-gray-700 text-2xl leading-none"
 									aria-label="Fermer"
+									data-rybbit-event="social_popin_close"
 								>
 									×
 								</button>
@@ -166,7 +168,7 @@ const SocialsIncentivePopin = () => {
 								réseaux sociaux !
 							</p>
 							<div className="flex justify-center items-center">
-								<SocialNetworks />
+								<SocialNetworks context="popin" />
 							</div>
 						</div>
 					</div>

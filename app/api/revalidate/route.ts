@@ -44,7 +44,7 @@ const revalidateCache = async (request: NextRequest) => {
 		return NextResponse.json(result, { status: 200 });
 	} catch (error) {
 		console.error("Something went wrong during cache invalidation => ", error);
-		
+
 		return NextResponse.json(
 			{ message: "Something went wrong during cache invalidation" },
 			{ status: 500 },

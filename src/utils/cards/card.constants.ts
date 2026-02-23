@@ -8,33 +8,33 @@ export interface Card {
 }
 
 export interface CardDetails {
-		name: string;
-		subtitle: string;
-		icon: StoryblokImageType;
-		pantheon: PantheonValue;
-		subject: SubjectValue;
-		genre: GenreValue;
-		available: boolean;
-		isFolder: boolean;
-		summary?: string;
-		image?: string;
-	}
+	name: string;
+	subtitle: string;
+	icon: StoryblokImageType;
+	pantheon: PantheonValue;
+	subject: SubjectValue;
+	genre: GenreValue;
+	available: boolean;
+	isFolder: boolean;
+	summary?: string;
+	image?: string;
+}
 
 export interface TranslatedCardDetails {
-		name: string;
-		subtitle: string;
-		icon: StoryblokImageType;
-		pantheon: PantheonLabel;
-		subject: SubjectLabel;
-		genre: GenreLabel;
-		available: boolean;
-		isFolder: boolean;
-		summary?: string;
-		image?: string;
-	}
+	name: string;
+	subtitle: string;
+	icon: StoryblokImageType;
+	pantheon: PantheonLabel;
+	subject: SubjectLabel;
+	genre: GenreLabel;
+	available: boolean;
+	isFolder: boolean;
+	summary?: string;
+	image?: string;
+}
 
 export interface ResearchCriterias {
-		pantheon: string;
-		subject: string;
-		genre: string;
-	}
+	pantheon: string;
+	subject: string;
+	genre: string;
+}

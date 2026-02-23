@@ -240,7 +240,7 @@ const CardPage: FC<CardPagePropsType> = async ({ params }) => {
 				<CardPageRelatedCardsSection relatedCards={relatedCards} />
 				{hasCustomLinks && (
 					<div className="mt-16">
-						<SocialNetworks customLinks={socialLinks} />
+						<SocialNetworks customLinks={socialLinks} context="card" />
 					</div>
 				)}
 			</div>

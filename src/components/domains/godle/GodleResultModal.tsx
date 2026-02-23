@@ -121,6 +121,7 @@ const GodleResultModal: React.FC<GodleResultModalProps> = ({
 					<Link
 						href={`/${target.slug}`}
 						className="block text-center px-4 py-2.5 md:px-6 md:py-3 rounded-xl bg-gradient-to-r from-pink-400 to-sky-500 text-white text-sm md:text-base font-semibold hover:from-pink-500 hover:to-sky-500 transition-all duration-200 shadow-lg hover:shadow-xl transform"
+						data-rybbit-event="godle_card_click"
 					>
 						En savoir plus sur {target.name}
 					</Link>
@@ -130,6 +131,7 @@ const GodleResultModal: React.FC<GodleResultModalProps> = ({
 						type="button"
 						onClick={handleShare}
 						className="w-full px-4 py-2.5 md:px-6 md:py-3 rounded-xl bg-gradient-to-r from-pink-400 to-sky-500 text-white text-sm md:text-base font-bold hover:from-pink-500 hover:to-sky-500 transition-all duration-200 shadow-lg hover:shadow-xl transform flex items-center justify-center gap-2 cursor-pointer"
+						data-rybbit-event="godle_share"
 					>
 						{copied ? "Copié !" : "Partager le résultat"}
 					</button>
