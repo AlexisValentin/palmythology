@@ -1,0 +1,49 @@
+@use '../../styles/tokens' as *;
+
+.wrapper {
+  margin-top: $spacing-20;
+}
+
+.row {
+  display: flex;
+  flex-grow: 1;
+  margin-bottom: $spacing-20;
+}
+
+.rowNormal {
+  flex-direction: row;
+}
+
+.rowReverse {
+  flex-direction: row-reverse;
+}
+
+.textSide {
+  display: flex;
+  align-items: center;
+  padding: $spacing-3 $spacing-10;
+  width: 100%;
+}
+
+.textAlignEnd {
+  justify-content: flex-end;
+}
+
+.textAlignStart {
+  justify-content: flex-start;
+}
+
+.iconSideSmall {
+  display: flex;
+  width: 8.333333%;
+}
+
+.iconSideMedium {
+  display: flex;
+  width: 8rem;
+}
+
+.iconSideLarge {
+  display: flex;
+  width: 16.666667%;
+}

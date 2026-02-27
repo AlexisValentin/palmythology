@@ -1,0 +1,35 @@
+@use '../../styles/tokens' as *;
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  bottom: 0;
+  z-index: $z-10;
+  background-color: $color-neutral-200;
+  width: 100%;
+  padding-top: $spacing-2;
+  padding-bottom: $spacing-2;
+  font-size: 0.75rem;
+}
+
+.link {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: $color-pink-500;
+    text-decoration-color: $color-sky-500;
+    text-underline-offset: 0.25rem;
+  }
+}
+
+.current {
+  color: $color-slate-500;
+}
+
+.separator {
+  margin-left: $spacing-1;
+  margin-right: $spacing-1;
+}

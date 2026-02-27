@@ -1,3 +1,5 @@
+import styles from "./Pagination.module.scss";
+
 interface PaginationProps {
 	nbPages: number;
 	currentPage: number;
@@ -38,9 +40,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
 }) => (
 	<button
 		type="button"
-		className={`border rounded-lg border-slate-300 ${
-			isActivePage ? `bg-slate-300 hover:bg-slate-100` : `hover:bg-slate-200`
-		} w-7 m-1 px-2 py-1 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 focus-visible:outline-none cursor-pointer`}
+		className={`${styles.item} ${isActivePage ? styles.itemActive : ""}`}
 		onClick={() => setCurrentPage(pageNumber)}
 		aria-label={`Page ${pageNumber}`}
 		aria-current={isActivePage ? "page" : undefined}
@@ -54,10 +54,10 @@ const Pagination: React.FC<PaginationProps> = ({
 	currentPage,
 	setCurrentPage,
 }) => {
-	if (nbPages === 1) return <></>;
+	if (nbPages === 1) return null;
 
 	return (
-		<nav aria-label="Pagination" className="flex justify-center m-2">
+		<nav aria-label="Pagination" className={styles.nav}>
 			{buildItems(nbPages, currentPage, setCurrentPage).map((item) => item)}
 		</nav>
 	);

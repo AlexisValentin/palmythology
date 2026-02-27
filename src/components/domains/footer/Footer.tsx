@@ -1,18 +1,17 @@
 import packageJson from "../../../../package.json";
 import Copyrights from "../../generics/Copyrights";
 import SocialNetworks from "../../generics/SocialNetworks";
+import styles from "./Footer.module.scss";
 
 const { version } = packageJson;
 
 const Footer = () => (
-	<footer className="grid grid-cols-2 w-full text-white bg-black h-32 z-10 mt-auto px-6 md:px-20 xl:px-60">
-		<div className="flex flex-col justify-center text-sm px-6">
+	<footer className={styles.footer}>
+		<div className={styles.info}>
 			<Copyrights />
-			<span className="mt-1 text-xs italic w-min underline text-pink-400 decoration-sky-500 underline-offset-4">
-				v{version}
-			</span>
+			<span className={styles.version}>v{version}</span>
 		</div>
-		<div className="flex items-center justify-center">
+		<div className={styles.socials}>
 			<SocialNetworks context="footer" />
 		</div>
 	</footer>

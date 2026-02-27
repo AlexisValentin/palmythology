@@ -1,0 +1,29 @@
+@use '../../styles/tokens' as *;
+
+.blockquote {
+  border-radius: $radius-lg;
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  background-color: $color-neutral-200;
+}
+
+.body {
+  font-style: italic;
+  padding: $spacing-2;
+  margin-bottom: 0;
+}
+
+.footer {
+  border-radius: 0 0 $radius-lg $radius-lg;
+  background-color: $color-black;
+  color: $color-white;
+  padding: $spacing-1 $spacing-3;
+}
+
+.cite {
+  font-size: 0.875rem;
+  font-style: normal;
+}
+
+.author {
+  font-weight: 700;
+}

@@ -1,3 +1,8 @@
+declare module "*.module.scss" {
+	const styles: Record<string, string>;
+	export default styles;
+}
+
 declare module "*.svg" {
 	import type { StaticImageData } from "next/image";
 	const content: StaticImageData;

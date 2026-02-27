@@ -8,6 +8,7 @@ import {
 	getHomeBreadcrumbNode,
 	parseBreadcrumbNode,
 } from "../../utils/routes/routes";
+import styles from "./Breadcrumbs.module.scss";
 
 const Breadcrumbs: React.FC = () => {
 	const nodes = usePathname()
@@ -43,27 +44,20 @@ const Breadcrumbs: React.FC = () => {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
 			/>
-			<nav
-				aria-label="Fil d'Ariane"
-				className="flex items-center justify-center sticky bottom-0 z-10 bg-neutral-200 w-full py-2 text-xs"
-			>
-				<Link
-					className="hover:underline hover:text-pink-500 decoration-sky-500 underline-offset-4"
-					href="/"
-				>
+			<nav aria-label="Fil d'Ariane" className={styles.nav}>
+				<Link className={styles.link} href="/">
 					{getHomeBreadcrumbNode()}
 				</Link>
 				<BreadcrumbSeparator />
 				{nodes.map((node, idx) => (
 					<span key={node}>
 						{idx === breadcrumLinks.length - 1 ? (
-							<span className="text-slate-500">{`${parseBreadcrumbNode(node)}`}</span>
+							<span
+								className={styles.current}
+							>{`${parseBreadcrumbNode(node)}`}</span>
 						) : (
 							<span>
-								<Link
-									className="hover:underline hover:text-pink-500 decoration-sky-500 underline-offset-4"
-									href={breadcrumLinks[idx]}
-								>
+								<Link className={styles.link} href={breadcrumLinks[idx]}>
 									{node ? parseBreadcrumbNode(node) : getHomeBreadcrumbNode()}
 								</Link>
 								<BreadcrumbSeparator />
@@ -76,6 +70,8 @@ const Breadcrumbs: React.FC = () => {
 	);
 };
 
-const BreadcrumbSeparator = () => <span className="mx-1">{" > "}</span>;
+const BreadcrumbSeparator = () => (
+	<span className={styles.separator}>{" > "}</span>
+);
 
 export default Breadcrumbs;

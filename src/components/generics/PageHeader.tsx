@@ -1,3 +1,5 @@
+import styles from "./PageHeader.module.scss";
+
 interface PageHeaderProps {
 	title: string;
 	subtitle?: string;
@@ -12,14 +14,12 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 	fullDisplay = false,
 }) => (
 	<div
-		className={`flex flex-col items-center justify-center ${upperGap ? "mt-12 mb-6" : "my-6"}`}
+		className={`${styles.container} ${upperGap ? styles.containerWithUpperGap : styles.containerNoUpperGap}`}
 	>
-		<h1 className="text-2xl font-bold">{title}</h1>
+		<h1 className={styles.title}>{title}</h1>
 		{subtitle && (
-			<div className={`${fullDisplay ? "block" : "hidden"} md:block`}>
-				<h2 className="italic text-xs text-nowrap sm:block md:text-sm lg:text-base pt-2">
-					{subtitle}
-				</h2>
+			<div className={`${styles.subtitleWrapper} ${fullDisplay ? styles.fullDisplay : ""}`}>
+				<h2 className={styles.subtitle}>{subtitle}</h2>
 			</div>
 		)}
 	</div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { TextBlockType } from "../../utils/cms/cms.constants";
 import { isEven } from "../../utils/number";
+import styles from "./TextBlock.module.scss";
 
 export enum IconSize {
 	SMALL = "small",
@@ -19,37 +20,33 @@ const TextBlock: React.FC<TextBlockProps> = ({
 	iconSize,
 	leftSiding,
 }) => {
-	const getIconContainerWidthStyle = (iconWidth: IconSize) => {
+	const getIconContainerStyle = (iconWidth: IconSize) => {
 		switch (iconWidth) {
 			case IconSize.SMALL:
-				return `w-1/12`;
+				return styles.iconSideSmall;
 			case IconSize.MEDIUM:
-				return `w-32`;
-			case IconSize.LARGE:
+				return styles.iconSideMedium;
 			default:
-				return `w-1/6`;
+				return styles.iconSideLarge;
 		}
 	};
 
 	return (
-		<div className="mt-20">
+		<div className={styles.wrapper}>
 			{content.map((block, key) => {
+				const isNormal = isEven(key) && !leftSiding;
 				return (
 					<div
 						key={block._uid}
-						className={`flex ${
-							isEven(key) && !leftSiding ? `flex-row` : `flex-row-reverse`
-						} grow mb-20`}
+						className={`${styles.row} ${isNormal ? styles.rowNormal : styles.rowReverse}`}
 					>
 						<div
-							className={`flex ${
-								isEven(key) && !leftSiding ? `justify-end` : `justify-start`
-							} items-center px-10 py-3 w-full`}
+							className={`${styles.textSide} ${isNormal ? styles.textAlignEnd : styles.textAlignStart}`}
 						>
 							{block.text}
 						</div>
 						{block.illustration?.filename && (
-							<div className={`flex ${getIconContainerWidthStyle(iconSize)}`}>
+							<div className={getIconContainerStyle(iconSize)}>
 								<Image
 									src={block.illustration.filename}
 									alt={block.illustration.alt}

@@ -1,4 +1,5 @@
 import Markdown from "react-markdown";
+import styles from "./Quotation.module.scss";
 
 export interface QuotationProps {
 	quotation: string;
@@ -8,13 +9,13 @@ export interface QuotationProps {
 
 const Quotation: React.FC<QuotationProps> = ({ quotation, author, origin }) => {
 	return (
-		<blockquote className="rounded-lg drop-shadow-lg bg-neutral-200">
-			<div className="italic p-2 mb-0">
+		<blockquote className={styles.blockquote}>
+			<div className={styles.body}>
 				<Markdown>{`"${quotation}"`}</Markdown>
 			</div>
-			<footer className="rounded-b-lg bg-black text-white px-3 py-1">
-				<cite className="text-sm not-italic">
-					<span className="font-bold">{author}</span>
+			<footer className={styles.footer}>
+				<cite className={styles.cite}>
+					<span className={styles.author}>{author}</span>
 					{origin && `, ${origin}`}
 				</cite>
 			</footer>

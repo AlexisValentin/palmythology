@@ -1,0 +1,47 @@
+@use 'tokens' as *;
+
+@mixin sm  { @media (min-width: #{$bp-sm})  { @content; } }
+@mixin md  { @media (min-width: #{$bp-md})  { @content; } }
+@mixin lg  { @media (min-width: #{$bp-lg})  { @content; } }
+@mixin xl  { @media (min-width: #{$bp-xl})  { @content; } }
+@mixin xxl { @media (min-width: #{$bp-2xl}) { @content; } }
+
+@mixin max-md  { @media (max-width: calc(#{$bp-md}  - 1px)) { @content; } }
+@mixin max-lg  { @media (max-width: calc(#{$bp-lg}  - 1px)) { @content; } }
+@mixin max-xl  { @media (max-width: calc(#{$bp-xl}  - 1px)) { @content; } }
+
+@mixin focus-ring($color: $color-blue-500) {
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color;
+  }
+}
+
+@mixin transition-colors($duration: 0.15s) {
+  transition: background-color #{$duration}, color #{$duration}, border-color #{$duration};
+}
+
+@mixin transition-all($duration: 0.2s) {
+  transition: all #{$duration} ease-out;
+}
+
+@mixin transition-transform($duration: 0.2s) {
+  transition: transform #{$duration};
+}
+
+@mixin drop-shadow-lg {
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+}
+
+@mixin shadow-lg {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+@mixin gradient-button {
+  background: linear-gradient(to right, $gradient-from-pink, $gradient-to-sky);
+  color: $color-white;
+
+  &:hover {
+    background: linear-gradient(to right, $gradient-from-pink-hover, $gradient-to-sky);
+  }
+}

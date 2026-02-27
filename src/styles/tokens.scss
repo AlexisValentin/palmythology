@@ -1,0 +1,63 @@
+$bp-sm:  640px;
+$bp-md:  768px;
+$bp-lg:  1024px;
+$bp-xl:  1280px;
+$bp-2xl: 1536px;
+
+$spacing-1:  0.25rem;
+$spacing-2:  0.5rem;
+$spacing-3:  0.75rem;
+$spacing-4:  1rem;
+$spacing-5:  1.25rem;
+$spacing-6:  1.5rem;
+$spacing-8:  2rem;
+$spacing-10: 2.5rem;
+$spacing-12: 3rem;
+$spacing-16: 4rem;
+$spacing-20: 5rem;
+$spacing-24: 6rem;
+$spacing-40: 10rem;
+$spacing-56: 14rem;
+$spacing-60: 15rem;
+$spacing-72: 18rem;
+
+$radius-lg:   0.5rem;
+$radius-xl:   0.75rem;
+$radius-2xl:  1rem;
+$radius-3xl:  1.5rem;
+$radius-full: 9999px;
+
+$z-10: 10;
+$z-20: 20;
+$z-40: 40;
+$z-50: 50;
+
+$color-white:         #ffffff;
+$color-black:         #000000;
+$color-neutral-100:   #f5f5f5;
+$color-neutral-200:   #e5e5e5;
+$color-neutral-300:   #d4d4d4;
+$color-neutral-400:   #a3a3a3;
+$color-neutral-500:   #737373;
+$color-neutral-900:   #171717;
+$color-slate-100:     #f1f5f9;
+$color-slate-200:     #e2e8f0;
+$color-slate-300:     #cbd5e1;
+$color-slate-400:     #94a3b8;
+$color-slate-500:     #64748b;
+$color-pink-400:      #f472b6;
+$color-pink-500:      #ec4899;
+$color-sky-500:       #0ea5e9;
+$color-blue-500:      #3b82f6;
+$color-green-500:     #22c55e;
+$color-green-600:     #16a34a;
+$color-green-700:     #15803d;
+$color-yellow-400:    #facc15;
+$color-yellow-500:    #eab308;
+$color-yellow-600:    #ca8a04;
+$color-red-700:       #b91c1c;
+$color-amber-700:     #b45309;
+
+$gradient-from-pink:       $color-pink-400;
+$gradient-to-sky:          $color-sky-500;
+$gradient-from-pink-hover: $color-pink-500;

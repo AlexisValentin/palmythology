@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "Bahnschrift";
+  src: url("../assets/fonts/Bahnschrift.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  height: 100vh;
+  max-width: 100%;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Bahnschrift",
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p > a {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+
+  @media screen and (max-width: 64rem) {
+    color: #f461b1;
+    text-decoration-color: #00a6f4;
+  }
+
+  &:hover {
+    color: #f461b1;
+    text-decoration-color: #00a6f4;
+  }
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.filter-black {
+  filter: invert(100%);
+}
+
+.filter-dark-red {
+  filter: invert(87%) sepia(62%) saturate(6288%) hue-rotate(355deg) brightness(91%) contrast(87%);
+}

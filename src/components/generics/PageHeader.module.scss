@@ -1,0 +1,55 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerWithUpperGap {
+  margin-top: $spacing-12;
+  margin-bottom: $spacing-6;
+}
+
+.containerNoUpperGap {
+  margin-top: $spacing-6;
+  margin-bottom: $spacing-6;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.subtitleWrapper {
+  display: none;
+
+  &.fullDisplay {
+    display: block;
+  }
+
+  @include md {
+    display: block;
+  }
+}
+
+.subtitle {
+  font-style: italic;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  padding-top: $spacing-2;
+
+  @include sm {
+    display: block;
+  }
+
+  @include md {
+    font-size: 0.875rem;
+  }
+
+  @include lg {
+    font-size: 1rem;
+  }
+}

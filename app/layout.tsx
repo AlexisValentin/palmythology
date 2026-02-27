@@ -5,6 +5,7 @@ import SocialsIncentivePopin from "../src/components/domains/social/SocialsIncen
 import Breadcrumbs from "../src/components/generics/Breadcrumbs";
 import StoryblokProvider from "../src/components/StoryblokProvider";
 import "../src/global.css";
+import "../src/styles/global.scss";
 import type { Metadata, Viewport } from "next";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { UpPageButton } from "../src/components/generics/UpPageButton";

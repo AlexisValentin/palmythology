@@ -5,6 +5,7 @@ import {
 	SOCIAL_NETWORK_STATUS,
 	SOCIAL_NETWORKS,
 } from "../../utils/socials.constants";
+import styles from "./SocialNetworks.module.scss";
 
 interface SocialNetworkProps {
 	name: string;
@@ -38,9 +39,9 @@ const SocialNetwork: React.FC<SocialNetworkProps> = ({
 				data-rybbit-prop-network={name}
 				{...(context && { "data-rybbit-prop-context": context })}
 			>
-				<div className="flex items-center justify-center m-1 hover:scale-110 transition-transform duration-200">
+				<div className={styles.iconWrapper}>
 					<Image
-						className="w-10"
+						className={styles.icon}
 						src={iconUrl}
 						alt={`Logo du réseau social ${name}`}
 						width={24}
@@ -59,10 +60,10 @@ const SocialNetworks: React.FC<SocialNetworksProps> = ({
 	if (customLinks) {
 		return (
 			<>
-				<div className="flex align-center justify-center">
-					<h3 className="font-semibold">Disponible sur</h3>
+				<div className={styles.header}>
+					<h3 className={styles.title}>Disponible sur</h3>
 				</div>
-				<div className="flex flex-row align-center justify-center">
+				<div className={styles.list}>
 					{Object.values(customLinks).map((socialLink, idx) => (
 						<SocialNetwork
 							key={`${SOCIAL_NETWORKS[idx].name}-${idx}`}

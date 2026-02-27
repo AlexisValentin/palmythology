@@ -1,4 +1,5 @@
 import Markdown from "react-markdown";
+import styles from "./Faq.module.scss";
 
 export interface FaqProps {
 	question: string;
@@ -26,21 +27,18 @@ export const Faq: React.FC<FaqProps> = ({ question, response, children }) => {
 			<div
 				itemScope
 				itemType="https://schema.org/Question"
-				className="w-full rounded-lg drop-shadow-lg bg-neutral-200"
+				className={styles.container}
 			>
-				<h5
-					itemProp="name"
-					className="rounded-t-lg bg-black text-white font-bold text-lg mb-2 px-3 py-2"
-				>
+				<h5 itemProp="name" className={styles.question}>
 					{question}
 				</h5>
 				<div
 					itemScope
 					itemType="https://schema.org/Answer"
 					itemProp="acceptedAnswer"
-					className="p-2 pt-0"
+					className={styles.answerWrapper}
 				>
-					<div className="p-1" itemProp="text">
+					<div className={styles.answer} itemProp="text">
 						{children ?? <Markdown>{response}</Markdown>}
 					</div>
 				</div>
