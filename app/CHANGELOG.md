@@ -7,6 +7,8 @@
   - Phase 1 -> Première vague de migration de composants (statiques).
   - Phase 2 -> Seconde vague de migration de composants (dynamiques).
   - Phase 3 -> Troisième vague de migration de composants (Godle).
+  - Phase 4 -> Troisième vague de migration de composants (interactifs).
+
 
 ## Divers
 

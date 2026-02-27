@@ -1,92 +1,66 @@
 import { PantheonValue } from "../cards/pantheons.constants";
-import {
-	COLOR_TAINTS,
-	COLORS,
-	MYTHOLOGY_COLORS,
-	type PantheonStyleType,
-	TEXT_COLORS,
-} from "./colors.constants";
 
-export const getPantheonStyle = (
-	pantheon: PantheonValue,
-): PantheonStyleType => {
-	switch (pantheon) {
-		case PantheonValue.AZTEC:
-			return {
-				backgroundColor: MYTHOLOGY_COLORS.AZTEC,
-				textColor: TEXT_COLORS.GENERIC,
-			};
-		case PantheonValue.CELTIC:
-			return {
-				backgroundColor: MYTHOLOGY_COLORS.CELTIC,
-				textColor: TEXT_COLORS.GENERIC,
-			};
-		case PantheonValue.CHINESE:
-			return {
-				backgroundColor: MYTHOLOGY_COLORS.CHINESE,
-				textColor: TEXT_COLORS.GENERIC,
-			};
-		case PantheonValue.EGYPTIAN:
-			return {
-				backgroundColor: MYTHOLOGY_COLORS.EGYPTIAN,
-				textColor: TEXT_COLORS.EGYPTIAN,
-			};
-		case PantheonValue.GREEK:
-			return {
-				backgroundColor: MYTHOLOGY_COLORS.GREEK,
-				textColor: TEXT_COLORS.GENERIC,
-			};
-		case PantheonValue.HINDU:
-			return {
-				backgroundColor: MYTHOLOGY_COLORS.HINDU,
-				textColor: TEXT_COLORS.HINDU,
-			};
-		case PantheonValue.JAPANESE:
-			return {
-				backgroundColor: MYTHOLOGY_COLORS.JAPANESE,
-				textColor: TEXT_COLORS.JAPANESE,
-			};
-		case PantheonValue.MAYAN:
-			return {
-				backgroundColor: MYTHOLOGY_COLORS.MAYAN,
-				textColor: TEXT_COLORS.GENERIC,
-			};
-		case PantheonValue.MESOPOTAMIAN:
-			return {
-				backgroundColor: MYTHOLOGY_COLORS.MESOPOTAMIAN,
-				textColor: TEXT_COLORS.GENERIC,
-			};
-		case PantheonValue.NORSE:
-			return {
-				backgroundColor: MYTHOLOGY_COLORS.NORSE,
-				textColor: TEXT_COLORS.GENERIC,
-			};
-		case PantheonValue.ROMAN:
-			return {
-				backgroundColor: MYTHOLOGY_COLORS.ROMAN,
-				textColor: TEXT_COLORS.ROMAN,
-			};
-		default: {
-			return {
-				backgroundColor: `${COLORS.LIME}-${COLOR_TAINTS.EXTRA_DARK}`,
-				textColor: TEXT_COLORS.GENERIC,
-			};
-		}
-	}
+export type PantheonCssVars = {
+	bg: string;
+	text: string;
 };
 
-export const getPantheonMainColor = (pantheon: PantheonValue) =>
-	MYTHOLOGY_COLORS[pantheon.toUpperCase() as keyof typeof MYTHOLOGY_COLORS];
+const PANTHEON_CSS_VARS: Record<PantheonValue, PantheonCssVars> = {
+	[PantheonValue.AZTEC]: {
+		bg: "--color-pantheon-aztec-bg",
+		text: "--color-pantheon-aztec-text",
+	},
+	[PantheonValue.CELTIC]: {
+		bg: "--color-pantheon-celtic-bg",
+		text: "--color-pantheon-celtic-text",
+	},
+	[PantheonValue.CHINESE]: {
+		bg: "--color-pantheon-chinese-bg",
+		text: "--color-pantheon-chinese-text",
+	},
+	[PantheonValue.EGYPTIAN]: {
+		bg: "--color-pantheon-egyptian-bg",
+		text: "--color-pantheon-egyptian-text",
+	},
+	[PantheonValue.GREEK]: {
+		bg: "--color-pantheon-greek-bg",
+		text: "--color-pantheon-greek-text",
+	},
+	[PantheonValue.HINDU]: {
+		bg: "--color-pantheon-hindu-bg",
+		text: "--color-pantheon-hindu-text",
+	},
+	[PantheonValue.JAPANESE]: {
+		bg: "--color-pantheon-japanese-bg",
+		text: "--color-pantheon-japanese-text",
+	},
+	[PantheonValue.MAYAN]: {
+		bg: "--color-pantheon-mayan-bg",
+		text: "--color-pantheon-mayan-text",
+	},
+	[PantheonValue.MESOPOTAMIAN]: {
+		bg: "--color-pantheon-mesopotamian-bg",
+		text: "--color-pantheon-mesopotamian-text",
+	},
+	[PantheonValue.NORSE]: {
+		bg: "--color-pantheon-norse-bg",
+		text: "--color-pantheon-norse-text",
+	},
+	[PantheonValue.ROMAN]: {
+		bg: "--color-pantheon-roman-bg",
+		text: "--color-pantheon-roman-text",
+	},
+};
 
-export const getPantheonTextColor = (pantheon: PantheonValue) =>
-	hasSpecialTextColor(pantheon)
-		? TEXT_COLORS[pantheon.toUpperCase() as keyof typeof TEXT_COLORS]
-		: TEXT_COLORS.GENERIC;
+export const getPantheonCssVars = (pantheon: PantheonValue): PantheonCssVars =>
+	PANTHEON_CSS_VARS[pantheon];
 
-export const hasSpecialTextColor = (pantheon: PantheonValue) =>
-	[
-		PantheonValue.EGYPTIAN,
-		PantheonValue.HINDU,
-		PantheonValue.JAPANESE,
-		PantheonValue.ROMAN,
-	].includes(pantheon);
+export const getPantheonInlineStyle = (
+	pantheon: PantheonValue,
+): React.CSSProperties => {
+	const { bg, text } = PANTHEON_CSS_VARS[pantheon];
+	return {
+		"--pantheon-bg": `var(${bg})`,
+		"--pantheon-text": `var(${text})`,
+	} as React.CSSProperties;
+};

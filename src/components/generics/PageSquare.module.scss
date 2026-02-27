@@ -1,0 +1,113 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.squareLink {
+  border: 4px solid var(--pantheon-bg, #64748b);
+  border-radius: $radius-3xl;
+  padding: $spacing-6;
+  margin: $spacing-6;
+  background-color: var(--pantheon-bg, #64748b);
+  color: var(--pantheon-text, #f5f5f5);
+  @include transition-colors;
+
+  &.withoutText {
+    padding-top: $spacing-2;
+    padding-bottom: $spacing-2;
+    margin: $spacing-4;
+  }
+
+  @include lg {
+    background-color: transparent;
+    color: black;
+    border-color: var(--pantheon-bg, #64748b);
+
+    &:hover {
+      background-color: var(--pantheon-bg, #64748b);
+      color: var(--pantheon-text, #f5f5f5);
+    }
+  }
+}
+
+.squareUnavailable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: $spacing-6;
+  margin-left: $spacing-6;
+  margin-right: $spacing-6;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.blockInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: $spacing-4;
+}
+
+.icon {
+  width: 6rem;
+  padding-bottom: $spacing-4;
+}
+
+.title {
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: $spacing-2;
+  padding-right: $spacing-2;
+}
+
+.subtitle {
+  font-style: italic;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: $spacing-2;
+  padding-right: $spacing-2;
+}
+
+.sizeSm {
+  width: 1.5rem;
+
+  @include md {
+    width: 2rem;
+  }
+}
+
+.sizeMd {
+  width: 9rem;
+
+  @include md {
+    width: 12rem;
+  }
+}
+
+.sizeCompact {
+  width: 7rem;
+
+  @include md {
+    width: 9rem;
+  }
+
+  @include xl {
+    width: 10rem;
+  }
+}
+
+.sizeXl {
+  width: 13rem;
+
+  @include md {
+    width: 18rem;
+  }
+}

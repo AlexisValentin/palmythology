@@ -1,118 +1,66 @@
 import { PantheonValue } from "../cards/pantheons.constants";
-import {
-	getPantheonMainColor,
-	getPantheonStyle,
-	getPantheonTextColor,
-	hasSpecialTextColor,
-} from "./colors";
+import { getPantheonCssVars, getPantheonInlineStyle } from "./colors";
 
 describe("utils/colors", () => {
-	describe("getPantheonStyle", () => {
-		test("should return correct color properties for each of the 10 pantheons", () => {
-			expect(getPantheonStyle(PantheonValue.AZTEC)).toEqual({
-				backgroundColor: "orange-700",
-				textColor: "neutral-100",
+	describe("getPantheonCssVars", () => {
+		test("should return correct CSS variable names for each of the 11 pantheons", () => {
+			expect(getPantheonCssVars(PantheonValue.AZTEC)).toEqual({
+				bg: "--color-pantheon-aztec-bg",
+				text: "--color-pantheon-aztec-text",
 			});
-			expect(getPantheonStyle(PantheonValue.CELTIC)).toEqual({
-				backgroundColor: "emerald-700",
-				textColor: "neutral-100",
+			expect(getPantheonCssVars(PantheonValue.CELTIC)).toEqual({
+				bg: "--color-pantheon-celtic-bg",
+				text: "--color-pantheon-celtic-text",
 			});
-			expect(getPantheonStyle(PantheonValue.CHINESE)).toEqual({
-				backgroundColor: "red-700",
-				textColor: "neutral-100",
+			expect(getPantheonCssVars(PantheonValue.CHINESE)).toEqual({
+				bg: "--color-pantheon-chinese-bg",
+				text: "--color-pantheon-chinese-text",
 			});
-			expect(getPantheonStyle(PantheonValue.EGYPTIAN)).toEqual({
-				backgroundColor: "amber-400",
-				textColor: "neutral-900",
+			expect(getPantheonCssVars(PantheonValue.EGYPTIAN)).toEqual({
+				bg: "--color-pantheon-egyptian-bg",
+				text: "--color-pantheon-egyptian-text",
 			});
-			expect(getPantheonStyle(PantheonValue.GREEK)).toEqual({
-				backgroundColor: "blue-700",
-				textColor: "neutral-100",
+			expect(getPantheonCssVars(PantheonValue.GREEK)).toEqual({
+				bg: "--color-pantheon-greek-bg",
+				text: "--color-pantheon-greek-text",
 			});
-			expect(getPantheonStyle(PantheonValue.HINDU)).toEqual({
-				backgroundColor: "amber-500",
-				textColor: "emerald-900",
+			expect(getPantheonCssVars(PantheonValue.HINDU)).toEqual({
+				bg: "--color-pantheon-hindu-bg",
+				text: "--color-pantheon-hindu-text",
 			});
-			expect(getPantheonStyle(PantheonValue.JAPANESE)).toEqual({
-				backgroundColor: "neutral-300",
-				textColor: "red-800",
+			expect(getPantheonCssVars(PantheonValue.JAPANESE)).toEqual({
+				bg: "--color-pantheon-japanese-bg",
+				text: "--color-pantheon-japanese-text",
 			});
-			expect(getPantheonStyle(PantheonValue.MAYAN)).toEqual({
-				backgroundColor: "violet-800",
-				textColor: "neutral-100",
+			expect(getPantheonCssVars(PantheonValue.MAYAN)).toEqual({
+				bg: "--color-pantheon-mayan-bg",
+				text: "--color-pantheon-mayan-text",
 			});
-			expect(getPantheonStyle(PantheonValue.MESOPOTAMIAN)).toEqual({
-				backgroundColor: "pink-500",
-				textColor: "neutral-100",
+			expect(getPantheonCssVars(PantheonValue.MESOPOTAMIAN)).toEqual({
+				bg: "--color-pantheon-mesopotamian-bg",
+				text: "--color-pantheon-mesopotamian-text",
 			});
-			expect(getPantheonStyle(PantheonValue.NORSE)).toEqual({
-				backgroundColor: "sky-500",
-				textColor: "neutral-100",
+			expect(getPantheonCssVars(PantheonValue.NORSE)).toEqual({
+				bg: "--color-pantheon-norse-bg",
+				text: "--color-pantheon-norse-text",
 			});
-			expect(getPantheonStyle(PantheonValue.ROMAN)).toEqual({
-				backgroundColor: "red-900",
-				textColor: "amber-700",
+			expect(getPantheonCssVars(PantheonValue.ROMAN)).toEqual({
+				bg: "--color-pantheon-roman-bg",
+				text: "--color-pantheon-roman-text",
 			});
 		});
 	});
 
-	describe("getPantheonMainColor", () => {
-		test("should return correct pantheon main color properties for each of the 10 pantheons", () => {
-			expect(getPantheonMainColor(PantheonValue.AZTEC)).toEqual("orange-700");
-			expect(getPantheonMainColor(PantheonValue.CELTIC)).toEqual("emerald-700");
-			expect(getPantheonMainColor(PantheonValue.CHINESE)).toEqual("red-700");
-			expect(getPantheonMainColor(PantheonValue.EGYPTIAN)).toEqual("amber-400");
-			expect(getPantheonMainColor(PantheonValue.GREEK)).toEqual("blue-700");
-			expect(getPantheonMainColor(PantheonValue.HINDU)).toEqual("amber-500");
-			expect(getPantheonMainColor(PantheonValue.JAPANESE)).toEqual(
-				"neutral-300",
-			);
-			expect(getPantheonMainColor(PantheonValue.MAYAN)).toEqual("violet-800");
-			expect(getPantheonMainColor(PantheonValue.MESOPOTAMIAN)).toEqual(
-				"pink-500",
-			);
-			expect(getPantheonMainColor(PantheonValue.NORSE)).toEqual("sky-500");
-			expect(getPantheonMainColor(PantheonValue.ROMAN)).toEqual("red-900");
-		});
-	});
-
-	describe("getPantheonTextColor", () => {
-		test("should return correct pantheon text color properties for each of the 10 pantheons", () => {
-			expect(getPantheonTextColor(PantheonValue.AZTEC)).toEqual("neutral-100");
-			expect(getPantheonTextColor(PantheonValue.CELTIC)).toEqual("neutral-100");
-			expect(getPantheonTextColor(PantheonValue.CHINESE)).toEqual(
-				"neutral-100",
-			);
-			expect(getPantheonTextColor(PantheonValue.EGYPTIAN)).toEqual(
-				"neutral-900",
-			);
-			expect(getPantheonTextColor(PantheonValue.GREEK)).toEqual("neutral-100");
-			expect(getPantheonTextColor(PantheonValue.HINDU)).toEqual("emerald-900");
-			expect(getPantheonTextColor(PantheonValue.JAPANESE)).toEqual("red-800");
-			expect(getPantheonTextColor(PantheonValue.MAYAN)).toEqual("neutral-100");
-			expect(getPantheonTextColor(PantheonValue.MESOPOTAMIAN)).toEqual(
-				"neutral-100",
-			);
-			expect(getPantheonTextColor(PantheonValue.NORSE)).toEqual("neutral-100");
-			expect(getPantheonTextColor(PantheonValue.ROMAN)).toEqual("amber-700");
-		});
-	});
-
-	describe("hasSpecialTextColor", () => {
-		test(`should return 'true' for ${PantheonValue.HINDU}, ${PantheonValue.JAPANESE} and ${PantheonValue.ROMAN} pantheons`, () => {
-			expect(hasSpecialTextColor(PantheonValue.HINDU)).toEqual(true);
-			expect(hasSpecialTextColor(PantheonValue.JAPANESE)).toEqual(true);
-			expect(hasSpecialTextColor(PantheonValue.ROMAN)).toEqual(true);
-		});
-
-		test(`should return 'false' for other pantheons than ${PantheonValue.HINDU}, ${PantheonValue.JAPANESE} and ${PantheonValue.ROMAN}`, () => {
-			expect(hasSpecialTextColor(PantheonValue.AZTEC)).toEqual(false);
-			expect(hasSpecialTextColor(PantheonValue.CELTIC)).toEqual(false);
-			expect(hasSpecialTextColor(PantheonValue.CHINESE)).toEqual(false);
-			expect(hasSpecialTextColor(PantheonValue.EGYPTIAN)).toEqual(true);
-			expect(hasSpecialTextColor(PantheonValue.GREEK)).toEqual(false);
-			expect(hasSpecialTextColor(PantheonValue.MAYAN)).toEqual(false);
-			expect(hasSpecialTextColor(PantheonValue.NORSE)).toEqual(false);
+	describe("getPantheonInlineStyle", () => {
+		test("should return inline style object with CSS variable references", () => {
+			expect(getPantheonInlineStyle(PantheonValue.GREEK)).toEqual({
+				"--pantheon-bg": "var(--color-pantheon-greek-bg)",
+				"--pantheon-text": "var(--color-pantheon-greek-text)",
+			});
+			expect(getPantheonInlineStyle(PantheonValue.NORSE)).toEqual({
+				"--pantheon-bg": "var(--color-pantheon-norse-bg)",
+				"--pantheon-text": "var(--color-pantheon-norse-text)",
+			});
 		});
 	});
 });

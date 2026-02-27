@@ -8,11 +8,8 @@ import {
 	setPantheonRouteParameters,
 	setSubjectRouteParameters,
 } from "../../utils/routes/routes";
-import {
-	getPantheonMainColor,
-	getPantheonTextColor,
-} from "../../utils/styles/colors";
-import { BLACK_COLOR, WHITE_COLOR } from "../../utils/styles/colors.constants";
+import { getPantheonInlineStyle } from "../../utils/styles/colors";
+import styles from "./PageSquare.module.scss";
 
 export enum CONTENT_TYPE {
 	ROUTE = "route",
@@ -22,11 +19,18 @@ export enum CONTENT_TYPE {
 }
 
 export enum PAGE_SQUARE_SIZE_TYPE {
-	SM = "w-6 md:w-8",
-	MD = "w-36 md:w-48",
-	COMPACT = "w-28 md:w-36 xl:w-40",
-	XL = "w-52 md:w-72",
+	SM = "sm",
+	MD = "md",
+	COMPACT = "compact",
+	XL = "xl",
 }
+
+const SIZE_CLASS: Record<PAGE_SQUARE_SIZE_TYPE, string> = {
+	[PAGE_SQUARE_SIZE_TYPE.SM]: styles.sizeSm,
+	[PAGE_SQUARE_SIZE_TYPE.MD]: styles.sizeMd,
+	[PAGE_SQUARE_SIZE_TYPE.COMPACT]: styles.sizeCompact,
+	[PAGE_SQUARE_SIZE_TYPE.XL]: styles.sizeXl,
+};
 
 interface PageSquareProps {
 	title: string;
@@ -82,6 +86,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
 
 	const link = buildLink();
 	const rybbitEvent = RYBBIT_EVENTS[contentType];
+	const inlineStyle = pantheon ? getPantheonInlineStyle(pantheon) : undefined;
 
 	if (available === undefined || !link) return null;
 
@@ -89,22 +94,14 @@ const PageSquare: React.FC<PageSquareProps> = ({
 		<Link
 			href={link}
 			prefetch={prefetch}
+			style={inlineStyle}
 			{...(rybbitEvent && {
 				"data-rybbit-event": rybbitEvent,
 				"data-rybbit-prop-title": title,
 			})}
-			className={`border-4 border-${
-				pantheon ? getPantheonMainColor(pantheon) : BLACK_COLOR
-			} rounded-3xl p-6 m-6 ${withoutText && "py-2 m-4"} bg-${
-				pantheon ? getPantheonMainColor(pantheon) : "slate-500"
-			} text-${pantheon ? getPantheonTextColor(pantheon) : WHITE_COLOR} 
-      lg:bg-transparent
-      lg:text-black
-      lg:hover:bg-${
-				pantheon ? getPantheonMainColor(pantheon) : "slate-500"
-			} lg:hover:text-${pantheon ? getPantheonTextColor(pantheon) : WHITE_COLOR} transition-colors`}
+			className={`${styles.squareLink}${withoutText ? ` ${styles.withoutText}` : ""}`}
 		>
-			<div className="flex items-center justify-center flex-col">
+			<div className={styles.block}>
 				<PageSquareBlock
 					title={title}
 					subtitle={subtitle}
@@ -115,7 +112,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
 			</div>
 		</Link>
 	) : (
-		<div className="flex items-center justify-center flex-col p-6 mx-6">
+		<div className={styles.squareUnavailable}>
 			<PageSquareBlock
 				title={title}
 				subtitle={subtitle}
@@ -129,11 +126,11 @@ const PageSquare: React.FC<PageSquareProps> = ({
 
 const PageSquareBlock: React.FC<
 	Pick<PageSquareProps, "title" | "subtitle" | "icon" | "size" | "withoutText">
-> = ({ title, subtitle, icon, size, withoutText }) => (
-	<div className={`flex item-center justify-center flex-col ${size}`}>
-		<div className="flex items-center justify-center flex-col mt-4">
+> = ({ title, subtitle, icon, size = PAGE_SQUARE_SIZE_TYPE.MD, withoutText }) => (
+	<div className={SIZE_CLASS[size]}>
+		<div className={styles.blockInner}>
 			<Image
-				className={`w-24 pb-4`}
+				className={styles.icon}
 				src={typeof icon === "string" ? icon : icon?.filename}
 				alt={typeof icon === "string" ? `Icône ${title}` : icon?.alt}
 				width={100}
@@ -142,8 +139,8 @@ const PageSquareBlock: React.FC<
 			/>
 			{!withoutText && (
 				<>
-					<h3 className="font-bold truncate px-2">{title}</h3>
-					<h4 className="italic truncate px-2">{subtitle}</h4>
+					<h3 className={styles.title}>{title}</h3>
+					<h4 className={styles.subtitle}>{subtitle}</h4>
 				</>
 			)}
 		</div>

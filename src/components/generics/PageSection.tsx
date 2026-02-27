@@ -3,10 +3,8 @@ import Link from "next/link";
 import type { PantheonValue } from "../../utils/cards/pantheons.constants";
 import type { StoryblokImageType } from "../../utils/cms/cms.constants";
 import type { NextImageType } from "../../utils/image.constants";
-import {
-	getPantheonMainColor,
-	getPantheonTextColor,
-} from "../../utils/styles/colors";
+import { getPantheonInlineStyle } from "../../utils/styles/colors";
+import styles from "./PageSection.module.scss";
 
 type PageSectionProps = {
 	title: string;
@@ -31,31 +29,27 @@ const PageSectionContent: React.FC<
 		: `${title} - ${description}`;
 
 	return (
-		<section className="flex flex-col items-center rounded-3xl p-2.5 w-60 sm:w-full sm:flex-row sm:p-0">
+		<section className={styles.content}>
 			<Image
-				className="w-24 m-6 sm:m-12"
+				className={styles.icon}
 				src={imageSrc}
 				alt={imageAlt}
 				width={100}
 				height={100}
 				sizes="6rem"
 			/>
-			<div className="flex items-center grow">
-				<div className="flex flex-col grow sm:py-4 sm:pr-8 md:mr-6">
-					<div className="flex flex-col items-center sm:flex-row sm:items-center sm:justify-between">
-						<h3 className="font-semibold text-md text-xl text-center md:text-left md:block">
+			<div className={styles.body}>
+				<div className={styles.bodyInner}>
+					<div className={styles.titleRow}>
+						<h3 className={styles.title}>
 							{title}
 							{subtitle && (
-								<span className="hidden md:inline text-sm ml-4">
-									{subtitle}
-								</span>
+								<span className={styles.titleSubtitle}>{subtitle}</span>
 							)}
 						</h3>
-						<span className="mt-2 md:mt-0">{badge}</span>
+						<span className={styles.badge}>{badge}</span>
 					</div>
-					<div className="font-medium mt-4 block text-center md:block md:text-left">
-						{description}
-					</div>
+					<div className={styles.description}>{description}</div>
 				</div>
 			</div>
 		</section>
@@ -71,14 +65,10 @@ const PageSection: React.FC<PageSectionProps> = ({
 	pantheon,
 	badge,
 }) => {
-	const mainColor = pantheon ? getPantheonMainColor(pantheon) : "slate-500";
-	const textColor = pantheon ? getPantheonTextColor(pantheon) : "white";
+	const inlineStyle = pantheon ? getPantheonInlineStyle(pantheon) : undefined;
 
 	return url ? (
-		<Link
-			href={url}
-			className={`flex flex-row m-5 sm:block sm:w-full sm:m-0 rounded-3xl border-4 border-${mainColor} bg-${mainColor} text-${textColor} lg:bg-transparent lg:text-black lg:hover:bg-${mainColor} lg:hover:text-${textColor} transition-colors`}
-		>
+		<Link href={url} style={inlineStyle} className={styles.sectionLink}>
 			<PageSectionContent
 				title={title}
 				subtitle={subtitle}
@@ -88,7 +78,7 @@ const PageSection: React.FC<PageSectionProps> = ({
 			/>
 		</Link>
 	) : (
-		<div className="flex flex-row items-center justify-center sm:block sm:w-full sm:m-0">
+		<div className={styles.sectionWrapper}>
 			<PageSectionContent
 				title={title}
 				subtitle={subtitle}

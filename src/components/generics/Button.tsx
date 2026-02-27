@@ -1,3 +1,5 @@
+import styles from "./Button.module.scss";
+
 export interface ButtonProps {
 	label: string;
 	bgColor: string;
@@ -15,10 +17,11 @@ const Button: React.FC<ButtonProps> = ({
 }) => (
 	<button
 		type="button"
-		className={`${bgColor} text-white rounded-lg hover:opacity-75 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 focus-visible:outline-none ${className} cursor-pointer`}
+		style={{ "--button-bg": bgColor } as React.CSSProperties}
+		className={`${styles.button} ${className}`}
 		onClick={onClick}
 	>
-		<div className="m-2">
+		<div className={styles.inner}>
 			{icon && <span>{icon}</span>}
 			<span>{label}</span>
 		</div>

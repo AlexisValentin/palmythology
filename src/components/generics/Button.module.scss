@@ -1,0 +1,19 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.button {
+  background-color: var(--button-bg, #64748b);
+  color: $color-white;
+  border-radius: $radius-lg;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  @include focus-ring(#3b82f6);
+}
+
+.inner {
+  margin: $spacing-2;
+}
