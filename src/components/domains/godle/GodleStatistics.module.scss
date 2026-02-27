@@ -1,0 +1,39 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.wrapper {
+  padding: $spacing-2 $spacing-2;
+
+  @include md {
+    padding: $spacing-2 $spacing-4;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: $spacing-2;
+}
+
+.item {
+  text-align: center;
+  flex: 1;
+}
+
+.value {
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  @include md {
+    font-size: 1.875rem;
+  }
+}
+
+.label {
+  font-size: 0.75rem;
+  color: #525252;
+
+  @include md {
+    font-size: 0.875rem;
+  }
+}

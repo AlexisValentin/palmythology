@@ -1,0 +1,103 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.container {
+  > * + * {
+    margin-top: $spacing-6;
+  }
+}
+
+.sectionTitle {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: $spacing-2;
+}
+
+.indicatorsGrid {
+  margin-top: $spacing-4;
+  padding: $spacing-4;
+  border-radius: $radius-xl;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-3;
+
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  gap: $spacing-3;
+  padding: $spacing-3;
+  background-color: #f9fafb;
+  border-radius: $radius-lg;
+  border: 2px solid $color-neutral-200;
+}
+
+.indicatorSwatch {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-lg;
+  flex-shrink: 0;
+
+  @include md {
+    display: block;
+  }
+}
+
+.indicatorIcon {
+  flex-shrink: 0;
+
+  @include md {
+    display: none;
+  }
+}
+
+.indicatorExact {
+  background: linear-gradient(to bottom right, $color-green-500, $color-green-600);
+  box-shadow: 0 10px 15px -3px rgb(34 197 94 / 0.3);
+}
+
+.indicatorPartial {
+  background: linear-gradient(to bottom right, $color-yellow-400, $color-yellow-500);
+  box-shadow: 0 10px 15px -3px rgb(234 179 8 / 0.3);
+}
+
+.indicatorNone {
+  background: linear-gradient(to bottom right, #ef4444, #dc2626);
+  box-shadow: 0 10px 15px -3px rgb(239 68 68 / 0.3);
+}
+
+.indicatorText {
+  flex: 1;
+}
+
+.indicatorTitle {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.indicatorDescription {
+  font-size: 0.75rem;
+  color: #525252;
+}
+
+.list {
+  list-style: disc;
+  list-style-position: inside;
+  margin-left: $spacing-2;
+
+  > * + * {
+    margin-top: $spacing-2;
+  }
+}
+
+.closing {
+  text-align: center;
+  font-weight: 600;
+  color: #404040;
+  padding-top: $spacing-2;
+}

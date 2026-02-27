@@ -2,6 +2,7 @@
 
 import type { GodleEntity } from "../../../utils/godle/godle.types";
 import EntityAutocompleteInput from "../../generics/EntityAutocompleteInput";
+import styles from "./GodleInput.module.scss";
 
 interface GodleInputProps {
 	entities: GodleEntity[];
@@ -14,7 +15,7 @@ const GodleInput: React.FC<GodleInputProps> = ({
 	onGuess,
 	disabled,
 }) => (
-	<div className="mb-8 sticky top-16 rounded-lg bg-white z-20">
+	<div className={styles.wrapper}>
 		<EntityAutocompleteInput
 			entities={entities}
 			onSelect={onGuess}

@@ -8,6 +8,7 @@ import IdCardIcon from "../../../assets/icons/id_card.svg";
 import LaurelIcon from "../../../assets/icons/laurel.svg";
 import MysteriousFaceIcon from "../../../assets/icons/mysterious_face.svg";
 import type { GuessResult } from "../../../utils/godle/godle.types";
+import styles from "./GodleGuessHistory.module.scss";
 import GodleGuessRow from "./GodleGuessRow";
 
 interface GodleGuessHistoryHeaderProps {
@@ -21,15 +22,15 @@ const GodleGuessHistoryHeader: React.FC<GodleGuessHistoryHeaderProps> = ({
 	iconAlt,
 	headerLabel,
 }) => (
-	<div className="flex flex-col items-center justify-center text-center text-sm font-semibold whitespace-nowrap">
+	<div className={styles.header}>
 		<Image
-			className="shrink-0"
+			className={styles.headerIcon}
 			src={icon}
 			alt={iconAlt}
 			width={24}
 			height={24}
 		/>
-		<span className="mt-1">{headerLabel}</span>
+		<span className={styles.headerLabel}>{headerLabel}</span>
 	</div>
 );
 
@@ -43,11 +44,9 @@ const GodleGuessHistory: React.FC<GodleGuessHistoryProps> = ({ guesses }) => {
 	}
 
 	return (
-		<div className="mb-8">
-			<h3 className="flex justify-center text-lg md:text-xl font-bold mb-6 md:mb-12 text-neutral-800">
-				Tentative #{guesses.length}
-			</h3>
-			<div className="hidden md:grid md:grid-cols-6 gap-2 mb-4 px-1">
+		<div className={styles.container}>
+			<h3 className={styles.counter}>Tentative #{guesses.length}</h3>
+			<div className={styles.headers}>
 				<GodleGuessHistoryHeader
 					icon={MysteriousFaceIcon}
 					iconAlt="Icône de visage mystérieux"
@@ -79,14 +78,14 @@ const GodleGuessHistory: React.FC<GodleGuessHistoryProps> = ({ guesses }) => {
 					headerLabel="Attributs"
 				/>
 			</div>
-			<div className="space-y-3">
+			<div className={styles.rows}>
 				{guesses
 					.slice()
 					.reverse()
 					.map((guess, index) => (
 						<div
 							key={`${guess.entity.name}-${index}`}
-							className="animate-slideInFromBottom transition-opacity duration-500"
+							className={`${styles.rowWrapper} animate-slideInFromBottom`}
 							style={{ animationDelay: `${index * 50}ms` }}
 						>
 							<GodleGuessRow guess={guess} />

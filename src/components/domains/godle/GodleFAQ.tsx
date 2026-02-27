@@ -1,5 +1,6 @@
 import Script from "next/script";
 import { Faq } from "../../generics/Faq";
+import styles from "./GodleFAQ.module.scss";
 import GodleRules from "./GodleRules";
 
 const GodleFAQ = () => {
@@ -58,7 +59,7 @@ const GodleFAQ = () => {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
 			/>
-			<div className="flex flex-col items-center w-full mt-8">
+			<div className={styles.container}>
 				<Faq question={mainQuestion} response={mainResponse}>
 					<GodleRules />
 				</Faq>

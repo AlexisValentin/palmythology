@@ -1,0 +1,75 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.cell {
+  padding: 1.25rem 1rem;
+  border-radius: $radius-xl;
+  border-width: 2px;
+  border-style: solid;
+  text-align: center;
+  @include transition-all(0.5s);
+}
+
+// Match styles
+.exact {
+  background: linear-gradient(to bottom right, $color-green-500, $color-green-600);
+  color: $color-white;
+  border-color: $color-green-700;
+  box-shadow: 0 10px 15px -3px rgb(34 197 94 / 0.3);
+}
+
+.partial {
+  background: linear-gradient(to bottom right, $color-yellow-400, $color-yellow-500);
+  color: $color-black;
+  border-color: $color-yellow-600;
+  box-shadow: 0 10px 15px -3px rgb(234 179 8 / 0.3);
+}
+
+.none {
+  background: linear-gradient(to bottom right, #ef4444, #dc2626);
+  color: $color-white;
+  border-color: $color-red-700;
+  box-shadow: 0 10px 15px -3px rgb(239 68 68 / 0.3);
+}
+
+.cellLink {
+  &:hover {
+    filter: brightness(0.75);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: $spacing-2;
+}
+
+.iconInner {
+  display: flex;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  overflow: hidden;
+}
+
+.icon {
+  object-fit: contain;
+}
+
+.textBase {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.textSm {
+  font-size: 0.875rem;
+  line-height: 1.25;
+}

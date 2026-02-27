@@ -1,6 +1,7 @@
 "use client";
 
 import type { GodleStats } from "../../../utils/godle/godle.types";
+import styles from "./GodleStatistics.module.scss";
 
 interface GodleStatItemProps {
 	value: number;
@@ -8,9 +9,9 @@ interface GodleStatItemProps {
 }
 
 const GodleStatItem: React.FC<GodleStatItemProps> = ({ value, label }) => (
-	<div className="text-center flex-1">
-		<div className="text-2xl md:text-3xl font-bold">{value}</div>
-		<div className="text-xs md:text-sm text-neutral-600">{label}</div>
+	<div className={styles.item}>
+		<div className={styles.value}>{value}</div>
+		<div className={styles.label}>{label}</div>
 	</div>
 );
 
@@ -19,8 +20,8 @@ interface GodleStatisticsProps {
 }
 
 const GodleStatistics: React.FC<GodleStatisticsProps> = ({ statistics }) => (
-	<div className="px-2 md:px-4 py-2">
-		<div className="flex justify-between gap-2">
+	<div className={styles.wrapper}>
+		<div className={styles.row}>
 			<GodleStatItem value={statistics.gamesPlayed} label="Parties" />
 			<GodleStatItem value={statistics.currentStreak} label="Série" />
 			<GodleStatItem value={statistics.maxStreak} label="Record" />

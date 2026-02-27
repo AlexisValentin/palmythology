@@ -1,0 +1,63 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.container {
+  margin-bottom: $spacing-8;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: $spacing-6;
+  color: #262626;
+
+  @include md {
+    font-size: 1.25rem;
+    margin-bottom: $spacing-12;
+  }
+}
+
+.headers {
+  display: none;
+
+  @include md {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: $spacing-2;
+    margin-bottom: $spacing-4;
+    padding-left: $spacing-1;
+    padding-right: $spacing-1;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.headerIcon {
+  flex-shrink: 0;
+}
+
+.headerLabel {
+  margin-top: $spacing-1;
+}
+
+.rows {
+  > * + * {
+    margin-top: $spacing-3;
+  }
+}
+
+.rowWrapper {
+  opacity: 1;
+  transition: opacity 500ms;
+}

@@ -1,0 +1,10 @@
+@use '../../../styles/tokens' as *;
+
+.wrapper {
+  margin-bottom: $spacing-8;
+  position: sticky;
+  top: 4rem;
+  border-radius: $radius-lg;
+  background-color: $color-white;
+  z-index: $z-20;
+}

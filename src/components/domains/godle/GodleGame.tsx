@@ -14,6 +14,7 @@ import type {
 	GuessResult,
 } from "../../../utils/godle/godle.types";
 import useModal from "../../hooks/useModal";
+import styles from "./GodleGame.module.scss";
 import GodleFAQ from "./GodleFAQ";
 import GodleGuessHistory from "./GodleGuessHistory";
 import GodleInput from "./GodleInput";
@@ -124,14 +125,14 @@ const GodleGame: React.FC<GodleGameProps> = ({
 	};
 
 	return (
-		<div className="max-w-4xl mx-auto px-4">
+		<div className={styles.container}>
 			{yesterdayEntity && (
-				<p className="text-center my-8">
+				<p className={styles.yesterdayText}>
 					L'entité d'hier était{" "}
 					<Link
 						target="_blank"
 						href={`/${yesterdayEntity.slug}`}
-						className="font-bold underline underline-offset-[0.3rem] max-lg:text-pink-400 max-lg:decoration-sky-500 hover:text-pink-400 hover:decoration-sky-500"
+						className={styles.yesterdayLink}
 						data-rybbit-event="godle_yesterday_click"
 					>
 						{yesterdayEntity.name}
@@ -148,11 +149,11 @@ const GodleGame: React.FC<GodleGameProps> = ({
 			)}
 			<GodleGuessHistory guesses={guesses} />
 			{isComplete && !shouldDisplayModal && (
-				<div className="text-center mt-12">
+				<div className={styles.viewResultsWrapper}>
 					<button
 						type="button"
 						onClick={displayModal}
-						className="px-6 py-3 bg-linear-to-r from-pink-400 to-sky-500 text-white rounded-xl font-bold transition-colors shadow-lg hover:shadow-xl cursor-pointer hover:from-pink-500 hover:to-sky-500"
+						className={styles.viewResultsButton}
 						data-rybbit-event="godle_view_results"
 					>
 						Voir les résultats
@@ -170,7 +171,7 @@ const GodleGame: React.FC<GodleGameProps> = ({
 					onClose={hideModal}
 				/>
 			)}
-			<div className="mt-12">
+			<div className={styles.faqWrapper}>
 				<GodleFAQ />
 			</div>
 		</div>

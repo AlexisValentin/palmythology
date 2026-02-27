@@ -4,42 +4,41 @@ import type { FC } from "react";
 import BulbIcon from "../../../assets/icons/bulb.svg";
 import CheckIcon from "../../../assets/icons/check.svg";
 import WrongIcon from "../../../assets/icons/wrong.svg";
+import styles from "./GodleRules.module.scss";
 
 interface GodleMatchIndicatorProps {
-	colorClasses: string;
+	swatchClass: string;
 	icon: StaticImageData;
 	title: string;
 	description: string;
 }
 
 const GodleMatchIndicator: React.FC<GodleMatchIndicatorProps> = ({
-	colorClasses,
+	swatchClass,
 	icon,
 	title,
 	description,
 }) => (
-	<div className="flex items-center gap-3 p-3 bg-neutral-50 rounded-lg border-2 border-neutral-200">
-		<div
-			className={`hidden md:block w-10 h-10 rounded-lg bg-gradient-to-br ${colorClasses} flex-shrink-0`}
-		/>
+	<div className={styles.indicator}>
+		<div className={`${styles.indicatorSwatch} ${swatchClass}`} />
 		<Image
 			src={icon}
 			alt=""
 			width={28}
 			height={28}
-			className="md:hidden flex-shrink-0"
+			className={styles.indicatorIcon}
 		/>
-		<div className="flex-1">
-			<div className="font-semibold text-sm">{title}</div>
-			<div className="text-xs text-neutral-600">{description}</div>
+		<div className={styles.indicatorText}>
+			<div className={styles.indicatorTitle}>{title}</div>
+			<div className={styles.indicatorDescription}>{description}</div>
 		</div>
 	</div>
 );
 
 const GodleRules: FC = () => (
-	<div className="space-y-6">
+	<div className={styles.container}>
 		<section>
-			<h3 className="font-semibold text-lg mb-2">Règles du jeu</h3>
+			<h3 className={styles.sectionTitle}>Règles du jeu</h3>
 			<p>
 				Devinez l&apos;entité mythologique du jour en sélectionnant des entités
 				dans la liste. Un nouveau Godle est disponible chaque jour à minuit,
@@ -48,38 +47,36 @@ const GodleRules: FC = () => (
 			</p>
 		</section>
 		<section>
-			<h3 className="font-semibold text-lg mb-2">Code couleur des indices</h3>
-			<p className="mb-3">
+			<h3 className={styles.sectionTitle}>Code couleur des indices</h3>
+			<p>
 				Après chaque tentative, la couleur des attributs vous indiquera à quel
 				point vous êtes proche de la réponse :
 			</p>
-			<div className="mt-4 p-4 rounded-xl">
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-					<GodleMatchIndicator
-						colorClasses="from-green-500 to-green-600 shadow-lg shadow-green-500/30"
-						icon={CheckIcon}
-						title="Correspondance exacte"
-						description="Le ou les attributs sont identiques"
-					/>
-					<GodleMatchIndicator
-						colorClasses="from-yellow-400 to-yellow-500 shadow-lg shadow-yellow-500/30"
-						icon={BulbIcon}
-						title="Correspondance partielle"
-						description="Certains attributs correspondent"
-					/>
-					<GodleMatchIndicator
-						colorClasses="from-red-500 to-red-600 shadow-lg shadow-red-500/30"
-						icon={WrongIcon}
-						title="Aucune correspondance"
-						description="Le ou les attributs sont différents"
-					/>
-				</div>
+			<div className={styles.indicatorsGrid}>
+				<GodleMatchIndicator
+					swatchClass={styles.indicatorExact}
+					icon={CheckIcon}
+					title="Correspondance exacte"
+					description="Le ou les attributs sont identiques"
+				/>
+				<GodleMatchIndicator
+					swatchClass={styles.indicatorPartial}
+					icon={BulbIcon}
+					title="Correspondance partielle"
+					description="Certains attributs correspondent"
+				/>
+				<GodleMatchIndicator
+					swatchClass={styles.indicatorNone}
+					icon={WrongIcon}
+					title="Aucune correspondance"
+					description="Le ou les attributs sont différents"
+				/>
 			</div>
 		</section>
 		<section>
-			<h3 className="font-semibold text-lg mb-2">Attributs comparés</h3>
-			<p className="mb-2">Cinq attributs sont analysés à chaque tentative :</p>
-			<ul className="list-disc list-inside space-y-2 ml-2">
+			<h3 className={styles.sectionTitle}>Attributs comparés</h3>
+			<p>Cinq attributs sont analysés à chaque tentative :</p>
+			<ul className={styles.list}>
 				<li>
 					<strong>Panthéon</strong> : La mythologie d&apos;origine (grecque,
 					égyptienne, nordique, celtique, romaine, japonaise, chinoise, hindoue,
@@ -104,9 +101,8 @@ const GodleRules: FC = () => (
 				</li>
 			</ul>
 		</section>
-
 		<section>
-			<h3 className="font-semibold text-lg mb-2">Statistiques et séries</h3>
+			<h3 className={styles.sectionTitle}>Statistiques et séries</h3>
 			<p>
 				Vos performances sont suivies automatiquement : nombre de parties
 				jouées, taux de victoires, distribution des essais et séries de
@@ -116,9 +112,8 @@ const GodleRules: FC = () => (
 				vos performances avec vos amis !
 			</p>
 		</section>
-
 		<section>
-			<h3 className="font-semibold text-lg mb-2">Stratégie de jeu</h3>
+			<h3 className={styles.sectionTitle}>Stratégie de jeu</h3>
 			<p>
 				Il n&apos;y a pas de limite au nombre de tentatives, mais le défi
 				consiste à deviner avec le moins d&apos;essais possible. Commencez par
@@ -128,8 +123,7 @@ const GodleRules: FC = () => (
 				sur l&apos;entité recherchée.
 			</p>
 		</section>
-
-		<p className="text-center font-semibold text-neutral-700 pt-2">
+		<p className={styles.closing}>
 			Bonne chance et amusez-vous bien avec Godle !
 		</p>
 	</div>

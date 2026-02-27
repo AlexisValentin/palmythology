@@ -1,0 +1,9 @@
+@use '../../../styles/tokens' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: $spacing-8;
+}

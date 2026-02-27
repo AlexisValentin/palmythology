@@ -13,6 +13,7 @@ import type {
 	GodleStats as GodleStatisticsType,
 	GuessResult,
 } from "../../../utils/godle/godle.types";
+import styles from "./GodleResultModal.module.scss";
 import GodleStatistics from "./GodleStatistics";
 
 interface GodleResultModalProps {
@@ -72,12 +73,12 @@ const GodleResultModal: React.FC<GodleResultModalProps> = ({
 
 	return (
 		<div
-			className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-3 md:p-4 animate-fadeIn"
+			className={`${styles.backdrop} animate-fadeIn`}
 			onMouseDown={handleBackdropClick}
 		>
 			<div
 				ref={modalRef}
-				className="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto p-5 md:p-8 shadow-2xl animate-slideUpModal relative"
+				className={`${styles.modal} animate-slideUpModal`}
 				role="dialog"
 				aria-modal="true"
 				aria-labelledby="godle-result-title"
@@ -86,15 +87,15 @@ const GodleResultModal: React.FC<GodleResultModalProps> = ({
 				<button
 					type="button"
 					onClick={onClose}
-					className="absolute top-3 right-3 md:top-4 md:right-4 hover:opacity-50 transition-opacity cursor-pointer"
+					className={styles.closeButton}
 					aria-label="Fermer"
 				>
 					<Image src={CrossIcon} alt="" width={18} height={18} unoptimized />
 				</button>
-				<div className="text-center mb-4 md:mb-6">
-					<div className="flex justify-center items-center text-6xl mb-2 md:mb-3">
+				<div className={styles.header}>
+					<div className={styles.iconWrapper}>
 						<Image
-							className="w-10 h-10 md:w-[50px] md:h-[50px]"
+							className={styles.icon}
 							src={ConfettiPopperIcon}
 							alt="Icône de confettis"
 							width={50}
@@ -102,45 +103,38 @@ const GodleResultModal: React.FC<GodleResultModalProps> = ({
 							unoptimized
 						/>
 					</div>
-					<h2
-						id="godle-result-title"
-						className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-400 to-sky-500 bg-clip-text text-transparent"
-					>
+					<h2 id="godle-result-title" className={styles.title}>
 						Félicitations !
 					</h2>
 				</div>
-				<div className="mb-4 md:mb-6 text-center">
-					<p className="text-base md:text-lg">
+				<div className={styles.result}>
+					<p className={styles.resultText}>
 						Vous avez trouvé{" "}
-						<strong className="text-pink-500">{target.name}</strong> en{" "}
-						<strong className="text-sky-500">{guesses.length}</strong> essai
+						<strong className={styles.targetName}>{target.name}</strong> en{" "}
+						<strong className={styles.guessCount}>{guesses.length}</strong>{" "}
+						essai
 						{guesses.length > 1 ? "s" : ""} !
 					</p>
 				</div>
-				<div className="mb-4 md:mb-6">
-					<Link
-						href={`/${target.slug}`}
-						className="block text-center px-4 py-2.5 md:px-6 md:py-3 rounded-xl bg-gradient-to-r from-pink-400 to-sky-500 text-white text-sm md:text-base font-semibold hover:from-pink-500 hover:to-sky-500 transition-all duration-200 shadow-lg hover:shadow-xl transform"
-						data-rybbit-event="godle_card_click"
-					>
-						En savoir plus sur {target.name}
-					</Link>
-				</div>
-				<div className="mb-4 md:mb-6">
-					<button
-						type="button"
-						onClick={handleShare}
-						className="w-full px-4 py-2.5 md:px-6 md:py-3 rounded-xl bg-gradient-to-r from-pink-400 to-sky-500 text-white text-sm md:text-base font-bold hover:from-pink-500 hover:to-sky-500 transition-all duration-200 shadow-lg hover:shadow-xl transform flex items-center justify-center gap-2 cursor-pointer"
-						data-rybbit-event="godle_share"
-					>
-						{copied ? "Copié !" : "Partager le résultat"}
-					</button>
-				</div>
-
-				<div className="mb-4 md:mb-6">
+				<Link
+					href={`/${target.slug}`}
+					className={styles.cardLink}
+					data-rybbit-event="godle_card_click"
+				>
+					En savoir plus sur {target.name}
+				</Link>
+				<button
+					type="button"
+					onClick={handleShare}
+					className={styles.shareButton}
+					data-rybbit-event="godle_share"
+				>
+					{copied ? "Copié !" : "Partager le résultat"}
+				</button>
+				<div className={styles.statisticsWrapper}>
 					<GodleStatistics statistics={statistics} />
 				</div>
-				<div className="text-center text-xs md:text-sm text-neutral-600">
+				<div className={styles.nextGame}>
 					Prochain Godle dans {getTimeUntilNextGame()}
 				</div>
 			</div>

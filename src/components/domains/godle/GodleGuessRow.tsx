@@ -10,12 +10,13 @@ import { getAttributeLabelFromValue } from "../../../utils/cards/attributes";
 import { getGenreLabelFromValue } from "../../../utils/cards/genres";
 import { getPantheonLabelFromValue } from "../../../utils/cards/pantheons";
 import { getSubjectLabelFromValue } from "../../../utils/cards/subjects";
-import { getMatchStyle } from "../../../utils/godle/godle.styles";
+import { getMatchStyleKey } from "../../../utils/godle/godle.styles";
 import type { GuessResult } from "../../../utils/godle/godle.types";
 import { MatchType } from "../../../utils/godle/godle.types";
 import { getPantheonIcon } from "../../../utils/pantheons";
 import { getSubjectIcon } from "../../../utils/subjects";
 import GodleGuessCell from "./GodleGuessCell";
+import styles from "./GodleGuessRow.module.scss";
 
 interface GodleGuessRowProps {
 	guess: GuessResult;
@@ -34,13 +35,14 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 
 	const getAttributesLabel = (attributes: string[]): string => {
 		if (attributes.length === 0) return "/";
-
+		
 		return attributes.map((a) => getAttributeLabelFromValue(a)).join(", ");
 	};
 
 	const getMatchIndicatorIcon = (matchType: MatchType): StaticImageData => {
 		if (matchType === MatchType.EXACT) return CheckIcon;
 		if (matchType === MatchType.PARTIAL) return BulbIcon;
+
 		return WrongIcon;
 	};
 
@@ -64,53 +66,58 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 	const pantheonUrl = `/pantheons/${guess.entity.pantheon}`;
 	const subjectUrl = `/subjects/${guess.entity.subject}`;
 
+	const cardMatchKey = getMatchStyleKey(getCardMatchType());
+	const entityMatchKey = getMatchStyleKey(
+		guess.isCorrect ? MatchType.EXACT : MatchType.NONE,
+	);
+
 	return (
 		<>
-			<div className="md:hidden">
+			<div className={styles.mobileRow}>
 				<div
-					className={`px-4 py-4 rounded-xl border-2 animate-colorReveal ${getMatchStyle(getCardMatchType())}`}
+					className={`${styles.mobileCard} ${styles[cardMatchKey]} animate-colorReveal`}
 					style={{ animationDelay: "0ms" }}
 				>
-					<div className="flex items-center gap-4">
+					<div className={styles.mobileCardContent}>
 						<Link
 							href={entityUrl}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="w-14 h-14 flex-shrink-0 overflow-hidden"
+							className={styles.mobileEntityIcon}
 						>
 							<Image
 								src={entityIcon.src}
 								alt={entityIcon.alt}
 								width={56}
 								height={56}
-								className="object-contain"
+								className={styles.mobileEntityImage}
 								sizes="3.5rem"
 							/>
 						</Link>
-						<div className="flex-1 min-w-0">
+						<div className={styles.mobileInfo}>
 							<Link
 								href={entityUrl}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-base font-bold leading-tight mb-2 block"
+								className={styles.mobileEntityLink}
 							>
 								{guess.entity.name}
 							</Link>
-							<div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-sm">
+							<div className={styles.mobileGrid}>
 								<Link
 									href={pantheonUrl}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="flex items-center gap-1.5"
+									className={styles.mobileAttrRow}
 								>
 									<Image
 										src={getMatchIndicatorIcon(guess.pantheonMatch)}
 										alt=""
 										width={14}
 										height={14}
-										className="flex-shrink-0"
+										className={styles.mobileAttrIcon}
 									/>
-									<span className="truncate">
+									<span className={styles.mobileAttrText}>
 										{getPantheonLabelFromValue(guess.entity.pantheon)}
 									</span>
 								</Link>
@@ -118,52 +125,54 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 									href={subjectUrl}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="flex items-center gap-1.5"
+									className={styles.mobileAttrRow}
 								>
 									<Image
 										src={getMatchIndicatorIcon(guess.subjectMatch)}
 										alt=""
 										width={14}
 										height={14}
-										className="flex-shrink-0"
+										className={styles.mobileAttrIcon}
 									/>
-									<span className="truncate">
+									<span className={styles.mobileAttrText}>
 										{getSubjectLabelFromValue(guess.entity.subject)}
 									</span>
 								</Link>
-								<div className="flex items-center gap-1.5">
+								<div className={styles.mobileAttrRow}>
 									<Image
 										src={getMatchIndicatorIcon(guess.genreMatch)}
 										alt=""
 										width={14}
 										height={14}
-										className="flex-shrink-0"
+										className={styles.mobileAttrIcon}
 									/>
-									<span className="truncate">
+									<span className={styles.mobileAttrText}>
 										{getGenreLabel(guess.entity.genre)}
 									</span>
 								</div>
-								<div className="flex items-center gap-1.5">
+								<div className={styles.mobileAttrRow}>
 									<Image
 										src={getMatchIndicatorIcon(guess.mainDomainMatch)}
 										alt=""
 										width={14}
 										height={14}
-										className="flex-shrink-0"
+										className={styles.mobileAttrIcon}
 									/>
-									<span className="truncate">
+									<span className={styles.mobileAttrText}>
 										{getAttributeLabelFromValue(guess.entity.mainDomain)}
 									</span>
 								</div>
-								<div className="flex items-center gap-1.5 col-span-2">
+								<div
+									className={`${styles.mobileAttrRow} ${styles.mobileAttrRowFull}`}
+								>
 									<Image
 										src={getMatchIndicatorIcon(guess.attributesMatch)}
 										alt=""
 										width={14}
 										height={14}
-										className="flex-shrink-0"
+										className={styles.mobileAttrIcon}
 									/>
-									<span className="text-xs">
+									<span className={styles.mobileAttrTextXs}>
 										{getAttributesLabel(guess.entity.attributes)}
 									</span>
 								</div>
@@ -172,29 +181,27 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 					</div>
 				</div>
 			</div>
-			<div className="hidden md:grid md:grid-cols-6 gap-2 mb-3">
+			<div className={styles.desktopRow}>
 				<Link
 					href={entityUrl}
 					target="_blank"
 					rel="noopener noreferrer"
-					className={`px-4 py-5 rounded-xl border-2 text-center animate-colorReveal hover:brightness-75 ${getMatchStyle(guess.isCorrect ? MatchType.EXACT : MatchType.NONE)}`}
+					className={`${styles.desktopEntityCell} ${styles[entityMatchKey]} animate-colorReveal`}
 					style={{ animationDelay: "0ms" }}
 				>
-					<div className="flex justify-center mb-2">
-						<div className="flex justify-center w-10 h-10 overflow-hidden">
+					<div className={styles.desktopEntityIconWrapper}>
+						<div className={styles.desktopEntityIconInner}>
 							<Image
 								src={entityIcon.src}
 								alt={entityIcon.alt}
 								width={40}
 								height={40}
-								className="object-contain"
+								className={styles.desktopEntityImage}
 								sizes="2.5rem"
 							/>
 						</div>
 					</div>
-					<div className="text-base font-bold leading-tight">
-						{guess.entity.name}
-					</div>
+					<div className={styles.desktopEntityName}>{guess.entity.name}</div>
 				</Link>
 				<GodleGuessCell
 					label={getPantheonLabelFromValue(guess.entity.pantheon)}

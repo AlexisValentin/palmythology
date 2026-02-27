@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getMatchStyle } from "../../../utils/godle/godle.styles";
+import { getMatchStyleKey } from "../../../utils/godle/godle.styles";
 import type { MatchType } from "../../../utils/godle/godle.types";
+import styles from "./GodleGuessCell.module.scss";
 
 interface GodleGuessCellProps {
 	label: string | null;
@@ -23,27 +24,27 @@ const GodleGuessCell: React.FC<GodleGuessCellProps> = ({
 	textSize = "base",
 	icon,
 }) => {
-	const cellClasses = `px-4 py-5 rounded-xl border-2 text-center animate-colorReveal ${getMatchStyle(matchType)}`;
-	const textClasses =
-		textSize === "sm" ? "text-sm leading-tight" : "text-base font-medium";
+	const matchKey = getMatchStyleKey(matchType);
+	const cellClass = `${styles.cell} ${styles[matchKey]} animate-colorReveal`;
+	const textClass = textSize === "sm" ? styles.textSm : styles.textBase;
 
 	const content = (
-		<div className="flex flex-col items-center justify-center h-full">
+		<div className={styles.content}>
 			{icon && (
-				<div className="flex justify-center mb-2">
-					<div className="flex justify-center w-10 h-10 overflow-hidden">
+				<div className={styles.iconWrapper}>
+					<div className={styles.iconInner}>
 						<Image
 							src={icon.src}
 							alt={icon.alt}
 							width={40}
 							height={40}
-							className="object-contain"
+							className={styles.icon}
 							sizes="2.5rem"
 						/>
 					</div>
 				</div>
 			)}
-			<span className={textClasses}>{label ?? "/"}</span>
+			<span className={textClass}>{label ?? "/"}</span>
 		</div>
 	);
 
@@ -53,7 +54,7 @@ const GodleGuessCell: React.FC<GodleGuessCellProps> = ({
 				href={href}
 				target="_blank"
 				rel="noopener noreferrer"
-				className={`${cellClasses} hover:brightness-75`}
+				className={`${cellClass} ${styles.cellLink}`}
 				style={{ animationDelay: `${animationDelay}ms` }}
 			>
 				{content}
@@ -62,10 +63,7 @@ const GodleGuessCell: React.FC<GodleGuessCellProps> = ({
 	}
 
 	return (
-		<div
-			className={cellClasses}
-			style={{ animationDelay: `${animationDelay}ms` }}
-		>
+		<div className={cellClass} style={{ animationDelay: `${animationDelay}ms` }}>
 			{content}
 		</div>
 	);
