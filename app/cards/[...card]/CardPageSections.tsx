@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { FC } from "react";
+import styles from "./CardPageSections.module.scss";
 import QuotationIcon from "../../../src/assets/icons/quotation_marks.svg";
 import ReuseArrowsIcon from "../../../src/assets/icons/reuse_arrows.svg";
 import type { FaqProps } from "../../../src/components/generics/Faq";
@@ -43,23 +44,23 @@ export const CardPageQuotationsSection: FC<CardPageQuotationsSectionProps> = ({
 	}
 
 	return (
-		<div className="flex flex-col items-center w-full border-t-2 mt-8 lg:w-3/4">
-			<div className="flex flex-row justify-center items-center mt-8">
+		<div className={styles.section}>
+			<div className={styles.sectionHeader}>
 				<Image
-					className="mr-2"
+					className={styles.sectionIcon}
 					src={QuotationIcon}
 					alt="Icône de citation"
 					width={24}
 					height={24}
 					unoptimized
 				/>
-				<h3 className="text-xl font-bold">Citations</h3>
+				<h3 className={styles.sectionTitle}>Citations</h3>
 			</div>
 			{quotations.map(({ author, quotation, origin }) => {
 				return (
 					<div
 						key={`${author}-${quotation.split(" ")}`}
-						className="flex flex-col mt-6 w-full"
+						className={styles.quotationItem}
 					>
 						<Quotation quotation={quotation} author={author} origin={origin} />
 					</div>
@@ -81,19 +82,19 @@ export const CardPageRelatedCardsSection: FC<
 	}
 
 	return (
-		<div className="flex flex-col items-center w-full border-t-2 mt-8 lg:w-3/4">
-			<div className="flex items-center justify-center mt-8">
+		<div className={styles.section}>
+			<div className={styles.sectionHeader}>
 				<Image
-					className="mr-2"
+					className={styles.sectionIcon}
 					src={ReuseArrowsIcon}
 					alt="Icône de suggestions"
 					width={32}
 					height={32}
 					unoptimized
 				/>
-				<h3 className="text-xl font-bold">Dans le même sujet</h3>
+				<h3 className={styles.sectionTitle}>Dans le même sujet</h3>
 			</div>
-			<div className="flex flex-wrap justify-center mt-4">
+			<div className={styles.cardList}>
 				{relatedCards.map(
 					({ name, subtitle, pantheon, icon }: CardRelatedType) => (
 						<PageSquare

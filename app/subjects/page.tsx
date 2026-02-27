@@ -4,6 +4,7 @@ import PageSquare, {
 	CONTENT_TYPE,
 } from "../../src/components/generics/PageSquare";
 import { ALL_SUBJECT } from "../../src/utils/cards/subjects.constants";
+import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
 	title: "Sujets mythologiques | Classification - Palmythology",
@@ -95,7 +96,7 @@ const SubjectsPage = () => {
 				title="Sujets"
 				subtitle="Découvrez les fiches les plus populaires classées par thème"
 			/>
-			<div className="flex flex-col items-center justify-center flex-wrap md:flex-row mt-4">
+			<div className={styles.subjectList}>
 				{ALL_SUBJECT.map((subject) => (
 					<PageSquare
 						title={subject.label}

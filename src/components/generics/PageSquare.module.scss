@@ -2,6 +2,7 @@
 @use '../../styles/mixins' as *;
 
 .squareLink {
+  display: inline-block;
   border: 4px solid var(--pantheon-bg, #64748b);
   border-radius: $radius-3xl;
   padding: $spacing-6;

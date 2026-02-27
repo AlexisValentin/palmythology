@@ -5,6 +5,7 @@ import { getPantheonLabelFromValue } from "../../utils/cards/pantheons";
 import { getSubjectLabelFromValue } from "../../utils/cards/subjects";
 import type { CardEntity } from "../../utils/cms/cms.requests";
 import { normalizeString } from "../../utils/string";
+import styles from "./EntityAutocompleteInput.module.scss";
 
 interface EntityAutocompleteInputProps<T extends CardEntity> {
 	entities: T[];
@@ -101,11 +102,11 @@ const EntityAutocompleteInput = <T extends CardEntity>({
 	}, [focusedIndex]);
 
 	return (
-		<div className="relative">
+		<div className={styles.wrapper}>
 			<input
 				ref={inputRef}
 				type="text"
-				className="w-full px-4 py-3 md:px-5 md:py-4 border-2 border-neutral-300 rounded-xl focus:border-pink-400 focus:ring-4 focus:ring-pink-400/20 focus:outline-none disabled:bg-neutral-100 disabled:cursor-not-allowed transition-all duration-200 text-base font-medium placeholder:text-neutral-400 shadow-sm focus:shadow-md"
+				className={styles.input}
 				placeholder={placeholder}
 				value={query}
 				onChange={(e) => {
@@ -124,22 +125,18 @@ const EntityAutocompleteInput = <T extends CardEntity>({
 				isOpen && (
 					<div
 						ref={listRef}
-						className="absolute z-10 w-full mt-1 bg-white border-2 border-neutral-300 rounded-xl shadow-lg max-h-48 md:max-h-60 overflow-auto"
+						className={styles.dropdown}
 					>
 						{filteredEntities.map((entity, index) => (
 							<button
 								type="button"
 								key={entity.slug}
-								className={`w-full text-left px-3 py-2.5 md:px-4 md:py-3 cursor-pointer flex flex-col md:flex-row md:justify-between md:items-center gap-1 md:gap-3 transition-all duration-150 ${
-									index === focusedIndex
-										? "bg-pink-50 border-l-4 border-pink-400"
-										: "hover:bg-neutral-50"
-								}`}
+								className={[styles.option, index === focusedIndex ? styles.optionFocused : ""].filter(Boolean).join(" ")}
 								onClick={() => handleSelect(entity)}
 								onMouseEnter={() => setFocusedIndex(index)}
 							>
-								<span className="font-semibold truncate">{entity.name}</span>
-								<span className="text-xs text-neutral-500 flex-shrink-0">
+								<span className={styles.optionName}>{entity.name}</span>
+								<span className={styles.optionMeta}>
 									{getPantheonLabelFromValue(entity.pantheon)} •{" "}
 									{getSubjectLabelFromValue(entity.subject)}
 								</span>

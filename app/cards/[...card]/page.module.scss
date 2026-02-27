@@ -1,0 +1,55 @@
+@use '../../../src/styles/tokens' as *;
+@use '../../../src/styles/mixins' as *;
+
+.pageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1.5rem;
+
+  @include sm  { column-gap: 2.5rem; }
+  @include md  { column-gap: 4rem; }
+  @include lg  { column-gap: 5rem; }
+  @include xl  { column-gap: 6rem; }
+}
+
+.summaryDesktop {
+  display: none;
+  width: 100%;
+
+  @include md  { display: block; }
+  @include lg  { width: 75%; }
+}
+
+.carouselWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: $spacing-4;
+
+  @include lg  { width: 75%; }
+  @include xl  { width: 66.666%; }
+  @include xxl { width: 60%; }
+}
+
+.summaryMobile {
+  display: block;
+  border-top: 2px solid currentColor;
+  margin-top: $spacing-8;
+  width: 100%;
+
+  @include md  { display: none; }
+  @include lg  { width: 75%; }
+}
+
+.socialsWrapper {
+  margin-top: $spacing-16;
+}

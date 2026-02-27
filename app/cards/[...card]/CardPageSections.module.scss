@@ -1,0 +1,46 @@
+@use '../../../src/styles/tokens' as *;
+@use '../../../src/styles/mixins' as *;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-top: 2px solid currentColor;
+  margin-top: $spacing-8;
+
+  @include lg {
+    width: 75%;
+  }
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: $spacing-8;
+}
+
+.sectionIcon {
+  margin-right: $spacing-2;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.quotationItem {
+  display: flex;
+  flex-direction: column;
+  margin-top: $spacing-6;
+  width: 100%;
+}
+
+.cardList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: $spacing-4;
+}

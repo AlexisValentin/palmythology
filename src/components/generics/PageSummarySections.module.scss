@@ -34,6 +34,8 @@
   width: 100%;
   border-top: 2px solid currentColor;
   margin-top: $spacing-8;
+  margin-left: auto;
+  margin-right: auto;
 
   @include lg {
     width: 75%;

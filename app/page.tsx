@@ -4,6 +4,7 @@ import PageSquare, {
 	CONTENT_TYPE,
 } from "../src/components/generics/PageSquare";
 import { ROUTES } from "../src/utils/routes/routes.constants";
+import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
 	title: "Palmythology, l'encyclopédie mythologique",
@@ -55,7 +56,7 @@ const HomePage = () => {
 	return (
 		<>
 			<PageHeader title="Palmythology" subtitle="L'encyclopédie mythologique" />
-			<div className="flex flex-row justify-center flex-wrap mx-8 sm:mx-0 md:mt-16">
+			<div className={styles.routeList}>
 				{ROUTES.map((route) => {
 					const { name, subtitle, url, icon } = route;
 

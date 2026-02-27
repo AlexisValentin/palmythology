@@ -1,0 +1,39 @@
+@use '../src/styles/tokens' as *;
+@use '../src/styles/mixins' as *;
+
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contentWrapper {
+  padding-left: $spacing-6;
+  padding-right: $spacing-6;
+  margin-bottom: $spacing-20;
+
+  @include sm {
+    padding-left: $spacing-12;
+    padding-right: $spacing-12;
+  }
+
+  @include md {
+    padding-left: $spacing-24;
+    padding-right: $spacing-24;
+  }
+
+  @include lg {
+    padding-left: $spacing-40;
+    padding-right: $spacing-40;
+  }
+
+  @include xl {
+    padding-left: $spacing-56;
+    padding-right: $spacing-56;
+  }
+
+  @include xxl {
+    padding-left: $spacing-72;
+    padding-right: $spacing-72;
+  }
+}

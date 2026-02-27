@@ -4,11 +4,11 @@ import MainMenu from "../src/components/domains/navigation/MainMenu";
 import SocialsIncentivePopin from "../src/components/domains/social/SocialsIncentivePopin";
 import Breadcrumbs from "../src/components/generics/Breadcrumbs";
 import StoryblokProvider from "../src/components/StoryblokProvider";
-import "../src/global.css";
 import "../src/styles/global.scss";
 import type { Metadata, Viewport } from "next";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { UpPageButton } from "../src/components/generics/UpPageButton";
+import styles from "./layout.module.scss";
 
 interface MainLayoutProps {
 	children: React.ReactNode;
@@ -111,10 +111,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 					<NuqsAdapter>
 						<SocialsIncentivePopin />
 						<MainMenu />
-						<div className="flex flex-col min-h-screen">
-							<div className="px-6 mb-20 sm:px-12 md:px-24 lg:px-40 xl:px-56 2xl:px-72">
-								{children}
-							</div>
+						<div className={styles.pageWrapper}>
+							<div className={styles.contentWrapper}>{children}</div>
 						</div>
 						<UpPageButton />
 						<Breadcrumbs />

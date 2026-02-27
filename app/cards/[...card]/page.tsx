@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import type { FC } from "react";
+import styles from "./page.module.scss";
 import Carousel from "../../../src/components/generics/Carousel";
 import PageHeader from "../../../src/components/generics/PageHeader";
 import PageSquare, {
@@ -196,8 +197,8 @@ const CardPage: FC<CardPagePropsType> = async ({ params }) => {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
 			/>
-			<div className="flex justify-center items-center flex-col">
-				<div className="flex justify-center items-center gap-x-6 sm:gap-x-10 md:gap-x-16 lg:gap-x-20 xl:gap-x-24">
+			<div className={styles.pageWrapper}>
+				<div className={styles.headerRow}>
 					{pantheonData && (
 						<PageSquare
 							title={
@@ -226,20 +227,20 @@ const CardPage: FC<CardPagePropsType> = async ({ params }) => {
 						/>
 					)}
 				</div>
-				<div className="hidden md:block w-full lg:w-3/4">
+				<div className={styles.summaryDesktop}>
 					<CardPageSummarySection summary={mdSummary} />
 				</div>
-				<div className="flex items-center justify-center w-full lg:w-3/4 xl:w-2/3 2xl:w-3/5 mt-4">
+				<div className={styles.carouselWrapper}>
 					<Carousel imageList={images} />
 				</div>
-				<div className="block md:hidden border-t-2 mt-8 w-full lg:w-3/4">
+				<div className={styles.summaryMobile}>
 					<CardPageSummarySection summary={mdSummary} />
 				</div>
 				<CardPageFaqSection faq={faq} />
 				<CardPageQuotationsSection quotations={quotations} />
 				<CardPageRelatedCardsSection relatedCards={relatedCards} />
 				{hasCustomLinks && (
-					<div className="mt-16">
+					<div className={styles.socialsWrapper}>
 						<SocialNetworks customLinks={socialLinks} context="card" />
 					</div>
 				)}

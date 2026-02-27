@@ -21,4 +21,4 @@ interface CategoryPageFaqSectionProps {
 
 export const CategoryPageFaqSection: FC<CategoryPageFaqSectionProps> = ({
 	faq,
-}) => <PageFaqSection faq={faq} className="mx-auto" />;
+}) => <PageFaqSection faq={faq} />;

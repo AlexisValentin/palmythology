@@ -45,10 +45,9 @@ interface FaqItem {
 
 interface FaqSectionProps {
 	faq?: FaqItem[];
-	className?: string;
 }
 
-export const PageFaqSection: FC<FaqSectionProps> = ({ faq, className }) => {
+export const PageFaqSection: FC<FaqSectionProps> = ({ faq }) => {
 	if (!faq || faq.length === 0) {
 		return null;
 	}
@@ -72,7 +71,7 @@ export const PageFaqSection: FC<FaqSectionProps> = ({ faq, className }) => {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
 			/>
-			<div className={`${styles.faqSection} ${className ?? ""}`}>
+			<div className={styles.faqSection}>
 				<div className={styles.faqHeader}>
 					<Image
 						className={styles.faqIcon}

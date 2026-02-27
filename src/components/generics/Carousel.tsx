@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
+import styles from "./Carousel.module.scss";
 
 type CarouselProps = {
 	imageList: StoryblokSingleAssetType[];
@@ -18,7 +19,7 @@ interface StoryblokSingleAssetType {
 
 const Carousel: React.FC<CarouselProps> = ({ imageList }) => (
 	<Swiper
-		className="shadow-2xl"
+		className={styles.carousel}
 		modules={[Navigation, Pagination]}
 		spaceBetween={50}
 		slidesPerView={1}
@@ -32,12 +33,12 @@ const Carousel: React.FC<CarouselProps> = ({ imageList }) => (
 
 			return (
 				<SwiperSlide key={alt}>
-					<div className="relative aspect-square w-full">
+					<div className={styles.slide}>
 						<Image
 							src={filename}
 							alt={alt}
 							fill
-							className="object-contain"
+							className={styles.image}
 							loading={loadingStrategy}
 							priority={isPriority}
 							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 1000px"
