@@ -75,6 +75,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 						<Link
 							href={entityUrl}
 							target="_blank"
+							rel="noopener noreferrer"
 							className="w-14 h-14 flex-shrink-0 overflow-hidden"
 						>
 							<Image
@@ -90,6 +91,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 							<Link
 								href={entityUrl}
 								target="_blank"
+								rel="noopener noreferrer"
 								className="text-base font-bold leading-tight mb-2 block"
 							>
 								{guess.entity.name}
@@ -98,6 +100,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 								<Link
 									href={pantheonUrl}
 									target="_blank"
+									rel="noopener noreferrer"
 									className="flex items-center gap-1.5"
 								>
 									<Image
@@ -114,6 +117,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 								<Link
 									href={subjectUrl}
 									target="_blank"
+									rel="noopener noreferrer"
 									className="flex items-center gap-1.5"
 								>
 									<Image
@@ -172,6 +176,7 @@ const GodleGuessRow: React.FC<GodleGuessRowProps> = ({ guess }) => {
 				<Link
 					href={entityUrl}
 					target="_blank"
+					rel="noopener noreferrer"
 					className={`px-4 py-5 rounded-xl border-2 text-center animate-colorReveal hover:brightness-75 ${getMatchStyle(guess.isCorrect ? MatchType.EXACT : MatchType.NONE)}`}
 					style={{ animationDelay: "0ms" }}
 				>

@@ -52,7 +52,7 @@ describe("utils/colors", () => {
 			});
 			expect(getPantheonStyle(PantheonValue.ROMAN)).toEqual({
 				backgroundColor: "red-900",
-				textColor: "amber-500",
+				textColor: "amber-700",
 			});
 		});
 	});
@@ -101,7 +101,7 @@ describe("utils/colors", () => {
 				"neutral-100",
 			);
 			expect(getPantheonTextColor(PantheonValue.NORSE)).toEqual("neutral-100");
-			expect(getPantheonTextColor(PantheonValue.ROMAN)).toEqual("amber-500");
+			expect(getPantheonTextColor(PantheonValue.ROMAN)).toEqual("amber-700");
 		});
 	});
 

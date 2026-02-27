@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback } from "react";
 import type { PantheonValue } from "../../utils/cards/pantheons.constants";
 import type { SubjectValue } from "../../utils/cards/subjects.constants";
 import type { StoryblokImageType } from "../../utils/cms/cms.constants";
@@ -66,7 +65,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
 	url,
 	prefetch,
 }) => {
-	const buildLink = useCallback(() => {
+	const buildLink = () => {
 		switch (contentType) {
 			case CONTENT_TYPE.ROUTE:
 				return url;
@@ -79,7 +78,7 @@ const PageSquare: React.FC<PageSquareProps> = ({
 			default:
 				return null;
 		}
-	}, [contentType, title, pantheon, subject, url]);
+	};
 
 	const link = buildLink();
 	const rybbitEvent = RYBBIT_EVENTS[contentType];

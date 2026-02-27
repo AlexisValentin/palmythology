@@ -8,10 +8,7 @@ export interface QuotationProps {
 
 const Quotation: React.FC<QuotationProps> = ({ quotation, author, origin }) => {
 	return (
-		<blockquote
-			className="rounded-lg drop-shadow-lg bg-neutral-200"
-			cite="source-url"
-		>
+		<blockquote className="rounded-lg drop-shadow-lg bg-neutral-200">
 			<div className="italic p-2 mb-0">
 				<Markdown>{`"${quotation}"`}</Markdown>
 			</div>

@@ -40,8 +40,10 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
 		type="button"
 		className={`border rounded-lg border-slate-300 ${
 			isActivePage ? `bg-slate-300 hover:bg-slate-100` : `hover:bg-slate-200`
-		} w-7 m-1 px-2 py-1`}
+		} w-7 m-1 px-2 py-1 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 focus-visible:outline-none cursor-pointer`}
 		onClick={() => setCurrentPage(pageNumber)}
+		aria-label={`Page ${pageNumber}`}
+		aria-current={isActivePage ? "page" : undefined}
 	>
 		{pageNumber}
 	</button>
@@ -55,9 +57,9 @@ const Pagination: React.FC<PaginationProps> = ({
 	if (nbPages === 1) return <></>;
 
 	return (
-		<div className="flex justify-center m-2">
+		<nav aria-label="Pagination" className="flex justify-center m-2">
 			{buildItems(nbPages, currentPage, setCurrentPage).map((item) => item)}
-		</div>
+		</nav>
 	);
 };
 

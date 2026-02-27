@@ -27,11 +27,11 @@ export const metadata: Metadata = {
 		siteName: "Palmythology",
 		images: [
 			{
-				url: "https://palmythology.com/icon/favicon.ico",
-				width: 600,
-				height: 600,
+				url: "https://palmythology.com/og-image.png",
+				width: 1200,
+				height: 630,
 				alt: "Logo officiel de la Palmythology",
-				type: "image/x-icon",
+				type: "image/png",
 			},
 		],
 		locale: "fr_FR",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 			"Made in France, La Palmythology vous propose une expérience sans publicité et sans pollution visuelle, avec des données de navigation anonymisées.",
 		images: [
 			{
-				url: "https://palmythology.com/icon/favicon.ico",
+				url: "https://palmythology.com/og-image.png",
 				alt: "Logo officiel de la Palmythology",
 			},
 		],

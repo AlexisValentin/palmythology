@@ -26,11 +26,11 @@ export const metadata: Metadata = {
 		siteName: "Palmythology",
 		images: [
 			{
-				url: "https://palmythology.com/icon/favicon.ico",
-				width: 600,
-				height: 600,
+				url: "https://palmythology.com/og-image.png",
+				width: 1200,
+				height: 630,
 				alt: "Logo officiel de la Palmythology",
-				type: "image/x-icon",
+				type: "image/png",
 			},
 		],
 		locale: "fr_FR",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 			"Les Grandes Lignes sont le nom des fiches mythologiques de la Palmythology. Intuitives et pédagogiques, elles vous plongent dans les mythes du monde.",
 		images: [
 			{
-				url: "https://palmythology.com/icon/favicon.ico",
+				url: "https://palmythology.com/og-image.png",
 				alt: "Logo officiel de la Palmythology",
 			},
 		],

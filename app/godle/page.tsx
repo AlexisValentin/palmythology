@@ -32,9 +32,9 @@ export const metadata: Metadata = {
 		siteName: "Palmythology",
 		images: [
 			{
-				url: "https://palmythology.com/icon/favicon.ico",
-				width: 600,
-				height: 600,
+				url: "https://palmythology.com/og-image.png",
+				width: 1200,
+				height: 630,
 				alt: "Logo Palmythology - Godle",
 			},
 		],
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 		title: "Godle | Le jeu quotidien mythologique",
 		description:
 			"Devinez l'entité mythologique du jour ! Jeu quotidien gratuit avec 11 panthéons du monde entier.",
-		images: ["https://palmythology.com/icon/favicon.ico"],
+		images: ["https://palmythology.com/og-image.png"],
 	},
 };
 

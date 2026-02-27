@@ -75,7 +75,7 @@ const GodleGuessHistory: React.FC<GodleGuessHistoryProps> = ({ guesses }) => {
 				/>
 				<GodleGuessHistoryHeader
 					icon={IdCardIcon}
-					iconAlt="Icône de médaille d'or"
+					iconAlt="Icône de carte d'identité"
 					headerLabel="Attributs"
 				/>
 			</div>

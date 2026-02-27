@@ -87,6 +87,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 				<head>
 					<link rel="preconnect" href="https://a.storyblok.com" />
 					<link rel="dns-prefetch" href="https://a.storyblok.com" />
+					<link rel="preconnect" href="https://analytics.lepalmypede.eu" />
 					{process.env.NODE_ENV === "production" && (
 						<script
 							src="https://analytics.lepalmypede.eu/api/script.js"

@@ -52,6 +52,7 @@ const GodleGuessCell: React.FC<GodleGuessCellProps> = ({
 			<Link
 				href={href}
 				target="_blank"
+				rel="noopener noreferrer"
 				className={`${cellClasses} hover:brightness-75`}
 				style={{ animationDelay: `${animationDelay}ms` }}
 			>

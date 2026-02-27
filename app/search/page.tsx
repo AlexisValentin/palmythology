@@ -25,11 +25,11 @@ export const metadata: Metadata = {
 		siteName: "Palmythology",
 		images: [
 			{
-				url: "https://palmythology.com/icon/favicon.ico",
-				width: 600,
-				height: 600,
+				url: "https://palmythology.com/og-image.png",
+				width: 1200,
+				height: 630,
 				alt: "Logo officiel de la Palmythology",
-				type: "image/x-icon",
+				type: "image/png",
 			},
 		],
 		locale: "fr_FR",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 		description: `La Palmythology propose un moteur de recherche pour trouver la fiche qu'il vous faut, parmi 11 différents panthéons et 7 différents sujets.`,
 		images: [
 			{
-				url: "https://palmythology.com/icon/favicon.ico",
+				url: "https://palmythology.com/og-image.png",
 				alt: "Logo officiel de la Palmythology",
 			},
 		],
@@ -71,12 +71,20 @@ const SearchPage: React.FC = () => {
 			/>
 			<div className="flex flex-col items-center justify-center mt-12">
 				<div className="w-full px-4 md:w-3/4 lg:w-2/3 xl:w-1/2">
-					<Suspense>
+					<Suspense
+						fallback={
+							<div className="h-12 rounded-lg bg-slate-200 animate-pulse" />
+						}
+					>
 						<SearchAutocomplete />
 					</Suspense>
 				</div>
 			</div>
-			<Suspense>
+			<Suspense
+				fallback={
+					<div className="h-24 mt-8 rounded-lg bg-slate-200 animate-pulse" />
+				}
+			>
 				<Filter />
 			</Suspense>
 		</>

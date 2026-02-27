@@ -64,9 +64,6 @@ const GodleGame: React.FC<GodleGameProps> = ({
 				);
 
 				if (!allEntitiesExist) {
-					console.warn(
-						"Saved game state contains entities without godle. Starting fresh.",
-					);
 					return;
 				}
 
