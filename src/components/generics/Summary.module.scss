@@ -1,0 +1,86 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.outer {
+  @include md {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-lg;
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  background-color: $color-neutral-200;
+  padding: $spacing-3;
+  margin-bottom: $spacing-10;
+  width: 100%;
+  position: relative;
+}
+
+.inner {
+  width: 100%;
+  position: relative;
+}
+
+.content {
+  overflow: hidden;
+  transition: max-height 500ms ease-in-out;
+  max-height: 12rem;
+
+  @include md {
+    max-height: 20rem;
+  }
+}
+
+.contentExpanded {
+  max-height: 31.25rem;
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5rem;
+  background: linear-gradient(to top, $color-neutral-200, $color-neutral-200, transparent);
+  pointer-events: none;
+}
+
+.toggleButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-full;
+  cursor: pointer;
+  @include transition-all;
+
+  &:hover {
+    background-color: $color-white;
+  }
+}
+
+.toggleButtonCollapsed {
+  position: absolute;
+  bottom: $spacing-2;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.toggleButtonExpanded {
+  margin-top: $spacing-2;
+}
+
+.arrowWrapper {
+  transition: transform 500ms ease-in-out;
+}
+
+.arrowRotated {
+  transform: rotate(180deg);
+}

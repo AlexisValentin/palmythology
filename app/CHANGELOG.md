@@ -5,6 +5,7 @@
 - Migration de Tailwind vers les modules SCSS.
   - Phase 0 -> Mise en place de l'architecture SCSS.
   - Phase 1 -> Première vague de migration de composants (statiques).
+  - Phase 2 -> Seconde vague de migration de composants (dynamiques).
 
 ## Divers
 

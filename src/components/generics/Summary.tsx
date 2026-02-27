@@ -4,7 +4,7 @@ import type { FC } from "react";
 import { useRef, useState } from "react";
 import Markdown from "react-markdown";
 import { ArrowDownIcon } from "../../assets/icons/ArrowDownIcon";
-import { getSummaryBackgroundColor } from "../../utils/styles/colors";
+import styles from "./Summary.module.scss";
 
 interface SummaryProps {
 	content: string;
@@ -32,22 +32,15 @@ export const Summary: FC<SummaryProps> = ({ content }) => {
 	};
 
 	return (
-		<div className="md:flex md:justify-center">
-			<div
-				ref={summaryRef}
-				className={`flex flex-col items-center justify-center rounded-lg drop-shadow-lg ${getSummaryBackgroundColor()} p-3 mb-10 w-full relative`}
-			>
-				<div className="w-full relative">
+		<div className={styles.outer}>
+			<div ref={summaryRef} className={styles.container}>
+				<div className={styles.inner}>
 					<div
-						className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${
-							isExpanded ? "max-h-125" : "max-h-48 md:max-h-80"
-						}`}
+						className={`${styles.content} ${isExpanded ? styles.contentExpanded : ""}`}
 					>
 						<Markdown>{content}</Markdown>
 					</div>
-					{!isExpanded && (
-						<div className="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-neutral-200 via-neutral-200 to-transparent pointer-events-none" />
-					)}
+					{!isExpanded && <div className={styles.fade} />}
 				</div>
 				<button
 					type="button"
@@ -56,15 +49,11 @@ export const Summary: FC<SummaryProps> = ({ content }) => {
 						e.preventDefault();
 						handleToggle();
 					}}
-					className={`w-10 h-10 flex items-center justify-center rounded-full hover:bg-white transition-all cursor-pointer ${
-						isExpanded ? "mt-2" : "absolute bottom-2 left-1/2 -translate-x-1/2"
-					}`}
+					className={`${styles.toggleButton} ${isExpanded ? styles.toggleButtonExpanded : styles.toggleButtonCollapsed}`}
 					aria-expanded={isExpanded}
 					aria-label={isExpanded ? "Voir moins" : "Voir plus"}
 				>
-					<div
-						className={`transition-transform duration-500 ease-in-out ${isExpanded ? "rotate-180" : ""}`}
-					>
+					<div className={`${styles.arrowWrapper} ${isExpanded ? styles.arrowRotated : ""}`}>
 						<ArrowDownIcon customColor="black" />
 					</div>
 				</button>

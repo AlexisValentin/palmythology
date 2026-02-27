@@ -4,6 +4,7 @@ import type { FC } from "react";
 import MagnifyingGlassIcon from "../../assets/icons/magnifying_glass.svg";
 import QnAIcon from "../../assets/icons/question_marks.svg";
 import { Faq } from "./Faq";
+import styles from "./PageSummarySections.module.scss";
 import { Summary } from "./Summary";
 
 interface SummarySectionProps {
@@ -19,18 +20,18 @@ export const PageSummarySection: FC<SummarySectionProps> = ({
 
 	return (
 		<>
-			<div className="flex md:hidden flex-row justify-center items-center mt-8">
+			<div className={styles.summaryHeader}>
 				<Image
-					className="mr-2"
+					className={styles.summaryIcon}
 					src={MagnifyingGlassIcon}
 					alt="Icône de résumé"
 					width={24}
 					height={24}
 					unoptimized
 				/>
-				<h3 className="text-xl font-bold">{label}</h3>
+				<h3 className={styles.sectionTitle}>{label}</h3>
 			</div>
-			<div className="w-full mt-8">
+			<div className={styles.summaryContent}>
 				<Summary content={summary} />
 			</div>
 		</>
@@ -71,25 +72,20 @@ export const PageFaqSection: FC<FaqSectionProps> = ({ faq, className }) => {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
 			/>
-			<div
-				className={`flex flex-col items-center w-full border-t-2 mt-8 lg:w-3/4 ${className ?? ""}`}
-			>
-				<div className="flex flex-row justify-center items-center mt-6">
+			<div className={`${styles.faqSection} ${className ?? ""}`}>
+				<div className={styles.faqHeader}>
 					<Image
-						className="mr-2"
+						className={styles.faqIcon}
 						src={QnAIcon}
 						alt="Icône de foire aux questions"
 						width={32}
 						height={32}
 						unoptimized
 					/>
-					<h3 className="text-xl font-bold">Questions fréquentes</h3>
+					<h3 className={styles.sectionTitle}>Questions fréquentes</h3>
 				</div>
 				{faq.map(({ question, response }) => (
-					<div
-						key={question}
-						className="flex flex-col justify-center items-center mt-8 w-full"
-					>
+					<div key={question} className={styles.faqItem}>
 						<Faq question={question} response={response} />
 					</div>
 				))}

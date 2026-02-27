@@ -3,6 +3,8 @@
 import type { FC } from "react";
 import { useEffect, useState } from "react";
 import { ArrowDownIcon } from "../../assets/icons/ArrowDownIcon";
+import styles from "./UpPageButton.module.scss";
+
 export const UpPageButton: FC = () => {
 	const [isVisible, setIsVisible] = useState(false);
 
@@ -33,14 +35,10 @@ export const UpPageButton: FC = () => {
 				e.preventDefault();
 				handleToggle();
 			}}
-			className={`w-12 h-12 fixed flex items-center justify-center rounded-full bg-sky-500 hover:bg-pink-400 transition-all duration-300 cursor-pointer bottom-10 right-6 text-white z-20 ${
-				isVisible
-					? "opacity-100 translate-y-0"
-					: "opacity-0 translate-y-4 pointer-events-none"
-			}`}
+			className={`${styles.button} ${isVisible ? styles.visible : styles.hidden}`}
 			aria-label="Remonter en haut de page"
 		>
-			<div className="rotate-180">
+			<div className={styles.arrowWrapper}>
 				<ArrowDownIcon customColor="white" />
 			</div>
 		</button>

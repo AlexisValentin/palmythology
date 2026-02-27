@@ -11,6 +11,7 @@ import {
 	setInLocalStorage,
 } from "../../../utils/storage";
 import SocialNetworks from "../../generics/SocialNetworks";
+import styles from "./SocialsIncentivePopin.module.scss";
 
 const SocialsIncentivePopin = () => {
 	const [isExpanded, setIsExpanded] = useState(false);
@@ -107,14 +108,12 @@ const SocialsIncentivePopin = () => {
 		<>
 			{shouldDisplayDesktop && (
 				<div
-					className={`hidden lg:flex fixed right-0 top-1/2 -translate-y-1/2 z-40 transition-transform duration-300 ${
-						isExpanded ? "translate-x-0" : "translate-x-[calc(100%-2.2rem)]"
-					}`}
+					className={`${styles.desktopPopin} ${isExpanded ? styles.desktopPopinExpanded : styles.desktopPopinCollapsed}`}
 				>
 					<button
 						type="button"
 						onClick={toggleExpand}
-						className="bg-white rounded-l-lg shadow-2xl px-2 py-4 flex flex-col items-center justify-center gap-1 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-pink-400 transition-colors border border-gray-200 cursor-pointer"
+						className={styles.desktopToggle}
 						aria-label={
 							isExpanded
 								? "Masquer les réseaux sociaux"
@@ -124,50 +123,48 @@ const SocialsIncentivePopin = () => {
 					>
 						<Image
 							src={DoubleArrowRightIcon}
-							className={isExpanded ? "" : "rotate-180"}
+							className={isExpanded ? "" : styles.desktopArrowCollapsed}
 							alt={`Double flèches vers la ${isExpanded ? "droite" : "gauche"}`}
 							width={16}
 							height={16}
 							unoptimized
 						/>
 					</button>
-					<div className="bg-white rounded-r-lg shadow-2xl p-6 w-40 xl:w-56 2xl:w-72">
-						<div>
-							<p className="text-sm text-center text-gray-600 mb-4">
-								Le meilleur moyen de soutenir la Palmythology, c'est sur les
-								réseaux sociaux !
-							</p>
-							<div className="flex justify-center items-center">
-								<SocialNetworks context="popin" />
-							</div>
+					<div className={styles.desktopPanel}>
+						<p className={styles.description}>
+							Le meilleur moyen de soutenir la Palmythology, c'est sur les
+							réseaux sociaux !
+						</p>
+						<div className={styles.socialsWrapper}>
+							<SocialNetworks context="popin" />
 						</div>
 					</div>
 				</div>
 			)}
 			{shouldDisplayMobile && (
 				<>
-					<div className="lg:hidden fixed top-0 left-0 bg-slate-300 opacity-75 w-full h-full z-40" />
-					<div className="lg:hidden fixed bg-white border-t-2 border-slate-300 bottom-0 w-full z-50 shadow-2xl rounded-t-lg opacity-100">
-						<div className="m-6">
-							<div className="flex justify-between items-start mb-4">
-								<h3 className="text-lg font-bold">
+					<div className={styles.mobileOverlay} />
+					<div className={styles.mobilePanel}>
+						<div className={styles.mobilePanelInner}>
+							<div className={styles.mobilePanelHeader}>
+								<h3 className={styles.mobilePanelTitle}>
 									Soutenez la Palmythology !
 								</h3>
 								<button
 									type="button"
 									onClick={closeMobile}
-									className="text-gray-500 hover:text-gray-700 text-2xl leading-none"
+									className={styles.mobileCloseButton}
 									aria-label="Fermer"
 									data-rybbit-event="social_popin_close"
 								>
 									×
 								</button>
 							</div>
-							<p className="text-sm text-gray-600 mb-4">
+							<p className={styles.description}>
 								Le meilleur moyen de soutenir la Palmythology, c'est sur les
 								réseaux sociaux !
 							</p>
-							<div className="flex justify-center items-center">
+							<div className={styles.socialsWrapper}>
 								<SocialNetworks context="popin" />
 							</div>
 						</div>

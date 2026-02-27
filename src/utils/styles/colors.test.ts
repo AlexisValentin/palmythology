@@ -3,7 +3,6 @@ import {
 	getPantheonMainColor,
 	getPantheonStyle,
 	getPantheonTextColor,
-	getSummaryBackgroundColor,
 	hasSpecialTextColor,
 } from "./colors";
 
@@ -54,12 +53,6 @@ describe("utils/colors", () => {
 				backgroundColor: "red-900",
 				textColor: "amber-700",
 			});
-		});
-	});
-
-	describe("getSummaryBackgroundColor", () => {
-		test("should return default summary background color", () => {
-			expect(getSummaryBackgroundColor()).toEqual("bg-neutral-200");
 		});
 	});
 

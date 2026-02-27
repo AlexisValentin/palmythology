@@ -1,6 +1,5 @@
 import { PantheonValue } from "../cards/pantheons.constants";
 import {
-	BACKGROUND,
 	COLOR_TAINTS,
 	COLORS,
 	MYTHOLOGY_COLORS,
@@ -75,9 +74,6 @@ export const getPantheonStyle = (
 		}
 	}
 };
-
-export const getSummaryBackgroundColor = () =>
-	`${BACKGROUND}-${COLORS.NEUTRAL}-${COLOR_TAINTS.SUPER_LIGHT}`;
 
 export const getPantheonMainColor = (pantheon: PantheonValue) =>
 	MYTHOLOGY_COLORS[pantheon.toUpperCase() as keyof typeof MYTHOLOGY_COLORS];

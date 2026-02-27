@@ -1,0 +1,62 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.summaryHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: $spacing-8;
+
+  @include md {
+    display: none;
+  }
+}
+
+.summaryIcon {
+  margin-right: $spacing-2;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.summaryContent {
+  width: 100%;
+  margin-top: $spacing-8;
+}
+
+.faqSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-top: 2px solid currentColor;
+  margin-top: $spacing-8;
+
+  @include lg {
+    width: 75%;
+  }
+}
+
+.faqHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: $spacing-6;
+}
+
+.faqIcon {
+  margin-right: $spacing-2;
+}
+
+.faqItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: $spacing-8;
+  width: 100%;
+}

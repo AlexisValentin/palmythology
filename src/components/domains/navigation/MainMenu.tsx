@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ROUTES } from "../../../utils/routes/routes.constants";
+import styles from "./MainMenu.module.scss";
 
 const isHomePage = (routeName: string) => routeName === "Palmythology";
 
@@ -11,7 +12,7 @@ const MainMenu = () => {
 	const pathname = usePathname();
 
 	return (
-		<nav className="flex items-center justify-evenly sticky top-0 z-10 drop-shadow-md bg-neutral-100 w-full px-6 sm:px-24 md:px-40 lg:px-56 xl:px-72 2xl:px-96 min-h-16">
+		<nav className={styles.nav}>
 			{ROUTES.map((route) => {
 				const { url, name, icon } = route;
 
@@ -21,17 +22,17 @@ const MainMenu = () => {
 
 				return (
 					<Link
-						className="px-2 md:px-2 rounded-3xl hover:bg-neutral-300"
+						className={styles.link}
 						href={url}
 						key={`section-${name}`}
 						aria-current={isCurrent ? "page" : undefined}
 						data-rybbit-event="nav_click"
 						data-rybbit-prop-section={name}
 					>
-						<div className="justify-items-center content-center py-3">
+						<div className={styles.linkContent}>
 							{isHomePage(name) ? (
 								<Image
-									className="rounded-full shadow-xl"
+									className={styles.logo}
 									src={icon}
 									alt="Logo de la Palmythology"
 									width={40}
@@ -41,8 +42,8 @@ const MainMenu = () => {
 								/>
 							) : (
 								<>
-									<div className="hidden md:block">{name}</div>
-									<div className="md:hidden block">
+									<div className={styles.labelDesktop}>{name}</div>
+									<div className={styles.labelMobile}>
 										<Image
 											src={icon}
 											alt={name}

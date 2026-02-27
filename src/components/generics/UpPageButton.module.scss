@@ -1,0 +1,38 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.button {
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-full;
+  background-color: $color-sky-500;
+  cursor: pointer;
+  bottom: 2.5rem;
+  right: $spacing-6;
+  color: $color-white;
+  z-index: $z-20;
+  transition: all 300ms;
+
+  &:hover {
+    background-color: $color-pink-400;
+  }
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(1rem);
+  pointer-events: none;
+}
+
+.arrowWrapper {
+  transform: rotate(180deg);
+}
