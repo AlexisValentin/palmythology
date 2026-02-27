@@ -9,6 +9,7 @@
   - Phase 3 -> Troisième vague de migration de composants (Godle).
   - Phase 4 -> Quatrième vague de migration de composants (interactifs).
   - Phase 5 -> Cinquième vague de migration de composants (filtres et recherche).
+  - Phase 6 -> Sixième vague de migration de composants (listes).
 
 
 ## Divers

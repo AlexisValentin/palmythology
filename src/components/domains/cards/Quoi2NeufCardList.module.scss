@@ -1,0 +1,29 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-6;
+  margin-top: $spacing-12;
+  padding-left: $spacing-4;
+  padding-right: $spacing-4;
+
+  @include sm {
+    padding-left: $spacing-8;
+    padding-right: $spacing-8;
+  }
+
+  @include lg {
+    padding-left: $spacing-16;
+    padding-right: $spacing-16;
+  }
+}
+
+.badge {
+  font-style: italic;
+  font-size: 0.875rem;
+  color: #6b7280;
+  white-space: nowrap;
+}

@@ -1,5 +1,6 @@
 import type { CardDetails } from "../../../utils/cards/card.constants";
 import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
+import styles from "./LPCardList.module.scss";
 
 interface LPCardListProps {
 	cards: CardDetails[];
@@ -8,8 +9,8 @@ interface LPCardListProps {
 const LPCardList: React.FC<LPCardListProps> = ({ cards }) => (
 	<>
 		{cards && cards.length > 0 && (
-			<div className="flex flex-col mt-2 xl:mt-0">
-				<div className="flex flex-col justify-center lg:flex-wrap lg:flex-row mt-4">
+			<div className={styles.container}>
+				<div className={styles.list}>
 					{cards.map((card: CardDetails) => (
 						<PageSquare
 							key={`${card.name}-${card.subtitle}`}

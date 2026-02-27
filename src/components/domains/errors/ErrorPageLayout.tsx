@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ROUTES } from "../../../utils/routes/routes.constants";
 import PageHeader from "../../generics/PageHeader";
 import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
+import styles from "./ErrorPageLayout.module.scss";
 
 interface ErrorPageLayoutProps {
 	code: number;
@@ -23,9 +24,9 @@ const ErrorPageLayout: React.FC<ErrorPageLayoutProps> = ({
 	illustrationAlt,
 	children,
 }) => (
-	<div className="flex flex-col items-center justify-center mt-12">
+	<div className={styles.container}>
 		<Image
-			className="w-48 h-48 md:w-64 md:h-64"
+			className={styles.illustration}
 			src={illustration}
 			alt={illustrationAlt}
 			width={256}
@@ -33,20 +34,18 @@ const ErrorPageLayout: React.FC<ErrorPageLayoutProps> = ({
 			priority
 		/>
 		{code > 0 && (
-			<span className="text-4xl md:text-5xl font-bold px-8 py-4 rounded-full md:mt-8">
-				{code}
-			</span>
+			<span className={styles.errorCode}>{code}</span>
 		)}
-		<div className="hidden md:block">
+		<div className={styles.headerDesktop}>
 			<PageHeader title={title} subtitle={subtitle} fullDisplay />
 		</div>
-		<div className="md:hidden">
+		<div className={styles.headerMobile}>
 			<PageHeader title={title} fullDisplay />
 		</div>
-		<p className="text-sm md:text-base max-w-2xl text-center md:font-bold md:mt-8">
+		<p className={styles.helpText}>
 			Cependant, vous pouvez toujours naviguer sur la Palmythology
 		</p>
-		<div className="flex flex-row justify-center flex-wrap mx-8 sm:mx-0 md:mt-8">
+		<div className={styles.routeList}>
 			{ROUTES.map((route) => {
 				const { name, subtitle: routeSubtitle, url, icon } = route;
 
@@ -66,7 +65,7 @@ const ErrorPageLayout: React.FC<ErrorPageLayoutProps> = ({
 				);
 			})}
 		</div>
-		{children && <div className="mt-12 w-full">{children}</div>}
+		{children && <div className={styles.childrenWrapper}>{children}</div>}
 	</div>
 );
 

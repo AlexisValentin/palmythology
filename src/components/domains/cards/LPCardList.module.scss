@@ -1,0 +1,24 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: $spacing-2;
+
+  @include xl {
+    margin-top: 0;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: $spacing-4;
+
+  @include lg {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+}

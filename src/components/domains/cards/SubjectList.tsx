@@ -1,12 +1,10 @@
-/* Components */
-
-/* Consts */
 import { ALL_SUBJECT } from "../../../utils/cards/subjects.constants";
 import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
+import styles from "./SubjectList.module.scss";
 
 const SubjectList: React.FC = () => (
-	<div className="flex flex-col items-center justify-center flex-wrap md:flex-row mt-4">
-		{ALL_SUBJECT.map((subject, idx) => (
+	<div className={styles.list}>
+		{ALL_SUBJECT.map((subject) => (
 			<PageSquare
 				title={subject.label}
 				subject={subject.value}

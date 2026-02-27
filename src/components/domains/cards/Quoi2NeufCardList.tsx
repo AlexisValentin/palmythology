@@ -3,6 +3,7 @@ import type { Quoi2NeufStoryType } from "../../../utils/cms/cms.constants";
 import { setCardRouteParameters } from "../../../utils/routes/routes";
 import PageHeader from "../../generics/PageHeader";
 import PageSection from "../../generics/PageSection";
+import styles from "./Quoi2NeufCardList.module.scss";
 
 interface Q2NCardListProps {
 	stories: Quoi2NeufStoryType[];
@@ -25,7 +26,7 @@ interface Q2NItemListsProps {
 
 const Q2NItemLists: FC<Q2NItemListsProps> = ({ quoi2NeufStories }) => {
 	return (
-		<div className="flex flex-col items-center gap-6 mt-12 px-4 sm:px-8 lg:px-16">
+		<div className={styles.list}>
 			{quoi2NeufStories.map((item) => {
 				const { title, subtitle, icon, pantheon, available, teasing } = item;
 				const url = available
@@ -43,9 +44,7 @@ const Q2NItemLists: FC<Q2NItemListsProps> = ({ quoi2NeufStories }) => {
 						pantheon={pantheon}
 						badge={
 							available ? undefined : (
-								<span className="italic text-sm text-gray-500 whitespace-nowrap">
-									Bientôt disponible
-								</span>
+								<span className={styles.badge}>Bientôt disponible</span>
 							)
 						}
 					/>
