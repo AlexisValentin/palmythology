@@ -14,13 +14,13 @@ interface EntityAutocompleteInputProps<T extends CardEntity> {
 	maxResults?: number;
 }
 
-function EntityAutocompleteInput<T extends CardEntity>({
+const EntityAutocompleteInput = <T extends CardEntity>({
 	entities,
 	onSelect,
 	placeholder = "Rechercher une entité...",
 	disabled = false,
 	maxResults = 50,
-}: EntityAutocompleteInputProps<T>) {
+}: EntityAutocompleteInputProps<T>) => {
 	const [query, setQuery] = useState("");
 	const [isOpen, setIsOpen] = useState(false);
 	const [focusedIndex, setFocusedIndex] = useState(-1);

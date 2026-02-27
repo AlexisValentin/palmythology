@@ -14,6 +14,7 @@ import { STORYBLOK_RESULTS_PER_PAGE } from "../../../utils/cms/cms.constants";
 import { isStringEmpty } from "../../../utils/string";
 import PageSquare, { CONTENT_TYPE } from "../../generics/PageSquare";
 import Pagination from "../../generics/Pagination";
+import styles from "./SearchResults.module.scss";
 
 const SearchResults: React.FC<ResearchCriterias> = ({
 	pantheon,
@@ -58,13 +59,13 @@ const SearchResults: React.FC<ResearchCriterias> = ({
 	}, [pantheon, subject, genre, currentPage, areFiltersUnfilled]);
 
 	return (
-		<div className="mt-12">
+		<div className={styles.container}>
 			{areFiltersUnfilled() && (
-				<h3 className="flex justify-center text-xl font-bold mb-8">
+				<h3 className={styles.recentTitle}>
 					Les dernières fiches mises à jour
 				</h3>
 			)}
-			<div className="flex items-center justify-center flex-wrap">
+			<div className={styles.grid}>
 				{searchResults.map((card: TranslatedCardDetails) => {
 					const { name, subtitle, pantheon, icon } = card;
 

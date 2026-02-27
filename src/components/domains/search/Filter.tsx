@@ -6,6 +6,7 @@ import { ALL_PANTHEON } from "../../../utils/cards/pantheons.constants";
 import { ALL_SUBJECT } from "../../../utils/cards/subjects.constants";
 import { BASE_INPUT_NAMES } from "../../../utils/form.constants";
 import { isStringEmpty } from "../../../utils/string";
+import styles from "./Filter.module.scss";
 import SearchResults from "./SearchResults";
 import SelectFilter from "./SelectFilter";
 
@@ -34,9 +35,9 @@ const Filter = () => {
 		setFilters({ pantheon: "", subject: "", genre: "" });
 
 	return (
-		<div className="flex flex-col items-center justify-center mt-12">
-			<form className="flex flex-col md:flex-row items-center justify-center gap-4">
-				<div className="w-40">
+		<div className={styles.container}>
+			<form className={styles.form}>
+				<div className={styles.filterItem}>
 					<SelectFilter
 						key="pantheon_select"
 						selectLabel="Panthéon"
@@ -45,7 +46,7 @@ const Filter = () => {
 						onChange={(selected) => {
 							setFilters({ pantheon: selected });
 							if (selected)
-								window.rybbit?.event("search_filter", {
+								globalThis.window.rybbit?.event("search_filter", {
 									type: "pantheon",
 									value: selected,
 								});
@@ -53,7 +54,7 @@ const Filter = () => {
 						options={ALL_PANTHEON}
 					/>
 				</div>
-				<div className="w-40">
+				<div className={styles.filterItem}>
 					<SelectFilter
 						key="subject_select"
 						selectLabel="Sujet"
@@ -62,7 +63,7 @@ const Filter = () => {
 						onChange={(selected) => {
 							setFilters({ subject: selected });
 							if (selected)
-								window.rybbit?.event("search_filter", {
+								globalThis.window.rybbit?.event("search_filter", {
 									type: "subject",
 									value: selected,
 								});
@@ -70,7 +71,7 @@ const Filter = () => {
 						options={ALL_SUBJECT}
 					/>
 				</div>
-				<div className="w-40">
+				<div className={styles.filterItem}>
 					<SelectFilter
 						key="genre_select"
 						selectLabel="Genre"
@@ -79,7 +80,7 @@ const Filter = () => {
 						onChange={(selected) => {
 							setFilters({ genre: selected });
 							if (selected)
-								window.rybbit?.event("search_filter", {
+								globalThis.window.rybbit?.event("search_filter", {
 									type: "genre",
 									value: selected,
 								});
@@ -90,7 +91,7 @@ const Filter = () => {
 				<button
 					type="button"
 					disabled={!hasActiveFilters}
-					className="px-4 py-3 md:px-5 md:py-4 rounded-xl bg-gradient-to-r from-pink-400 to-sky-500 text-white text-base font-semibold hover:from-pink-500 hover:to-sky-500 focus:ring-4 focus:ring-pink-400/20 focus:outline-none cursor-pointer transition-all duration-200 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:from-pink-400 disabled:hover:to-sky-500 self-center md:self-end"
+					className={styles.resetButton}
 					onClick={resetFilters}
 					data-rybbit-event="search_reset"
 				>
